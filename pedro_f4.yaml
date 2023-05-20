@@ -1,22 +1,16 @@
+sx12xx:
+  busy: PB13
+  busy_exti: true
+  dio0: PB12
+  nss: PA15
+  port: 3
+  reset: PB15
 name: pedro_f4
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC12
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: true
+    pin: PC12
 serial_ports:
   - index: 1
     rx: PA10
@@ -27,26 +21,32 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
-  port: 1
   nss: PA4
+  port: 1
+gyro_orientation: 8
 osd:
-  port: 3
   nss: PA15
+  port: 3
 flash:
-  port: 3
   nss: PA15
+  port: 3
 sdcard:
-  port: 3
   nss: PA15
-sx12xx:
   port: 3
-  nss: PA15
-  busy: PB13
-  busy_exti: true
-  dio0: PB12
-  reset: PB15
 motor_pins:
   - PC9
   - PC8

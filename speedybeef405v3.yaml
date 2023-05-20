@@ -2,17 +2,8 @@ name: speedybeef405v3
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC8
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
+  - invert: true
+    pin: PC8
 serial_ports:
   - index: 1
     rx: PA10
@@ -32,21 +23,30 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
 gyro:
-  port: 1
   nss: PA4
+  port: 1
+gyro_orientation: 8
 osd:
-  port: 2
   nss: PB12
-sdcard:
   port: 2
+sdcard:
   nss: PA15
+  port: 2
 vbat: PC0
 ibat: PC1
 buzzer:
-  pin: PC5
   invert: false
+  pin: PC5
 motor_pins:
   - PB8
   - PB9

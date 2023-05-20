@@ -2,23 +2,10 @@ name: alienwhoop_v3
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC12
-    invert: false
-  - pin: PD2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: false
+    pin: PC12
+  - invert: true
+    pin: PD2
 serial_ports:
   - index: 1
     rx: PA10
@@ -29,18 +16,31 @@ serial_ports:
   - index: 3
     rx: PC11
     tx: PC10
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
-  port: 1
   nss: PA4
+  port: 1
+gyro_orientation: 8
 osd:
-  port: 2
   nss: PB12
+  port: 2
 fpv: PA13
 vbat: PC2
 buzzer:
-  pin: PA14
   invert: true
+  pin: PA14
 motor_pins:
   - PC7
   - PC6

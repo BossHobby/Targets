@@ -2,21 +2,8 @@ name: kakutef7v2
 mcu: stm32f745
 brushless: true
 leds:
-  - pin: PA2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 4
-    sck: PE2
-    miso: PE5
-    mosi: PE6
+  - invert: true
+    pin: PA2
 serial_ports:
   - index: 1
     rx: PA10
@@ -33,18 +20,31 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 16
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
 gyro:
-  port: 4
   nss: PE4
+  port: 4
+gyro_orientation: 16
 osd:
-  port: 2
   nss: PB12
+  port: 2
 vbat: PC3
 ibat: PC2
 buzzer:
-  pin: PD15
   invert: true
+  pin: PD15
 motor_pins:
   - PE9
   - PE11

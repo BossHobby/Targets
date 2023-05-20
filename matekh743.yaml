@@ -2,27 +2,10 @@ name: matekh743
 mcu: stm32h743
 brushless: true
 leds:
-  - pin: PE3
-    invert: true
-  - pin: PE4
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PD7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
-  - index: 4
-    sck: PE12
-    miso: PE13
-    mosi: PE14
+  - invert: true
+    pin: PE3
+  - invert: true
+    pin: PE4
 serial_ports:
   - index: 1
     rx: PA10
@@ -45,18 +28,35 @@ serial_ports:
   - index: 8
     rx: PE0
     tx: PE1
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PD7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
 gyro:
-  port: 1
   nss: PC15
+  port: 1
+gyro_orientation: 8
 osd:
-  port: 2
   nss: PB12
+  port: 2
 vbat: PC0
 ibat: PC1
 buzzer:
-  pin: PA15
   invert: false
+  pin: PA15
 motor_pins:
   - PA0
   - PA1

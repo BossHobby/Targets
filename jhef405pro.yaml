@@ -2,17 +2,8 @@ name: jhef405pro
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC14
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PC12
+  - invert: true
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -29,21 +20,30 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 gyro:
-  port: 1
   nss: PB12
+  port: 1
+gyro_orientation: 8
 osd:
-  port: 3
   nss: PB14
-flash:
   port: 3
+flash:
   nss: PB3
+  port: 3
 vbat: PC3
 ibat: PC2
 buzzer:
-  pin: PC13
   invert: false
+  pin: PC13
 motor_pins:
   - PA3
   - PA2

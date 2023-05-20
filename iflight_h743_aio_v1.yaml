@@ -2,25 +2,8 @@ name: iflight_h743_aio_v1
 mcu: stm32h743
 brushless: true
 leds:
-  - pin: PC13
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PC12
-  - index: 4
-    sck: PE2
-    miso: PE5
-    mosi: PE6
+  - invert: true
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -43,21 +26,38 @@ serial_ports:
   - index: 8
     rx: PE0
     tx: PE1
-gyro_orientation: 4
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
 gyro:
-  port: 1
   nss: PA4
+  port: 1
+gyro_orientation: 4
 osd:
-  port: 4
   nss: PE4
+  port: 4
 flash:
-  port: 3
   nss: PA15
+  port: 3
 vbat: PC3
 ibat: PC2
 buzzer:
-  pin: PD15
   invert: false
+  pin: PD15
 motor_pins:
   - PE9
   - PE11

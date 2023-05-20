@@ -2,21 +2,8 @@ name: cross_f4
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC13
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: true
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -24,20 +11,33 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
-  port: 1
   nss: PA4
+  port: 1
 osd:
-  port: 2
   nss: PB12
-flash:
   port: 2
+flash:
   nss: PA14
+  port: 2
 vbat: PB0
 ibat: PB1
 buzzer:
-  pin: PC15
   invert: false
+  pin: PC15
 motor_pins:
   - PB7
   - PB8
