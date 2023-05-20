@@ -1,0 +1,58 @@
+name: build
+on:
+  push:
+    branches:
+      - "master"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules
+
+      - name: install npm packages
+        run: npm install
+
+      - name: run indexer
+        run: npx vite-node src/index.ts
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: targets
+          path: output/*
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: checkout targets
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git fetch
+          git checkout targets --
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: targets
+
+      - name: update targets
+        run: |
+          git add .
+          git commit -m "Targets $GITHUB_SHA" || exit 0
+          git remote set-url --push origin https://actions:$GITHUB_TOKEN@github.com/BossHobby/Targets
+          git push -f

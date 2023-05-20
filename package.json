@@ -1,0 +1,26 @@
+{
+  "name": "targets",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BossHobby/Targets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BossHobby/Targets/issues"
+  },
+  "homepage": "https://github.com/BossHobby/Targets#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "yaml": "^2.2.2",
+    "@types/node": "^20.2.1",
+    "tslib": "^2.5.2",
+    "typescript": "^5.0.4",
+    "vite-node": "^0.31.1"
+  }
+}
