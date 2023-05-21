@@ -31,6 +31,10 @@ gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
+rx_spi:
+  exti: PB0
+  port: 3
+  nss: PA15
 vbat: PB1
 ibat: PA1
 buzzer:

@@ -34,6 +34,10 @@ osd:
 flash:
   port: 2
   nss: PA8
+rx_spi:
+  exti: PC14
+  port: 3
+  nss: PA15
 vbat: PB0
 ibat: PB1
 buzzer:

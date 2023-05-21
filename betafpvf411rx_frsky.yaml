@@ -31,6 +31,13 @@ gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
+rx_spi:
+  ant_sel: PA14
+  exti: PC13
+  lna_en: PA13
+  tx_en: PB9
+  port: 3
+  nss: PA15
 vbat: PA1
 ibat: PB0
 motor_pins:
