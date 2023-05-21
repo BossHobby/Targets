@@ -7,35 +7,35 @@ leds:
   - invert: false
     pin: PB9
 serial_ports:
-  - rx: PB7
+  - index: 1
+    rx: PB7
     tx: PA9
-    index: 1
-  - rx: PA3
+  - index: 2
+    rx: PA3
     tx: PA2
-    index: 2
-  - inverter: PC15
+  - index: 3
+    inverter: PC15
     rx: PC11
     tx: PC10
-    index: 3
-  - rx: PA1
+  - index: 4
+    rx: PA1
     tx: PA0
-    index: 4
-  - rx: PC7
+  - index: 6
+    rx: PC7
     tx: PC6
-    index: 6
 spi_ports:
-  - miso: PA6
+  - index: 1
+    miso: PA6
     mosi: PA7
     sck: PA5
-    index: 1
-  - miso: PB14
+  - index: 2
+    miso: PB14
     mosi: PB15
     sck: PB13
-    index: 2
-  - miso: PB4
+  - index: 3
+    miso: PB4
     mosi: PB5
     sck: PB3
-    index: 3
 gyro:
   port: 1
   nss: PA4

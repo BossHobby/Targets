@@ -7,44 +7,44 @@ leds:
   - invert: true
     pin: PE4
 serial_ports:
-  - rx: PA10
+  - index: 1
+    rx: PA10
     tx: PA9
-    index: 1
-  - rx: PD6
+  - index: 2
+    rx: PD6
     tx: PD5
-    index: 2
-  - rx: PD9
+  - index: 3
+    rx: PD9
     tx: PD8
-    index: 3
-  - rx: PB8
+  - index: 4
+    rx: PB8
     tx: PB9
-    index: 4
-  - rx: PC7
+  - index: 6
+    rx: PC7
     tx: PC6
-    index: 6
-  - rx: PE7
+  - index: 7
+    rx: PE7
     tx: PE8
-    index: 7
-  - rx: PE0
+  - index: 8
+    rx: PE0
     tx: PE1
-    index: 8
 spi_ports:
-  - miso: PA6
+  - index: 1
+    miso: PA6
     mosi: PD7
     sck: PA5
-    index: 1
-  - miso: PB14
+  - index: 2
+    miso: PB14
     mosi: PB15
     sck: PB13
-    index: 2
-  - miso: PB4
+  - index: 3
+    miso: PB4
     mosi: PB5
     sck: PB3
-    index: 3
-  - miso: PE13
+  - index: 4
+    miso: PE13
     mosi: PE14
     sck: PE12
-    index: 4
 gyro:
   port: 1
   nss: PC15
