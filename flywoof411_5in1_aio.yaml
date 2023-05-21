@@ -5,32 +5,32 @@ leds:
   - invert: true
     pin: PC13
 serial_ports:
-  - index: 1
-    rx: PA10
+  - rx: PA10
     tx: PA9
-  - index: 2
-    rx: PA3
+    index: 1
+  - rx: PA3
     tx: PA2
+    index: 2
 spi_ports:
-  - index: 1
-    miso: PA6
+  - miso: PA6
     mosi: PA7
     sck: PA5
-  - index: 2
-    miso: PB14
+    index: 1
+  - miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 3
-    miso: PB4
+    index: 2
+  - miso: PB4
     mosi: PB5
     sck: PB3
+    index: 3
 gyro:
-  nss: PA4
   port: 1
+  nss: PA4
 gyro_orientation: 8
 osd:
-  nss: PB12
   port: 2
+  nss: PB12
 vbat: PB1
 ibat: PA1
 buzzer:

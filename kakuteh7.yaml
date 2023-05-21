@@ -5,47 +5,47 @@ leds:
   - invert: true
     pin: PC2
 serial_ports:
-  - index: 1
-    rx: PA10
+  - rx: PA10
     tx: PA9
-  - index: 2
-    rx: PD6
+    index: 1
+  - rx: PD6
     tx: PD5
-  - index: 3
-    rx: PD9
+    index: 2
+  - rx: PD9
     tx: PD8
-  - index: 4
-    rx: PD0
+    index: 3
+  - rx: PD0
     tx: PD1
-  - index: 6
-    rx: PC7
+    index: 4
+  - rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
+    index: 6
+  - rx: PE7
     tx: PE8
+    index: 7
 spi_ports:
-  - index: 1
-    miso: PA6
+  - miso: PA6
     mosi: PA7
     sck: PA5
-  - index: 2
-    miso: PB14
+    index: 1
+  - miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 4
-    miso: PE5
+    index: 2
+  - miso: PE5
     mosi: PE6
     sck: PE2
+    index: 4
 gyro:
-  nss: PE4
   port: 4
+  nss: PE4
 gyro_orientation: 8
 osd:
-  nss: PB12
   port: 2
+  nss: PB12
 sdcard:
-  nss: PA4
   port: 1
+  nss: PA4
 vbat: PC0
 ibat: PC1
 sdcard_detect:

@@ -7,39 +7,39 @@ leds:
   - invert: false
     pin: PB6
 serial_ports:
-  - index: 1
-    rx: PA10
+  - rx: PA10
     tx: PA9
-  - index: 3
-    inverter: PC15
+    index: 1
+  - inverter: PC15
     rx: PB11
     tx: PB10
-  - index: 4
-    rx: PA1
+    index: 3
+  - rx: PA1
     tx: PA0
-  - index: 6
-    rx: PC7
+    index: 4
+  - rx: PC7
     tx: PC6
+    index: 6
 spi_ports:
-  - index: 1
-    miso: PA6
+  - miso: PA6
     mosi: PA7
     sck: PA5
-  - index: 2
-    miso: PB14
+    index: 1
+  - miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 3
-    miso: PC11
+    index: 2
+  - miso: PC11
     mosi: PC12
     sck: PC10
+    index: 3
 gyro:
-  nss: PA8
   port: 1
+  nss: PA8
 gyro_orientation: 8
 osd:
-  nss: PB3
   port: 3
+  nss: PB3
 fpv: PA13
 vbat: PC2
 buzzer:
