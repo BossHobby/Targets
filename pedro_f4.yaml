@@ -1,7 +1,7 @@
-sx12xx:
+rx_spi:
   busy: PB13
   busy_exti: true
-  dio0: PB12
+  exti: PB12
   nss: PA15
   port: 3
   reset: PB15

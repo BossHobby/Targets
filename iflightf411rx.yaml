@@ -1,8 +1,3 @@
-cc2500:
-  gdo0: PC14
-  nss: PA15
-  port: 3
-  tx_en: PA8
 name: iflightf411rx
 mcu: stm32f411
 brushless: true
