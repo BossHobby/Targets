@@ -22,6 +22,10 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
+serial_soft_ports:
+  - index: 1
+    rx: PB3
+    tx: PA15
 gyro_orientation: 8
 gyro:
   port: 1
