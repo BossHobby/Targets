@@ -1,22 +1,9 @@
-name: betafpv_f405
-mcu: stm32f405
+name: betafpvf435
+mcu: at32f435
 brushless: true
 leds:
-  - pin: PB5
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PC12
+  - invert: true
+    pin: PB5
 serial_ports:
   - index: 1
     rx: PA10
@@ -30,18 +17,31 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 gyro_orientation: 16
 gyro:
   port: 1
   nss: PA4
-osd:
-  port: 3
-  nss: PA15
+flash:
+  port: 2
+  nss: PB12
 vbat: PC2
 ibat: PC1
 buzzer:
-  pin: PB4
   invert: false
+  pin: PB4
 motor_pins:
   - PA3
   - PA2
