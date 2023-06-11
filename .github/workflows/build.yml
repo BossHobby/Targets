@@ -45,6 +45,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git fetch
           git checkout targets --
+          git rm *
 
       - uses: actions/download-artifact@v3
         with:
