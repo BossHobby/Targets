@@ -1,10 +1,8 @@
-name: betafpvf411
+name: betafpvf411rx_elrs
 mcu: stm32f411
 brushless: true
 leds:
-  - invert: false
-    pin: PC13
-  - invert: false
+  - invert: true
     pin: PC14
 serial_ports:
   - index: 1
@@ -15,8 +13,8 @@ serial_ports:
     tx: PA2
 serial_soft_ports:
   - index: 1
-    rx: PB3
-    tx: PB3
+    rx: PA8
+    tx: PA8
 spi_ports:
   - index: 1
     miso: PA6
@@ -26,23 +24,31 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
-flash:
-  port: 2
-  nss: PA0
-vbat: PB0
-ibat: PB1
+rx_spi:
+  port: 3
+  nss: PA15
+  busy: PA13
+  busy_exti: false
+  exti: PC13
+  reset: PB9
+vbat: PA1
+ibat: PB0
 buzzer:
   invert: false
-  pin: PB2
+  pin: PA14
 motor_pins:
-  - PB6
+  - PB10
   - PB7
-  - PB4
-  - PB5
+  - PB8
+  - PA0
+manufacturer: BEFH
