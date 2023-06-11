@@ -1,9 +1,10 @@
-name: alienflightngf7
-mcu: stm32f722
+name: alienwhoop_v2
+manufacturer: ALWH
+mcu: stm32f405
 brushless: true
 leds:
   - pin: PC12
-    invert: true
+    invert: false
   - pin: PD2
     invert: true
 spi_ports:
@@ -13,36 +14,32 @@ spi_ports:
     mosi: PA7
   - index: 2
     sck: PB13
-    miso: PC2
-    mosi: PC3
+    miso: PB14
+    mosi: PB15
   - index: 3
     sck: PB3
     miso: PB4
     mosi: PB5
 serial_ports:
-  - index: 1
-    rx: PA10
-    tx: PA9
   - index: 2
     rx: PA3
     tx: PA2
-  - index: 4
+  - index: 3
     rx: PC11
     tx: PC10
-gyro_orientation: 16
+gyro_orientation: 4
 gyro:
   port: 1
   nss: PA4
-osd:
+flash:
   port: 3
-  nss: PB12
-vbat: PC0
-ibat: PC1
+  nss: PA15
+fpv: PA13
 buzzer:
-  pin: PC13
-  invert: false
+  pin: PA2
+  invert: true
 motor_pins:
-  - PB14
-  - PB0
-  - PC6
   - PC7
+  - PC6
+  - PC9
+  - PC8

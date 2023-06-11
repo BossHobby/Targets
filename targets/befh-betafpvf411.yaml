@@ -1,4 +1,5 @@
 name: betafpvf411
+manufacturer: BEFH
 mcu: stm32f411
 brushless: true
 leds:
