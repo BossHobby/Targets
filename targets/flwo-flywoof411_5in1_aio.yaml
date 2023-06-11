@@ -1,4 +1,5 @@
-name: crazybee_f4
+name: flywoof411_5in1_aio
+manufacturer: FLWO
 mcu: stm32f411
 brushless: true
 leds:
@@ -24,19 +25,24 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
+gyro_orientation: 8
 gyro:
   port: 1
   nss: PA4
 osd:
   port: 2
   nss: PB12
-vbat: PB0
-ibat: PB1
+rx_spi:
+  port: 3
+  nss: PA15
+  exti: PB0
+vbat: PB1
+ibat: PA1
 buzzer:
-  pin: PC15
+  pin: PC14
   invert: false
 motor_pins:
-  - PB7
-  - PB8
   - PB10
+  - PB7
+  - PA8
   - PB6

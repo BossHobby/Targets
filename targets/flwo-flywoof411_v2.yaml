@@ -1,4 +1,5 @@
-name: crazybee_f4_elrs
+name: flywoof411_v2
+manufacturer: FLWO
 mcu: stm32f411
 brushless: true
 leds:
@@ -13,10 +14,6 @@ spi_ports:
     sck: PB13
     miso: PB14
     mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
 serial_ports:
   - index: 1
     rx: PA10
@@ -24,26 +21,27 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
+serial_soft_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+gyro_orientation: 8
 gyro:
   port: 1
   nss: PA4
 osd:
   port: 2
   nss: PB12
-rx_spi:
-  port: 3
-  nss: PA15
-  exti: PC14
-  busy: PA13
-  busy_exti: true
-  reset: PA8
-vbat: PB0
-ibat: PB1
+flash:
+  port: 2
+  nss: PB2
+vbat: PB1
+ibat: PA1
 buzzer:
-  pin: PC15
+  pin: PC14
   invert: false
 motor_pins:
-  - PB7
-  - PB8
   - PB10
-  - PB6
+  - PA15
+  - PA8
+  - PB3

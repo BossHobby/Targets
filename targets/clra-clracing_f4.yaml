@@ -1,4 +1,5 @@
 name: clracing_f4
+manufacturer: CLRA
 mcu: stm32f405
 brushless: true
 leds:

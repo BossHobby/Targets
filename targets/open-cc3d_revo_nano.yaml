@@ -1,9 +1,12 @@
-name: cross_f4
+name: cc3d_revo_nano
+manufacturer: OPEN
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC13
+  - pin: PC14
     invert: true
+  - pin: PC13
+    invert: false
 spi_ports:
   - index: 1
     sck: PA5
@@ -19,27 +22,23 @@ spi_ports:
     mosi: PB5
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
+    inverter: PC15
+gyro_orientation: 16
 gyro:
-  port: 1
-  nss: PA4
-osd:
   port: 2
   nss: PB12
-flash:
-  port: 2
-  nss: PA14
-vbat: PB0
-ibat: PB1
+fpv: PA13
+vbat: PA6
 buzzer:
-  pin: PC15
-  invert: false
+  pin: PC13
+  invert: true
 motor_pins:
-  - PB7
   - PB8
+  - PB9
+  - PB3
   - PB10
-  - PB6

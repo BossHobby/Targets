@@ -15,5 +15,25 @@ AIRB:
   url: https://myairbot.com/
 ALWH:
   name: Alienwhoop
-  url: https://
+  url: https://shop.alienwhoop.us
+OPEN:
+  name: Openpilot
+  url: https://librepilot.atlassian.net
+CLRA:
+  name: CLRacing LLC
+  url: https://cl-racing.myshopify.com/
+DAFP:
+  name: DarwinFPV
+  url: https://darwinfpv.com/
+DIAT:
+  name: Diatone Innovations
+  url: https://www.diatoneusa.com/
+FFPV:
+  name: FuriousFPV
+  url: https://furiousfpv.com/
+FLWO:
+  name: Flywoo
+  url: https://flywoo.net/
+  
+
   

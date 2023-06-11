@@ -1,45 +1,50 @@
-name: cc3d_revo_f4
+name: flywoof405s_aio
+manufacturer: FLWO
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PB5
+  - pin: PC14
     invert: true
-  - pin: PB4
-    invert: false
 spi_ports:
   - index: 1
     sck: PA5
     miso: PA6
     mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
   - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+    sck: PC10
+    miso: PC11
+    mosi: PC12
 serial_ports:
   - index: 1
     rx: PA10
-    tx: PA9
-    inverter: PC0
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
   - index: 3
     rx: PB11
     tx: PB10
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
 gyro_orientation: 8
 gyro:
   port: 1
-  nss: PA4
-usb_detect: PC5
-fpv: PA13
-vbat: PC2
+  nss: PB12
+osd:
+  port: 3
+  nss: PB14
+flash:
+  port: 3
+  nss: PB3
+vbat: PC3
+ibat: PC2
 buzzer:
-  pin: PB6
-  invert: true
+  pin: PC13
+  invert: false
 motor_pins:
   - PA3
   - PA2
