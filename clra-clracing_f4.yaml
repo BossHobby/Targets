@@ -1,17 +1,15 @@
-name: fortinif4osd
+name: clracing_f4
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
     pin: PB5
-  - invert: false
-    pin: PB6
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PA10
     tx: PA9
   - index: 3
-    inverter: PC15
     rx: PB11
     tx: PB10
   - index: 4
@@ -35,13 +33,16 @@ spi_ports:
     sck: PC10
 gyro:
   port: 1
-  nss: PA8
-gyro_orientation: 8
+  nss: PA4
+gyro_orientation: 4
 osd:
   port: 3
+  nss: PA15
+flash:
+  port: 3
   nss: PB3
-fpv: PA13
 vbat: PC2
+ibat: PC1
 buzzer:
   invert: true
   pin: PB4
@@ -50,3 +51,4 @@ motor_pins:
   - PA2
   - PB0
   - PB1
+manufacturer: CLRA

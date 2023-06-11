@@ -49,3 +49,4 @@ motor_pins:
   - PA2
   - PB0
   - PB1
+manufacturer: FLWO

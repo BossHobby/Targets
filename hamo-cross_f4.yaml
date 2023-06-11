@@ -1,28 +1,16 @@
-name: ff_racepit
-mcu: stm32f405
+name: cross_f4
+mcu: stm32f411
 brushless: true
 leds:
   - invert: true
-    pin: PB8
-  - invert: false
-    pin: PB9
+    pin: PC13
 serial_ports:
   - index: 1
-    rx: PB7
+    rx: PA10
     tx: PA9
   - index: 2
     rx: PA3
     tx: PA2
-  - index: 3
-    inverter: PC15
-    rx: PC11
-    tx: PC10
-  - index: 4
-    rx: PA1
-    tx: PA0
-  - index: 6
-    rx: PC7
-    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -39,18 +27,20 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 32
 osd:
   port: 2
   nss: PB12
-fpv: PC0
-vbat: PC2
-ibat: PC1
+flash:
+  port: 2
+  nss: PA14
+vbat: PB0
+ibat: PB1
 buzzer:
-  invert: true
-  pin: PC3
+  invert: false
+  pin: PC15
 motor_pins:
-  - PB11
+  - PB7
+  - PB8
   - PB10
-  - PB0
-  - PB1
+  - PB6
+manufacturer: HAMO

@@ -1,16 +1,22 @@
-name: flywoof411_5in1_aio
-mcu: stm32f411
+name: cc3d_revo_f4
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PB5
+  - invert: false
+    pin: PB4
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PA10
     tx: PA9
-  - index: 2
-    rx: PA3
-    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
 spi_ports:
   - index: 1
     miso: PA6
@@ -28,20 +34,15 @@ gyro:
   port: 1
   nss: PA4
 gyro_orientation: 8
-osd:
-  port: 2
-  nss: PB12
-rx_spi:
-  port: 3
-  nss: PA15
-  exti: PB0
-vbat: PB1
-ibat: PA1
+usb_detect: PC5
+fpv: PA13
+vbat: PC2
 buzzer:
-  invert: false
-  pin: PC14
+  invert: true
+  pin: PB6
 motor_pins:
-  - PB10
-  - PB7
-  - PA8
-  - PB6
+  - PA3
+  - PA2
+  - PB0
+  - PB1
+manufacturer: OPEN

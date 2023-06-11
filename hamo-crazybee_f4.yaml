@@ -1,4 +1,4 @@
-name: crazybee_f4_elrs
+name: crazybee_f4
 mcu: stm32f411
 brushless: true
 leds:
@@ -30,13 +30,6 @@ gyro:
 osd:
   port: 2
   nss: PB12
-rx_spi:
-  port: 3
-  nss: PA15
-  busy: PA13
-  busy_exti: true
-  exti: PC14
-  reset: PA8
 vbat: PB0
 ibat: PB1
 buzzer:
@@ -47,3 +40,4 @@ motor_pins:
   - PB8
   - PB10
   - PB6
+manufacturer: HAMO

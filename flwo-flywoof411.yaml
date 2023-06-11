@@ -43,3 +43,4 @@ motor_pins:
   - PB0
   - PA8
   - PA9
+manufacturer: FLWO
