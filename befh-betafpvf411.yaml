@@ -1,4 +1,5 @@
 name: betafpvf411
+manufacturer: BEFH
 mcu: stm32f411
 brushless: true
 leds:
@@ -46,4 +47,3 @@ motor_pins:
   - PB7
   - PB4
   - PB5
-manufacturer: BEFH

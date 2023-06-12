@@ -1,4 +1,5 @@
 name: aikon_f7
+manufacturer: AIKO
 mcu: stm32f722
 brushless: true
 leds:
@@ -53,4 +54,3 @@ motor_pins:
   - PC9
   - PC6
   - PC7
-manufacturer: AIKO

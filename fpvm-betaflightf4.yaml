@@ -1,4 +1,5 @@
 name: betaflightf4
+manufacturer: FPVM
 mcu: stm32f405
 brushless: true
 leds:
@@ -52,4 +53,3 @@ motor_pins:
   - PB1
 alias:
   - hamo-crazyf405hd
-manufacturer: FPVM

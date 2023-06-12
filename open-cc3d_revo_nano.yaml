@@ -1,4 +1,5 @@
 name: cc3d_revo_nano
+manufacturer: OPEN
 mcu: stm32f411
 brushless: true
 leds:
@@ -41,4 +42,3 @@ motor_pins:
   - PB9
   - PB3
   - PB10
-manufacturer: OPEN

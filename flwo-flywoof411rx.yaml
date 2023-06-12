@@ -1,4 +1,5 @@
 name: flywoof411rx
+manufacturer: FLWO
 mcu: stm32f411
 brushless: true
 leds:
@@ -45,4 +46,3 @@ motor_pins:
   - PB7
   - PA8
   - PB6
-manufacturer: FLWO

@@ -1,4 +1,5 @@
 name: cross_f4
+manufacturer: HAMO
 mcu: stm32f411
 brushless: true
 leds:
@@ -43,4 +44,3 @@ motor_pins:
   - PB8
   - PB10
   - PB6
-manufacturer: HAMO

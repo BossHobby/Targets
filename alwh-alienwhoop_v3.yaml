@@ -1,4 +1,5 @@
 name: alienwhoop_v3
+manufacturer: ALWH
 mcu: stm32f405
 brushless: true
 leds:
@@ -46,4 +47,3 @@ motor_pins:
   - PC6
   - PC9
   - PC8
-manufacturer: ALWH
