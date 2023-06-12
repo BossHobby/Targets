@@ -1,0 +1,44 @@
+name: bluejayf4
+manufacturer: BKMN
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PB5
+  - invert: false
+    pin: PB4
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 6
+    inverter: PB15
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PC4
+gyro_orientation: 4
+fpv: PA13
+vbat: PC3
+ibat: PC2
+buzzer:
+  invert: true
+  pin: PC1
+motor_pins:
+  - PA3
+  - PA2
+  - PA1
+  - PA0
