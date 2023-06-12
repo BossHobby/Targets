@@ -1,3 +1,5 @@
+CUST:
+  name: Custom
 BEFH:
   name: BetaFPV
   url: https://betafpv.com/
@@ -16,9 +18,9 @@ AIRB:
 ALWH:
   name: Alienwhoop
   url: https://shop.alienwhoop.us
-OPEN:
-  name: Openpilot
-  url: https://librepilot.atlassian.net
+BKMN:
+  name: Jason Blackman
+  url: https://github.com/blckmn
 CLRA:
   name: CLRacing LLC
   url: https://cl-racing.myshopify.com/
@@ -31,9 +33,76 @@ DIAT:
 FFPV:
   name: FuriousFPV
   url: https://furiousfpv.com/
+FLON:
+  name: FlightOne
+  url: https://flightone.com/
 FLWO:
   name: Flywoo
   url: https://flywoo.net/
-  
+FOXE:
+  name: Foxeer
+  url: http://www.foxeer.com/
+GEPR:
+  name: GEPRC
+  url: https://geprc.com/
+HARC:
+  name: HACKRC
+  url: https://github.com/loopur
+HBRO:
+  name: Holybro
+  url: http://www.holybro.com/index.html
+HGLR:
+  name: HGLRC
+  url: https://www.hglrc.com/
+HENA:
+  name: Heli-Nation
+  url: https://www.heli-nation.com/
+HFOR:
+  name: HIFIONRC
+HGLR:
+  name: HGLRC
+  url: https://www.hglrc.com/
+HOWI:
+  name: Hobbywing Technology Co Ltd
+  url: http://hobbywing.com/
+IFRC:
+  name: iFlight Innovation Technology Ltd
+  url: https://www.iflight-rc.com/
+JHEF:
+  name: JHE_FPV
+LMNR:
+  name: Lumenier
+  url: https://www.lumenier.com/
+MTKS:
+  name: Matek Systems
+  url: http://www.mateksys.com/
+NEBD:
+  name: NewBeeDrone
+  url: https://newbeedrone.com/
+NERC:
+  name: NeutronRC
+  url: https://www.facebook.com/Neutronrc-575638996448880
+OPEN:
+  name: Openpilot
+  url: https://librepilot.atlassian.net  
+PYDR:
+  name: Pyro-Drone
+  url: https://pyrodrone.com/
+SPBE:
+  name: LangTian Technology (Shenzhen) Co
+  url: https://www.speedybee.com/
+TCMM:
+  name: Shenzhen Xinmumu Science and Technology Co
+TEBS:
+  name: Team Blacksheep
+  url: https://www.team-blacksheep.com/
+TMTR:
+  name: T-motor
+  url: http://uav-en.tmotor.com/
+TURC:
+  name: TUNERC
+  url: https://www.tunerc.com/
+ZEEZ:
+  name: Zeez RC
+  url: https://www.zeezrc.com/
 
-  
