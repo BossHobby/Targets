@@ -45,6 +45,7 @@ export interface target_rx_spi_device_t {
 
 export interface target_t {
   name: string;
+  manufacturer: string;
   mcu: string;
   brushless: boolean;
 
@@ -72,6 +73,7 @@ export interface target_t {
 
 export const target_keys = [
   "name",
+  "manufacturer",
   "mcu",
   "brushless",
   "leds",

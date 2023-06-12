@@ -14,11 +14,17 @@ for await (const f of walk("targets")) {
   const target = YAML.parse(await fs.promises.readFile(f, "utf8"));
 
   console.log(`processing ${target.name}...`);
-  targetIni += `\n[env:${target.name}]\n`;
+  if (target.manufacturer) {
+    const mgfr = target.manufacturer.toLowerCase();
+    targetIni += `\n[env:${mgfr}-${target.name}]\n`;
+  } else {
+    targetIni += `\n[env:${target.name}]\n`;
+  }
   targetIni += `extends = ${target.mcu}\n`;
 
   targetIndex.push({
     name: target.name,
+    manufacturer: target.manufacturer,
     mcu: target.mcu,
   });
 
