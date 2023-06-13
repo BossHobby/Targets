@@ -1,4 +1,5 @@
-name: fpvcyclef411
+name: fpvcyclef401
+manufacturer: TURC
 mcu: stm32f411
 brushless: true
 leds:

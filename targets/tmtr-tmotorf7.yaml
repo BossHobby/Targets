@@ -1,5 +1,5 @@
 name: tmotorf7
-manufcturer: TMTR
+manufacturer: TMTR
 mcu: stm32f722
 brushless: true
 leds:

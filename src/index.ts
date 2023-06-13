@@ -6,6 +6,10 @@ import { stringifyTarget } from "./types";
 
 const OUTPUT_FOLDER = "output";
 
+const manufacturers = YAML.parse(
+  await fs.promises.readFile("manufacturers.yaml", "utf8")
+);
+
 let targetIni = "";
 let targetIndex = [] as any[];
 await fs.promises.mkdir(OUTPUT_FOLDER).catch(() => {});
@@ -13,7 +17,16 @@ await fs.promises.mkdir(OUTPUT_FOLDER).catch(() => {});
 for await (const f of walk("targets")) {
   const target = YAML.parse(await fs.promises.readFile(f, "utf8"));
 
-  console.log(`processing ${target.name}...`);
+  if (!target.manufacturer) {
+    throw new Error(`manufacturer missing from target ${target.name}`);
+  }
+  if (!manufacturers[target.manufacturer]) {
+    throw new Error(
+      `invalid manufacturer ${target.manufacturer} on target ${target.name}`
+    );
+  }
+
+  console.log(`processing ${target.manufacturer} / ${target.name}...`);
   if (target.manufacturer) {
     const mgfr = target.manufacturer.toLowerCase();
     targetIni += `\n[env:${mgfr}-${target.name}]\n`;
@@ -31,9 +44,22 @@ for await (const f of walk("targets")) {
   for (const alias of target.alias || []) {
     const parts = alias.split("-", 2);
 
+    const manufacturer = parts[0].toUpperCase();
+    if (!manufacturer) {
+      throw new Error(`manufacturer missing from alias ${alias}`);
+    }
+    if (!manufacturers[manufacturer]) {
+      throw new Error(`invalid manufacturer ${manufacturer} on alias ${alias}`);
+    }
+
+    const name = parts[1];
+    if (!name) {
+      throw new Error(`name missing from alias ${alias}`);
+    }
+
     targetIndex.push({
-      name: parts[1],
-      manufacturer: parts[0].toUpperCase(),
+      name: name,
+      manufacturer: manufacturer,
       mcu: target.mcu,
     });
   }
@@ -45,10 +71,6 @@ for await (const f of walk("targets")) {
 }
 
 targetIndex.sort((a, b) => a.name.localeCompare(b.name));
-
-const manufacturers = YAML.parse(
-  await fs.promises.readFile("manufacturers.yaml", "utf8")
-);
 
 const index = {
   manufacturers,

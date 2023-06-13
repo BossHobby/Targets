@@ -19,7 +19,8 @@ ALWH:
   name: Alienwhoop
   url: https://shop.alienwhoop.us
 BKMN:
-  name: Jason Blackman
+  name: blckmn
+  full_name: Jason Blackman
   url: https://github.com/blckmn
 CLRA:
   name: CLRacing LLC
@@ -28,7 +29,8 @@ DAFP:
   name: DarwinFPV
   url: https://darwinfpv.com/
 DIAT:
-  name: Diatone Innovations
+  name: Diatone
+  full_name: Diatone Innovations
   url: https://www.diatoneusa.com/
 FFPV:
   name: FuriousFPV
@@ -60,10 +62,12 @@ HENA:
 HFOR:
   name: HIFIONRC
 HOWI:
-  name: Hobbywing Technology Co Ltd
+  name: Hobbywing
+  full_name: Hobbywing Technology Co Ltd
   url: http://hobbywing.com/
 IFRC:
-  name: iFlight Innovation Technology Ltd
+  name: iFlight
+  full_name: iFlight Innovation Technology Ltd
   url: https://www.iflight-rc.com/
 JHEF:
   name: JHE_FPV
@@ -89,12 +93,13 @@ SPBE:
   name: LangTian Technology (Shenzhen) Co
   url: https://www.speedybee.com/
 TCMM:
-  name: Shenzhen Xinmumu Science and Technology Co
+  name: TCMM
+  full_name: Shenzhen Xinmumu Science and Technology Co
 TEBS:
   name: Team Blacksheep
   url: https://www.team-blacksheep.com/
 TMTR:
-  name: T-motor
+  name: T-Motor
   url: http://uav-en.tmotor.com/
 TURC:
   name: TUNERC
@@ -102,3 +107,6 @@ TURC:
 ZEEZ:
   name: Zeez RC
   url: https://www.zeezrc.com/
+HAMO:
+  name: Happymodel
+  url: http://www.happymodel.cn/

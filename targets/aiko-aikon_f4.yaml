@@ -1,5 +1,5 @@
 name: aikon_f4
-manufacurer: AIKO
+manufacturer: AIKO
 mcu: stm32f405
 brushless: true
 leds:

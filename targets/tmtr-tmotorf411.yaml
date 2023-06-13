@@ -1,5 +1,5 @@
 name: tmotorf411
-manufcturer: TMTR
+manufacturer: TMTR
 mcu: stm32f411
 brushless: true
 leds:
