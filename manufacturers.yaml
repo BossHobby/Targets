@@ -59,9 +59,6 @@ HENA:
   url: https://www.heli-nation.com/
 HFOR:
   name: HIFIONRC
-HGLR:
-  name: HGLRC
-  url: https://www.hglrc.com/
 HOWI:
   name: Hobbywing Technology Co Ltd
   url: http://hobbywing.com/
@@ -84,7 +81,7 @@ NERC:
   url: https://www.facebook.com/Neutronrc-575638996448880
 OPEN:
   name: Openpilot
-  url: https://librepilot.atlassian.net  
+  url: https://librepilot.atlassian.net
 PYDR:
   name: Pyro-Drone
   url: https://pyrodrone.com/
@@ -105,4 +102,3 @@ TURC:
 ZEEZ:
   name: Zeez RC
   url: https://www.zeezrc.com/
-

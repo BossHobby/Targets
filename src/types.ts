@@ -47,6 +47,7 @@ export interface target_t {
   name: string;
   manufacturer: string;
   mcu: string;
+  alias: string[];
   brushless: boolean;
 
   leds: target_led_t[];

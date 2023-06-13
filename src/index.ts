@@ -28,6 +28,16 @@ for await (const f of walk("targets")) {
     mcu: target.mcu,
   });
 
+  for (const alias of target.alias || []) {
+    const parts = alias.split("-", 2);
+
+    targetIndex.push({
+      name: parts[1],
+      manufacturer: parts[0].toUpperCase(),
+      mcu: target.mcu,
+    });
+  }
+
   await fs.promises.writeFile(
     path.join(OUTPUT_FOLDER, path.basename(f)),
     stringifyTarget(target)
@@ -36,8 +46,17 @@ for await (const f of walk("targets")) {
 
 targetIndex.sort((a, b) => a.name.localeCompare(b.name));
 
+const manufacturers = YAML.parse(
+  await fs.promises.readFile("manufacturers.yaml", "utf8")
+);
+
+const index = {
+  manufacturers,
+  targets: targetIndex,
+};
+
 await fs.promises.writeFile(path.join(OUTPUT_FOLDER, "_index.ini"), targetIni);
 await fs.promises.writeFile(
   path.join(OUTPUT_FOLDER, "_index.json"),
-  JSON.stringify(targetIndex)
+  JSON.stringify(index)
 );
