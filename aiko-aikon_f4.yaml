@@ -1,4 +1,5 @@
 name: aikon_f4
+manufacturer: AIKO
 mcu: stm32f405
 brushless: true
 leds:
@@ -45,4 +46,3 @@ motor_pins:
   - PC9
   - PC6
   - PC7
-manufacurer: AIKO

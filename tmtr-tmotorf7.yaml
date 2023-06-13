@@ -1,4 +1,5 @@
 name: tmotorf7
+manufacturer: TMTR
 mcu: stm32f722
 brushless: true
 leds:
@@ -50,4 +51,3 @@ motor_pins:
   - PB1
   - PC6
   - PC7
-manufcturer: TMTR
