@@ -39,7 +39,6 @@ rx_spi:
   tx_en: PA8
 vbat: PB0
 buzzer:
-  invert: false
   pin: PC15
 motor_pins:
   - PB6

@@ -118,6 +118,39 @@ function sortMapEntries(
   return aIndex - bIndex;
 }
 
+function skipEmpty(val: any) {
+  if (val === undefined) {
+    return undefined;
+  }
+  if (val === "NONE") {
+    return undefined;
+  }
+  if (Array.isArray(val)) {
+    for (let i = val.length - 1; i >= 0; i--) {
+      val[i] = skipEmpty(val[i]);
+      if (!val[i]) {
+        val.splice(i, 1);
+      }
+    }
+    if (val.length == 0) {
+      return undefined;
+    }
+  }
+  if (Object.getPrototypeOf(val) === Object.prototype) {
+    const keys = Object.keys(val);
+    for (let i = keys.length - 1; i >= 0; i--) {
+      val[keys[i]] = skipEmpty(val[keys[i]]);
+      if (!val[keys[i]]) {
+        delete val[keys[i]];
+      }
+    }
+    if (Object.keys(val).length == 0) {
+      return undefined;
+    }
+  }
+  return val;
+}
+
 export function stringifyTarget(target: target_t) {
-  return YAML.stringify(target, { sortMapEntries });
+  return YAML.stringify(skipEmpty(target), { sortMapEntries });
 }

@@ -3,8 +3,7 @@ manufacturer: ALWH
 mcu: stm32f405
 brushless: true
 leds:
-  - invert: false
-    pin: PC12
+  - pin: PC12
   - invert: true
     pin: PD2
 serial_ports:

@@ -40,7 +40,6 @@ osd:
 vbat: PC0
 ibat: PC1
 buzzer:
-  invert: false
   pin: PC13
 motor_pins:
   - PB14

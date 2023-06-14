@@ -5,8 +5,7 @@ brushless: true
 leds:
   - invert: true
     pin: PB5
-  - invert: false
-    pin: PB4
+  - pin: PB4
 serial_ports:
   - index: 1
     inverter: PC0

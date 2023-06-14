@@ -3,10 +3,8 @@ manufacturer: BEFH
 mcu: stm32f411
 brushless: true
 leds:
-  - invert: false
-    pin: PC13
-  - invert: false
-    pin: PC14
+  - pin: PC13
+  - pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -40,7 +38,6 @@ flash:
 vbat: PB0
 ibat: PB1
 buzzer:
-  invert: false
   pin: PB2
 motor_pins:
   - PB6

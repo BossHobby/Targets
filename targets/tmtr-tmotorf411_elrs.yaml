@@ -36,13 +36,11 @@ rx_spi:
   port: 3
   nss: PA15
   busy: PA13
-  busy_exti: false
   exti: PC14
   reset: PA8
 vbat: PA1
 ibat: PA0
 buzzer:
-  invert: false
   pin: PB2
 motor_pins:
   - PB6

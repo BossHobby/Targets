@@ -40,7 +40,6 @@ usb_detect: PC5
 fpv: PA13
 vbat: PC2
 buzzer:
-  invert: false
   pin: PB4
 motor_pins:
   - PA3

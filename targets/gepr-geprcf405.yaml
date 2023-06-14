@@ -56,7 +56,6 @@ flash:
 vbat: PC1
 ibat: PC0
 buzzer:
-  invert: false
   pin: PC13
 motor_pins:
   - PA10
