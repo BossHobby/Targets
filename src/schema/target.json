@@ -1,0 +1,287 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/BossHobby/Targets/master/src/schema/target.json",
+    "title": "QS Target",
+    "description": "Target file for QS",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "description": "The unique identifier name for a target",
+            "type": "string"
+        },
+        "manufacturer": {
+            "type": "string"
+        },
+        "mcu": {
+            "type": "string"
+        },
+        "alias": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "brushless": {
+            "type": "boolean"
+        },
+        "leds": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "pin": {
+                        "type": "string"
+                    },
+                    "invert": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "pin"
+                ]
+            }
+        },
+        "serial_ports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "index": {
+                        "type": "number"
+                    },
+                    "rx": {
+                        "type": "string"
+                    },
+                    "tx": {
+                        "type": "string"
+                    },
+                    "inverter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "index",
+                    "rx",
+                    "tx"
+                ]
+            }
+        },
+        "serial_soft_ports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "index": {
+                        "type": "number"
+                    },
+                    "rx": {
+                        "type": "string"
+                    },
+                    "tx": {
+                        "type": "string"
+                    },
+                    "inverter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "index",
+                    "rx",
+                    "tx"
+                ]
+            }
+        },
+        "spi_ports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "index": {
+                        "type": "number"
+                    },
+                    "miso": {
+                        "type": "string"
+                    },
+                    "mosi": {
+                        "type": "string"
+                    },
+                    "sck": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "index",
+                    "miso",
+                    "mosi",
+                    "sck"
+                ]
+            }
+        },
+        "gyro_orientation": {
+            "type": "number"
+        },
+        "gyro": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "number"
+                },
+                "nss": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "port",
+                "nss"
+            ]
+        },
+        "osd": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "number"
+                },
+                "nss": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "port",
+                "nss"
+            ]
+        },
+        "flash": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "number"
+                },
+                "nss": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "port",
+                "nss"
+            ]
+        },
+        "sdcard": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "number"
+                },
+                "nss": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "port",
+                "nss"
+            ]
+        },
+        "rx_spi": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "number"
+                },
+                "nss": {
+                    "type": "string"
+                },
+                "exti": {
+                    "type": "string"
+                },
+                "ant_sel": {
+                    "type": "string"
+                },
+                "lna_en": {
+                    "type": "string"
+                },
+                "tx_en": {
+                    "type": "string"
+                },
+                "busy": {
+                    "type": "string"
+                },
+                "busy_exti": {
+                    "type": "boolean"
+                },
+                "reset": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "port",
+                "nss"
+            ]
+        },
+        "usb_detect": {
+            "type": "string"
+        },
+        "fpv": {
+            "type": "string"
+        },
+        "vbat": {
+            "type": "string"
+        },
+        "ibat": {
+            "type": "string"
+        },
+        "sdcard_detect": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "pin": {
+                    "type": "string"
+                },
+                "invert": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "pin"
+            ]
+        },
+        "buzzer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "pin": {
+                    "type": "string"
+                },
+                "invert": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "pin"
+            ]
+        },
+        "motor_pins": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "name",
+        "manufacturer",
+        "mcu",
+        "brushless",
+        "gyro",
+        "gyro_orientation",
+        "motor_pins"
+    ]
+}
