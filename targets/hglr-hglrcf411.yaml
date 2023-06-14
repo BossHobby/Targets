@@ -3,17 +3,8 @@ manufacturer: HGLR
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC13
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
+  - invert: true
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -25,18 +16,27 @@ serial_soft_ports:
   - index: 1
     rx: PB3
     tx: PB3
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
 vbat: PB0
 ibat: PB1
 buzzer:
-  pin: PB2
   invert: false
+  pin: PB2
 motor_pins:
   - PB6
   - PB7

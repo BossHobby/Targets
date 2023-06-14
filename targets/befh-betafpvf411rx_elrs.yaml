@@ -3,21 +3,8 @@ manufacturer: BEFH
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC14
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: true
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -29,6 +16,19 @@ serial_soft_ports:
   - index: 1
     rx: PA8
     tx: PA8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
@@ -38,15 +38,15 @@ osd:
 rx_spi:
   port: 3
   nss: PA15
-  exti: PC13
   busy: PA13
   busy_exti: false
+  exti: PC13
   reset: PB9
 vbat: PA1
 ibat: PB0
 buzzer:
-  pin: PA14
   invert: false
+  pin: PA14
 motor_pins:
   - PB10
   - PB7

@@ -3,21 +3,8 @@ manufacturer: HBRO
 mcu: stm32f722
 brushless: true
 leds:
-  - pin: PD2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PC12
+  - invert: true
+    pin: PD2
 serial_ports:
   - index: 1
     rx: PA10
@@ -34,10 +21,23 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 16
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 gyro:
   port: 1
   nss: PB2
+gyro_orientation: 16
 osd:
   port: 3
   nss: PA15
@@ -47,8 +47,8 @@ flash:
 vbat: PC0
 ibat: PC1
 buzzer:
-  pin: PC8
   invert: false
+  pin: PC8
 motor_pins:
   - PB4
   - PB5

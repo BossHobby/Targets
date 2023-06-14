@@ -3,27 +3,10 @@ manufacturer: MTKS
 mcu: stm32f765
 brushless: true
 leds:
-  - pin: PD10
-    invert: false
-  - pin: PD11
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
-  - index: 4
-    sck: PE12
-    miso: PE13
-    mosi: PE14
+  - invert: false
+    pin: PD10
+  - invert: true
+    pin: PD11
 serial_ports:
   - index: 1
     rx: PA10
@@ -43,17 +26,34 @@ serial_ports:
   - index: 8
     rx: PE0
     tx: PE1
-gyro_orientation: 36
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
 gyro:
   port: 4
   nss: PE11
+gyro_orientation: 36
 osd:
   port: 2
   nss: PB12
 vbat: PC2
 buzzer:
-  pin: PB9
   invert: true
+  pin: PB9
 motor_pins:
   - PA2
   - PA3

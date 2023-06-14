@@ -3,21 +3,8 @@ manufacturer: HOWI
 mcu: stm32f722
 brushless: true
 leds:
-  - pin: PC15
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PB5
+  - invert: true
+    pin: PC15
 serial_ports:
   - index: 1
     rx: PA10
@@ -37,10 +24,23 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 4
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PB5
+    sck: PC10
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
@@ -50,8 +50,8 @@ flash:
 vbat: PC1
 ibat: PC0
 buzzer:
-  pin: PC14
   invert: false
+  pin: PC14
 motor_pins:
   - PB3
   - PA15

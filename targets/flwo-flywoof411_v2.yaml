@@ -3,17 +3,8 @@ manufacturer: FLWO
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC13
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
+  - invert: true
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -25,10 +16,19 @@ serial_soft_ports:
   - index: 1
     rx: PB7
     tx: PB6
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
@@ -38,8 +38,8 @@ flash:
 vbat: PB1
 ibat: PA1
 buzzer:
-  pin: PC14
   invert: false
+  pin: PC14
 motor_pins:
   - PB10
   - PA15

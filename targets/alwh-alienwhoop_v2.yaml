@@ -3,23 +3,10 @@ manufacturer: ALWH
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC12
-    invert: false
-  - pin: PD2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: false
+    pin: PC12
+  - invert: true
+    pin: PD2
 serial_ports:
   - index: 2
     rx: PA3
@@ -27,17 +14,30 @@ serial_ports:
   - index: 3
     rx: PC11
     tx: PC10
-gyro_orientation: 4
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 4
 flash:
   port: 3
   nss: PA15
 fpv: PA13
 buzzer:
-  pin: PA2
   invert: true
+  pin: PA2
 motor_pins:
   - PC7
   - PC6

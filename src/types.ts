@@ -47,7 +47,7 @@ export interface target_t {
   name: string;
   manufacturer: string;
   mcu: string;
-  alias: string[];
+  alias?: string[];
   brushless: boolean;
 
   leds: target_led_t[];
@@ -76,6 +76,7 @@ export const target_keys = [
   "name",
   "manufacturer",
   "mcu",
+  "alias",
   "brushless",
   "leds",
   "serial_ports",

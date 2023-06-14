@@ -3,21 +3,8 @@ manufacturer: CUST
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PC12
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: true
+    pin: PC12
 serial_ports:
   - index: 1
     rx: PA10
@@ -28,16 +15,29 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 8
 rx_spi:
   port: 3
   nss: PA15
-  exti: PB12
   busy: PB13
   busy_exti: true
+  exti: PB12
   reset: PB15
 motor_pins:
   - PC9

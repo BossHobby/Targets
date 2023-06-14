@@ -31,10 +31,10 @@ spi_ports:
     miso: PC11
     mosi: PC12
     sck: PC10
-gyro_orientation: 16
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 16
 flash:
   port: 2
   nss: PB12

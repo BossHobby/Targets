@@ -1,25 +1,12 @@
 name: betaflightf4
 manufacturer: FPVM
+mcu: stm32f405
 alias:
   - hamo-crazyf405hd
-mcu: stm32f405
 brushless: true
 leds:
-  - pin: PB5
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 3
-    sck: PC10
-    miso: PC11
-    mosi: PC12
+  - invert: true
+    pin: PB5
 serial_ports:
   - index: 1
     rx: PA10
@@ -33,10 +20,23 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
@@ -46,8 +46,8 @@ flash:
 vbat: PC2
 ibat: PC1
 buzzer:
-  pin: PB4
   invert: false
+  pin: PB4
 motor_pins:
   - PC9
   - PC8

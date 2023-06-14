@@ -3,21 +3,8 @@ manufacturer: HBRO
 mcu: stm32h743
 brushless: true
 leds:
-  - pin: PC2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PB14
-    mosi: PB15
-  - index: 4
-    sck: PE2
-    miso: PE5
-    mosi: PE6
+  - invert: true
+    pin: PC2
 serial_ports:
   - index: 1
     rx: PA10
@@ -37,10 +24,23 @@ serial_ports:
   - index: 7
     rx: PE7
     tx: PE8
-gyro_orientation: 8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
 gyro:
   port: 4
   nss: PE4
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
@@ -49,12 +49,12 @@ sdcard:
   nss: PA4
 vbat: PC0
 ibat: PC1
-buzzer:
-  pin: PC13
-  invert: false
 sdcard_detect:
-  pin: PA3
   invert: true
+  pin: PA3
+buzzer:
+  invert: false
+  pin: PC13
 motor_pins:
   - PB3
   - PB10

@@ -3,23 +3,10 @@ manufacturer: AFNG
 mcu: stm32f722
 brushless: true
 leds:
-  - pin: PC12
-    invert: true
-  - pin: PD2
-    invert: true
-spi_ports:
-  - index: 1
-    sck: PA5
-    miso: PA6
-    mosi: PA7
-  - index: 2
-    sck: PB13
-    miso: PC2
-    mosi: PC3
-  - index: 3
-    sck: PB3
-    miso: PB4
-    mosi: PB5
+  - invert: true
+    pin: PC12
+  - invert: true
+    pin: PD2
 serial_ports:
   - index: 1
     rx: PA10
@@ -30,18 +17,31 @@ serial_ports:
   - index: 4
     rx: PC11
     tx: PC10
-gyro_orientation: 16
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PC2
+    mosi: PC3
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 16
 osd:
   port: 3
   nss: PB12
 vbat: PC0
 ibat: PC1
 buzzer:
-  pin: PC13
   invert: false
+  pin: PC13
 motor_pins:
   - PB14
   - PB0
