@@ -53,7 +53,6 @@ fpv: PB11
 vbat: PC2
 ibat: PC3
 buzzer:
-  invert: false
   pin: PB2
 motor_pins:
   - PB6

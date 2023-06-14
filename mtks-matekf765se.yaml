@@ -3,8 +3,7 @@ manufacturer: MTKS
 mcu: stm32f765
 brushless: true
 leds:
-  - invert: false
-    pin: PD10
+  - pin: PD10
   - invert: true
     pin: PD11
 serial_ports:

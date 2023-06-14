@@ -38,7 +38,6 @@ rx_spi:
 vbat: PB0
 ibat: PB1
 buzzer:
-  invert: false
   pin: PC15
 motor_pins:
   - PB7

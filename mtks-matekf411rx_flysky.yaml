@@ -7,8 +7,7 @@ brushless: true
 leds:
   - invert: true
     pin: PC13
-  - invert: false
-    pin: PB9
+  - pin: PB9
 serial_ports:
   - index: 1
     rx: PA10
@@ -43,7 +42,6 @@ rx_spi:
 vbat: PB0
 ibat: PB1
 buzzer:
-  invert: false
   pin: PC15
 motor_pins:
   - PB7

@@ -3,8 +3,7 @@ manufacturer: IFRC
 mcu: stm32f745
 brushless: true
 leds:
-  - invert: false
-    pin: PC13
+  - pin: PC13
 serial_ports:
   - index: 1
     rx: PA10

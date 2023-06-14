@@ -5,8 +5,7 @@ brushless: true
 leds:
   - invert: true
     pin: PB8
-  - invert: false
-    pin: PB9
+  - pin: PB9
 serial_ports:
   - index: 1
     rx: PB7
