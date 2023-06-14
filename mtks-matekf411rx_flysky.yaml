@@ -1,6 +1,8 @@
 name: matekf411rx_flysky
 manufacturer: MTKS
 mcu: stm32f411
+alias:
+  - hamo-crazybee_f4_flysky
 brushless: true
 leds:
   - invert: true
@@ -48,5 +50,3 @@ motor_pins:
   - PB8
   - PB10
   - PB6
-alias:
-  - hamo-crazybee_f4_flysky
