@@ -1,0 +1,53 @@
+name: anyfcm7
+manufacturer: FOSS
+mcu: stm32f7x2
+brushless: true
+leds:
+  - invert: true
+    pin: PB6
+  - invert: true
+    pin: PB9
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PC2
+    mosi: PC1
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 3
+  nss: PD2
+flash:
+  port: 2
+  nss: PB12
+usb_detect: PA8
+vbat: PC0
+buzzer:
+  pin: PB2
+motor_pins:
+  - PB7
+  - PA3
+  - PB8
+  - PA2

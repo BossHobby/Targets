@@ -1,0 +1,54 @@
+name: nbd_infinityaiov2
+manufacturer: NEBD
+mcu: stm32f745
+brushless: true
+leds:
+  - invert: true
+    pin: PC0
+serial_ports:
+  - index: 1
+    rx: PB7
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 5
+    rx: PD2
+  - index: 7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PB4
+    mosi: PD6
+    sck: PB3
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
+gyro:
+  port: 4
+  nss: PE11
+osd:
+  port: 3
+  nss: PA15
+flash:
+  port: 1
+  nss: PB0
+vbat: PC1
+ibat: PC2
+buzzer:
+  pin: PD13
+motor_pins:
+  - PC8
+  - PC9
+  - PC6
+  - PC7

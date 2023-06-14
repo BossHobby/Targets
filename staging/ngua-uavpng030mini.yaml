@@ -1,0 +1,40 @@
+name: uavpng030mini
+manufacturer: NGUA
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PE5
+  - invert: true
+    pin: PE7
+  - invert: true
+    pin: PE6
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 6
+    rx: PC6
+    tx: PC7
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+gyro:
+  port: 1
+  nss: PA4
+vbat: PC1
+buzzer:
+  pin: PB0
+motor_pins:
+  - PE13
+  - PE14
+  - PA8
+  - PE11

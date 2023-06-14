@@ -1,0 +1,47 @@
+name: vrrace
+manufacturer: LEGA
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PD14
+  - invert: true
+    pin: PD15
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 6
+    inverter: PD7
+    rx: PC7
+    tx: PC6
+  - index: 11
+    rx: PE13
+    tx: PE11
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+gyro:
+  port: 2
+  nss: PE10
+vbat: PC0
+ibat: PA5
+buzzer:
+  pin: PA0
+motor_pins:
+  - PA3
+  - PB5
+  - PA1
+  - PA2

@@ -1,52 +1,41 @@
-import YAML, { Pair, Scalar } from "yaml";
 import fs from "fs";
 import readline from "readline";
 import { walk } from "./util";
-import { stringifyTarget, target_keys, target_t } from "./types";
+import { stringifyTarget, target_t } from "./types";
 
-const target: target_t = {
-  name: "",
-  mcu: "",
-  brushless: true,
-
-  leds: [],
-  serial_ports: [],
-  spi_ports: [],
-
-  motor_pins: [],
-
-  gyro_orientation: 0,
-};
+const OUTPUT_FOLDER = "staging";
 
 function parsePin(pin: string) {
   const index = parseInt(pin.slice(1));
   return `P${pin[0].toUpperCase()}${index}`;
 }
 
-function handleResource(parts: string[]) {
+function handleResource(target: target_t, parts: string[]) {
   switch (parts[0]) {
     case "led": {
       const index = parseInt(parts[1]) - 1;
       target.leds[index] = {
-        ...(target.leds[index] || { invert: false }),
-        pin: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "led": {
-      const index = parseInt(parts[1]) - 1;
-      target.leds[index] = {
-        ...(target.leds[index] || { invert: false }),
+        ...(target.leds[index] || { invert: true }),
         pin: parsePin(parts[2]),
       };
       break;
     }
     case "motor": {
       const index = parseInt(parts[1]) - 1;
-      if (index > 3) {
-        break;
+      switch (index) {
+        case 0:
+        case 1:
+          target.motor_pins[index + 2] = parsePin(parts[2]);
+          break;
+
+        case 2:
+        case 3:
+          target.motor_pins[index - 2] = parsePin(parts[2]);
+          break;
+
+        default:
+          break;
       }
-      target.motor_pins[index] = parsePin(parts[2]);
       break;
     }
     case "inverter": {
@@ -159,7 +148,7 @@ function handleResource(parts: string[]) {
         break;
       }
       target.buzzer = {
-        ...(target.buzzer || { invert: false }),
+        ...(target.buzzer || { invert: true }),
         pin: parsePin(parts[2]),
       };
       break;
@@ -169,7 +158,7 @@ function handleResource(parts: string[]) {
   }
 }
 
-function handleSet(parts: string[]) {
+function handleSet(target: target_t, parts: string[]) {
   switch (parts[0]) {
     case "gyro_1_spibus": {
       const port = parseInt(parts[1]);
@@ -198,7 +187,7 @@ function handleSet(parts: string[]) {
     case "beeper_inversion": {
       target.buzzer = {
         ...(target.buzzer || { pin: "None" }),
-        invert: parts[1] == "ON",
+        invert: parts[1] == "off",
       };
       break;
     }
@@ -208,10 +197,14 @@ function handleSet(parts: string[]) {
   }
 }
 
-function handle(parts: string[]) {
+function handle(target: target_t, parts: string[]) {
   switch (parts[0]) {
     case "board_name":
       target.name = parts[1].toLowerCase();
+      break;
+
+    case "manufacturer_id":
+      target.manufacturer = parts[1].toUpperCase();
       break;
 
     case "#mcu":
@@ -219,11 +212,11 @@ function handle(parts: string[]) {
       break;
 
     case "resource":
-      handleResource(parts.slice(1));
+      handleResource(target, parts.slice(1));
       break;
 
     case "set":
-      handleSet(parts.slice(1));
+      handleSet(target, parts.slice(1));
       break;
 
     case "dma":
@@ -231,7 +224,6 @@ function handle(parts: string[]) {
     case "feature":
     case "aux":
     case "led":
-    case "manufacturer_id":
     case "rxrange":
     case "serial":
     case "beacon":
@@ -246,6 +238,9 @@ function handle(parts: string[]) {
       break;
 
     default:
+      if (parts[1] == "betaflight") {
+        target.mcu = parts[3];
+      }
       if (!parts[0].startsWith("#")) {
         console.warn(`unhandled ${parts[0]}`);
       }
@@ -254,6 +249,21 @@ function handle(parts: string[]) {
 }
 
 async function translate(filename: string) {
+  const target: target_t = {
+    name: "",
+    mcu: "",
+    manufacturer: "",
+    brushless: true,
+
+    leds: [],
+    serial_ports: [],
+    spi_ports: [],
+
+    motor_pins: [],
+
+    gyro_orientation: 0,
+  };
+
   const stream = fs.createReadStream(filename);
   const rl = readline.createInterface({
     input: stream,
@@ -274,12 +284,24 @@ async function translate(filename: string) {
       .map((l) => l.trim().toLowerCase())
       .filter((l) => l.length != 0 && l != "=");
 
-    handle(parts);
+    handle(target, parts);
   }
 
-  fs.writeFileSync(`output/${target.name}.yaml`, stringifyTarget(target));
+  fs.writeFileSync(
+    `${OUTPUT_FOLDER}/${target.manufacturer.toLowerCase()}-${target.name}.yaml`,
+    stringifyTarget(target)
+  );
 }
 
-for await (const f of walk("betaflight/configs/default/")) {
-  await translate(f);
+await fs.promises.rm(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+
+const args = process.argv.slice(2);
+
+if (args.length) {
+  await translate(args[0]);
+} else {
+  for await (const f of walk("betaflight/configs/default/")) {
+    await translate(f);
+  }
 }

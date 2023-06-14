@@ -12,7 +12,9 @@ const manufacturers = YAML.parse(
 
 let targetIni = "";
 let targetIndex = [] as any[];
-await fs.promises.mkdir(OUTPUT_FOLDER).catch(() => {});
+
+await fs.promises.rm(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
 
 for await (const f of walk("targets")) {
   const target = YAML.parse(await fs.promises.readFile(f, "utf8"));

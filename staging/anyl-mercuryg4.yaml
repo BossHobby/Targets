@@ -1,0 +1,45 @@
+name: mercuryg4
+manufacturer: ANYL
+mcu: stm32g47x
+brushless: true
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PB4
+    tx: PB3
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 9
+    rx: PA3
+    tx: PA2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+gyro:
+  port: 1
+  nss: PB12
+flash:
+  port: 2
+  nss: PA0
+vbat: PA1
+ibat: PB2
+buzzer:
+  invert: true
+  pin: PA10
+motor_pins:
+  - PB0
+  - PB1
+  - PC6
+  - PA4

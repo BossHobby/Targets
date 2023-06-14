@@ -1,0 +1,53 @@
+name: flywoof405s_aio
+manufacturer: FLWO
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PC14
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PB12
+osd:
+  port: 3
+  nss: PB14
+flash:
+  port: 3
+  nss: PB3
+usb_detect: PA8
+vbat: PC3
+ibat: PC2
+buzzer:
+  pin: PC13
+motor_pins:
+  - PA3
+  - PA2
+  - PB0
+  - PB1

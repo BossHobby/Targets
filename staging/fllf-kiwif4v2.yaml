@@ -1,0 +1,48 @@
+name: kiwif4v2
+manufacturer: FLLF
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PB4
+serial_ports:
+  - index: 1
+    inverter: PC0
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 3
+  nss: PA15
+usb_detect: PC5
+vbat: PC1
+ibat: PC3
+buzzer:
+  invert: true
+  pin: PA8
+motor_pins:
+  - PB1
+  - PA2
+  - PA3
+  - PB0

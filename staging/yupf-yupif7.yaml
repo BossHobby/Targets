@@ -1,0 +1,52 @@
+name: yupif7
+manufacturer: YUPF
+mcu: stm32f7x2
+brushless: true
+leds:
+  - invert: true
+    pin: PB4
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 11
+    rx: PB0
+    tx: PB1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PC11
+    mosi: PB5
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 1
+  nss: PA14
+flash:
+  port: 3
+  nss: PA15
+usb_detect: PA8
+vbat: PC1
+ibat: PC2
+buzzer:
+  invert: true
+  pin: PB14
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1

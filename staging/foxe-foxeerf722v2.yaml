@@ -1,0 +1,54 @@
+name: foxeerf722v2
+manufacturer: FOXE
+mcu: stm32f7x2
+brushless: true
+leds:
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PB5
+    sck: PC10
+gyro:
+  port: 1
+  nss: PB2
+osd:
+  port: 3
+  nss: PC3
+flash:
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC2
+buzzer:
+  pin: PA4
+motor_pins:
+  - PC9
+  - PC8
+  - PA9
+  - PA8

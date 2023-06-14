@@ -1,0 +1,48 @@
+name: neutronrcg4aio
+manufacturer: NERC
+mcu: stm32g47x
+brushless: true
+leds:
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PB5
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PB9
+vbat: PA0
+ibat: PA1
+buzzer:
+  pin: PC14
+motor_pins:
+  - PB3
+  - PB4
+  - PB1
+  - PB0

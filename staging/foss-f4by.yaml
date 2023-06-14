@@ -1,0 +1,55 @@
+name: f4by
+manufacturer: FOSS
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PE3
+  - invert: true
+    pin: PE2
+  - invert: true
+    pin: PE1
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 6
+    inverter: PD3
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PA4
+usb_detect: PA9
+vbat: PC3
+ibat: PC2
+buzzer:
+  invert: true
+  pin: PE5
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1

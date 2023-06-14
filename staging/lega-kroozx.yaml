@@ -1,0 +1,52 @@
+name: kroozx
+manufacturer: LEGA
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PA14
+  - invert: true
+    pin: PA13
+serial_ports:
+  - index: 1
+    inverter: PB13
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    inverter: PB12
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PB2
+osd:
+  port: 1
+  nss: PC4
+vbat: PC3
+ibat: PC2
+buzzer:
+  invert: true
+  pin: PC1
+motor_pins:
+  - PA0
+  - PA1
+  - PA2
+  - PA3

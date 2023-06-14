@@ -1,0 +1,49 @@
+name: wormfc
+manufacturer: FOSS
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PA15
+  - invert: true
+    pin: PC14
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 3
+    inverter: PB12
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 6
+    inverter: PB13
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 3
+  nss: PC0
+usb_detect: PA9
+vbat: PC1
+ibat: PC2
+buzzer:
+  pin: PB14
+motor_pins:
+  - PA2
+  - PA3
+  - PB1
+  - PB0

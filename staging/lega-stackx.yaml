@@ -1,0 +1,52 @@
+name: stackx
+manufacturer: LEGA
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PC13
+  - invert: true
+    pin: PC14
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 6
+    inverter: PC8
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PC2
+    mosi: PC3
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PD2
+usb_detect: PA8
+vbat: PC0
+ibat: PA1
+buzzer:
+  pin: PC15
+motor_pins:
+  - PA15
+  - PA3
+  - PB8
+  - PA2

@@ -1,0 +1,46 @@
+name: fenix_f405
+manufacturer: FOSS
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PA8
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 3
+  nss: PB3
+osd:
+  port: 1
+  nss: PA4
+flash:
+  port: 2
+  nss: PB12
+vbat: PC4
+ibat: PA1
+motor_pins:
+  - PA3
+  - PA2
+  - PB1
+  - PB0

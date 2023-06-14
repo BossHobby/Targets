@@ -1,0 +1,48 @@
+name: spracingh7nano
+manufacturer: SPRO
+mcu: stm32h750
+brushless: true
+leds:
+  - invert: true
+    pin: PE3
+serial_ports:
+  - index: 1
+    rx: PB15
+    tx: PB14
+  - index: 2
+    rx: PNNaN
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PD0
+    tx: PD1
+  - index: 5
+    rx: PB5
+    tx: PB13
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PNNaN
+    tx: PNNaN
+  - index: 8
+    rx: PE0
+    tx: PE1
+gyro:
+  port: 2
+  nss: PB12
+osd:
+  port: 4
+  nss: PE11
+vbat: PC1
+ibat: PC0
+buzzer:
+  invert: true
+  pin: PD7
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1

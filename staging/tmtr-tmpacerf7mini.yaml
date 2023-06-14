@@ -1,0 +1,51 @@
+name: tmpacerf7mini
+manufacturer: TMTR
+mcu: stm32f7x2
+brushless: true
+leds:
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PC4
+osd:
+  port: 3
+  nss: PC13
+flash:
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC1
+buzzer:
+  pin: PC14
+motor_pins:
+  - PB0
+  - PB1
+  - PC9
+  - PC8
