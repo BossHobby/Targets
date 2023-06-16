@@ -1,0 +1,52 @@
+name: neutronrcf435_aio
+manufacturer: NERC
+mcu: at32f435
+brushless: true
+leds:
+  - invert: true
+    pin: PC13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PB0
+    tx: PA2
+  - index: 3
+    rx: PB10
+    tx: PB11
+  - index: 5
+    rx: PB8
+    tx: PB9
+  - index: 7
+    rx: PB3
+    tx: PB4  
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+gyro:
+  port: 1
+  nss: PA4
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 2
+  nss: PB5
+vbat: PA0
+ibat: PA1
+buzzer:
+  invert: true
+  pin: PC15
+motor_pins:
+  - PB6
+  - PB7
+  - PA3
+  - PB1
