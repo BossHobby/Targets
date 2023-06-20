@@ -39,6 +39,7 @@ gyro:
 vbat: PC0
 ibat: PA5
 buzzer:
+  invert: true
   pin: PA0
 motor_pins:
   - PA3

@@ -25,6 +25,7 @@ gyro:
   port: 1
   nss: PA4
 buzzer:
+  invert: true
   pin: PB8
 motor_pins:
   - PB1

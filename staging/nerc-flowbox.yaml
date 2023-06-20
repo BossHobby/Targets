@@ -28,6 +28,7 @@ flash:
   port: 3
   nss: PA15
 buzzer:
+  invert: true
   pin: PB1
 motor_pins:
   - PB6

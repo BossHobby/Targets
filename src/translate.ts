@@ -187,7 +187,7 @@ function handleSet(target: target_t, parts: string[]) {
     case "beeper_inversion": {
       target.buzzer = {
         ...(target.buzzer || { pin: "None" }),
-        invert: parts[1] == "off",
+        invert: parts[1] != "off",
       };
       break;
     }

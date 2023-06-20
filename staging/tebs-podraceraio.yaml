@@ -29,6 +29,7 @@ osd:
 vbat: PB1
 ibat: PA4
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PB6

@@ -37,6 +37,7 @@ flash:
 vbat: PA1
 ibat: PA0
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PB6

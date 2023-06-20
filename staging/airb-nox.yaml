@@ -33,6 +33,7 @@ flash:
   nss: PA15
 vbat: PA5
 buzzer:
+  invert: true
   pin: PC13
 motor_pins:
   - PB8

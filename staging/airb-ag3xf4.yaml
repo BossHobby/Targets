@@ -45,6 +45,7 @@ flash:
 vbat: PC0
 ibat: PC1
 buzzer:
+  invert: true
   pin: None
 motor_pins:
   - PB1

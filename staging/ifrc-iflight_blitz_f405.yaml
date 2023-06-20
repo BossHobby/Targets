@@ -47,6 +47,7 @@ usb_detect: PC5
 vbat: PC2
 ibat: PC1
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PC9

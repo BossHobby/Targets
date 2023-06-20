@@ -46,6 +46,7 @@ usb_detect: PB12
 vbat: PC0
 ibat: PC4
 buzzer:
+  invert: true
   pin: PC13
 motor_pins:
   - PC8

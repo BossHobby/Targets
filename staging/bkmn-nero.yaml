@@ -37,6 +37,7 @@ gyro:
   nss: PC4
 vbat: PC3
 buzzer:
+  invert: true
   pin: None
 motor_pins:
   - PA2

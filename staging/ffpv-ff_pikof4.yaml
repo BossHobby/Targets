@@ -38,6 +38,7 @@ flash:
   nss: PB3
 vbat: PC2
 buzzer:
+  invert: true
   pin: PA14
 motor_pins:
   - PA2

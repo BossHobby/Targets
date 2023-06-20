@@ -66,6 +66,7 @@ usb_detect: PE6
 vbat: PC1
 ibat: PC3
 buzzer:
+  invert: true
   pin: PE3
 motor_pins:
   - PA2
