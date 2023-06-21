@@ -20,7 +20,7 @@ serial_ports:
     tx: PB9
   - index: 7
     rx: PB3
-    tx: PB4  
+    tx: PB4
 spi_ports:
   - index: 1
     miso: PA6
