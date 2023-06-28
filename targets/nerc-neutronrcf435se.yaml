@@ -3,8 +3,7 @@ manufacturer: NERC
 mcu: at32f435
 brushless: true
 leds:
-  - invert: true
-    pin: PC4
+  - pin: PC4
 serial_ports:
   - index: 1
     rx: PA10
