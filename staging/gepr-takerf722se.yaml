@@ -1,12 +1,10 @@
-name: geprcf722
+name: takerf722se
 manufacturer: GEPR
 mcu: stm32f7x2
 brushless: true
 leds:
   - invert: true
-    pin: PA13
-  - invert: true
-    pin: PA14
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -20,6 +18,9 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
@@ -34,20 +35,19 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB2
     sck: PC10
 gyro:
-  port: 3
-  nss: PA15
-osd:
   port: 1
-  nss: PB2
-flash:
+  nss: PA4
+osd:
   port: 2
   nss: PB12
-usb_detect: PC14
-vbat: PC0
-ibat: PC1
+flash:
+  port: 3
+  nss: PA15
+vbat: PC3
+ibat: PC2
 buzzer:
   invert: true
   pin: PC13
