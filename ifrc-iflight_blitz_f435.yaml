@@ -34,9 +34,9 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PC11
-    mosi: PC12
-    sck: PC10
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
