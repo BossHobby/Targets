@@ -31,6 +31,7 @@ for await (const f of walk("targets")) {
 
   targetIndex.push({
     name: target.name,
+    target: target.name,
     manufacturer: target.manufacturer,
     mcu: target.mcu,
   });
@@ -53,6 +54,7 @@ for await (const f of walk("targets")) {
 
     targetIndex.push({
       name: name,
+      target: target.name,
       manufacturer: manufacturer,
       mcu: target.mcu,
     });
