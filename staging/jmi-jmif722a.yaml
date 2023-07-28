@@ -1,12 +1,12 @@
-name: dakefpvf405
-manufacturer: DAKE
-mcu: stm32f405
+name: jmif722a
+manufacturer: JMI
+mcu: stm32f7x2
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PA14
   - invert: true
-    pin: PC15
+    pin: PA13
 serial_ports:
   - index: 1
     rx: PA10
@@ -20,9 +20,6 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
-  - index: 5
-    rx: PD2
-    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
@@ -37,24 +34,24 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PB5
+    mosi: PC12
     sck: PC10
 gyro:
   port: 1
-  nss: PA4
+  nss: PB2
 osd:
   port: 2
   nss: PB12
 flash:
   port: 3
-  nss: PA15
-vbat: PC1
-ibat: PC0
+  nss: PD2
+vbat: PC2
+ibat: PC1
 buzzer:
   invert: true
-  pin: PC3
+  pin: PC13
 motor_pins:
-  - PB6
-  - PB7
-  - PC8
-  - PC9
+  - PB0
+  - PB1
+  - PB4
+  - PB5

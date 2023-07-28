@@ -1,12 +1,10 @@
-name: dakefpvf405
-manufacturer: DAKE
+name: speedybeef405mini
+manufacturer: SPBE
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -15,8 +13,8 @@ serial_ports:
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PB11
-    tx: PB10
+    rx: PC11
+    tx: PC10
   - index: 4
     rx: PA1
     tx: PA0
@@ -32,13 +30,13 @@ spi_ports:
     mosi: PA7
     sck: PA5
   - index: 2
-    miso: PB14
-    mosi: PB15
+    miso: PC2
+    mosi: PC3
     sck: PB13
   - index: 3
-    miso: PC11
+    miso: PB4
     mosi: PB5
-    sck: PC10
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
@@ -47,14 +45,14 @@ osd:
   nss: PB12
 flash:
   port: 3
-  nss: PA15
-vbat: PC1
-ibat: PC0
+  nss: PC14
+vbat: PC0
+ibat: PC1
 buzzer:
   invert: true
-  pin: PC3
+  pin: PC15
 motor_pins:
+  - PB1
+  - PB0
   - PB6
   - PB7
-  - PC8
-  - PC9
