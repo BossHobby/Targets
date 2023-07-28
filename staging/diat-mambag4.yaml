@@ -20,7 +20,8 @@ serial_ports:
   - index: 4
     rx: PC11
     tx: PC10
-  - index: 11
+serial_soft_ports:
+  - index: 1
     tx: PB9
 spi_ports:
   - index: 1

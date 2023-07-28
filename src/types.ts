@@ -52,7 +52,7 @@ export interface target_t {
 
   leds: target_led_t[];
   serial_ports: target_serial_port_t[];
-  serial_soft_ports?: target_serial_port_t[];
+  serial_soft_ports: target_serial_port_t[];
   spi_ports: target_spi_port_t[];
 
   gyro?: target_spi_device_t;

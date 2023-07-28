@@ -21,7 +21,8 @@ serial_ports:
     inverter: PD7
     rx: PC7
     tx: PC6
-  - index: 11
+serial_soft_ports:
+  - index: 1
     rx: PE13
     tx: PE11
 spi_ports:

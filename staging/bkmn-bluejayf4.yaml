@@ -20,7 +20,8 @@ serial_ports:
     inverter: PB15
     rx: PC7
     tx: PC6
-  - index: 11
+serial_soft_ports:
+  - index: 1
     tx: PB3
 spi_ports:
   - index: 1

@@ -21,7 +21,8 @@ serial_ports:
   - index: 5
     rx: PD2
     tx: PC12
-  - index: 11
+serial_soft_ports:
+  - index: 1
     tx: PB0
 spi_ports:
   - index: 1

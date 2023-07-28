@@ -14,9 +14,10 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
-  - index: 11
+serial_soft_ports:
+  - index: 1
     tx: PB9
-  - index: 12
+  - index: 2
     tx: PA2
 spi_ports:
   - index: 1

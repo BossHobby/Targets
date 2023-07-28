@@ -18,9 +18,10 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 11
+serial_soft_ports:
+  - index: 1
     tx: PC9
-  - index: 12
+  - index: 2
     rx: PA8
 spi_ports:
   - index: 1

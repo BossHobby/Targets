@@ -49,20 +49,36 @@ function handleResource(target: target_t, parts: string[]) {
     }
     case "serial_tx": {
       const index = parseInt(parts[1]) - 1;
-      target.serial_ports[index] = {
-        ...(target.serial_ports[index] || {}),
-        index: index + 1,
-        tx: parsePin(parts[2]),
-      };
+      if (index >= 10) {
+        target.serial_soft_ports[index - 10] = {
+          ...(target.serial_soft_ports[index - 10] || {}),
+          index: index - 10 + 1,
+          tx: parsePin(parts[2]),
+        };
+      } else {
+        target.serial_ports[index] = {
+          ...(target.serial_ports[index] || {}),
+          index: index + 1,
+          tx: parsePin(parts[2]),
+        };
+      }
       break;
     }
     case "serial_rx": {
       const index = parseInt(parts[1]) - 1;
-      target.serial_ports[index] = {
-        ...(target.serial_ports[index] || {}),
-        index: index + 1,
-        rx: parsePin(parts[2]),
-      };
+      if (index >= 10) {
+        target.serial_soft_ports[index - 10] = {
+          ...(target.serial_soft_ports[index - 10] || {}),
+          index: index - 10 + 1,
+          rx: parsePin(parts[2]),
+        };
+      } else {
+        target.serial_ports[index] = {
+          ...(target.serial_ports[index] || {}),
+          index: index + 1,
+          rx: parsePin(parts[2]),
+        };
+      }
       break;
     }
     case "spi_sck": {
@@ -257,6 +273,7 @@ async function translate(filename: string) {
 
     leds: [],
     serial_ports: [],
+    serial_soft_ports: [],
     spi_ports: [],
 
     motor_pins: [],

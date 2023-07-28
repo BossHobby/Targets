@@ -26,7 +26,8 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 11
+serial_soft_ports:
+  - index: 1
     rx: PC5
     tx: PB2
 spi_ports:
