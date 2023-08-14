@@ -1,16 +1,14 @@
-name: dakefpvf722
-manufacturer: DAKE
+name: namimnof722
+manufacturer: NAMO
 mcu: stm32f7x2
 brushless: true
 leds:
   - invert: true
-    pin: PC14
-  - invert: true
     pin: PC15
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
@@ -49,12 +47,12 @@ flash:
   port: 3
   nss: PA15
 vbat: PC1
-ibat: PC0
+ibat: PC3
 buzzer:
   invert: true
-  pin: PC3
+  pin: PC13
 motor_pins:
-  - PB6
-  - PB7
+  - PA8
+  - PA9
   - PC8
   - PC9
