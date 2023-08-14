@@ -1,14 +1,13 @@
-name: zeez_f7_v1
-manufacturer: ZEEZ
-mcu: stm32f722
+name: pyrodronef4
+manufacturer: PYDR
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+    pin: PB4
 serial_ports:
   - index: 1
+    inverter: PC3
     rx: PA10
     tx: PA9
   - index: 2
@@ -36,26 +35,24 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PC11
+    miso: PB4
     mosi: PB5
-    sck: PC10
+    sck: PB3
 gyro:
-  port: 2
-  nss: PB12
-gyro_orientation: 8
-osd:
-  port: 3
-  nss: PA15
-flash:
   port: 1
   nss: PA4
-fpv: PB11
+gyro_orientation: 4
+osd:
+  port: 2
+  nss: PB12
+fpv: PA15
 vbat: PC2
-ibat: PC3
+ibat: PC1
 buzzer:
-  pin: PB2
+  invert: true
+  pin: PB5
 motor_pins:
-  - PB6
-  - PB4
-  - PB8
-  - PB7
+  - PC9
+  - PA8
+  - PB1
+  - PB0

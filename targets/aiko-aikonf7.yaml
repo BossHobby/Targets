@@ -1,6 +1,6 @@
-name: flywoof411_v2
-manufacturer: FLWO
-mcu: stm32f411
+name: aikonf7
+manufacturer: AIKO
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
@@ -12,19 +12,28 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
-serial_soft_ports:
-  - index: 1
-    rx: PB7
-    tx: PB6
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
 spi_ports:
   - index: 1
     miso: PA6
     mosi: PA7
     sck: PA5
   - index: 2
-    miso: PB14
+    miso: PC2
     mosi: PB15
     sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
   nss: PA4
@@ -33,14 +42,14 @@ osd:
   port: 2
   nss: PB12
 flash:
-  port: 2
-  nss: PB2
-vbat: PB1
-ibat: PA1
+  port: 3
+  nss: PB0
+vbat: PC0
+ibat: PC1
 buzzer:
-  pin: PC14
+  pin: PC15
 motor_pins:
-  - PB10
-  - PA15
-  - PA8
-  - PB3
+  - PC8
+  - PC9
+  - PC6
+  - PC7

@@ -1,13 +1,14 @@
-name: aikon_f4
-manufacturer: AIKO
-mcu: stm32f405
+name: zeezf7v1
+manufacturer: ZEEZ
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PB4
+    pin: PC14
+  - invert: true
+    pin: PC15
 serial_ports:
   - index: 1
-    inverter: PC0
     rx: PA10
     tx: PA9
   - index: 2
@@ -19,6 +20,12 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -30,19 +37,25 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB5
     sck: PC10
 gyro:
-  port: 1
-  nss: PA4
-gyro_orientation: 4
+  port: 2
+  nss: PB12
+gyro_orientation: 8
 osd:
   port: 3
   nss: PA15
+flash:
+  port: 1
+  nss: PA4
+fpv: PB11
 vbat: PC2
-ibat: PC1
+ibat: PC3
+buzzer:
+  pin: PB2
 motor_pins:
-  - PC8
-  - PC9
-  - PC6
-  - PC7
+  - PB6
+  - PB4
+  - PB8
+  - PB7
