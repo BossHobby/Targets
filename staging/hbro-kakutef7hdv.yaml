@@ -39,6 +39,7 @@ spi_ports:
 gyro:
   port: 4
   nss: PE4
+gyro_orientation: 8
 osd:
   nss: PB12
 usb_detect: PA8

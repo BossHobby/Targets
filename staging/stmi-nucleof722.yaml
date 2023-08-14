@@ -26,6 +26,7 @@ spi_ports:
     miso: PE13
     mosi: PE14
     sck: PE12
+gyro_orientation: 8
 usb_detect: PA9
 vbat: PA3
 ibat: PC0

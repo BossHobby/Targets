@@ -1,5 +1,15 @@
 import YAML, { Pair, Scalar } from "yaml";
 
+export enum GyroRotation {
+  ROTATE_NONE = 0x0,
+  ROTATE_45_CCW = 0x1,
+  ROTATE_45_CW = 0x2,
+  ROTATE_90_CW = 0x4,
+  ROTATE_90_CCW = 0x8,
+  ROTATE_180 = 0x10,
+  FLIP_180 = 0x20,
+}
+
 export type gpio_pins_t = string;
 
 export interface target_led_t {

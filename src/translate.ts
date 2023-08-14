@@ -1,9 +1,20 @@
 import fs from "fs";
 import readline from "readline";
 import { walk } from "./util";
-import { stringifyTarget, target_t } from "./types";
+import { GyroRotation, stringifyTarget, target_t } from "./types";
 
 const OUTPUT_FOLDER = "staging";
+
+const GYRO_ANGLE_MAP = {
+  0: GyroRotation.ROTATE_NONE,
+  45: GyroRotation.ROTATE_45_CW,
+  90: GyroRotation.ROTATE_90_CW,
+  135: GyroRotation.ROTATE_45_CW | GyroRotation.ROTATE_90_CW,
+  180: GyroRotation.ROTATE_180,
+  225: GyroRotation.ROTATE_45_CCW | GyroRotation.ROTATE_90_CCW,
+  270: GyroRotation.ROTATE_90_CCW,
+  315: GyroRotation.ROTATE_45_CCW,
+};
 
 function parsePin(pin: string) {
   const index = parseInt(pin.slice(1));
@@ -184,6 +195,23 @@ function handleSet(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "gyro_1_sensor_align": {
+      const regex = /CW(\d+)(\w*)/gi;
+      const matches = regex.exec(parts[1]);
+      if (!matches) {
+        break;
+      }
+
+      const angle = parseInt(matches[1]);
+
+      let orientation = GYRO_ANGLE_MAP[angle];
+      if (matches[2] == "flip") {
+        orientation |= GyroRotation.FLIP_180;
+      }
+
+      target.gyro_orientation = orientation;
+      break;
+    }
     case "max7456_spi_bus": {
       const port = parseInt(parts[1]);
       target.osd = {
@@ -264,7 +292,7 @@ function handle(target: target_t, parts: string[]) {
   }
 }
 
-async function translate(filename: string) {
+async function translate(filename: string, output?: string) {
   const target: target_t = {
     name: "",
     mcu: "",
@@ -304,20 +332,23 @@ async function translate(filename: string) {
     handle(target, parts);
   }
 
-  fs.writeFileSync(
-    `${OUTPUT_FOLDER}/${target.manufacturer.toLowerCase()}-${target.name}.yaml`,
-    stringifyTarget(target)
-  );
-}
+  if (!output) {
+    output = `${OUTPUT_FOLDER}/${target.manufacturer.toLowerCase()}-${
+      target.name
+    }.yaml`;
+  }
 
-await fs.promises.rm(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
-await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+  fs.writeFileSync(output, stringifyTarget(target));
+}
 
 const args = process.argv.slice(2);
 
 if (args.length) {
-  await translate(args[0]);
+  await translate(args[0], args[1]);
 } else {
+  await fs.promises.rm(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+  await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
+
   for await (const f of walk("betaflight/configs/default/")) {
     await translate(f);
   }

@@ -33,6 +33,7 @@ serial_ports:
 gyro:
   port: 3
   nss: PA15
+gyro_orientation: 16
 osd:
   port: 4
   nss: PE11

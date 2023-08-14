@@ -37,6 +37,7 @@ spi_ports:
 gyro:
   port: 2
   nss: PE10
+gyro_orientation: 8
 vbat: PC0
 ibat: PA5
 buzzer:
