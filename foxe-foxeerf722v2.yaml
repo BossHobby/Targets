@@ -1,15 +1,14 @@
-name: pyrodrone_f4
-manufacturer: PYDR
-mcu: stm32f405
+name: foxeerf722v2
+manufacturer: FOXE
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PB4
+    pin: PC15
 serial_ports:
   - index: 1
-    inverter: PC3
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
@@ -22,9 +21,6 @@ serial_ports:
   - index: 5
     rx: PD2
     tx: PC12
-  - index: 6
-    rx: PC7
-    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -35,24 +31,25 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PB4
+    miso: PC11
     mosi: PB5
-    sck: PB3
+    sck: PC10
 gyro:
   port: 1
-  nss: PA4
-gyro_orientation: 4
+  nss: PB2
+gyro_orientation: 16
 osd:
+  port: 3
+  nss: PC3
+flash:
   port: 2
   nss: PB12
-fpv: PA15
-vbat: PC2
-ibat: PC1
+vbat: PC0
+ibat: PC2
 buzzer:
-  invert: true
-  pin: PB5
+  pin: PA4
 motor_pins:
   - PC9
+  - PC8
+  - PA9
   - PA8
-  - PB1
-  - PB0

@@ -1,12 +1,13 @@
-name: talonf7_v2
-manufacturer: HENA
-mcu: stm32f722
+name: aikonf4
+manufacturer: AIKO
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PB0
+    pin: PB4
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PA10
     tx: PA9
   - index: 2
@@ -18,12 +19,6 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
-  - index: 5
-    rx: PD2
-    tx: PC12
-  - index: 6
-    rx: PC7
-    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -35,24 +30,19 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PB5
+    mosi: PC12
     sck: PC10
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 4
 osd:
   port: 3
   nss: PA15
-flash:
-  port: 2
-  nss: PB12
 vbat: PC2
 ibat: PC1
-buzzer:
-  pin: PB4
 motor_pins:
-  - PB8
   - PC8
-  - PB6
-  - PB7
+  - PC9
+  - PC6
+  - PC7
