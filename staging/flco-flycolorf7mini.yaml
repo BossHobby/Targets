@@ -1,6 +1,6 @@
 name: flycolorf7mini
 manufacturer: FLCO
-mcu: stm32f7x2
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true

@@ -1,6 +1,6 @@
 name: foxeerf722v3
 manufacturer: FOXE
-mcu: stm32f7x2
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true

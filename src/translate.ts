@@ -16,6 +16,18 @@ const GYRO_ANGLE_MAP = {
   315: GyroRotation.ROTATE_45_CCW,
 };
 
+const MCU_MAP = {
+  stm32f7x2: "stm32f722",
+};
+
+function mapMCU(mcu: string) {
+  if (MCU_MAP[mcu]) {
+    return MCU_MAP[mcu];
+  } else {
+    return mcu;
+  }
+}
+
 function parsePin(pin: string) {
   const index = parseInt(pin.slice(1));
   return `P${pin[0].toUpperCase()}${index}`;
@@ -252,7 +264,7 @@ function handle(target: target_t, parts: string[]) {
       break;
 
     case "#mcu":
-      target.mcu = parts[1].toLowerCase();
+      target.mcu = mapMCU(parts[1].toLowerCase());
       break;
 
     case "resource":
@@ -283,7 +295,7 @@ function handle(target: target_t, parts: string[]) {
 
     default:
       if (parts[1] == "betaflight") {
-        target.mcu = parts[3];
+        target.mcu = mapMCU(parts[3].toLowerCase());
       }
       if (!parts[0].startsWith("#")) {
         console.warn(`unhandled ${parts[0]}`);

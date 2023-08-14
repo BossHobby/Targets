@@ -1,6 +1,6 @@
 name: darwinf722hdv2
 manufacturer: DAFP
-mcu: stm32f7x2
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
