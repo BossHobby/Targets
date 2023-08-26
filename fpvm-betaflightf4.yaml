@@ -12,6 +12,7 @@ serial_ports:
     rx: PA10
     tx: PA9
   - index: 2
+    inverter: PC13
     rx: PA3
     tx: PA2
   - index: 3
@@ -36,16 +37,18 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 2
   nss: PB12
 flash:
   port: 3
   nss: PA15
+usb_detect: PC5
 vbat: PC2
 ibat: PC1
 buzzer:
+  invert: true
   pin: PB4
 motor_pins:
   - PC9
