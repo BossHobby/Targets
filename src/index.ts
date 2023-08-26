@@ -29,9 +29,10 @@ for await (const f of walk("targets")) {
 
   console.log(`processing ${target.manufacturer} / ${target.name}...`);
 
+  const targetFile = `${target.manufacturer}-${target.name}`.toLowerCase();
   targetIndex.push({
     name: target.name,
-    target: target.name,
+    target: targetFile,
     manufacturer: target.manufacturer,
     mcu: target.mcu,
   });
@@ -54,7 +55,7 @@ for await (const f of walk("targets")) {
 
     targetIndex.push({
       name: name,
-      target: target.name,
+      target: targetFile,
       manufacturer: manufacturer,
       mcu: target.mcu,
     });
