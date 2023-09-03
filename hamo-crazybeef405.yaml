@@ -1,5 +1,5 @@
-name: betaflightf4
-manufacturer: FPVM
+name: crazybeef405
+manufacturer: HAMO
 mcu: stm32f405
 brushless: true
 leds:
@@ -13,9 +13,6 @@ serial_ports:
     inverter: PC13
     rx: PA3
     tx: PA2
-  - index: 3
-    rx: PB11
-    tx: PB10
   - index: 6
     rx: PC7
     tx: PC6
