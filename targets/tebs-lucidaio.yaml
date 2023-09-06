@@ -1,6 +1,6 @@
 name: lucidaio
 manufacturer: TEBS
-mcu: at32f435
+mcu: at32f435m
 brushless: true
 leds:
   - invert: false
