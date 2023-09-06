@@ -1,0 +1,53 @@
+name: lucidaio
+manufacturer: TEBS
+mcu: at32f435
+brushless: true
+leds:
+  - invert: false
+    pin: PC14
+serial_ports:
+  - index: 1
+    tx: PB6
+    rx: PB7
+  - index: 2
+    tx: PA2
+  - index: 3
+    tx: PB10
+    rx: PB11
+  - index: 4
+    rx: PH2
+  - index: 5
+    tx: PB9
+    rx: PB8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro_orientation: 6
+gyro:
+  port: 1
+  nss: PA4
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PA15
+vbat: PB0
+ibat: PB1
+buzzer:
+  pin: PC13
+motor_pins:
+  - PA10
+  - PA3
+  - PA8
+  - PA9
