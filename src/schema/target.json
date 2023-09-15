@@ -235,8 +235,14 @@
         "vbat": {
             "type": "string"
         },
+        "vbat_scale": {
+            "type": "number"
+        },
         "ibat": {
             "type": "string"
+        },
+        "ibat_scale": {
+            "type": "number"
         },
         "sdcard_detect": {
             "type": "object",

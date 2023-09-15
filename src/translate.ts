@@ -247,6 +247,14 @@ function handleSet(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "vbat_scale": {
+      target.vbat_scale = parseInt(parts[1]);
+      break;
+    }
+    case "ibata_scale": {
+      target.ibat_scale = parseInt(parts[1]);
+      break;
+    }
     default:
       console.warn(`unhandled set ${parts[0]}`);
       break;

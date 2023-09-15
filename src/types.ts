@@ -80,6 +80,9 @@ export interface target_t {
   sdcard_detect?: target_invert_pin_t;
   buzzer?: target_invert_pin_t;
   motor_pins: gpio_pins_t[];
+
+  vbat_scale?: number;
+  ibat_scale?: number;
 }
 
 export const target_keys = [
@@ -101,7 +104,9 @@ export const target_keys = [
   "usb_detect",
   "fpv",
   "vbat",
+  "vbat_scale",
   "ibat",
+  "ibat_scale",
   "sdcard_detect",
   "buzzer",
   "motor_pins",
