@@ -42,6 +42,7 @@ flash:
 usb_detect: PA8
 vbat: PC3
 ibat: PC2
+ibat_scale: 275
 buzzer:
   invert: true
   pin: PC9

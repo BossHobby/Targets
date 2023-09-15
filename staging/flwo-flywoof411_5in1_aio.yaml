@@ -35,6 +35,7 @@ osd:
 usb_detect: PC15
 vbat: PB1
 ibat: PA1
+ibat_scale: 200
 buzzer:
   invert: true
   pin: PC14

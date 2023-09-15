@@ -38,6 +38,7 @@ osd:
   nss: PB12
 vbat: PA1
 ibat: PB0
+ibat_scale: 800
 buzzer:
   invert: true
   pin: PA14

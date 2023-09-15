@@ -57,6 +57,7 @@ flash:
   nss: PB12
 vbat: PC3
 ibat: PC2
+ibat_scale: 250
 buzzer:
   pin: PB3
 motor_pins:

@@ -35,6 +35,7 @@ flash:
   port: 2
   nss: PA0
 vbat: PA1
+vbat_scale: 118
 ibat: PB2
 buzzer:
   pin: PA10

@@ -46,6 +46,7 @@ flash:
 usb_detect: PC5
 vbat: PC2
 ibat: PC1
+ibat_scale: 200
 buzzer:
   invert: true
   pin: PB2

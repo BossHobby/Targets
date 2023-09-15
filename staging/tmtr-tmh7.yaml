@@ -61,6 +61,7 @@ flash:
   nss: PA15
 vbat: PC1
 ibat: PC3
+ibat_scale: 200
 buzzer:
   invert: true
   pin: PE3

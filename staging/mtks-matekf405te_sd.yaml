@@ -45,7 +45,9 @@ osd:
 flash:
   nss: PC13
 vbat: PC4
+vbat_scale: 210
 ibat: PC5
+ibat_scale: 150
 buzzer:
   invert: true
   pin: PB9

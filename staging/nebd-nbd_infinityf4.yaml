@@ -50,6 +50,7 @@ flash:
   nss: PA15
 vbat: PC4
 ibat: PC3
+ibat_scale: 245
 buzzer:
   pin: PB6
 motor_pins:

@@ -50,7 +50,9 @@ flash:
   port: 1
   nss: PA4
 vbat: PC2
+vbat_scale: 110
 ibat: PC3
+ibat_scale: 350
 buzzer:
   invert: true
   pin: PB2

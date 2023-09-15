@@ -33,6 +33,7 @@ osd:
   nss: PB12
 vbat: PB0
 ibat: PB1
+ibat_scale: 180
 motor_pins:
   - PB6
   - PB7

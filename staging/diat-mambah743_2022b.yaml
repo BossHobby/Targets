@@ -60,7 +60,9 @@ flash:
   nss: PA15
 usb_detect: PE6
 vbat: PC1
+vbat_scale: 110
 ibat: PC3
+ibat_scale: 80
 buzzer:
   invert: true
   pin: PE3

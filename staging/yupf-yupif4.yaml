@@ -43,6 +43,7 @@ osd:
   nss: PA14
 vbat: PC1
 ibat: PC2
+ibat_scale: 150
 buzzer:
   pin: PC9
 motor_pins:

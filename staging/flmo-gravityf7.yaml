@@ -49,7 +49,9 @@ flash:
   nss: PB2
 usb_detect: PA10
 vbat: PC1
+vbat_scale: 111
 ibat: PC0
+ibat_scale: 182
 buzzer:
   invert: true
   pin: PC13

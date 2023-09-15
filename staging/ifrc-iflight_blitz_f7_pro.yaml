@@ -43,6 +43,7 @@ flash:
   nss: PB9
 vbat: PC1
 ibat: PC2
+ibat_scale: 65
 buzzer:
   invert: true
   pin: PC15

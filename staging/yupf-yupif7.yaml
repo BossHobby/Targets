@@ -44,6 +44,7 @@ flash:
 usb_detect: PA8
 vbat: PC1
 ibat: PC2
+ibat_scale: 235
 buzzer:
   pin: PB14
 motor_pins:

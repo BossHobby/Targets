@@ -1,20 +1,20 @@
-name: flywoof405nano
-manufacturer: FLWO
+name: speedybeef405v4
+manufacturer: SPBE
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
-    tx: PB6
+    tx: PA9
   - index: 2
-    rx: PD6
-    tx: PD5
+    rx: PA3
+    tx: PA2
   - index: 3
-    rx: PB11
-    tx: PB10
+    rx: PC11
+    tx: PC10
   - index: 4
     rx: PA1
     tx: PA0
@@ -28,28 +28,29 @@ spi_ports:
     miso: PA6
     mosi: PA7
     sck: PA5
+  - index: 2
+    miso: PC2
+    mosi: PC3
+    sck: PB13
   - index: 3
-    miso: PC11
-    mosi: PC12
-    sck: PC10
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 gyro:
   port: 1
-  nss: PB12
+  nss: PA4
+gyro_orientation: 4
 osd:
-  port: 3
-  nss: PB14
-flash:
-  port: 3
-  nss: PB3
-usb_detect: PA8
-vbat: PC3
-ibat: PC2
-ibat_scale: 170
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC1
+ibat_scale: 400
 buzzer:
   invert: true
-  pin: PC13
+  pin: PC15
 motor_pins:
-  - PA3
-  - PA2
   - PB0
   - PB1
+  - PB6
+  - PB7

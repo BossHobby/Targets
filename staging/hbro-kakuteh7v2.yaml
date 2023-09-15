@@ -47,7 +47,9 @@ flash:
   nss: PA4
 usb_detect: PA8
 vbat: PC0
+vbat_scale: 109
 ibat: PC1
+ibat_scale: 168
 buzzer:
   invert: true
   pin: PC13

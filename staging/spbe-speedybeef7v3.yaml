@@ -46,7 +46,9 @@ flash:
   port: 3
   nss: PD2
 vbat: PC2
+vbat_scale: 110
 ibat: PC1
+ibat_scale: 490
 buzzer:
   invert: true
   pin: PC13

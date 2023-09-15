@@ -46,6 +46,7 @@ flash:
   nss: PB12
 vbat: PC2
 ibat: PC1
+ibat_scale: 250
 buzzer:
   invert: true
   pin: PC13

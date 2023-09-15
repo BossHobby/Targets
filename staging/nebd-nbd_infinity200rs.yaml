@@ -51,6 +51,7 @@ flash:
   nss: PB0
 vbat: PC1
 ibat: PC2
+ibat_scale: 230
 motor_pins:
   - PC9
   - PC7

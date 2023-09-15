@@ -55,6 +55,7 @@ flash:
   nss: None
 vbat: PC3
 ibat: PC2
+ibat_scale: 100
 buzzer:
   invert: true
   pin: PD2

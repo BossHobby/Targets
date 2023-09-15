@@ -55,6 +55,7 @@ osd:
   nss: PB12
 vbat: PC0
 ibat: PC1
+ibat_scale: 250
 buzzer:
   invert: true
   pin: PA15
