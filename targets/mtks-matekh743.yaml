@@ -49,13 +49,15 @@ spi_ports:
 gyro:
   port: 1
   nss: PC15
-gyro_orientation: 8
+gyro_orientation: 32
 osd:
   port: 2
   nss: PB12
 vbat: PC0
 ibat: PC1
+ibat_scale: 250
 buzzer:
+  invert: true
   pin: PA15
 motor_pins:
   - PA0

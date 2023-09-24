@@ -33,16 +33,19 @@ spi_ports:
 gyro:
   port: 1
   nss: PB12
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 3
   nss: PB14
 flash:
   port: 3
   nss: PB3
+usb_detect: PA8
 vbat: PC3
 ibat: PC2
+ibat_scale: 170
 buzzer:
+  invert: true
   pin: PC13
 motor_pins:
   - PA3

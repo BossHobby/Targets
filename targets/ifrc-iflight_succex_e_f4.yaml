@@ -3,12 +3,14 @@ manufacturer: IFRC
 mcu: stm32f405
 brushless: true
 leds:
-  - pin: PB5
+  - invert: true
+    pin: PB5
 serial_ports:
   - index: 1
     rx: PA10
     tx: PA9
   - index: 2
+    inverter: PC13
     rx: PA3
     tx: PA2
   - index: 4
@@ -33,16 +35,22 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 2
   nss: PB12
+flash:
+  port: 3
+  nss: PA15
+usb_detect: PC5
 vbat: PC2
 ibat: PC1
+ibat_scale: 100
 buzzer:
+  invert: true
   pin: PB4
 motor_pins:
-  - PB0
-  - PB1
   - PC9
   - PC8
+  - PB0
+  - PB1

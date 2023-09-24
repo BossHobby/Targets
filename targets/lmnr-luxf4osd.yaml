@@ -13,9 +13,9 @@ serial_ports:
   - index: 3
     rx: PB11
     tx: PB10
-  - index: 4
-    rx: PA1
-    tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -32,12 +32,14 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 3
   nss: PA15
+flash:
+  port: 2
+  nss: PB12
 usb_detect: PC5
-fpv: PA13
 vbat: PC2
 ibat: PC1
 buzzer:

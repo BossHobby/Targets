@@ -22,20 +22,20 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 3
-    miso: PB4
-    mosi: PB5
-    sck: PB3
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 2
   nss: PB12
-fpv: PA13
+flash:
+  port: 2
+  nss: PB2
+usb_detect: PC15
 vbat: PA0
 ibat: PA1
+ibat_scale: 170
 buzzer:
   invert: true
   pin: PC14

@@ -53,9 +53,12 @@ osd:
 flash:
   port: 2
   nss: PB12
+usb_detect: PC4
 vbat: PC1
 ibat: PC0
+ibat_scale: 179
 buzzer:
+  invert: true
   pin: PC13
 motor_pins:
   - PA10

@@ -4,8 +4,9 @@ mcu: stm32f405
 brushless: true
 leds:
   - invert: true
+    pin: PB9
+  - invert: true
     pin: PB8
-  - pin: PB9
 serial_ports:
   - index: 1
     rx: PB7
@@ -20,6 +21,9 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
@@ -39,11 +43,13 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 32
+gyro_orientation: 36
 osd:
   port: 2
   nss: PB12
-fpv: PC0
+flash:
+  port: 3
+  nss: PA15
 vbat: PC2
 ibat: PC1
 buzzer:

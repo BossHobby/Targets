@@ -3,7 +3,8 @@ manufacturer: TURC
 mcu: stm32f411
 brushless: true
 leds:
-  - pin: PC13
+  - invert: true
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -23,11 +24,14 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
+usb_detect: PC15
 vbat: PB0
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PB6
