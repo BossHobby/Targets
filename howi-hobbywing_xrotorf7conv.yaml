@@ -49,7 +49,9 @@ flash:
   nss: PC13
 vbat: PC1
 ibat: PC0
+ibat_scale: 170
 buzzer:
+  invert: true
   pin: PC14
 motor_pins:
   - PB3

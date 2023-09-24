@@ -9,6 +9,7 @@ leds:
     pin: PC14
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PB7
     tx: PB6
   - index: 2
@@ -42,7 +43,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 2
   nss: PB12
@@ -52,6 +53,7 @@ flash:
 vbat: PC1
 ibat: PC3
 buzzer:
+  invert: true
   pin: PC13
 motor_pins:
   - PC9
