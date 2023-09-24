@@ -187,7 +187,7 @@ function handleResource(target: target_t, parts: string[]) {
         break;
       }
       target.buzzer = {
-        ...(target.buzzer || { invert: true }),
+        ...(target.buzzer || { invert: false }),
         pin: parsePin(parts[2]),
       };
       break;

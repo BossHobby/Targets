@@ -36,7 +36,6 @@ flash:
   nss: PB12
 usb_detect: PA9
 buzzer:
-  invert: true
   pin: PC5
 motor_pins:
   - PB1

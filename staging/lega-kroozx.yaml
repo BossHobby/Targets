@@ -44,7 +44,6 @@ osd:
 vbat: PC3
 ibat: PC2
 buzzer:
-  invert: true
   pin: PC1
 motor_pins:
   - PA0
