@@ -30,6 +30,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
+  exti: PE0
 gyro_orientation: 16
 vbat: PC1
 buzzer:

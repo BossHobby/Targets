@@ -40,6 +40,7 @@ spi_ports:
 gyro:
   port: 4
   nss: PE4
+  exti: PE1
 gyro_orientation: 8
 osd:
   port: 2

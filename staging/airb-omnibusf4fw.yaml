@@ -35,6 +35,7 @@ spi_ports:
 gyro:
   port: 3
   nss: PD2
+  exti: none
 gyro_orientation: 16
 osd:
   port: 3

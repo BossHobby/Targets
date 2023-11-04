@@ -30,6 +30,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PB12
+  exti: PC13
 gyro_orientation: 4
 flash:
   port: 2

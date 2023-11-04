@@ -30,6 +30,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC2
+  exti: PC3
 osd:
   nss: None
 usb_detect: PB12

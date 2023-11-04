@@ -33,6 +33,7 @@ serial_ports:
 gyro:
   port: 2
   nss: PB12
+  exti: PE15
 gyro_orientation: 32
 osd:
   port: 4

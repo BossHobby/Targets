@@ -35,6 +35,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
+  exti: PC4
 gyro_orientation: 48
 usb_detect: PA9
 vbat: PC1

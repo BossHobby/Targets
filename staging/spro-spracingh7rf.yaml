@@ -43,6 +43,7 @@ serial_ports:
 gyro:
   port: 6
   nss: PA15
+  exti: PD15
 gyro_orientation: 40
 vbat: PC3
 ibat: PC1

@@ -35,6 +35,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
+  exti: PB15
 vbat: PC3
 buzzer:
   invert: true

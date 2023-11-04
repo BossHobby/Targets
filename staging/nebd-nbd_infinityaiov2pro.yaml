@@ -41,6 +41,7 @@ spi_ports:
 gyro:
   port: 4
   nss: PE11
+  exti: PB1
 osd:
   port: 3
   nss: PA15

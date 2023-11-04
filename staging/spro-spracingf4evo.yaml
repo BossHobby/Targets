@@ -38,6 +38,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
+  exti: PC13
 vbat: PC1
 ibat: PC2
 buzzer:

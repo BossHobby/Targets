@@ -35,6 +35,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
+  exti: PA4
 gyro_orientation: 4
 vbat: PC0
 ibat: PC1

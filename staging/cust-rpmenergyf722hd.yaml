@@ -13,8 +13,8 @@ serial_ports:
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 4
     rx: PA1
     tx: PA0
@@ -36,6 +36,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PB1
+  exti: PB0
 gyro_orientation: 8
 flash:
   port: 3

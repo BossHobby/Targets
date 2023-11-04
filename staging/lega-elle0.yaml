@@ -24,6 +24,7 @@ spi_ports:
 gyro:
   port: 2
   nss: PB12
+  exti: PB5
 gyro_orientation: 8
 vbat: PC4
 ibat: PC5

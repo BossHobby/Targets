@@ -38,6 +38,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC14
+  exti: PC15
 gyro_orientation: 40
 osd:
   port: 1
