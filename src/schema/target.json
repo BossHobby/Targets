@@ -287,7 +287,6 @@
         "mcu",
         "brushless",
         "gyro",
-        "gyro_orientation",
         "motor_pins"
     ]
 }
