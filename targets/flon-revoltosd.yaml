@@ -7,6 +7,7 @@ leds:
     pin: PB5
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PA10
     tx: PA9
   - index: 3
@@ -34,13 +35,14 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+  exti: PC4
 osd:
   port: 2
   nss: PD2
 flash:
   port: 2
   nss: PB3
+usb_detect: PC5
 vbat: PC2
 ibat: PC1
 buzzer:
