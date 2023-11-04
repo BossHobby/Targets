@@ -35,6 +35,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
+  exti: PC5
 flash:
   port: 3
   nss: PB7

@@ -24,13 +24,16 @@ spi_ports:
 gyro:
   port: 3
   nss: PA15
-gyro_orientation: 8
+  exti: PC15
+gyro_orientation: 4
 osd:
   port: 1
   nss: PB10
 vbat: PB1
 ibat: PA4
+ibat_scale: 250
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PB6

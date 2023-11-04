@@ -26,7 +26,8 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+  exti: PA1
+gyro_orientation: 16
 osd:
   port: 2
   nss: PB12
@@ -36,6 +37,7 @@ flash:
 vbat: PB0
 ibat: PB1
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PB6

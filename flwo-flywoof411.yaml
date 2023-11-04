@@ -10,7 +10,6 @@ serial_ports:
     rx: PB7
     tx: PB6
   - index: 2
-    inverter: PC14
     rx: PA3
     tx: PA2
 spi_ports:
@@ -25,6 +24,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
+  exti: PB3
 gyro_orientation: 16
 osd:
   port: 2

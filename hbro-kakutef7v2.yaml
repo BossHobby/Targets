@@ -37,10 +37,12 @@ spi_ports:
 gyro:
   port: 4
   nss: PE4
-gyro_orientation: 16
+  exti: PE1
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
+usb_detect: PA8
 vbat: PC3
 ibat: PC2
 buzzer:
