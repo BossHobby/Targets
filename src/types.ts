@@ -41,6 +41,12 @@ export interface target_spi_device_t {
   nss: gpio_pins_t;
 }
 
+export interface target_gyro_spi_device_t {
+  port: number;
+  nss: gpio_pins_t;
+  exti?: gpio_pins_t;
+}
+
 export interface target_rx_spi_device_t {
   port: number;
   nss: gpio_pins_t;
@@ -65,7 +71,7 @@ export interface target_t {
   serial_soft_ports: target_serial_port_t[];
   spi_ports: target_spi_port_t[];
 
-  gyro?: target_spi_device_t;
+  gyro?: target_gyro_spi_device_t;
   gyro_orientation: number;
   osd?: target_spi_device_t;
   flash?: target_spi_device_t;

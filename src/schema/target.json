@@ -132,6 +132,9 @@
                 "port": {
                     "type": "number"
                 },
+                "exti": {
+                    "type": "string"
+                },
                 "nss": {
                     "type": "string"
                 }

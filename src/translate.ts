@@ -29,6 +29,9 @@ function mapMCU(mcu: string) {
 }
 
 function parsePin(pin: string) {
+  if (pin == "none") {
+    return "none";
+  }
   const index = parseInt(pin.slice(1));
   return `P${pin[0].toUpperCase()}${index}`;
 }
@@ -138,6 +141,16 @@ function handleResource(target: target_t, parts: string[]) {
       target.gyro = {
         ...(target.gyro || { port: 0 }),
         nss: parsePin(parts[2]),
+      };
+      break;
+    }
+    case "gyro_exti": {
+      if (parts[1] != "1") {
+        break;
+      }
+      target.gyro = {
+        ...(target.gyro || { port: 0, nss: "NONE" }),
+        exti: parsePin(parts[2]),
       };
       break;
     }
