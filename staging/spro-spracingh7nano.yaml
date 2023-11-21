@@ -10,7 +10,7 @@ serial_ports:
     rx: PB15
     tx: PB14
   - index: 2
-    rx: PNNaN
+    rx: none
     tx: PD5
   - index: 3
     rx: PD9
@@ -25,8 +25,8 @@ serial_ports:
     rx: PC7
     tx: PC6
   - index: 7
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 8
     rx: PE0
     tx: PE1

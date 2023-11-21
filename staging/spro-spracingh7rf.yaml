@@ -8,11 +8,11 @@ leds:
   - invert: true
     pin: PE6
   - invert: true
-    pin: PNNaN
+    pin: none
 serial_ports:
   - index: 1
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 2
     rx: PD6
     tx: PD5
@@ -24,22 +24,22 @@ serial_ports:
     tx: PD1
   - index: 5
     rx: PB13
-    tx: PNNaN
+    tx: none
   - index: 6
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 7
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 8
     rx: PE0
     tx: PE1
   - index: 9
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
   - index: 10
-    rx: PNNaN
-    tx: PNNaN
+    rx: none
+    tx: none
 gyro:
   port: 6
   nss: PA15
