@@ -1,4 +1,4 @@
-name: geprcf411sx1280
+name: geprcf411_elrs
 manufacturer: GEPR
 mcu: stm32f411
 brushless: true
