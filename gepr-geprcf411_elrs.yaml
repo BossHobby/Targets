@@ -38,6 +38,7 @@ rx_spi:
   port: 3
   nss: PA15
   busy: PA13
+  busy_exti: true
   exti: PC13
   reset: PB9
 vbat: PA1
