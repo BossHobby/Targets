@@ -40,6 +40,8 @@ osd:
   nss: PE11
 vbat: PC1
 ibat: PC0
+sdcard_detect:
+  pin: PD10
 buzzer:
   pin: PD7
 motor_pins:

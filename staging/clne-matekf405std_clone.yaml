@@ -44,6 +44,9 @@ gyro_orientation: 16
 osd:
   port: 2
   nss: PB10
+sdcard:
+  port: 3
+  nss: PC1
 usb_detect: PB12
 vbat: PC5
 ibat: PC4

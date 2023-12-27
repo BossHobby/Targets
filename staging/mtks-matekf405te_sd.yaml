@@ -45,6 +45,9 @@ osd:
   nss: PB12
 flash:
   nss: PC13
+sdcard:
+  port: 2
+  nss: PC1
 vbat: PC4
 vbat_scale: 210
 ibat: PC5

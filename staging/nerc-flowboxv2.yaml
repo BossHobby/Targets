@@ -26,6 +26,9 @@ gyro:
   nss: PA4
   exti: PA1
 gyro_orientation: 16
+sdcard:
+  port: 3
+  nss: PA15
 buzzer:
   invert: true
   pin: PB8

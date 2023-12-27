@@ -43,6 +43,8 @@ osd:
 flash:
   port: 2
   nss: None
+sdcard:
+  nss: PA15
 vbat: PC0
 vbat_scale: 110
 ibat: PC1

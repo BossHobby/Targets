@@ -37,6 +37,9 @@ gyro:
   nss: PC4
   exti: PC4
 gyro_orientation: 48
+sdcard:
+  port: 2
+  nss: PD8
 usb_detect: PA9
 vbat: PC1
 ibat: PC2

@@ -39,8 +39,14 @@ gyro:
 flash:
   port: 3
   nss: PB7
+sdcard:
+  port: 3
+  nss: PA15
 vbat: PC3
 ibat: PC2
+sdcard_detect:
+  invert: true
+  pin: PD2
 buzzer:
   invert: true
   pin: PC1

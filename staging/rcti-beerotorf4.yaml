@@ -38,9 +38,15 @@ gyro_orientation: 8
 osd:
   port: 3
   nss: PA15
+sdcard:
+  port: 2
+  nss: PB12
 usb_detect: PC5
 vbat: PC0
 ibat: PC1
+sdcard_detect:
+  invert: true
+  pin: PC3
 buzzer:
   invert: true
   pin: PB3

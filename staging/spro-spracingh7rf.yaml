@@ -47,6 +47,9 @@ gyro:
 gyro_orientation: 40
 vbat: PC3
 ibat: PC1
+sdcard_detect:
+  invert: true
+  pin: PC13
 buzzer:
   invert: true
   pin: PE4

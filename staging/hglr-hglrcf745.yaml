@@ -46,10 +46,16 @@ osd:
   nss: PB12
 flash:
   nss: None
+sdcard:
+  port: 4
+  nss: PE4
 usb_detect: PC4
 vbat: PC3
 ibat: PC2
 ibat_scale: 400
+sdcard_detect:
+  invert: true
+  pin: PE3
 buzzer:
   invert: true
   pin: PD15

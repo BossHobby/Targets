@@ -174,6 +174,16 @@ function handleResource(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "sdcard_cs": {
+      if (parts[1] != "1") {
+        break;
+      }
+      target.sdcard = {
+        ...(target.sdcard || { port: 0 }),
+        nss: parsePin(parts[2]),
+      };
+      break;
+    }
     case "usb_detect": {
       if (parts[1] != "1") {
         break;
@@ -201,6 +211,16 @@ function handleResource(target: target_t, parts: string[]) {
       }
       target.buzzer = {
         ...(target.buzzer || { invert: false }),
+        pin: parsePin(parts[2]),
+      };
+      break;
+    }
+    case "sdcard_detect": {
+      if (parts[1] != "1") {
+        break;
+      }
+      target.sdcard_detect = {
+        ...(target.sdcard_detect || { invert: false }),
         pin: parsePin(parts[2]),
       };
       break;
@@ -253,9 +273,24 @@ function handleSet(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "sdcard_spi_bus": {
+      const port = parseInt(parts[1]);
+      target.sdcard = {
+        ...(target.sdcard || { nss: "None" }),
+        port,
+      };
+      break;
+    }
     case "beeper_inversion": {
       target.buzzer = {
         ...(target.buzzer || { pin: "None" }),
+        invert: parts[1] != "off",
+      };
+      break;
+    }
+    case "sdcard_detect_inverted": {
+      target.sdcard_detect = {
+        ...(target.sdcard_detect || { pin: "None" }),
         invert: parts[1] != "off",
       };
       break;

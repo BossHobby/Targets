@@ -46,6 +46,9 @@ osd:
 flash:
   port: 3
   nss: PD2
+sdcard:
+  port: 3
+  nss: PD2
 vbat: PC2
 vbat_scale: 110
 ibat: PC1

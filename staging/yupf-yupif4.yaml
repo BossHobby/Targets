@@ -42,9 +42,15 @@ gyro_orientation: 4
 osd:
   port: 1
   nss: PA14
+sdcard:
+  port: 3
+  nss: PA15
 vbat: PC1
 ibat: PC2
 ibat_scale: 150
+sdcard_detect:
+  invert: true
+  pin: PD2
 buzzer:
   pin: PC9
 motor_pins:

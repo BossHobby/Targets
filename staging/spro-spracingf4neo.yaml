@@ -44,9 +44,15 @@ gyro:
 osd:
   port: 3
   nss: PA15
+sdcard:
+  port: 2
+  nss: PB12
 vbat: PC1
 ibat: PC2
 ibat_scale: 300
+sdcard_detect:
+  invert: true
+  pin: PC14
 buzzer:
   invert: true
   pin: PC15

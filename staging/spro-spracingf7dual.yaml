@@ -41,6 +41,9 @@ gyro:
 osd:
   port: 2
   nss: PB12
+sdcard:
+  port: 3
+  nss: PC3
 vbat: PC1
 ibat: PC2
 ibat_scale: 300
