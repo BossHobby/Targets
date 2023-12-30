@@ -92,6 +92,9 @@ PYDR:
 SPBE:
   name: LangTian Technology (Shenzhen) Co
   url: https://www.speedybee.com/
+SPDX:
+  name: Spedix.co Ltd
+  url: http://www.spedix-rc.com/
 TCMM:
   name: TCMM
   full_name: Shenzhen Xinmumu Science and Technology Co
