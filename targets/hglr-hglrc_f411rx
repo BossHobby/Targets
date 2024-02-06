@@ -1,4 +1,4 @@
-name: hglrcf411sx1280v2
+name: hglrc_f411rx
 manufacturer: HGLR
 mcu: stm32f411
 brushless: true
