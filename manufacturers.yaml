@@ -89,6 +89,9 @@ OPEN:
 PYDR:
   name: Pyro-Drone
   url: https://pyrodrone.com/
+SKST:
+  name: Shenzhen SKYSTARS Tech Co., LIMITED
+  url: http://www.skystars-rc.com/index.html  
 SPBE:
   name: LangTian Technology (Shenzhen) Co
   url: https://www.speedybee.com/
