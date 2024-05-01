@@ -1,6 +1,6 @@
 name: takerg4aio
 manufacturer: GEPR
-mcu: stm32g47x
+mcu: stm32g473
 brushless: true
 leds:
   - invert: true

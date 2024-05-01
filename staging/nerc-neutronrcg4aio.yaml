@@ -1,6 +1,6 @@
 name: neutronrcg4aio
 manufacturer: NERC
-mcu: stm32g47x
+mcu: stm32g473
 brushless: true
 leds:
   - invert: true

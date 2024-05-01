@@ -1,6 +1,6 @@
 name: mercuryg4
 manufacturer: ANYL
-mcu: stm32g47x
+mcu: stm32g473
 brushless: true
 serial_ports:
   - index: 1

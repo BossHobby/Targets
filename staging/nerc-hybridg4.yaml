@@ -1,6 +1,6 @@
 name: hybridg4
 manufacturer: NERC
-mcu: stm32g47x
+mcu: stm32g473
 brushless: true
 leds:
   - invert: true

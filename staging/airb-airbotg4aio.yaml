@@ -1,6 +1,6 @@
 name: airbotg4aio
 manufacturer: AIRB
-mcu: stm32g47x
+mcu: stm32g473
 brushless: true
 leds:
   - invert: true
@@ -25,8 +25,12 @@ serial_soft_ports:
     tx: PB11
 spi_ports:
   - index: 1
+    miso: PA6
+    mosi: PA7
     sck: PA5
   - index: 2
+    miso: PB14
+    mosi: PB15
     sck: PB13
 gyro:
   port: 1

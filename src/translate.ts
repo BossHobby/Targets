@@ -18,6 +18,7 @@ const GYRO_ANGLE_MAP = {
 
 const MCU_MAP = {
   stm32f7x2: "stm32f722",
+  stm32g47x: "stm32g473",
 };
 
 function mapMCU(mcu: string) {
@@ -116,6 +117,7 @@ function handleResource(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "spi_sdi":
     case "spi_miso": {
       const index = parseInt(parts[1]) - 1;
       target.spi_ports[index] = {
@@ -125,6 +127,7 @@ function handleResource(target: target_t, parts: string[]) {
       };
       break;
     }
+    case "spi_sdo":
     case "spi_mosi": {
       const index = parseInt(parts[1]) - 1;
       target.spi_ports[index] = {
