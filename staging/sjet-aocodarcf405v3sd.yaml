@@ -1,4 +1,4 @@
-name: aocodarcf405_aio
+name: aocodarcf405v3sd
 manufacturer: SJET
 mcu: stm32f405
 brushless: true
@@ -38,16 +38,20 @@ gyro:
   port: 1
   nss: PA4
   exti: PC4
+gyro_orientation: 4
 osd:
   port: 2
   nss: PA13
-flash:
+sdcard:
   port: 3
   nss: PC0
 usb_detect: PB12
 vbat: PC2
 ibat: PC1
-ibat_scale: 589
+ibat_scale: 206
+sdcard_detect:
+  invert: true
+  pin: PC14
 buzzer:
   invert: true
   pin: PB8

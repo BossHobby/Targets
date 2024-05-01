@@ -1,10 +1,10 @@
-name: aocodarcf405_aio
-manufacturer: SJET
+name: flycolorf4
+manufacturer: FLCO
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC15
 serial_ports:
   - index: 1
     rx: PA10
@@ -21,14 +21,17 @@ serial_ports:
   - index: 5
     rx: PD2
     tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
     mosi: PA7
     sck: PA5
   - index: 2
-    miso: PB14
-    mosi: PB15
+    miso: PC2
+    mosi: PC3
     sck: PB13
   - index: 3
     miso: PB4
@@ -38,21 +41,22 @@ gyro:
   port: 1
   nss: PA4
   exti: PC4
+gyro_orientation: 16
 osd:
   port: 2
-  nss: PA13
+  nss: PB12
 flash:
   port: 3
-  nss: PC0
-usb_detect: PB12
-vbat: PC2
+  nss: PC13
+vbat: PC0
+vbat_scale: 111
 ibat: PC1
-ibat_scale: 589
+ibat_scale: 235
 buzzer:
   invert: true
-  pin: PB8
+  pin: PC14
 motor_pins:
-  - PC8
-  - PC9
-  - PC6
-  - PC7
+  - PB8
+  - PB9
+  - PB6
+  - PB7

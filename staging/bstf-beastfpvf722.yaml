@@ -1,14 +1,14 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: beastfpvf722
+manufacturer: BSTF
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC15
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
@@ -18,15 +18,12 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
-    tx: PE8
-  - index: 8
-    rx: PE0
-    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
@@ -38,34 +35,27 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB5
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
   port: 1
   nss: PA4
-  exti: PD0
-gyro_orientation: 8
+  exti: PC4
+gyro_orientation: 4
 osd:
-  port: 4
-  nss: PE4
+  port: 2
+  nss: PB12
 flash:
   port: 3
-  nss: None
-sdcard:
-  port: 3
   nss: PA15
-vbat: PC3
-ibat: PC2
-ibat_scale: 100
+vbat: PC1
+ibat: PC3
+ibat_scale: 250
 buzzer:
   invert: true
-  pin: PD2
+  pin: PC13
 motor_pins:
-  - PB5
-  - PB4
-  - PB0
-  - PB1
+  - PA8
+  - PA9
+  - PC8
+  - PC9

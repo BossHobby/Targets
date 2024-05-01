@@ -1,6 +1,6 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: foxeerh743v2
+manufacturer: FOXE
+mcu: stm32h743
 brushless: true
 leds:
   - invert: true
@@ -40,22 +40,15 @@ spi_ports:
     miso: PC11
     mosi: PC12
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
-  port: 1
-  nss: PA4
+  port: 2
+  nss: PB12
   exti: PD0
 gyro_orientation: 8
 osd:
-  port: 4
-  nss: PE4
+  port: 1
+  nss: PA4
 flash:
-  port: 3
-  nss: None
-sdcard:
   port: 3
   nss: PA15
 vbat: PC3
@@ -65,7 +58,7 @@ buzzer:
   invert: true
   pin: PD2
 motor_pins:
-  - PB5
-  - PB4
   - PB0
   - PB1
+  - PB4
+  - PB5

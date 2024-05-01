@@ -1,10 +1,12 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: hglrcf722miniv2
+manufacturer: HGLR
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PA14
+  - invert: true
+    pin: PA13
 serial_ports:
   - index: 1
     rx: PA10
@@ -21,12 +23,6 @@ serial_ports:
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
-    tx: PE8
-  - index: 8
-    rx: PE0
-    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
@@ -40,32 +36,26 @@ spi_ports:
     miso: PC11
     mosi: PC12
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
   port: 1
-  nss: PA4
-  exti: PD0
-gyro_orientation: 8
+  nss: PB2
+  exti: PC4
 osd:
-  port: 4
-  nss: PE4
+  port: 2
+  nss: PB12
 flash:
   port: 3
-  nss: None
-sdcard:
-  port: 3
-  nss: PA15
-vbat: PC3
-ibat: PC2
-ibat_scale: 100
+  nss: PD2
+usb_detect: PC14
+vbat: PC2
+vbat_scale: 110
+ibat: PC1
+ibat_scale: 179
 buzzer:
   invert: true
-  pin: PD2
+  pin: PC13
 motor_pins:
-  - PB5
-  - PB4
   - PB0
   - PB1
+  - PB4
+  - PB5

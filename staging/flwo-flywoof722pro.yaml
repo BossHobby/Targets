@@ -1,10 +1,10 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: flywoof722pro
+manufacturer: FLWO
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC15
 serial_ports:
   - index: 1
     rx: PA10
@@ -18,15 +18,12 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
-    tx: PE8
-  - index: 8
-    rx: PE0
-    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
@@ -38,34 +35,26 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB5
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
   port: 1
   nss: PA4
-  exti: PD0
-gyro_orientation: 8
+  exti: PC3
 osd:
-  port: 4
-  nss: PE4
+  port: 2
+  nss: PB12
 flash:
   port: 3
-  nss: None
-sdcard:
-  port: 3
-  nss: PA15
-vbat: PC3
-ibat: PC2
-ibat_scale: 100
+  nss: PC13
+vbat: PC1
+ibat: PC0
+ibat_scale: 170
 buzzer:
   invert: true
-  pin: PD2
+  pin: PC14
 motor_pins:
-  - PB5
-  - PB4
-  - PB0
+  - PB3
+  - PA15
   - PB1
+  - PB4

@@ -1,6 +1,6 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: iflight_h743_aio
+manufacturer: IFRC
+mcu: iflight_h743_aio
 brushless: true
 leds:
   - invert: true
@@ -48,24 +48,21 @@ gyro:
   port: 1
   nss: PA4
   exti: PD0
-gyro_orientation: 8
 osd:
   port: 4
   nss: PE4
 flash:
   port: 3
-  nss: None
-sdcard:
-  port: 3
   nss: PA15
 vbat: PC3
+vbat_scale: 110
 ibat: PC2
-ibat_scale: 100
+ibat_scale: 200
 buzzer:
   invert: true
-  pin: PD2
+  pin: PD15
 motor_pins:
-  - PB5
-  - PB4
+  - PE9
+  - PE11
   - PB0
   - PB1

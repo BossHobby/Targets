@@ -1,14 +1,16 @@
-name: geprcf745_bt_hd
-manufacturer: GEPR
-mcu: stm32f745
+name: tmotorveloxf7se
+manufacturer: TMTR
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC14
+  - invert: true
+    pin: PA14
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
@@ -16,17 +18,14 @@ serial_ports:
     rx: PB11
     tx: PB10
   - index: 4
-    rx: PA1
+    rx: PC11
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
-    tx: PE8
-  - index: 8
-    rx: PE0
-    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
@@ -37,35 +36,28 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PC11
-    mosi: PC12
+    miso: PB4
+    mosi: PB2
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
   port: 1
   nss: PA4
-  exti: PD0
-gyro_orientation: 8
+  exti: PC4
+gyro_orientation: 4
 osd:
-  port: 4
-  nss: PE4
+  port: 2
+  nss: PB12
 flash:
   port: 3
-  nss: None
-sdcard:
-  port: 3
   nss: PA15
-vbat: PC3
-ibat: PC2
-ibat_scale: 100
+vbat: PC2
+ibat: PC3
+ibat_scale: 200
 buzzer:
   invert: true
-  pin: PD2
+  pin: PC13
 motor_pins:
   - PB5
-  - PB4
-  - PB0
   - PB1
+  - PA1
+  - PB0

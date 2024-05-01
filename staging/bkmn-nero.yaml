@@ -35,17 +35,18 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
-  exti: PB15
+  exti: PB2
 sdcard:
   port: 3
   nss: PA15
 vbat: PC3
+ibat: PC2
 sdcard_detect:
   invert: true
   pin: PD2
 buzzer:
   invert: true
-  pin: None
+  pin: PC1
 motor_pins:
   - PA2
   - PA3
