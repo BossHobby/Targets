@@ -33,6 +33,13 @@ gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
+rx_spi:
+  port: 3
+  nss: PA15
+  busy: PA13
+  busy_exti: true
+  exti: PC14
+  reset: PA8  
 flash:
   port: 2
   nss: PA14
