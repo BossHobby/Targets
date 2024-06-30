@@ -208,6 +208,13 @@ function handleResource(target: target_t, parts: string[]) {
       target.ibat = parsePin(parts[2]);
       break;
     }
+    case "led_strip": {
+      if (parts[1] != "1") {
+        break;
+      }
+      target.rgb_led = parsePin(parts[2]);
+      break;
+    }
     case "beeper": {
       if (parts[1] != "1") {
         break;

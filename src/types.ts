@@ -82,6 +82,7 @@ export interface target_t {
   fpv?: gpio_pins_t;
   vbat?: gpio_pins_t;
   ibat?: gpio_pins_t;
+  rgb_led?: gpio_pins_t;
 
   sdcard_detect?: target_invert_pin_t;
   buzzer?: target_invert_pin_t;
@@ -113,6 +114,7 @@ export const target_keys = [
   "vbat_scale",
   "ibat",
   "ibat_scale",
+  "rgb_led",
   "sdcard_detect",
   "buzzer",
   "motor_pins",
