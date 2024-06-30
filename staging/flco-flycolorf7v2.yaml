@@ -51,11 +51,12 @@ flash:
 vbat: PC1
 ibat: PC0
 ibat_scale: 170
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PC14
 motor_pins:
-  - PB3
+  - B03
   - PA15
   - PB1
   - PB4

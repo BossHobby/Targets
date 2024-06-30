@@ -15,14 +15,10 @@ serial_ports:
     rx: PB4
     tx: PB3
   - index: 3
-    rx: PB11
-    tx: PB10
+    tx: PB9
   - index: 4
     rx: PC11
     tx: PC10
-serial_soft_ports:
-  - index: 1
-    tx: PB9
 spi_ports:
   - index: 1
     miso: PA6
@@ -45,6 +41,7 @@ flash:
   nss: PC6
 vbat: PB2
 ibat: PB1
+rgb_led: PB6
 buzzer:
   invert: true
   pin: PA15

@@ -57,6 +57,8 @@ osd:
 usb_detect: PE2
 vbat: PC0
 ibat: PC1
+ibat_scale: 210
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PA15

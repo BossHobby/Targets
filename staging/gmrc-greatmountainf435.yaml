@@ -1,0 +1,62 @@
+name: greatmountainf435
+manufacturer: GMRC
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PD15
+  - invert: true
+    pin: PD14
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC5
+    tx: PC4
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 8
+    rx: PC3
+    tx: PC2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PD3
+    mosi: PD4
+    sck: PD1
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+  exti: PA15
+gyro_orientation: 48
+osd:
+  port: 2
+  nss: PD5
+flash:
+  port: 3
+  nss: PD6
+vbat: PB0
+vbat_scale: 110
+ibat: PB1
+ibat_scale: 100
+rgb_led: PB10
+buzzer:
+  invert: true
+  pin: PB11
+motor_pins:
+  - PB8
+  - PB9
+  - PB6
+  - PB7

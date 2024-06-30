@@ -40,6 +40,7 @@ flash:
   nss: PB9
 vbat: PA0
 ibat: PA1
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PC14

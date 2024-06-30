@@ -21,9 +21,6 @@ serial_ports:
   - index: 5
     rx: PD2
     tx: PC12
-  - index: 6
-    rx: PC7
-    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -50,6 +47,7 @@ sdcard:
 vbat: PC1
 ibat: PC2
 ibat_scale: 100
+rgb_led: PA1
 buzzer:
   invert: true
   pin: PC15

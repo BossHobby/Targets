@@ -52,6 +52,7 @@ vbat: PC0
 vbat_scale: 109
 ibat: PC1
 ibat_scale: 168
+rgb_led: PD12
 sdcard_detect:
   invert: true
   pin: PA3

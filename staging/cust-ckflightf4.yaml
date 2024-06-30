@@ -1,0 +1,52 @@
+name: ckflightf4
+manufacturer: CUST
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PC2
+  - invert: true
+    pin: PC3
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PB12
+osd:
+  port: 2
+  nss: PC9
+sdcard:
+  port: 3
+  nss: PA8
+vbat: PC5
+ibat: PA4
+rgb_led: PC8
+buzzer:
+  invert: true
+  pin: PB0
+motor_pins:
+  - PB7
+  - PA2
+  - PB5
+  - PB6

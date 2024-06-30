@@ -54,7 +54,7 @@ spi_ports:
     mosi: PB5
     sck: PB3
 gyro:
-  port: 2
+  port: 1
   nss: PA4
   exti: PC4
 gyro_orientation: 36
@@ -69,6 +69,7 @@ vbat: PC1
 vbat_scale: 110
 ibat: PC3
 ibat_scale: 200
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PE3

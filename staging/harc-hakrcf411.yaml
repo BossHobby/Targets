@@ -32,6 +32,7 @@ osd:
   nss: PB12
 vbat: PA0
 ibat: PA1
+rgb_led: PB6
 buzzer:
   invert: true
   pin: PC14

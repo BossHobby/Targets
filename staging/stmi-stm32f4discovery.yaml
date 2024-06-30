@@ -34,7 +34,7 @@ spi_ports:
     sck: PB13
 gyro:
   port: 1
-  nss: PC4
+  nss: PA4
   exti: PC4
 gyro_orientation: 48
 sdcard:
@@ -43,6 +43,7 @@ sdcard:
 usb_detect: PA9
 vbat: PC1
 ibat: PC2
+rgb_led: PB9
 motor_pins:
   - PA2
   - PA3

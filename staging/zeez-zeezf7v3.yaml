@@ -52,6 +52,7 @@ sdcard:
 vbat: PC0
 ibat: PC1
 ibat_scale: 250
+rgb_led: PB0
 buzzer:
   invert: true
   pin: PC4

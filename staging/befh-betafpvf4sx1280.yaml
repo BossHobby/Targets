@@ -37,9 +37,13 @@ gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
+flash:
+  port: 2
+  nss: PA10
 vbat: PA1
 ibat: PB0
 ibat_scale: 800
+rgb_led: PB1
 buzzer:
   invert: true
   pin: PA14

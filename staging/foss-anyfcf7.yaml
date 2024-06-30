@@ -59,6 +59,7 @@ sdcard:
 usb_detect: PA8
 vbat: PC0
 ibat: PC1
+rgb_led: PB3
 sdcard_detect:
   invert: true
   pin: PD3

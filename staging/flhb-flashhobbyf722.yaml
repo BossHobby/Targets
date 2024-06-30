@@ -1,12 +1,10 @@
-name: hglrcf722aiov2
-manufacturer: HGLR
+name: flashhobbyf722
+manufacturer: FLHB
 mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PA13
-  - invert: true
-    pin: PA14
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -22,7 +20,6 @@ serial_ports:
     tx: PA0
   - index: 5
     rx: PD2
-    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
@@ -35,26 +32,30 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 gyro:
   port: 1
-  nss: PB2
+  nss: PA4
   exti: PC4
-gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
 flash:
-  port: 2
-  nss: PC10
-usb_detect: PC14
+  port: 3
+  nss: PA15
+usb_detect: PB2
 vbat: PC2
 ibat: PC1
-ibat_scale: 179
+ibat_scale: 200
+rgb_led: PA8
 buzzer:
   invert: true
-  pin: PC13
+  pin: PC15
 motor_pins:
+  - PB5
+  - PB4
   - PB0
   - PB1
-  - PB4
-  - PB5

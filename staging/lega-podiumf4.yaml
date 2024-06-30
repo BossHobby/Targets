@@ -41,6 +41,7 @@ flash:
   nss: PB3
 usb_detect: PA8
 vbat: PC3
+rgb_led: PA1
 motor_pins:
   - PA3
   - PA2

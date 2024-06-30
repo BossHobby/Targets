@@ -34,7 +34,6 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: none
 gyro_orientation: 4
 osd:
   port: 1
@@ -46,6 +45,7 @@ usb_detect: PA8
 vbat: PC1
 ibat: PC2
 ibat_scale: 235
+rgb_led: PB1
 buzzer:
   pin: PB14
 motor_pins:

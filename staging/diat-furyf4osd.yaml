@@ -45,6 +45,7 @@ flash:
 usb_detect: PC5
 vbat: PC1
 ibat: PC3
+rgb_led: PA0
 buzzer:
   invert: true
   pin: PA8

@@ -41,6 +41,7 @@ flash:
 usb_detect: PC5
 vbat: PC2
 ibat: PC1
+rgb_led: PA1
 motor_pins:
   - PA3
   - PA2

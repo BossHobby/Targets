@@ -54,6 +54,7 @@ vbat: PC2
 vbat_scale: 110
 ibat: PC1
 ibat_scale: 250
+rgb_led: PB1
 sdcard_detect:
   pin: PC3
 buzzer:

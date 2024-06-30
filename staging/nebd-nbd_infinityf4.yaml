@@ -52,6 +52,7 @@ flash:
 vbat: PC4
 ibat: PC3
 ibat_scale: 245
+rgb_led: PB8
 buzzer:
   pin: PB6
 motor_pins:

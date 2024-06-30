@@ -53,6 +53,7 @@ vbat: PC1
 vbat_scale: 111
 ibat: PC0
 ibat_scale: 182
+rgb_led: PA15
 buzzer:
   invert: true
   pin: PC13

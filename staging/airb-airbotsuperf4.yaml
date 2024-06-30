@@ -1,0 +1,61 @@
+name: airbotsuperf4
+manufacturer: AIRB
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 7
+    rx: PC1
+    tx: PC0
+  - index: 8
+    rx: PC3
+    tx: PC2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PC14
+  exti: PB12
+osd:
+  port: 2
+  nss: PH2
+flash:
+  port: 3
+  nss: PC13
+vbat: PC4
+ibat: PA3
+rgb_led: PA15
+buzzer:
+  pin: PB10
+motor_pins:
+  - PB7
+  - PB6
+  - PC9
+  - PC8

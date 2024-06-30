@@ -43,6 +43,7 @@ sdcard:
   nss: PB10
 vbat: PC0
 ibat: PC1
+rgb_led: PA8
 sdcard_detect:
   invert: true
   pin: PB11

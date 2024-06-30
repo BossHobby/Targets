@@ -39,6 +39,7 @@ flash:
   port: 3
   nss: PB3
 vbat: PC2
+rgb_led: PB7
 buzzer:
   invert: true
   pin: PA14

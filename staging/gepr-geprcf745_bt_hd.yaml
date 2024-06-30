@@ -48,7 +48,7 @@ gyro:
   port: 1
   nss: PA4
   exti: PD0
-gyro_orientation: 8
+gyro_orientation: 16
 osd:
   port: 4
   nss: PE4
@@ -61,6 +61,7 @@ sdcard:
 vbat: PC3
 ibat: PC2
 ibat_scale: 100
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PD2

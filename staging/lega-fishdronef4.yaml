@@ -47,6 +47,7 @@ sdcard:
   nss: PB9
 usb_detect: PA8
 vbat: PC0
+rgb_led: PA0
 sdcard_detect:
   invert: true
   pin: PB7

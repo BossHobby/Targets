@@ -44,6 +44,7 @@ usb_detect: PC5
 vbat: PC1
 ibat: PC3
 ibat_scale: 444
+rgb_led: PB7
 buzzer:
   pin: PA8
 motor_pins:

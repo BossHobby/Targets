@@ -1,6 +1,6 @@
 name: dreamflyf722
 manufacturer: DFRC
-mcu: stm32f722
+mcu: stm32fx2
 brushless: true
 leds:
   - invert: true
@@ -50,6 +50,7 @@ flash:
   nss: PA15
 vbat: PC1
 ibat: PC3
+rgb_led: PB3
 buzzer:
   invert: true
   pin: PC13

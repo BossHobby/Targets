@@ -25,7 +25,6 @@ spi_ports:
 gyro:
   port: 2
   nss: PB12
-  exti: none
 osd:
   port: 2
   nss: PA10
@@ -33,6 +32,7 @@ flash:
   port: 1
   nss: PA15
 vbat: PA5
+rgb_led: PA0
 buzzer:
   invert: true
   pin: PC13

@@ -41,6 +41,7 @@ osd:
 usb_detect: PA9
 vbat: PC1
 ibat: PC2
+rgb_led: PA10
 sdcard_detect:
   pin: PB15
 buzzer:

@@ -43,6 +43,7 @@ osd:
 flash:
   port: 3
   nss: PA15
+rgb_led: PA0
 buzzer:
   invert: true
   pin: PA2

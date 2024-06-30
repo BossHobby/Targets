@@ -46,6 +46,7 @@ flash:
   nss: PB12
 usb_detect: PA8
 vbat: PC0
+rgb_led: PB5
 buzzer:
   invert: true
   pin: PB2

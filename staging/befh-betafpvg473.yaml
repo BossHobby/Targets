@@ -46,6 +46,8 @@ flash:
   nss: PB9
 vbat: PA0
 ibat: PA1
+ibat_scale: 750
+rgb_led: PB2
 buzzer:
   invert: true
   pin: PA8

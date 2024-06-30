@@ -53,6 +53,7 @@ usb_detect: PB2
 vbat: PC2
 ibat: PC1
 ibat_scale: 200
+rgb_led: PA8
 sdcard_detect:
   invert: true
   pin: None

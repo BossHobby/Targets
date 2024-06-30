@@ -49,6 +49,7 @@ flash:
 usb_detect: PC4
 vbat: PC3
 ibat: PC2
+rgb_led: PD12
 buzzer:
   invert: true
   pin: PD15

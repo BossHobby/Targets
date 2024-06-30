@@ -1,0 +1,67 @@
+name: spracingh7ef
+manufacturer: SPRO
+mcu: stm32h730
+brushless: true
+leds:
+  - invert: true
+    pin: PE5
+  - invert: true
+    pin: PE6
+  - invert: true
+serial_ports:
+  - index: 1
+    rx: PB7
+    tx: PB6
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PD0
+    tx: PD1
+  - index: 5
+    rx: PD2
+  - index: 6
+  - index: 7
+  - index: 8
+    rx: PE0
+    tx: PE1
+  - index: 9
+    rx: PD14
+    tx: PD15
+  - index: 10
+    rx: PE2
+    tx: PE3
+spi_ports:
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+  - index: 6
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 3
+  nss: SPI3_NSS_PIN
+  exti: PC6
+flash:
+  port: 6
+  nss: PD7
+vbat: PC3
+ibat: CURRENT_METER_1_ADC_PIN
+rgb_led: PB8
+buzzer:
+  invert: true
+  pin: PD11
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1

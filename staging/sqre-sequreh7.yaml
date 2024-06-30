@@ -1,0 +1,61 @@
+name: sequreh7
+manufacturer: SQRE
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PC13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 2
+  nss: PB12
+  exti: PD0
+osd:
+  port: 1
+  nss: PA4
+flash:
+  port: 3
+  nss: PA15
+vbat: PC3
+vbat_scale: 110
+ibat: PC2
+ibat_scale: 1052
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PD15
+motor_pins:
+  - PB0
+  - PB1
+  - PB4
+  - PB5

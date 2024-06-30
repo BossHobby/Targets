@@ -10,7 +10,6 @@ serial_ports:
     rx: PB15
     tx: PB14
   - index: 2
-    rx: none
     tx: PD5
   - index: 3
     rx: PD9
@@ -25,11 +24,22 @@ serial_ports:
     rx: PC7
     tx: PC6
   - index: 7
-    rx: none
-    tx: none
   - index: 8
     rx: PE0
     tx: PE1
+spi_ports:
+  - index: 2
+    miso: PC2
+    mosi: PC3
+    sck: PD3
+  - index: 3
+    miso: PB4
+    mosi: PD6
+    sck: PB3
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
 gyro:
   port: 3
   nss: PA15
@@ -40,7 +50,9 @@ osd:
   nss: PE11
 vbat: PC1
 ibat: PC0
+rgb_led: PA8
 sdcard_detect:
+  invert: true
   pin: PD10
 buzzer:
   pin: PD7

@@ -1,0 +1,56 @@
+name: chonkerh735
+manufacturer: YOLO
+mcu: stm32h725
+brushless: true
+leds:
+  - invert: true
+    pin: PA10
+  - invert: true
+    pin: PA8
+serial_ports:
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+  - index: 9
+    rx: PD15
+    tx: PD14
+spi_ports:
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
+gyro:
+  port: 2
+  nss: PB12
+  exti: PD10
+gyro_orientation: 32
+flash:
+  port: 4
+  nss: PE4
+usb_detect: PA9
+ibat: PA5
+motor_pins:
+  - PC8
+  - PC7
+  - PC6
+  - PC9

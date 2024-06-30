@@ -37,7 +37,7 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PB5
+    mosi: PC12
     sck: PC10
 gyro:
   port: 1
@@ -45,14 +45,15 @@ gyro:
   exti: PC4
 gyro_orientation: 4
 osd:
-  port: 2
+  port: 3
   nss: PB12
 flash:
-  port: 3
+  port: 2
   nss: PA15
 vbat: PC1
-ibat: PC3
-ibat_scale: 100
+ibat: PC2
+ibat_scale: 170
+rgb_led: PB3
 buzzer:
   invert: true
   pin: PC13

@@ -44,6 +44,7 @@ sdcard:
   nss: PA15
 vbat: PC3
 ibat: PC2
+rgb_led: PB0
 sdcard_detect:
   invert: true
   pin: PD2

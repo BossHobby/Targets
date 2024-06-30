@@ -6,7 +6,7 @@ leds:
   - invert: true
     pin: PA14
   - invert: true
-    pin: PA13
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -46,11 +46,11 @@ osd:
 flash:
   port: 3
   nss: PD2
-usb_detect: PC14
 vbat: PC2
 vbat_scale: 110
 ibat: PC1
 ibat_scale: 179
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PC13

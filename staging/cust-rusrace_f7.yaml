@@ -49,6 +49,7 @@ flash:
 usb_detect: PB12
 vbat: PB0
 ibat: PC4
+rgb_led: PB6
 motor_pins:
   - PC8
   - PC9

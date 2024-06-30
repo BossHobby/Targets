@@ -1,10 +1,7 @@
 name: iflight_h743_aio
 manufacturer: IFRC
-mcu: iflight_h743_aio
+mcu: stm32h743
 brushless: true
-leds:
-  - invert: true
-    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -58,6 +55,7 @@ vbat: PC3
 vbat_scale: 110
 ibat: PC2
 ibat_scale: 200
+rgb_led: PD12
 buzzer:
   invert: true
   pin: PD15

@@ -54,6 +54,7 @@ osd:
   nss: PE11
 vbat: PC1
 ibat: PC0
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PC13

@@ -1,0 +1,24 @@
+name: atstartf435
+manufacturer: ATRY
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PD13
+  - invert: true
+    pin: PD14
+  - invert: true
+    pin: PD15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+spi_ports:
+  - index: 2
+    miso: PC2
+    mosi: PD4
+    sck: PD1
+gyro:
+  port: 2
+  nss: J7_NSS
+  exti: PB11

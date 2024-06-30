@@ -30,6 +30,7 @@ gyro_orientation: 16
 usb_detect: PA9
 vbat: PC1
 ibat: PC2
+rgb_led: PB8
 buzzer:
   pin: PD12
 motor_pins:

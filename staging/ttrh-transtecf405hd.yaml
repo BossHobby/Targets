@@ -31,12 +31,11 @@ gyro:
   port: 1
   nss: PC2
   exti: PC3
-osd:
-  nss: None
 usb_detect: PB12
 vbat: PC5
 ibat: PC4
 ibat_scale: 179
+rgb_led: PB6
 buzzer:
   invert: true
   pin: PB4

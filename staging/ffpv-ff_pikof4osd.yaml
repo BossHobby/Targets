@@ -41,6 +41,7 @@ osd:
 vbat: PC2
 ibat: PC1
 ibat_scale: 250
+rgb_led: PB7
 buzzer:
   invert: true
   pin: PA14

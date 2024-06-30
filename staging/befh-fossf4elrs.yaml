@@ -1,0 +1,48 @@
+name: fossf4elrs
+manufacturer: BEFH
+mcu: stm32f411
+brushless: true
+leds:
+  - invert: true
+    pin: PC14
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PA4
+  exti: PB6
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 2
+  nss: PA8
+vbat: PA1
+vbat_scale: 110
+ibat: PB0
+ibat_scale: 800
+rgb_led: PB1
+buzzer:
+  invert: true
+  pin: PA2
+motor_pins:
+  - PB10
+  - PB7
+  - PB8
+  - PA0

@@ -44,8 +44,6 @@ gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
-flash:
-  nss: None
 sdcard:
   port: 4
   nss: PE4
@@ -53,6 +51,7 @@ usb_detect: PC4
 vbat: PC3
 ibat: PC2
 ibat_scale: 400
+rgb_led: PD12
 sdcard_detect:
   invert: true
   pin: PE3

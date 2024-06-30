@@ -41,6 +41,7 @@ osd:
 usb_detect: PA4
 vbat: PC0
 ibat: PC1
+rgb_led: PA15
 motor_pins:
   - PC6
   - PC7

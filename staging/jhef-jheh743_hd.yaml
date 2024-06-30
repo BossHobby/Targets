@@ -64,6 +64,8 @@ usb_detect: PE6
 vbat: PC1
 vbat_scale: 110
 ibat: PC3
+ibat_scale: 170
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PE3

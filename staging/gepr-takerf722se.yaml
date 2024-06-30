@@ -50,6 +50,7 @@ flash:
 vbat: PC3
 ibat: PC2
 ibat_scale: 200
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PC13

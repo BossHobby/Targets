@@ -48,6 +48,7 @@ flash:
 vbat: PC0
 ibat: PC1
 ibat_scale: 453
+rgb_led: PB1
 buzzer:
   invert: true
   pin: PB2

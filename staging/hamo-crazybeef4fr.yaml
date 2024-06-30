@@ -36,6 +36,7 @@ osd:
 vbat: PB0
 ibat: PB1
 ibat_scale: 179
+rgb_led: PA0
 buzzer:
   invert: true
   pin: PC15

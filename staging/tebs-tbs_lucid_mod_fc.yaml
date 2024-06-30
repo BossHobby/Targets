@@ -1,0 +1,60 @@
+name: tbs_lucid_mod_fc
+manufacturer: TEBS
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PC14
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PB0
+  - index: 3
+    tx: PB11
+  - index: 4
+  - index: 5
+    rx: PB5
+    tx: PB6
+  - index: 7
+    rx: PB3
+    tx: PB4
+  - index: 8
+    rx: PC3
+    tx: PC2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PA15
+vbat: PC0
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PC13
+motor_pins:
+  - PC8
+  - PC9
+  - PC6
+  - PC7

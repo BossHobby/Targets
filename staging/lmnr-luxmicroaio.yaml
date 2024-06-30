@@ -1,0 +1,53 @@
+name: luxmicroaio
+manufacturer: LMNR
+mcu: stm32g473
+brushless: true
+leds:
+  - invert: true
+    pin: PB5
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PB4
+    tx: PB3
+  - index: 3
+    rx: PB9
+  - index: 4
+    rx: PC11
+    tx: PC10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+gyro:
+  port: 1
+  nss: PB0
+  exti: PC4
+gyro_orientation: 32
+osd:
+  port: 2
+  nss: PA8
+flash:
+  port: 2
+  nss: PC6
+vbat: PB2
+ibat: PB1
+ibat_scale: 179
+rgb_led: PB6
+buzzer:
+  invert: true
+  pin: PB7
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1

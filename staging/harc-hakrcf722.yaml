@@ -47,6 +47,7 @@ flash:
   nss: PB12
 vbat: PC1
 ibat: PC2
+rgb_led: PB6
 buzzer:
   invert: true
   pin: PC14

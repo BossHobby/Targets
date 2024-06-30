@@ -33,6 +33,7 @@ osd:
 usb_detect: PC15
 vbat: PA0
 ibat: PB4
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PB6

@@ -1,0 +1,56 @@
+name: bayck_dolphin_mini
+manufacturer: BKRC
+mcu: at32f435g
+brushless: true
+leds:
+  - invert: true
+    pin: PC13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA15
+    tx: PA14
+  - index: 3
+    rx: PB11
+  - index: 4
+    tx: PH3
+  - index: 5
+    rx: PB8
+    tx: PB9
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PA4
+  exti: PH2
+gyro_orientation: 8
+osd:
+  port: 3
+  nss: PC14
+flash:
+  port: 2
+  nss: PB12
+vbat: PA0
+ibat: PA1
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PA13
+motor_pins:
+  - PA3
+  - PA2
+  - PB1
+  - PB0

@@ -1,0 +1,61 @@
+name: micoair743
+manufacturer: MICO
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PE4
+  - invert: true
+    pin: PE6
+  - invert: true
+    pin: PE5
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PC2
+    mosi: PC3
+    sck: PD3
+gyro:
+  port: 2
+  nss: PA15
+osd:
+  port: 1
+  nss: PB12
+vbat: PC0
+vbat_scale: 213
+ibat: PC1
+ibat_scale: 402
+rgb_led: PD14
+buzzer:
+  invert: true
+  pin: PD15
+motor_pins:
+  - PE11
+  - PE9
+  - PE14
+  - PE13

@@ -36,6 +36,7 @@ usb_detect: PC15
 vbat: PA0
 ibat: PA1
 ibat_scale: 170
+rgb_led: PB5
 buzzer:
   invert: true
   pin: PC14

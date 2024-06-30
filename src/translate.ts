@@ -1,5 +1,5 @@
 import fs from "fs";
-import readline from "readline";
+import path from "path";
 import { walk } from "./util";
 import { GyroRotation, stringifyTarget, target_t } from "./types";
 
@@ -30,344 +30,211 @@ function mapMCU(mcu: string) {
 }
 
 function parsePin(pin: string) {
-  if (pin == "none") {
-    return "none";
-  }
-  const index = parseInt(pin.slice(1));
-  return `P${pin[0].toUpperCase()}${index}`;
+  return pin.toUpperCase();
 }
 
-function handleResource(target: target_t, parts: string[]) {
-  switch (parts[0]) {
-    case "led": {
-      const index = parseInt(parts[1]) - 1;
-      target.leds[index] = {
-        ...(target.leds[index] || { invert: true }),
-        pin: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "motor": {
-      const index = parseInt(parts[1]) - 1;
-      switch (index) {
-        case 0:
-        case 1:
-          target.motor_pins[index + 2] = parsePin(parts[2]);
-          break;
-
-        case 2:
-        case 3:
-          target.motor_pins[index - 2] = parsePin(parts[2]);
-          break;
-
-        default:
-          break;
-      }
-      break;
-    }
-    case "inverter": {
-      const index = parseInt(parts[1]) - 1;
-      target.serial_ports[index] = {
-        ...(target.serial_ports[index] || {}),
-        index: index + 1,
-        inverter: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "serial_tx": {
-      const index = parseInt(parts[1]) - 1;
-      if (index >= 10) {
-        target.serial_soft_ports[index - 10] = {
-          ...(target.serial_soft_ports[index - 10] || {}),
-          index: index - 10 + 1,
-          tx: parsePin(parts[2]),
-        };
-      } else {
-        target.serial_ports[index] = {
-          ...(target.serial_ports[index] || {}),
-          index: index + 1,
-          tx: parsePin(parts[2]),
-        };
-      }
-      break;
-    }
-    case "serial_rx": {
-      const index = parseInt(parts[1]) - 1;
-      if (index >= 10) {
-        target.serial_soft_ports[index - 10] = {
-          ...(target.serial_soft_ports[index - 10] || {}),
-          index: index - 10 + 1,
-          rx: parsePin(parts[2]),
-        };
-      } else {
-        target.serial_ports[index] = {
-          ...(target.serial_ports[index] || {}),
-          index: index + 1,
-          rx: parsePin(parts[2]),
-        };
-      }
-      break;
-    }
-    case "spi_sck": {
-      const index = parseInt(parts[1]) - 1;
-      target.spi_ports[index] = {
-        ...(target.spi_ports[index] || {}),
-        index: index + 1,
-        sck: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "spi_sdi":
-    case "spi_miso": {
-      const index = parseInt(parts[1]) - 1;
-      target.spi_ports[index] = {
-        ...(target.spi_ports[index] || {}),
-        index: index + 1,
-        miso: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "spi_sdo":
-    case "spi_mosi": {
-      const index = parseInt(parts[1]) - 1;
-      target.spi_ports[index] = {
-        ...(target.spi_ports[index] || {}),
-        index: index + 1,
-        mosi: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "gyro_cs": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.gyro = {
-        ...(target.gyro || { port: 0 }),
-        nss: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "gyro_exti": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.gyro = {
-        ...(target.gyro || { port: 0, nss: "NONE" }),
-        exti: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "osd_cs": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.osd = {
-        ...(target.osd || { port: 0 }),
-        nss: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "flash_cs": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.flash = {
-        ...(target.flash || { port: 0 }),
-        nss: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "sdcard_cs": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.sdcard = {
-        ...(target.sdcard || { port: 0 }),
-        nss: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "usb_detect": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.usb_detect = parsePin(parts[2]);
-      break;
-    }
-    case "adc_batt": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.vbat = parsePin(parts[2]);
-      break;
-    }
-    case "adc_curr": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.ibat = parsePin(parts[2]);
-      break;
-    }
-    case "led_strip": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.rgb_led = parsePin(parts[2]);
-      break;
-    }
-    case "beeper": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.buzzer = {
-        ...(target.buzzer || { invert: false }),
-        pin: parsePin(parts[2]),
-      };
-      break;
-    }
-    case "sdcard_detect": {
-      if (parts[1] != "1") {
-        break;
-      }
-      target.sdcard_detect = {
-        ...(target.sdcard_detect || { invert: false }),
-        pin: parsePin(parts[2]),
-      };
-      break;
-    }
-    default:
-      console.warn(`unhandled resource ${parts[0]}`);
-  }
-}
-
-function handleSet(target: target_t, parts: string[]) {
-  switch (parts[0]) {
-    case "gyro_1_spibus": {
-      const port = parseInt(parts[1]);
-      target.gyro = {
-        ...(target.gyro || { nss: "None" }),
-        port,
-      };
-      break;
-    }
-    case "gyro_1_sensor_align": {
-      const regex = /CW(\d+)(\w*)/gi;
-      const matches = regex.exec(parts[1]);
-      if (!matches) {
-        break;
-      }
-
-      const angle = parseInt(matches[1]);
-
-      let orientation = GYRO_ANGLE_MAP[angle];
-      if (matches[2] == "flip") {
-        orientation |= GyroRotation.FLIP_180;
-      }
-
-      target.gyro_orientation = orientation;
-      break;
-    }
-    case "max7456_spi_bus": {
-      const port = parseInt(parts[1]);
-      target.osd = {
-        ...(target.osd || { nss: "None" }),
-        port,
-      };
-      break;
-    }
-    case "flash_spi_bus": {
-      const port = parseInt(parts[1]);
-      target.flash = {
-        ...(target.flash || { nss: "None" }),
-        port,
-      };
-      break;
-    }
-    case "sdcard_spi_bus": {
-      const port = parseInt(parts[1]);
-      target.sdcard = {
-        ...(target.sdcard || { nss: "None" }),
-        port,
-      };
-      break;
-    }
-    case "beeper_inversion": {
-      target.buzzer = {
-        ...(target.buzzer || { pin: "None" }),
-        invert: parts[1] != "off",
-      };
-      break;
-    }
-    case "sdcard_detect_inverted": {
-      target.sdcard_detect = {
-        ...(target.sdcard_detect || { pin: "None" }),
-        invert: parts[1] != "off",
-      };
-      break;
-    }
-    case "vbat_scale": {
-      target.vbat_scale = parseInt(parts[1]);
-      break;
-    }
-    case "ibata_scale": {
-      target.ibat_scale = parseInt(parts[1]);
-      break;
-    }
-    default:
-      console.warn(`unhandled set ${parts[0]}`);
-      break;
-  }
+function parseSPI(spi: string) {
+  return parseInt(spi.substring(3));
 }
 
 function handle(target: target_t, parts: string[]) {
-  switch (parts[0]) {
-    case "board_name":
-      target.name = parts[1].toLowerCase();
-      break;
+  const range = (str: string, min: number, max: number, func) => {
+    let result = {};
+    for (let i = min; i <= max; i++) {
+      result = {
+        ...result,
+        [str.replace("{i}", i.toString())]: () => func(i),
+      };
+    }
+    return result;
+  };
+  const multiple = (keys: string[], func) => {
+    let result = {};
+    for (const key of keys) {
+      result = {
+        ...result,
+        [key]: func,
+      };
+    }
+    return result;
+  };
 
-    case "manufacturer_id":
-      target.manufacturer = parts[1].toUpperCase();
-      break;
-
-    case "#mcu":
-      target.mcu = mapMCU(parts[1].toLowerCase());
-      break;
-
-    case "resource":
-      handleResource(target, parts.slice(1));
-      break;
-
-    case "set":
-      handleSet(target, parts.slice(1));
-      break;
-
-    case "dma":
-    case "timer":
-    case "feature":
-    case "aux":
-    case "led":
-    case "rxrange":
-    case "serial":
-    case "beacon":
-    case "beeper":
-    case "color":
-    case "defaults":
-    case "display_name":
-    case "map":
-    case "mixer":
-    case "mode_color":
-      // ignore
-      break;
-
-    default:
-      if (parts[1] == "betaflight") {
-        target.mcu = mapMCU(parts[3].toLowerCase());
+  const handlers = {
+    fc_target_mcu: () => (target.mcu = mapMCU(parts[1])),
+    board_name: () => (target.name = parts[1].toLowerCase()),
+    manufacturer_id: () => (target.manufacturer = parts[1].toUpperCase()),
+    default_current_meter_scale: () => (target.ibat_scale = parseInt(parts[1])),
+    default_voltage_meter_scale: () => (target.vbat_scale = parseInt(parts[1])),
+    led_strip_pin: () => (target.rgb_led = parsePin(parts[1])),
+    ...multiple(
+      ["adc_vbat_pin", "adc_batt_pin"],
+      () => (target.vbat = parsePin(parts[1]))
+    ),
+    adc_curr_pin: () => (target.ibat = parsePin(parts[1])),
+    usb_detect_pin: () => (target.usb_detect = parsePin(parts[1])),
+    beeper_pin: () =>
+      (target.buzzer = {
+        ...(target.buzzer || { invert: false }),
+        pin: parsePin(parts[1]),
+      }),
+    beeper_inverted: () =>
+      (target.buzzer = {
+        ...(target.buzzer || { pin: "None" }),
+        invert: true,
+      }),
+    flash_cs_pin: () =>
+      (target.flash = {
+        ...(target.flash || { port: 0 }),
+        nss: parsePin(parts[1]),
+      }),
+    flash_spi_instance: () =>
+      (target.flash = {
+        ...(target.flash || { nss: "None" }),
+        port: parseSPI(parts[1]),
+      }),
+    ...multiple(
+      ["max7456_cs_pin", "max7456_spi_cs_pin"],
+      () =>
+        (target.osd = {
+          ...(target.osd || { port: 0 }),
+          nss: parsePin(parts[1]),
+        })
+    ),
+    max7456_spi_instance: () => {
+      target.osd = {
+        ...(target.osd || { nss: "None" }),
+        port: parseSPI(parts[1]),
+      };
+    },
+    sdcard_spi_cs_pin: () =>
+      (target.sdcard = {
+        ...(target.sdcard || { port: 0 }),
+        nss: parsePin(parts[1]),
+      }),
+    sdcard_spi_instance: () =>
+      (target.sdcard = {
+        ...(target.sdcard || { nss: "None" }),
+        port: parseSPI(parts[1]),
+      }),
+    sdcard_detect_pin: () =>
+      (target.sdcard_detect = {
+        ...(target.sdcard_detect || { invert: false }),
+        pin: parsePin(parts[1]),
+      }),
+    sdcard_detect_inverted: () =>
+      (target.sdcard_detect = {
+        ...(target.sdcard_detect || { pin: "None" }),
+        invert: parts[1] != "off",
+      }),
+    gyro_1_cs_pin: () =>
+      (target.gyro = {
+        ...(target.gyro || { port: 0 }),
+        nss: parsePin(parts[1]),
+      }),
+    gyro_1_exti_pin: () =>
+      (target.gyro = {
+        ...(target.gyro || { port: 0, nss: "NONE" }),
+        exti: parsePin(parts[1]),
+      }),
+    gyro_1_spi_instance: () =>
+      (target.gyro = {
+        ...(target.gyro || { nss: "None" }),
+        port: parseSPI(parts[1]),
+      }),
+    gyro_1_align: () => {
+      const regex = /CW(\d+)_DEG(\w*)/gi;
+      const matches = regex.exec(parts[1]);
+      if (!matches) {
+        return;
       }
-      if (!parts[0].startsWith("#")) {
-        console.warn(`unhandled ${parts[0]}`);
+
+      const angle = parseInt(matches[1]);
+      let orientation = GYRO_ANGLE_MAP[angle];
+      if (matches[2] == "_flip") {
+        orientation |= GyroRotation.FLIP_180;
       }
-      break;
+      target.gyro_orientation = orientation;
+    },
+    ...range("led{i}_pin", 0, 2, (index: number) => {
+      target.leds[index] = {
+        ...(target.leds[index] || { invert: true }),
+        pin: parsePin(parts[1]),
+      };
+    }),
+    ...range("led{i}_inverted", 0, 2, (index: number) => {
+      target.leds[index] = {
+        ...(target.leds[index] || { pin: "None" }),
+        invert: true,
+      };
+    }),
+    ...range("motor{i}_pin", 1, 4, (index: number) => {
+      index -= 1;
+      target.motor_pins[index < 2 ? index + 2 : index - 2] = parsePin(parts[1]);
+    }),
+    ...range("uart{i}_rx_pin", 1, 10, (index: number) => {
+      target.serial_ports[index - 1] = {
+        ...(target.serial_ports[index - 1] || {}),
+        index: index,
+        rx: parsePin(parts[1]),
+      };
+    }),
+    ...range("uart{i}_tx_pin", 1, 10, (index: number) => {
+      target.serial_ports[index - 1] = {
+        ...(target.serial_ports[index - 1] || {}),
+        index: index,
+        tx: parsePin(parts[1]),
+      };
+    }),
+    ...range("inverter_pin_uart{i}", 1, 10, (index: number) => {
+      target.serial_ports[index - 1] = {
+        ...(target.serial_ports[index - 1] || {}),
+        index: index,
+        inverter: parsePin(parts[1]),
+      };
+    }),
+    ...range("softserial{i}_rx_pin", 1, 10, (index: number) => {
+      target.serial_soft_ports[index - 1] = {
+        ...(target.serial_soft_ports[index - 1] || {}),
+        index: index,
+        rx: parsePin(parts[1]),
+      };
+    }),
+    ...range("softserial{i}_tx_pin", 1, 10, (index: number) => {
+      target.serial_soft_ports[index - 1] = {
+        ...(target.serial_soft_ports[index - 1] || {}),
+        index: index,
+        tx: parsePin(parts[1]),
+      };
+    }),
+    ...range("spi{i}_sck_pin", 1, 6, (index: number) => {
+      target.spi_ports[index - 1] = {
+        ...(target.spi_ports[index - 1] || {}),
+        index: index,
+        sck: parsePin(parts[1]),
+      };
+    }),
+    ...range("spi{i}_sdi_pin", 1, 6, (index: number) => {
+      target.spi_ports[index - 1] = {
+        ...(target.spi_ports[index - 1] || {}),
+        index: index,
+        miso: parsePin(parts[1]),
+      };
+    }),
+    ...range("spi{i}_sdo_pin", 1, 6, (index: number) => {
+      target.spi_ports[index - 1] = {
+        ...(target.spi_ports[index - 1] || {}),
+        index: index,
+        mosi: parsePin(parts[1]),
+      };
+    }),
+  };
+
+  const handler = handlers[parts[0]];
+  if (handler) {
+    return handler(parts);
   }
+
+  console.log(`unhandled ${parts[0]}`);
 }
 
 async function translate(filename: string, output?: string) {
@@ -387,25 +254,33 @@ async function translate(filename: string, output?: string) {
     gyro_orientation: 0,
   };
 
-  const stream = fs.createReadStream(filename);
-  const rl = readline.createInterface({
-    input: stream,
-    crlfDelay: Infinity,
-  });
+  const content = (await fs.promises.readFile(filename, { encoding: "utf8" }))
+    .replace(/\/\*(.|\s)*?\*\//gm, "")
+    .replace(/\/\/.*/gm, "")
+    .replace(/\\r?\n/gm, "");
 
-  for await (const raw of rl) {
-    const line = raw.trim();
-    if (line.length == 0) {
-      continue;
-    }
-    if (line.startsWith("//")) {
-      continue;
-    }
+  const lines = content
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter((l) => l.length && l.startsWith("#define"));
+  for (const l of lines) {
+    let start = 0;
+    let line = "" + l;
+    let blocked = false;
 
-    const parts = line
-      .split(" ")
-      .map((l) => l.trim().toLowerCase())
-      .filter((l) => l.length != 0 && l != "=");
+    let parts: string[] = [];
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i];
+      if (c == "(") blocked = true;
+      if (!blocked && /\s/.test(c)) {
+        parts.push(line.substring(start, i));
+        while (/\s/.test(line[i])) i++;
+        start = i;
+      }
+      if (c == ")") blocked = false;
+    }
+    parts.push(line.substring(start, line.length));
+    parts = parts.slice(1).map((p) => p.trim().toLowerCase());
 
     handle(target, parts);
   }
@@ -415,8 +290,7 @@ async function translate(filename: string, output?: string) {
       target.name
     }.yaml`;
   }
-
-  fs.writeFileSync(output, stringifyTarget(target));
+  await fs.promises.writeFile(output, stringifyTarget(target));
 }
 
 const args = process.argv.slice(2);
@@ -427,7 +301,7 @@ if (args.length) {
   await fs.promises.rm(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
   await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
 
-  for await (const f of walk("betaflight/configs/default/")) {
+  for await (const f of walk("betaflight/configs/")) {
     await translate(f);
   }
 }

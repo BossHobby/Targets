@@ -31,6 +31,7 @@ osd:
 vbat: PB1
 ibat: PA4
 ibat_scale: 250
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PB2

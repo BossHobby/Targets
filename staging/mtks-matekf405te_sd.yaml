@@ -52,6 +52,7 @@ vbat: PC4
 vbat_scale: 210
 ibat: PC5
 ibat_scale: 150
+rgb_led: PB1
 buzzer:
   invert: true
   pin: PB9

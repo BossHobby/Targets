@@ -37,7 +37,6 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: none
 gyro_orientation: 4
 osd:
   port: 1
@@ -48,6 +47,7 @@ sdcard:
 vbat: PC1
 ibat: PC2
 ibat_scale: 150
+rgb_led: PB7
 sdcard_detect:
   invert: true
   pin: PD2

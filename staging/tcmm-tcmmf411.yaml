@@ -36,6 +36,7 @@ flash:
   nss: PA0
 vbat: PB0
 ibat: PB1
+rgb_led: PA8
 buzzer:
   invert: true
   pin: PB2

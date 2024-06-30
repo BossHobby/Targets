@@ -42,6 +42,7 @@ flash:
 vbat: PC4
 ibat: PA1
 ibat_scale: 270
+rgb_led: PC8
 motor_pins:
   - PA3
   - PA2
