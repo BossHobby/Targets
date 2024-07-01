@@ -46,7 +46,6 @@ osd:
   nss: PB12
 flash:
   port: 3
-  nss: None
 sdcard:
   port: 3
   nss: PD2
