@@ -35,8 +35,6 @@ gyro:
   nss: PC2
   exti: PC3
 gyro_orientation: 48
-osd:
-  nss: None
 flash:
   port: 2
   nss: PC13

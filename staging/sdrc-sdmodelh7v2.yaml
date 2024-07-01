@@ -55,7 +55,6 @@ ibat_scale: 168
 rgb_led: PD12
 sdcard_detect:
   invert: true
-  pin: None
 buzzer:
   invert: true
   pin: PC13

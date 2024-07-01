@@ -54,7 +54,6 @@ osd:
   nss: PE4
 flash:
   port: 3
-  nss: None
 sdcard:
   port: 3
   nss: PA15

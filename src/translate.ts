@@ -79,7 +79,7 @@ function handle(target: target_t, parts: string[]) {
       }),
     beeper_inverted: () =>
       (target.buzzer = {
-        ...(target.buzzer || { pin: "None" }),
+        ...(target.buzzer || { pin: "NONE" }),
         invert: true,
       }),
     flash_cs_pin: () =>
@@ -89,7 +89,7 @@ function handle(target: target_t, parts: string[]) {
       }),
     flash_spi_instance: () =>
       (target.flash = {
-        ...(target.flash || { nss: "None" }),
+        ...(target.flash || { nss: "NONE" }),
         port: parseSPI(parts[1]),
       }),
     ...multiple(
@@ -102,7 +102,7 @@ function handle(target: target_t, parts: string[]) {
     ),
     max7456_spi_instance: () => {
       target.osd = {
-        ...(target.osd || { nss: "None" }),
+        ...(target.osd || { nss: "NONE" }),
         port: parseSPI(parts[1]),
       };
     },
@@ -113,7 +113,7 @@ function handle(target: target_t, parts: string[]) {
       }),
     sdcard_spi_instance: () =>
       (target.sdcard = {
-        ...(target.sdcard || { nss: "None" }),
+        ...(target.sdcard || { nss: "NONE" }),
         port: parseSPI(parts[1]),
       }),
     sdcard_detect_pin: () =>
@@ -123,7 +123,7 @@ function handle(target: target_t, parts: string[]) {
       }),
     sdcard_detect_inverted: () =>
       (target.sdcard_detect = {
-        ...(target.sdcard_detect || { pin: "None" }),
+        ...(target.sdcard_detect || { pin: "NONE" }),
         invert: parts[1] != "off",
       }),
     gyro_1_cs_pin: () =>
@@ -138,7 +138,7 @@ function handle(target: target_t, parts: string[]) {
       }),
     gyro_1_spi_instance: () =>
       (target.gyro = {
-        ...(target.gyro || { nss: "None" }),
+        ...(target.gyro || { nss: "NONE" }),
         port: parseSPI(parts[1]),
       }),
     gyro_1_align: () => {
@@ -163,7 +163,7 @@ function handle(target: target_t, parts: string[]) {
     }),
     ...range("led{i}_inverted", 0, 2, (index: number) => {
       target.leds[index] = {
-        ...(target.leds[index] || { pin: "None" }),
+        ...(target.leds[index] || { pin: "NONE" }),
         invert: true,
       };
     }),
