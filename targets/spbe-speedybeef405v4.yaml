@@ -50,9 +50,6 @@ sdcard:
 vbat: PC0
 ibat: PC1
 ibat_scale: 400
-sdcard_detect:
-  invert: true
-  pin: None
 buzzer:
   invert: true
   pin: PC15
