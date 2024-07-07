@@ -247,6 +247,9 @@
         "ibat_scale": {
             "type": "number"
         },
+        "rgb_led": {
+            "type": "string"
+        },
         "sdcard_detect": {
             "type": "object",
             "additionalProperties": false,
