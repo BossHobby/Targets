@@ -19,10 +19,6 @@ serial_ports:
   - index: 4
     rx: PC11
     tx: PC10
-serial_soft_ports:
-  - index: 1
-    rx: PB10
-    tx: PB11
 spi_ports:
   - index: 1
     miso: PA6
@@ -45,6 +41,8 @@ flash:
   nss: PC6
 vbat: PB2
 ibat: PB1
+ibat_scale: 179
+rgb_led: PB6
 buzzer:
   invert: true
   pin: PB7
