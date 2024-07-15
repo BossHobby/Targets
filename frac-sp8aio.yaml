@@ -43,6 +43,7 @@ flash:
   nss: PA15
 vbat: PA0
 ibat: PA1
+ibat_scale: 1180
 buzzer:
   pin: PA8
 motor_pins:
