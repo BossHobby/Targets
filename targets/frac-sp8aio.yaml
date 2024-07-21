@@ -10,8 +10,8 @@ serial_ports:
     rx: PA10
     tx: PA9
   - index: 3
-    rx: PB11
-    tx: PB10
+    rx: PB10
+    tx: PB11
   - index: 4
     rx: PH2
     tx: PH4
