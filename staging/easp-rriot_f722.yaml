@@ -1,14 +1,14 @@
-name: flycolorf7v2
-manufacturer: FLCO
+name: rriot_f722
+manufacturer: EASP
 mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC15
+    pin: PC14
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
@@ -35,28 +35,25 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PB5
+    mosi: PB2
     sck: PC10
 gyro:
   port: 1
   nss: PA4
-  exti: PC3
-gyro_orientation: 48
+  exti: PB1
 osd:
   port: 2
   nss: PB12
 flash:
   port: 3
-  nss: PC13
-vbat: PC1
-ibat: PC0
-ibat_scale: 170
-rgb_led: PA8
+  nss: PA15
+vbat: PC0
+ibat: PC1
 buzzer:
   invert: true
-  pin: PC14
+  pin: PC13
 motor_pins:
-  - PB3
-  - PA15
-  - PB1
-  - PB4
+  - PC9
+  - PC8
+  - PA9
+  - PA8

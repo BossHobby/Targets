@@ -17,9 +17,11 @@ serial_ports:
     rx: PB10
     tx: PB11
   - index: 4
+    rx: PH2
+    tx: PH3
   - index: 5
-    rx: PB5
-    tx: PB6
+    rx: PD2
+    tx: PB9
   - index: 7
     rx: PB3
     tx: PB4
@@ -50,6 +52,7 @@ flash:
   port: 3
   nss: PA15
 vbat: PC0
+ibat: PC1
 rgb_led: PA8
 buzzer:
   invert: true
@@ -58,4 +61,4 @@ motor_pins:
   - PC8
   - PC9
   - PC6
-  - PC7
+  - PB5

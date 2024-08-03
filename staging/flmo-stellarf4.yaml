@@ -46,7 +46,7 @@ flash:
 vbat: PC0
 vbat_scale: 110
 ibat: PC1
-ibat_scale: 386
+ibat_scale: 188
 buzzer:
   invert: true
   pin: PC5

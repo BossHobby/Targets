@@ -1,19 +1,22 @@
-name: flycolorf7v2
-manufacturer: FLCO
-mcu: stm32f722
+name: eaglef405
+manufacturer: YYRC
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
     pin: PC15
+  - invert: true
+    pin: PC14
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    inverter: PC0
+    rx: PB7
+    tx: PB6
   - index: 2
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PB11
+    rx: PC11
     tx: PB10
   - index: 4
     rx: PA1
@@ -34,29 +37,30 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PC11
+    miso: PB4
     mosi: PB5
     sck: PC10
 gyro:
   port: 1
   nss: PA4
-  exti: PC3
-gyro_orientation: 48
+  exti: PC4
+gyro_orientation: 4
 osd:
+  port: 3
+  nss: PA15
+flash:
   port: 2
   nss: PB12
-flash:
-  port: 3
-  nss: PC13
-vbat: PC1
-ibat: PC0
-ibat_scale: 170
-rgb_led: PA8
+usb_detect: PA10
+vbat: PC5
+ibat: PC3
+ibat_scale: 115
+rgb_led: PB3
 buzzer:
   invert: true
-  pin: PC14
+  pin: PC13
 motor_pins:
-  - PB3
-  - PA15
-  - PB1
-  - PB4
+  - PA8
+  - PA9
+  - PC9
+  - PC8
