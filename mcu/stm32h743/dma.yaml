@@ -1,0 +1,262 @@
+- tag:
+    type: adc
+    index: 1
+  request: 9
+- tag:
+    type: adc
+    index: 2
+  request: 10
+- tag:
+    type: timer
+    index: 1
+    func: ch1
+  request: 11
+- tag:
+    type: timer
+    index: 1
+    func: ch2
+  request: 12
+- tag:
+    type: timer
+    index: 1
+    func: ch3
+  request: 13
+- tag:
+    type: timer
+    index: 1
+    func: ch4
+  request: 14
+- tag:
+    type: timer
+    index: 2
+    func: ch1
+  request: 18
+- tag:
+    type: timer
+    index: 2
+    func: ch2
+  request: 19
+- tag:
+    type: timer
+    index: 2
+    func: ch3
+  request: 20
+- tag:
+    type: timer
+    index: 2
+    func: ch4
+  request: 21
+- tag:
+    type: timer
+    index: 3
+    func: ch1
+  request: 23
+- tag:
+    type: timer
+    index: 3
+    func: ch2
+  request: 24
+- tag:
+    type: timer
+    index: 3
+    func: ch3
+  request: 25
+- tag:
+    type: timer
+    index: 3
+    func: ch4
+  request: 26
+- tag:
+    type: timer
+    index: 4
+    func: ch1
+  request: 29
+- tag:
+    type: timer
+    index: 4
+    func: ch2
+  request: 30
+- tag:
+    type: timer
+    index: 4
+    func: ch3
+  request: 31
+- tag:
+    type: spi
+    index: 1
+    func: miso
+  request: 37
+- tag:
+    type: spi
+    index: 1
+    func: mosi
+  request: 38
+- tag:
+    type: spi
+    index: 2
+    func: miso
+  request: 39
+- tag:
+    type: spi
+    index: 2
+    func: mosi
+  request: 40
+- tag:
+    type: serial
+    index: 1
+    func: rx
+  request: 41
+- tag:
+    type: serial
+    index: 1
+    func: tx
+  request: 42
+- tag:
+    type: serial
+    index: 2
+    func: rx
+  request: 43
+- tag:
+    type: serial
+    index: 2
+    func: tx
+  request: 44
+- tag:
+    type: serial
+    index: 3
+    func: rx
+  request: 45
+- tag:
+    type: serial
+    index: 3
+    func: tx
+  request: 46
+- tag:
+    type: timer
+    index: 8
+    func: ch1
+  request: 47
+- tag:
+    type: timer
+    index: 8
+    func: ch2
+  request: 48
+- tag:
+    type: timer
+    index: 8
+    func: ch3
+  request: 49
+- tag:
+    type: timer
+    index: 8
+    func: ch4
+  request: 50
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  request: 55
+- tag:
+    type: timer
+    index: 5
+    func: ch2
+  request: 56
+- tag:
+    type: timer
+    index: 5
+    func: ch3
+  request: 57
+- tag:
+    type: timer
+    index: 5
+    func: ch4
+  request: 58
+- tag:
+    type: spi
+    index: 3
+    func: miso
+  request: 61
+- tag:
+    type: spi
+    index: 3
+    func: mosi
+  request: 62
+- tag:
+    type: serial
+    index: 4
+    func: rx
+  request: 63
+- tag:
+    type: serial
+    index: 4
+    func: tx
+  request: 64
+- tag:
+    type: serial
+    index: 5
+    func: rx
+  request: 65
+- tag:
+    type: serial
+    index: 5
+    func: tx
+  request: 66
+- tag:
+    type: serial
+    index: 6
+    func: rx
+  request: 71
+- tag:
+    type: serial
+    index: 6
+    func: tx
+  request: 72
+- tag:
+    type: serial
+    index: 7
+    func: rx
+  request: 79
+- tag:
+    type: serial
+    index: 7
+    func: tx
+  request: 80
+- tag:
+    type: serial
+    index: 8
+    func: rx
+  request: 81
+- tag:
+    type: serial
+    index: 8
+    func: tx
+  request: 82
+- tag:
+    type: spi
+    index: 4
+    func: miso
+  request: 83
+- tag:
+    type: spi
+    index: 4
+    func: mosi
+  request: 84
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  request: 105
+- tag:
+    type: timer
+    index: 6
+    func: ch1
+  request: 109
+- tag:
+    type: timer
+    index: 7
+    func: ch1
+  request: 111
+- tag:
+    type: adc
+    index: 3
+  request: 115

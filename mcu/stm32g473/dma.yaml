@@ -1,0 +1,245 @@
+- tag:
+    type: adc
+    index: 1
+  request: 5
+- tag:
+    type: spi
+    index: 1
+    func: miso
+  request: 10
+- tag:
+    type: spi
+    index: 1
+    func: mosi
+  request: 11
+- tag:
+    type: spi
+    index: 2
+    func: miso
+  request: 12
+- tag:
+    type: spi
+    index: 2
+    func: mosi
+  request: 13
+- tag:
+    type: spi
+    index: 3
+    func: miso
+  request: 14
+- tag:
+    type: spi
+    index: 3
+    func: mosi
+  request: 15
+- tag:
+    type: serial
+    index: 1
+    func: rx
+  request: 24
+- tag:
+    type: serial
+    index: 1
+    func: tx
+  request: 25
+- tag:
+    type: serial
+    index: 2
+    func: rx
+  request: 26
+- tag:
+    type: serial
+    index: 2
+    func: tx
+  request: 27
+- tag:
+    type: serial
+    index: 3
+    func: rx
+  request: 28
+- tag:
+    type: serial
+    index: 3
+    func: tx
+  request: 29
+- tag:
+    type: serial
+    index: 4
+    func: rx
+  request: 30
+- tag:
+    type: serial
+    index: 4
+    func: tx
+  request: 31
+- tag:
+    type: adc
+    index: 2
+  request: 36
+- tag:
+    type: adc
+    index: 3
+  request: 37
+- tag:
+    type: adc
+    index: 4
+  request: 38
+- tag:
+    type: adc
+    index: 5
+  request: 39
+- tag:
+    type: timer
+    index: 1
+    func: ch1
+  request: 42
+- tag:
+    type: timer
+    index: 1
+    func: ch2
+  request: 43
+- tag:
+    type: timer
+    index: 1
+    func: ch3
+  request: 44
+- tag:
+    type: timer
+    index: 1
+    func: ch4
+  request: 45
+- tag:
+    type: timer
+    index: 8
+    func: ch1
+  request: 49
+- tag:
+    type: timer
+    index: 8
+    func: ch2
+  request: 50
+- tag:
+    type: timer
+    index: 8
+    func: ch3
+  request: 51
+- tag:
+    type: timer
+    index: 8
+    func: ch4
+  request: 52
+- tag:
+    type: timer
+    index: 2
+    func: ch1
+  request: 56
+- tag:
+    type: timer
+    index: 2
+    func: ch2
+  request: 57
+- tag:
+    type: timer
+    index: 2
+    func: ch3
+  request: 58
+- tag:
+    type: timer
+    index: 2
+    func: ch4
+  request: 59
+- tag:
+    type: timer
+    index: 3
+    func: ch1
+  request: 61
+- tag:
+    type: timer
+    index: 3
+    func: ch2
+  request: 62
+- tag:
+    type: timer
+    index: 3
+    func: ch3
+  request: 63
+- tag:
+    type: timer
+    index: 3
+    func: ch4
+  request: 64
+- tag:
+    type: timer
+    index: 4
+    func: ch1
+  request: 67
+- tag:
+    type: timer
+    index: 4
+    func: ch2
+  request: 68
+- tag:
+    type: timer
+    index: 4
+    func: ch3
+  request: 69
+- tag:
+    type: timer
+    index: 4
+    func: ch4
+  request: 70
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  request: 72
+- tag:
+    type: timer
+    index: 5
+    func: ch2
+  request: 73
+- tag:
+    type: timer
+    index: 5
+    func: ch3
+  request: 74
+- tag:
+    type: timer
+    index: 5
+    func: ch4
+  request: 75
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  request: 78
+- tag:
+    type: timer
+    index: 6
+    func: ch1
+  request: 82
+- tag:
+    type: timer
+    index: 7
+    func: ch1
+  request: 84
+- tag:
+    type: timer
+    index: 0
+    func: ch1
+  request: 86
+- tag:
+    type: timer
+    index: 0
+    func: ch2
+  request: 87
+- tag:
+    type: timer
+    index: 0
+    func: ch3
+  request: 88
+- tag:
+    type: timer
+    index: 0
+    func: ch4
+  request: 89
