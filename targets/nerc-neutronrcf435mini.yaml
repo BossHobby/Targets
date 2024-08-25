@@ -42,6 +42,7 @@ flash:
   nss: PB5
 vbat: PA0
 ibat: PA1
+rgb_led: PA8
 buzzer:
   pin: PC15
 motor_pins:
