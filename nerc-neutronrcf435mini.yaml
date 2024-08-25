@@ -3,8 +3,10 @@ manufacturer: NERC
 mcu: at32f435
 brushless: true
 leds:
-  - pin: PC13
-  - pin: PC14
+  - invert: true
+    pin: PC13
+  - invert: true
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -33,7 +35,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 16
+  exti: PA15
 osd:
   port: 2
   nss: PB12
@@ -42,7 +44,10 @@ flash:
   nss: PB5
 vbat: PA0
 ibat: PA1
+ibat_scale: 100
+rgb_led: PA8
 buzzer:
+  invert: true
   pin: PC15
 motor_pins:
   - PA3

@@ -35,6 +35,7 @@ osd:
   nss: PA10
 fpv: PA13
 vbat: PA5
+rgb_led: PA0
 buzzer:
   invert: true
   pin: PC13

@@ -24,11 +24,12 @@ spi_ports:
 gyro:
   port: 3
   nss: PA15
-gyro_orientation: 8
+gyro_orientation: 4
 osd:
   port: 1
   nss: PB10
 vbat: PB1
+rgb_led: PA8
 motor_pins:
   - PB6
   - PB7

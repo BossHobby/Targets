@@ -34,7 +34,7 @@ gyro:
   port: 1
   nss: PB12
   exti: PB13
-gyro_orientation: 16
+gyro_orientation: 4
 osd:
   port: 3
   nss: PB14
@@ -45,6 +45,7 @@ usb_detect: PA8
 vbat: PC3
 ibat: PC2
 ibat_scale: 170
+rgb_led: PA9
 buzzer:
   invert: true
   pin: PC13
