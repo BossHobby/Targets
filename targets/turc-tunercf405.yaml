@@ -16,6 +16,7 @@ serial_ports:
     rx: PC11
     tx: PC10
   - index: 4
+    inverter: PC14
     rx: PA1
     tx: PA0
   - index: 5

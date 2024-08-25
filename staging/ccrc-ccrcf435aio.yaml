@@ -1,6 +1,6 @@
 name: ccrcf435aio
 manufacturer: CCRC
-mcu: at32f435g
+mcu: at32f435
 brushless: true
 leds:
   - invert: true

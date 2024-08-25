@@ -1,6 +1,6 @@
 name: darwinf435
 manufacturer: DAFP
-mcu: at32f435g
+mcu: at32f435
 brushless: true
 leds:
   - invert: true

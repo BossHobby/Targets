@@ -51,7 +51,7 @@ flash:
 usb_detect: PA10
 vbat: PC1
 ibat: PC0
-ibat_scale: 119
+ibat_scale: 182
 rgb_led: PA15
 buzzer:
   invert: true

@@ -1,6 +1,6 @@
 name: betafpvf435
 manufacturer: BEFH
-mcu: at32f435g
+mcu: at32f435
 brushless: true
 leds:
   - invert: true

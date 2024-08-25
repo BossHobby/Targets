@@ -1,10 +1,12 @@
-name: foxeerf722v2
-manufacturer: FOXE
+name: orqaf7
+manufacturer: ORQA
 mcu: stm32f722
 brushless: true
 leds:
   - invert: true
     pin: PC15
+  - invert: true
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PB7
@@ -21,6 +23,9 @@ serial_ports:
   - index: 5
     rx: PD2
     tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -38,21 +43,22 @@ gyro:
   port: 1
   nss: PB2
   exti: PC4
-gyro_orientation: 8
 osd:
   port: 3
   nss: PC3
 flash:
   port: 2
   nss: PB12
+usb_detect: PA10
 vbat: PC0
+vbat_scale: 112
 ibat: PC2
+ibat_scale: 108
 rgb_led: PA15
 buzzer:
-  invert: true
   pin: PA4
 motor_pins:
-  - PC9
-  - PC8
-  - PA9
   - PA8
+  - PA9
+  - PC8
+  - PC9

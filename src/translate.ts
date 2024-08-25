@@ -19,6 +19,7 @@ const GYRO_ANGLE_MAP = {
 const MCU_MAP = {
   stm32f7x2: "stm32f722",
   stm32g47x: "stm32g473",
+  at32f435g: "at32f435",
 };
 
 function mapMCU(mcu: string) {
