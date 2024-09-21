@@ -42,7 +42,7 @@ flash:
   port: 3
   nss: PA15
 vbat: PB0
-vbat_scale: 34
+vbat_scale: 31
 ibat: PB1
 ibat_scale: 470
 buzzer:
