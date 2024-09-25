@@ -2,7 +2,7 @@ name: iflight_blitzf435
 manufacturer: IFRC
 mcu: at32f435
 alias:
-  - ifrc-iflight_blitz_mini_f435
+  - ifrc-iflight_blitz_minif435
 brushless: true
 leds:
   - invert: true
