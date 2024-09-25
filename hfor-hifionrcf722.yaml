@@ -1,4 +1,4 @@
-name: hifionrc_f722
+name: hifionrcf722
 manufacturer: HFOR
 mcu: stm32f722
 brushless: true

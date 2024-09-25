@@ -1,4 +1,4 @@
-name: iflight_succex_e_f4
+name: iflight_succex-ef4
 manufacturer: IFRC
 mcu: stm32f405
 brushless: true

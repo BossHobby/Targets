@@ -1,4 +1,4 @@
-name: cross_f4
+name: crossf4
 manufacturer: HAMO
 mcu: stm32f411
 brushless: true

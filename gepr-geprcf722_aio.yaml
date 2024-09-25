@@ -1,4 +1,4 @@
-name: geprc_f722_aio
+name: geprcf722_aio
 manufacturer: GEPR
 mcu: stm32f722
 brushless: true

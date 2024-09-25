@@ -1,4 +1,4 @@
-name: iflight_h743_aio_v1
+name: iflighth743_aio_v1
 manufacturer: IFRC
 mcu: stm32h743
 brushless: true

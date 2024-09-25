@@ -1,4 +1,4 @@
-name: iflight_blitz_f411_elrs
+name: iflight_blitzf411_elrs
 manufacturer: IFRC
 mcu: stm32f411
 brushless: true

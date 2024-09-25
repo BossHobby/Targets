@@ -1,4 +1,4 @@
-name: nbd_infinity_f4
+name: nbd_infinityf4
 manufacturer: NEBD
 mcu: stm32f405
 brushless: true

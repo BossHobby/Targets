@@ -1,4 +1,4 @@
-name: iflight_f411_pro
+name: iflightf411_pro
 manufacturer: IFRC
 mcu: stm32f411
 brushless: true

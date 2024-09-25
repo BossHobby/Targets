@@ -1,4 +1,4 @@
-name: iflight_f745_aio_v2
+name: iflightf745_aio_v2
 manufacturer: IFRC
 mcu: stm32f745
 brushless: true

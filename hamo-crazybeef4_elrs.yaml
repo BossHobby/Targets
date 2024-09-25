@@ -1,4 +1,4 @@
-name: crazybee_f4_elrs
+name: crazybeef4_elrs
 manufacturer: HAMO
 mcu: stm32f411
 brushless: true
