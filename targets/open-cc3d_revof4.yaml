@@ -1,26 +1,22 @@
-name: geprc_f722_aio
-manufacturer: GEPR
-mcu: stm32f722
+name: cc3d_revof4
+manufacturer: OPEN
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC4
+    pin: PB5
+  - pin: PB4
 serial_ports:
   - index: 1
+    inverter: PC0
     rx: PA10
     tx: PA9
-  - index: 2
-    rx: PA3
-    tx: PA2
   - index: 3
     rx: PB11
     tx: PB10
   - index: 4
-    rx: PC11
-    tx: PC10
-  - index: 5
-    rx: PD2
-    tx: PC12
+    rx: PA1
+    tx: PA0
 spi_ports:
   - index: 1
     miso: PA6
@@ -36,24 +32,16 @@ spi_ports:
     sck: PB3
 gyro:
   port: 1
-  nss: PA15
-  exti: PA8
-gyro_orientation: 4
-osd:
-  port: 2
-  nss: PB12
-flash:
-  port: 3
-  nss: PB9
+  nss: PA4
+gyro_orientation: 8
+usb_detect: PC5
+fpv: PA13
 vbat: PC2
-ibat: PC1
-ibat_scale: 100
-rgb_led: PA1
 buzzer:
   invert: true
-  pin: PC15
+  pin: PB6
 motor_pins:
-  - PC7
-  - PC6
-  - PC9
-  - PC8
+  - PA3
+  - PA2
+  - PB0
+  - PB1

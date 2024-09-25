@@ -1,5 +1,5 @@
-name: cross_f4
-manufacturer: HAMO
+name: iflightf411rx
+manufacturer: IFRC
 mcu: stm32f411
 brushless: true
 leds:
@@ -28,19 +28,20 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: PA1
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
-flash:
-  port: 2
-  nss: PA14
+rx_spi:
+  port: 3
+  nss: PA15
+  exti: PC14
+  tx_en: PA8
 vbat: PB0
-ibat: PB1
 buzzer:
   pin: PC15
 motor_pins:
-  - PB7
-  - PB8
-  - PB10
   - PB6
+  - PB7
+  - PA0
+  - PA1

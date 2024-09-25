@@ -1,4 +1,4 @@
-name: crazybee_f4
+name: crossf4
 manufacturer: HAMO
 mcu: stm32f411
 brushless: true
@@ -32,6 +32,9 @@ gyro:
 osd:
   port: 2
   nss: PB12
+flash:
+  port: 2
+  nss: PA14
 vbat: PB0
 ibat: PB1
 buzzer:

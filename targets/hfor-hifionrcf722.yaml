@@ -1,13 +1,12 @@
-name: nbd_infinity_f4
-manufacturer: NEBD
-mcu: stm32f405
+name: hifionrcf722
+manufacturer: HFOR
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC0
+    pin: PA15
 serial_ports:
   - index: 1
-    inverter: PA0
     rx: PA10
     tx: PA9
   - index: 2
@@ -19,6 +18,9 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
@@ -32,23 +34,25 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PB4
+    miso: PC11
     mosi: PB5
-    sck: PB3
+    sck: PC10
 gyro:
-  port: 2
-  nss: PB12
-osd:
   port: 1
   nss: PA4
-fpv: PA13
-vbat: PC4
-ibat: PC3
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PC13
+vbat: PC2
+ibat: PC1
 buzzer:
-  invert: true
-  pin: PB6
+  pin: PC15
 motor_pins:
-  - PC9
-  - PA8
-  - PB1
+  - PB4
+  - PB3
   - PB0
+  - PB1

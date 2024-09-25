@@ -1,6 +1,6 @@
-name: iflight_f745_aio_v2
+name: iflighth743_aio_v1
 manufacturer: IFRC
-mcu: stm32f745
+mcu: stm32h743
 brushless: true
 leds:
   - invert: true
@@ -47,7 +47,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: PD0
+gyro_orientation: 4
 osd:
   port: 4
   nss: PE4
@@ -56,13 +56,10 @@ flash:
   nss: PA15
 vbat: PC3
 ibat: PC2
-ibat_scale: 100
-rgb_led: PA8
 buzzer:
-  invert: true
-  pin: PD2
+  pin: PD15
 motor_pins:
-  - PB4
-  - PB5
+  - PE9
+  - PE11
   - PB0
   - PB1

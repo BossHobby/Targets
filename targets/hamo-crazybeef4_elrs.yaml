@@ -1,12 +1,10 @@
-name: iflight_f411_pro
-manufacturer: IFRC
+name: crazybeef4_elrs
+manufacturer: HAMO
 mcu: stm32f411
 brushless: true
 leds:
   - invert: true
     pin: PC13
-  - invert: true
-    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -34,18 +32,19 @@ gyro:
 osd:
   port: 2
   nss: PB12
-flash:
+rx_spi:
   port: 3
   nss: PA15
-usb_detect: PC15
+  busy: PA13
+  busy_exti: true
+  exti: PC14
+  reset: PA8
 vbat: PB0
 ibat: PB1
-rgb_led: PA8
 buzzer:
-  invert: true
-  pin: PB2
+  pin: PC15
 motor_pins:
-  - PB6
   - PB7
-  - PA0
+  - PB8
   - PB10
+  - PB6

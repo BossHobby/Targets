@@ -1,22 +1,27 @@
-name: cc3d_revo_f4
-manufacturer: OPEN
+name: nbd_infinityf4
+manufacturer: NEBD
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PB5
-  - pin: PB4
+    pin: PC0
 serial_ports:
   - index: 1
-    inverter: PC0
+    inverter: PA0
     rx: PA10
     tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
   - index: 3
     rx: PB11
     tx: PB10
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -31,17 +36,19 @@ spi_ports:
     mosi: PB5
     sck: PB3
 gyro:
+  port: 2
+  nss: PB12
+osd:
   port: 1
   nss: PA4
-gyro_orientation: 8
-usb_detect: PC5
 fpv: PA13
-vbat: PC2
+vbat: PC4
+ibat: PC3
 buzzer:
   invert: true
   pin: PB6
 motor_pins:
-  - PA3
-  - PA2
-  - PB0
+  - PC9
+  - PA8
   - PB1
+  - PB0
