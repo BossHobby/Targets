@@ -3,7 +3,8 @@ manufacturer: TEBS
 mcu: at32f435m
 brushless: true
 leds:
-  - pin: PC14
+  - invert: false
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PB7

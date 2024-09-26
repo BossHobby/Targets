@@ -1,8 +1,6 @@
-name: iflight_blitzf435
+name: iflight_blitz_f435
 manufacturer: IFRC
 mcu: at32f435
-alias:
-  - ifrc-iflight_blitz_minif435
 brushless: true
 leds:
   - invert: true
@@ -24,8 +22,8 @@ serial_ports:
     rx: PD2
     tx: PC12
   - index: 6
-    rx: PC6
-    tx: PC7
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -41,18 +39,20 @@ spi_ports:
     sck: PB3
 gyro:
   port: 1
-  nss: PA4
+  nss: SPI1_NSS_PIN
+  exti: PC4
 osd:
   port: 2
-  nss: PB12
+  nss: SPI2_NSS_PIN
 flash:
   port: 3
-  nss: PA15
+  nss: SPI3_NSS_PIN
 usb_detect: PC5
 vbat: PC2
 ibat: PC1
 rgb_led: PA8
 buzzer:
+  invert: true
   pin: PB2
 motor_pins:
   - PC8

@@ -1,6 +1,6 @@
-name: iflightf745_aio_v2
+name: iflight_h743_aio_v2
 manufacturer: IFRC
-mcu: stm32f745
+mcu: stm32h743
 brushless: true
 leds:
   - invert: true

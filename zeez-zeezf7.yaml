@@ -1,10 +1,12 @@
-name: geprcf722_aio
-manufacturer: GEPR
+name: zeezf7
+manufacturer: ZEEZ
 mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC4
+    pin: PC14
+  - invert: true
+    pin: PC15
 serial_ports:
   - index: 1
     rx: PA10
@@ -16,11 +18,14 @@ serial_ports:
     rx: PB11
     tx: PB10
   - index: 4
-    rx: PC11
-    tx: PC10
+    rx: PA1
+    tx: PA0
   - index: 5
     rx: PD2
     tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -31,29 +36,30 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PB4
+    miso: PC11
     mosi: PB5
-    sck: PB3
+    sck: PC10
 gyro:
-  port: 1
-  nss: PA15
-  exti: PA8
-gyro_orientation: 4
-osd:
   port: 2
   nss: PB12
-flash:
+  exti: PC9
+gyro_orientation: 8
+osd:
   port: 3
-  nss: PB9
+  nss: PA15
+flash:
+  port: 1
+  nss: PA4
 vbat: PC2
-ibat: PC1
-ibat_scale: 100
-rgb_led: PA1
+vbat_scale: 110
+ibat: PC3
+ibat_scale: 350
+rgb_led: PB0
 buzzer:
   invert: true
-  pin: PC15
+  pin: PB2
 motor_pins:
-  - PC7
-  - PC6
-  - PC9
-  - PC8
+  - PB6
+  - PB4
+  - PB8
+  - PB7
