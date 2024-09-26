@@ -1,10 +1,10 @@
-name: iflighth743_aio_v1
-manufacturer: IFRC
-mcu: stm32h743
+name: hifionrcf7
+manufacturer: HFOR
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PA15
 serial_ports:
   - index: 1
     rx: PA10
@@ -18,15 +18,12 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
-  - index: 7
-    rx: PE7
-    tx: PE8
-  - index: 8
-    rx: PE0
-    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
@@ -38,28 +35,28 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB5
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 gyro:
   port: 1
-  nss: PA4
-gyro_orientation: 4
+  nss: PB2
+  exti: PC4
+gyro_orientation: 8
 osd:
-  port: 4
-  nss: PE4
+  port: 2
+  nss: PB12
 flash:
   port: 3
-  nss: PA15
-vbat: PC3
-ibat: PC2
+  nss: PC13
+vbat: PC2
+ibat: PC1
+ibat_scale: 450
+rgb_led: PA8
 buzzer:
-  pin: PD15
+  invert: true
+  pin: PC15
 motor_pins:
-  - PE9
-  - PE11
+  - PB4
+  - PB3
   - PB0
   - PB1

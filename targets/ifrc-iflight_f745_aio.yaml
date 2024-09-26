@@ -1,10 +1,10 @@
-name: hifionrcf722
-manufacturer: HFOR
-mcu: stm32f722
+name: iflight_f745_aio
+manufacturer: IFRC
+mcu: stm32f745
 brushless: true
 leds:
   - invert: true
-    pin: PA15
+    pin: PC13
 serial_ports:
   - index: 1
     rx: PA10
@@ -18,12 +18,15 @@ serial_ports:
   - index: 4
     rx: PA1
     tx: PA0
-  - index: 5
-    rx: PD2
-    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PC4
 spi_ports:
   - index: 1
     miso: PA6
@@ -35,24 +38,32 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PB5
+    mosi: PC12
     sck: PC10
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
 gyro:
   port: 1
   nss: PA4
-gyro_orientation: 8
+  exti: PD0
 osd:
-  port: 2
-  nss: PB12
+  port: 4
+  nss: PE4
 flash:
   port: 3
-  nss: PC13
-vbat: PC2
-ibat: PC1
+  nss: PA15
+usb_detect: PC4
+vbat: PC3
+ibat: PC2
+ibat_scale: 100
+rgb_led: PD12
 buzzer:
-  pin: PC15
+  invert: true
+  pin: PD15
 motor_pins:
-  - PB4
-  - PB3
+  - PE9
+  - PE11
   - PB0
   - PB1
