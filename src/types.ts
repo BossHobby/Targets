@@ -151,7 +151,7 @@ function skipEmpty(val: any) {
   if (Array.isArray(val)) {
     for (let i = val.length - 1; i >= 0; i--) {
       val[i] = skipEmpty(val[i]);
-      if (!val[i]) {
+      if (val[i] === undefined) {
         val.splice(i, 1);
       }
     }
@@ -163,7 +163,7 @@ function skipEmpty(val: any) {
     const keys = Object.keys(val);
     for (let i = keys.length - 1; i >= 0; i--) {
       val[keys[i]] = skipEmpty(val[keys[i]]);
-      if (!val[keys[i]]) {
+      if (val[keys[i]] === undefined) {
         delete val[keys[i]];
       }
     }
