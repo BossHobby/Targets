@@ -55,6 +55,7 @@ ibat: PC1
 ibat_scale: 70
 rgb_led: PB7
 buzzer:
+  invert: false
   pin: PC15
 motor_pins:
   - PC8

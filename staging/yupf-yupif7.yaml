@@ -47,6 +47,7 @@ ibat: PC2
 ibat_scale: 235
 rgb_led: PB1
 buzzer:
+  invert: false
   pin: PB14
 motor_pins:
   - PA2

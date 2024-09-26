@@ -38,6 +38,7 @@ gyro:
   port: 1
   nss: PB11
   exti: PC4
+gyro_orientation: 0
 osd:
   port: 2
   nss: PB10

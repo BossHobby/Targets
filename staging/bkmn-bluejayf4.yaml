@@ -36,6 +36,7 @@ gyro:
   port: 1
   nss: PC4
   exti: PC5
+gyro_orientation: 0
 flash:
   port: 3
   nss: PB7

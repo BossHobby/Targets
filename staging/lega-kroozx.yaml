@@ -52,6 +52,7 @@ sdcard_detect:
   invert: true
   pin: PC13
 buzzer:
+  invert: false
   pin: PC1
 motor_pins:
   - PA0

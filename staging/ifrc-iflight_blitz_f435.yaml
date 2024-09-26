@@ -41,6 +41,7 @@ gyro:
   port: 1
   nss: SPI1_NSS_PIN
   exti: PC4
+gyro_orientation: 0
 osd:
   port: 2
   nss: SPI2_NSS_PIN

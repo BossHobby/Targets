@@ -48,6 +48,7 @@ flash:
   port: 3
   nss: PC0
 sdcard:
+  port: 0
   nss: PC1
 usb_detect: PB12
 vbat: PC5

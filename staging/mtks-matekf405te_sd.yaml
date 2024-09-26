@@ -44,6 +44,7 @@ osd:
   port: 1
   nss: PB12
 flash:
+  port: 0
   nss: PC13
 sdcard:
   port: 2

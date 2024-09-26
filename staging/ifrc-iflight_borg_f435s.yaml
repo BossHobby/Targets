@@ -1,0 +1,55 @@
+name: iflight_borg_f435s
+manufacturer: IFRC
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 4
+    rx: PH2
+    tx: PH3
+  - index: 5
+    rx: PB8
+    tx: PB9
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: SPI1_NSS_PIN
+  exti: PC13
+gyro_orientation: 0
+osd:
+  port: 2
+  nss: SPI2_NSS_PIN
+flash:
+  port: 3
+  nss: SPI3_NSS_PIN
+vbat: PA1
+ibat: PA0
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PB2
+motor_pins:
+  - PB10
+  - PB11
+  - PB0
+  - PB1

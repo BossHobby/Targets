@@ -43,6 +43,7 @@ gyro:
   port: 1
   nss: PC14
   exti: PB12
+gyro_orientation: 0
 osd:
   port: 2
   nss: PH2
@@ -53,6 +54,7 @@ vbat: PC4
 ibat: PA3
 rgb_led: PA15
 buzzer:
+  invert: false
   pin: PB10
 motor_pins:
   - PB7

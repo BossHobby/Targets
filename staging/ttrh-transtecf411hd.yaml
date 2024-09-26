@@ -24,6 +24,7 @@ gyro:
   exti: PA1
 gyro_orientation: 4
 osd:
+  port: .nan
   nss: PB12
 usb_detect: PC15
 vbat: PA0

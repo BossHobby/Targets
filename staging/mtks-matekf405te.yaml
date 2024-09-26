@@ -47,6 +47,7 @@ flash:
   port: 2
   nss: PC13
 sdcard:
+  port: 0
   nss: PC1
 vbat: PC4
 vbat_scale: 210

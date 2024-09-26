@@ -36,6 +36,7 @@ gyro:
   port: 1
   nss: PC4
   exti: PB15
+gyro_orientation: 0
 sdcard:
   port: 3
   nss: PA15

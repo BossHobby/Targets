@@ -41,10 +41,12 @@ gyro:
   port: 1
   nss: PA4
   exti: PC4
+gyro_orientation: 0
 osd:
   port: 3
   nss: PA15
 flash:
+  port: 0
   nss: PB12
 sdcard:
   port: 2

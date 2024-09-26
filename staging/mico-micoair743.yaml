@@ -43,6 +43,7 @@ spi_ports:
 gyro:
   port: 2
   nss: PA15
+gyro_orientation: 0
 osd:
   port: 1
   nss: PB12

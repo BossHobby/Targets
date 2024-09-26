@@ -27,6 +27,7 @@ spi_ports:
     mosi: PE14
     sck: PE12
 gyro:
+  port: 0
   exti: PB15
 gyro_orientation: 8
 usb_detect: PA9

@@ -48,6 +48,7 @@ ibat: PC3
 ibat_scale: 444
 rgb_led: PB7
 buzzer:
+  invert: false
   pin: PA8
 motor_pins:
   - PB1

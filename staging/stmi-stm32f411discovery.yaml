@@ -32,6 +32,7 @@ vbat: PC1
 ibat: PC2
 rgb_led: PB8
 buzzer:
+  invert: false
   pin: PD12
 motor_pins:
   - PA2

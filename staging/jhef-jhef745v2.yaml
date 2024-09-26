@@ -44,6 +44,7 @@ gyro:
   port: 4
   nss: PE4
   exti: PE1
+gyro_orientation: 0
 osd:
   port: 2
   nss: PB12

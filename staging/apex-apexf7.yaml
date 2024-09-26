@@ -39,6 +39,7 @@ gyro:
   port: 3
   nss: PD2
   exti: PA4
+gyro_orientation: 0
 osd:
   port: 2
   nss: PC15

@@ -51,6 +51,7 @@ gyro:
   port: 3
   nss: SPI3_NSS_PIN
   exti: PC6
+gyro_orientation: 0
 flash:
   port: 6
   nss: PD7

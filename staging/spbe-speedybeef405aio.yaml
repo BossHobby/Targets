@@ -1,0 +1,61 @@
+name: speedybeef405aio
+manufacturer: SPBE
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PD7
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PD6
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+gyro:
+  port: 1
+  nss: PA4
+  exti: PE9
+gyro_orientation: 16
+osd:
+  port: 3
+  nss: PD5
+flash:
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC2
+ibat_scale: 254
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PD11
+motor_pins:
+  - PA2
+  - PA3
+  - PA1
+  - PA0

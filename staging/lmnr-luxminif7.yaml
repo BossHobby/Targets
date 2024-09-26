@@ -38,6 +38,7 @@ spi_ports:
 gyro:
   port: 1
   nss: PC4
+gyro_orientation: 0
 osd:
   port: 3
   nss: PD2

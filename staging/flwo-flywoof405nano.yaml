@@ -36,6 +36,7 @@ gyro:
   port: 1
   nss: PB12
   exti: PB13
+gyro_orientation: 0
 osd:
   port: 3
   nss: PB14

@@ -28,6 +28,7 @@ gyro_orientation: 8
 vbat: PA6
 ibat: PA7
 buzzer:
+  invert: false
   pin: PC13
 motor_pins:
   - PB8

@@ -38,6 +38,7 @@ flash:
 usb_detect: PA9
 rgb_led: PB7
 buzzer:
+  invert: false
   pin: PC5
 motor_pins:
   - PB1

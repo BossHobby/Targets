@@ -22,3 +22,4 @@ gyro:
   port: 2
   nss: J7_NSS
   exti: PB11
+gyro_orientation: 0

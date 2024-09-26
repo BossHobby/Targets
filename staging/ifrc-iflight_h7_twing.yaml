@@ -49,6 +49,7 @@ gyro:
   port: 1
   nss: PA4
   exti: PC5
+gyro_orientation: 0
 osd:
   port: 4
   nss: PE11

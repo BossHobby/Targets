@@ -43,6 +43,7 @@ vbat: PC1
 ibat: PC2
 rgb_led: PA10
 sdcard_detect:
+  invert: false
   pin: PB15
 buzzer:
   invert: true

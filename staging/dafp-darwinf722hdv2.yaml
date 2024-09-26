@@ -45,6 +45,7 @@ osd:
   port: 2
   nss: PB12
 sdcard:
+  port: 0
   nss: PD2
 usb_detect: PC14
 vbat: PC2

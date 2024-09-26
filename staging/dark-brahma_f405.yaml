@@ -35,6 +35,7 @@ gyro:
   port: 3
   nss: PB3
   exti: PB8
+gyro_orientation: 0
 osd:
   port: 1
   nss: PA4
@@ -46,6 +47,7 @@ ibat: PC3
 ibat_scale: 270
 rgb_led: PC8
 buzzer:
+  invert: false
   pin: PC13
 motor_pins:
   - PA3
