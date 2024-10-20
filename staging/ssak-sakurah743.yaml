@@ -1,12 +1,14 @@
-name: jheh743_hd
-manufacturer: JHEF
+name: sakurah743
+manufacturer: SSAK
 mcu: stm32h743
 brushless: true
 leds:
   - invert: true
-    pin: PE5
+    pin: PB3
   - invert: true
-    pin: PE4
+    pin: PB4
+  - invert: true
+    pin: PB5
 serial_ports:
   - index: 1
     rx: PA10
@@ -18,11 +20,8 @@ serial_ports:
     rx: PD9
     tx: PD8
   - index: 4
-    rx: PD0
-    tx: PD1
-  - index: 5
-    rx: PD2
-    tx: PC12
+    rx: PB8
+    tx: PB9
   - index: 6
     rx: PC7
     tx: PC6
@@ -41,36 +40,27 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 3
-    miso: PC11
-    mosi: PB2
-    sck: PC10
   - index: 4
     miso: PE13
     mosi: PE14
     sck: PE12
 gyro:
-  port: 1
+  port: 4
   nss: PA4
   exti: PC4
-gyro_orientation: 16
-osd:
-  port: 2
-  nss: PB12
-flash:
-  port: 3
-  nss: PA15
-usb_detect: PE6
-vbat: PC1
-vbat_scale: 110
-ibat: PC3
-ibat_scale: 170
+gyro_orientation: 32
+vbat: PC3
+vbat_scale: 170
+ibat: PC2
+ibat_scale: 250
 rgb_led: PA8
+sdcard_detect:
+  invert: false
 buzzer:
   invert: true
-  pin: PE3
+  pin: PD7
 motor_pins:
+  - PB0
+  - PB1
   - PA2
   - PA3
-  - PA0
-  - PA1
