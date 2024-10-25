@@ -2,403 +2,461 @@
     type: spi
     index: 3
     func: miso
-  port_index: 1
-  stream_index: 0
+  dma:
+    port: 1
+    stream: 0
   channel: 0
 - tag:
     type: timer
     index: 4
     func: ch1
-  port_index: 1
-  stream_index: 0
+  dma:
+    port: 1
+    stream: 0
   channel: 2
 - tag:
     type: timer
     index: 5
     func: ch3
-  port_index: 1
-  stream_index: 0
+  dma:
+    port: 1
+    stream: 0
   channel: 6
 - tag:
     type: timer
     index: 2
     func: ch3
-  port_index: 1
-  stream_index: 1
+  dma:
+    port: 1
+    stream: 1
   channel: 3
 - tag:
     type: timer
     index: 5
     func: ch4
-  port_index: 1
-  stream_index: 1
+  dma:
+    port: 1
+    stream: 1
   channel: 6
 - tag:
     type: spi
     index: 3
     func: miso
-  port_index: 1
-  stream_index: 2
+  dma:
+    port: 1
+    stream: 2
   channel: 0
 - tag:
     type: timer
     index: 3
     func: ch4
-  port_index: 1
-  stream_index: 2
+  dma:
+    port: 1
+    stream: 2
   channel: 5
 - tag:
     type: timer
     index: 5
     func: ch1
-  port_index: 1
-  stream_index: 2
+  dma:
+    port: 1
+    stream: 2
   channel: 6
 - tag:
     type: spi
     index: 2
     func: miso
-  port_index: 1
-  stream_index: 3
+  dma:
+    port: 1
+    stream: 3
   channel: 0
 - tag:
     type: timer
     index: 4
     func: ch2
-  port_index: 1
-  stream_index: 3
+  dma:
+    port: 1
+    stream: 3
   channel: 2
 - tag:
     type: timer
     index: 5
     func: ch4
-  port_index: 1
-  stream_index: 3
+  dma:
+    port: 1
+    stream: 3
   channel: 6
 - tag:
     type: spi
     index: 2
     func: mosi
-  port_index: 1
-  stream_index: 4
+  dma:
+    port: 1
+    stream: 4
   channel: 0
 - tag:
     type: timer
     index: 3
     func: ch1
-  port_index: 1
-  stream_index: 4
+  dma:
+    port: 1
+    stream: 4
   channel: 5
 - tag:
     type: timer
     index: 5
     func: ch2
-  port_index: 1
-  stream_index: 4
+  dma:
+    port: 1
+    stream: 4
   channel: 6
 - tag:
     type: spi
     index: 3
     func: mosi
-  port_index: 1
-  stream_index: 5
+  dma:
+    port: 1
+    stream: 5
   channel: 0
 - tag:
     type: timer
     index: 2
     func: ch1
-  port_index: 1
-  stream_index: 5
+  dma:
+    port: 1
+    stream: 5
   channel: 3
 - tag:
     type: serial
     index: 2
     func: rx
-  port_index: 1
-  stream_index: 5
+  dma:
+    port: 1
+    stream: 5
   channel: 4
 - tag:
     type: timer
     index: 3
     func: ch2
-  port_index: 1
-  stream_index: 5
+  dma:
+    port: 1
+    stream: 5
   channel: 5
 - tag:
     type: timer
     index: 2
     func: ch2
-  port_index: 1
-  stream_index: 6
+  dma:
+    port: 1
+    stream: 6
   channel: 3
 - tag:
     type: timer
     index: 2
     func: ch4
-  port_index: 1
-  stream_index: 6
+  dma:
+    port: 1
+    stream: 6
   channel: 3
 - tag:
     type: serial
     index: 2
     func: tx
-  port_index: 1
-  stream_index: 6
+  dma:
+    port: 1
+    stream: 6
   channel: 4
 - tag:
     type: spi
     index: 3
     func: mosi
-  port_index: 1
-  stream_index: 7
+  dma:
+    port: 1
+    stream: 7
   channel: 0
 - tag:
     type: timer
     index: 4
     func: ch3
-  port_index: 1
-  stream_index: 7
+  dma:
+    port: 1
+    stream: 7
   channel: 2
 - tag:
     type: timer
     index: 2
     func: ch4
-  port_index: 1
-  stream_index: 7
+  dma:
+    port: 1
+    stream: 7
   channel: 3
 - tag:
     type: timer
     index: 3
     func: ch3
-  port_index: 1
-  stream_index: 7
+  dma:
+    port: 1
+    stream: 7
   channel: 5
 - tag:
     type: serial
     index: 2
     func: rx
-  port_index: 1
-  stream_index: 7
+  dma:
+    port: 1
+    stream: 7
   channel: 6
 - tag:
     type: adc
     index: 1
-  port_index: 2
-  stream_index: 0
+  dma:
+    port: 2
+    stream: 0
   channel: 0
 - tag:
     type: spi
     index: 1
     func: miso
-  port_index: 2
-  stream_index: 0
+  dma:
+    port: 2
+    stream: 0
   channel: 3
 - tag:
     type: spi
     index: 4
     func: miso
-  port_index: 2
-  stream_index: 0
+  dma:
+    port: 2
+    stream: 0
   channel: 4
 - tag:
     type: spi
     index: 4
     func: mosi
-  port_index: 2
-  stream_index: 1
+  dma:
+    port: 2
+    stream: 1
   channel: 4
 - tag:
     type: serial
     index: 6
     func: rx
-  port_index: 2
-  stream_index: 1
+  dma:
+    port: 2
+    stream: 1
   channel: 5
 - tag:
     type: timer
     index: 1
     func: ch1
-  port_index: 2
-  stream_index: 1
+  dma:
+    port: 2
+    stream: 1
   channel: 6
 - tag:
     type: spi
     index: 1
     func: mosi
-  port_index: 2
-  stream_index: 2
+  dma:
+    port: 2
+    stream: 2
   channel: 2
 - tag:
     type: spi
     index: 1
     func: miso
-  port_index: 2
-  stream_index: 2
+  dma:
+    port: 2
+    stream: 2
   channel: 3
 - tag:
     type: serial
     index: 1
     func: rx
-  port_index: 2
-  stream_index: 2
+  dma:
+    port: 2
+    stream: 2
   channel: 4
 - tag:
     type: serial
     index: 6
     func: rx
-  port_index: 2
-  stream_index: 2
+  dma:
+    port: 2
+    stream: 2
   channel: 5
 - tag:
     type: timer
     index: 1
     func: ch2
-  port_index: 2
-  stream_index: 2
+  dma:
+    port: 2
+    stream: 2
   channel: 6
 - tag:
     type: spi
     index: 5
     func: miso
-  port_index: 2
-  stream_index: 3
+  dma:
+    port: 2
+    stream: 3
   channel: 2
 - tag:
     type: spi
     index: 1
     func: mosi
-  port_index: 2
-  stream_index: 3
+  dma:
+    port: 2
+    stream: 3
   channel: 3
 - tag:
     type: spi
     index: 4
     func: miso
-  port_index: 2
-  stream_index: 3
+  dma:
+    port: 2
+    stream: 3
   channel: 5
 - tag:
     type: timer
     index: 1
     func: ch1
-  port_index: 2
-  stream_index: 3
+  dma:
+    port: 2
+    stream: 3
   channel: 6
 - tag:
     type: adc
     index: 1
-  port_index: 2
-  stream_index: 4
+  dma:
+    port: 2
+    stream: 4
   channel: 0
 - tag:
     type: spi
     index: 5
     func: mosi
-  port_index: 2
-  stream_index: 4
+  dma:
+    port: 2
+    stream: 4
   channel: 2
 - tag:
     type: spi
     index: 4
     func: miso
-  port_index: 2
-  stream_index: 4
+  dma:
+    port: 2
+    stream: 4
   channel: 4
 - tag:
     type: spi
     index: 4
     func: mosi
-  port_index: 2
-  stream_index: 4
+  dma:
+    port: 2
+    stream: 4
   channel: 5
 - tag:
     type: timer
     index: 1
     func: ch4
-  port_index: 2
-  stream_index: 4
+  dma:
+    port: 2
+    stream: 4
   channel: 6
 - tag:
     type: spi
     index: 1
     func: mosi
-  port_index: 2
-  stream_index: 5
+  dma:
+    port: 2
+    stream: 5
   channel: 3
 - tag:
     type: serial
     index: 1
     func: rx
-  port_index: 2
-  stream_index: 5
+  dma:
+    port: 2
+    stream: 5
   channel: 4
 - tag:
     type: spi
     index: 5
     func: mosi
-  port_index: 2
-  stream_index: 5
+  dma:
+    port: 2
+    stream: 5
   channel: 5
 - tag:
     type: spi
     index: 5
     func: miso
-  port_index: 2
-  stream_index: 5
+  dma:
+    port: 2
+    stream: 5
   channel: 7
 - tag:
     type: timer
     index: 1
     func: ch1
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 0
 - tag:
     type: timer
     index: 1
     func: ch2
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 0
 - tag:
     type: timer
     index: 1
     func: ch3
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 0
 - tag:
     type: serial
     index: 6
     func: tx
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 5
 - tag:
     type: timer
     index: 1
     func: ch3
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 6
 - tag:
     type: spi
     index: 5
     func: mosi
-  port_index: 2
-  stream_index: 6
+  dma:
+    port: 2
+    stream: 6
   channel: 7
 - tag:
     type: serial
     index: 1
     func: tx
-  port_index: 2
-  stream_index: 7
+  dma:
+    port: 2
+    stream: 7
   channel: 4
 - tag:
     type: serial
     index: 6
     func: tx
-  port_index: 2
-  stream_index: 7
+  dma:
+    port: 2
+    stream: 7
   channel: 5
