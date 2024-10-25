@@ -1,5 +1,5 @@
 name: stellarf4
-manufacturer: FLMO
+manufacturer: STBE
 mcu: stm32f405
 brushless: true
 leds:

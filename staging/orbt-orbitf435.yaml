@@ -1,34 +1,37 @@
-name: stellarf7
-manufacturer: FLMO
-mcu: stm32f722
+name: orbitf435
+manufacturer: ORBT
+mcu: at32f435
 brushless: true
 leds:
   - invert: true
-    pin: PB2
+    pin: PC13
 serial_ports:
   - index: 1
-    rx: PB7
-    tx: PB6
+    rx: PA10
+    tx: PA9
   - index: 2
+    inverter: PB2
     rx: PA3
     tx: PA2
   - index: 3
     rx: PC11
-    tx: PC10
   - index: 4
-    rx: PA1
-    tx: PA0
+    rx: PH2
+    tx: PH3
   - index: 5
     rx: PD2
     tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
     mosi: PA7
     sck: PA5
   - index: 2
-    miso: PB14
-    mosi: PB15
+    miso: PC2
+    mosi: PC3
     sck: PB13
   - index: 3
     miso: PB4
@@ -38,23 +41,29 @@ gyro:
   port: 1
   nss: PA4
   exti: PC4
-gyro_orientation: 16
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
 flash:
   port: 3
-  nss: PC13
-usb_detect: PA9
-vbat: PC1
-vbat_scale: 110
-ibat: PC0
-ibat_scale: 182
+  nss: PB15
+sdcard:
+  port: 3
+  nss: PC14
+usb_detect: PC9
+vbat: PC0
+vbat_scale: 101
+ibat: PC1
+rgb_led: PA0
+sdcard_detect:
+  invert: true
+  pin: PA8
 buzzer:
   invert: true
-  pin: PC3
+  pin: PC15
 motor_pins:
-  - PC8
-  - PC9
-  - PC6
-  - PC7
+  - PB10
+  - PB11
+  - PB0
+  - PB1

@@ -1,14 +1,12 @@
-name: sakurah743
-manufacturer: SSAK
+name: flywooh743pro
+manufacturer: FLWO
 mcu: stm32h743
 brushless: true
 leds:
   - invert: true
-    pin: PB3
+    pin: PE3
   - invert: true
-    pin: PB4
-  - invert: true
-    pin: PB5
+    pin: PE4
 serial_ports:
   - index: 1
     rx: PA10
@@ -34,33 +32,37 @@ serial_ports:
 spi_ports:
   - index: 1
     miso: PA6
-    mosi: PA7
+    mosi: PD7
     sck: PA5
   - index: 2
     miso: PB14
     mosi: PB15
     sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
   - index: 4
     miso: PE13
     mosi: PE14
     sck: PE12
 gyro:
-  port: 4
-  nss: PA4
-  exti: PC4
-gyro_orientation: 32
-vbat: PC3
-vbat_scale: 170
-ibat: PC2
+  port: 1
+  nss: PC15
+  exti: PB2
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC1
 ibat_scale: 250
 rgb_led: PA8
-sdcard_detect:
-  invert: false
 buzzer:
   invert: true
-  pin: PD7
+  pin: PA15
 motor_pins:
-  - PB1
+  - PA0
+  - PA1
   - PB0
-  - PA2
-  - PA3
+  - PB1
