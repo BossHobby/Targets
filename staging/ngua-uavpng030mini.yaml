@@ -41,3 +41,20 @@ motor_pins:
   - PE14
   - PA8
   - PE11
+dma:
+  DSHOT_CH1:
+    channel: 2
+    dma: DMA1_STREAM0
+    tag: TIMER4_CH1
+  DSHOT_CH2:
+    channel: 2
+    dma: DMA1_STREAM3
+    tag: TIMER4_CH2
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI

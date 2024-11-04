@@ -33,3 +33,16 @@ motor_pins:
   - PC9
   - PC6
   - PC7
+dma:
+  DSHOT_CH1:
+    channel: 2
+    dma: DMA1_STREAM0
+    tag: TIMER4_CH1
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI

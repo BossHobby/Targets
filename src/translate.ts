@@ -1,7 +1,7 @@
 import fs from "fs";
-import path from "path";
 import { walk } from "./util";
-import { GyroRotation, stringifyTarget, target_t } from "./types";
+import { GyroRotation, skipEmpty, stringifyTarget, target_t } from "./types";
+import { findDmaAssigments } from "./dma";
 
 const OUTPUT_FOLDER = "staging";
 
@@ -21,6 +21,13 @@ const MCU_MAP = {
   stm32g47x: "stm32g473",
   at32f435g: "at32f435",
 };
+
+const BLACKLIST = [
+  "nucleof722",
+  "nucleof446",
+  "atstartf435",
+  "revo_at"
+];
 
 function mapMCU(mcu: string) {
   if (MCU_MAP[mcu]) {
@@ -286,12 +293,16 @@ async function translate(filename: string, output?: string) {
     handle(target, parts);
   }
 
+  if (BLACKLIST.includes(target.name)) {
+    return;
+  }
+
   if (!output) {
     output = `${OUTPUT_FOLDER}/${target.manufacturer.toLowerCase()}-${
       target.name
     }.yaml`;
   }
-  await fs.promises.writeFile(output, stringifyTarget(target));
+  await fs.promises.writeFile(output, stringifyTarget(findDmaAssigments(skipEmpty(target))));
 }
 
 const args = process.argv.slice(2);

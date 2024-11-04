@@ -35,3 +35,20 @@ motor_pins:
   - PB9
   - PA10
   - PB3
+dma:
+  DSHOT_CH1:
+    channel: 2
+    dma: DMA1_STREAM0
+    tag: TIMER4_CH1
+  DSHOT_CH2:
+    channel: 2
+    dma: DMA1_STREAM3
+    tag: TIMER4_CH2
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI

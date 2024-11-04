@@ -7,18 +7,18 @@ leds:
     pin: PC14
 serial_ports:
   - index: 1
-    tx: PB6
     rx: PB7
+    tx: PB6
   - index: 2
     tx: PA2
   - index: 3
-    tx: PB10
     rx: PB11
+    tx: PB10
   - index: 4
     rx: PH2
   - index: 5
-    tx: PB9
     rx: PB8
+    tx: PB9
 spi_ports:
   - index: 1
     miso: PA6
@@ -32,10 +32,10 @@ spi_ports:
     miso: PB4
     mosi: PB5
     sck: PB3
-gyro_orientation: 6
 gyro:
   port: 1
   nss: PA4
+gyro_orientation: 6
 osd:
   port: 2
   nss: PB12
@@ -53,3 +53,32 @@ motor_pins:
   - PA3
   - PA8
   - PA9
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM0
+    request: 42
+    tag: TIMER1_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM1
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM2
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM3
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM4
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA1_STREAM5
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA1_STREAM6
+    request: 15
+    tag: SPI3_MOSI

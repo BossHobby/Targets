@@ -51,3 +51,24 @@ motor_pins:
   - PA0
   - PA3
   - PA1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM0
+    request: 67
+    tag: TIMER4_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM1
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM2
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM3
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM4
+    request: 13
+    tag: SPI2_MOSI

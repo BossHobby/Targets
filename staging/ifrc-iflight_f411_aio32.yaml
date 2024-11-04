@@ -52,3 +52,28 @@ motor_pins:
   - PB7
   - PB4
   - PB5
+dma:
+  DSHOT_CH1:
+    channel: 2
+    dma: DMA1_STREAM0
+    tag: TIMER4_CH1
+  RGB:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 2
+    dma: DMA2_STREAM2
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
