@@ -141,7 +141,7 @@ function sortMapEntries(
   return aIndex - bIndex;
 }
 
-function skipEmpty(val: any) {
+export function skipEmpty(val: any) {
   if (val === undefined) {
     return undefined;
   }

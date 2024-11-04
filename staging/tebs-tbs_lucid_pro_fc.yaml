@@ -1,0 +1,102 @@
+name: tbs_lucid_pro_fc
+manufacturer: TEBS
+mcu: at32f435m
+brushless: true
+leds:
+  - invert: true
+    pin: PC14
+  - invert: true
+    pin: PC15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PB0
+  - index: 3
+    rx: PB10
+    tx: PB11
+  - index: 4
+    rx: PH2
+    tx: PH3
+  - index: 5
+    rx: PD2
+    tx: PB9
+  - index: 7
+    rx: PB3
+    tx: PB4
+  - index: 8
+    rx: PC3
+    tx: PC2
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+gyro_orientation: 0
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PA15
+vbat: PC0
+ibat: PC1
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PC13
+motor_pins:
+  - PC8
+  - PC9
+  - PC6
+  - PB5
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 67
+    tag: TIMER4_CH1
+  DSHOT_CH2:
+    dma: DMA1_STREAM2
+    request: 68
+    tag: TIMER4_CH2
+  RGB:
+    dma: DMA1_STREAM0
+    request: 42
+    tag: TIMER1_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM3
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM4
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM5
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM6
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA2_STREAM0
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA2_STREAM1
+    request: 15
+    tag: SPI3_MOSI
