@@ -1,4 +1,4 @@
-name: lucidaio
+name: tbs_lucid_aio
 manufacturer: TEBS
 mcu: at32f435m
 brushless: true
