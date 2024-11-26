@@ -61,9 +61,9 @@ motor_pins:
   - PB7
 dma:
   DSHOT_CH1:
-    channel: 2
-    dma: DMA1_STREAM0
-    tag: TIMER4_CH1
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
   RGB:
     channel: 6
     dma: DMA2_STREAM1

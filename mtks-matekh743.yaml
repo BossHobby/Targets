@@ -69,12 +69,12 @@ motor_pins:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 29
-    tag: TIMER4_CH1
+    request: 47
+    tag: TIMER8_CH1
   DSHOT_CH2:
     dma: DMA1_STREAM2
-    request: 30
-    tag: TIMER4_CH2
+    request: 48
+    tag: TIMER8_CH2
   RGB:
     dma: DMA1_STREAM0
     request: 11
