@@ -235,6 +235,20 @@ function handle(target: target_t, parts: string[]) {
         mosi: parsePin(parts[1]),
       };
     }),
+    ...range("i2c{i}_sda_pin", 1, 6, (index: number) => {
+      target.i2c_ports[index - 1] = {
+        ...(target.i2c_ports[index - 1] || {}),
+        index: index,
+        sda: parsePin(parts[1]),
+      };
+    }),
+    ...range("i2c{i}_scl_pin", 1, 6, (index: number) => {
+      target.i2c_ports[index - 1] = {
+        ...(target.i2c_ports[index - 1] || {}),
+        index: index,
+        scl: parsePin(parts[1]),
+      };
+    }),
   };
 
   const handler = handlers[parts[0]];
@@ -256,6 +270,7 @@ async function translate(filename: string, output?: string) {
     serial_ports: [],
     serial_soft_ports: [],
     spi_ports: [],
+    i2c_ports: [],
 
     motor_pins: [],
 

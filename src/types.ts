@@ -29,6 +29,12 @@ export interface target_serial_port_t {
   inverter: gpio_pins_t;
 }
 
+export interface target_i2c_port_t {
+  index: number;
+  sda: gpio_pins_t;
+  scl: gpio_pins_t;
+}
+
 export interface target_spi_port_t {
   index: number;
   miso: gpio_pins_t;
@@ -70,6 +76,7 @@ export interface target_t {
   serial_ports: target_serial_port_t[];
   serial_soft_ports: target_serial_port_t[];
   spi_ports: target_spi_port_t[];
+  i2c_ports: target_i2c_port_t[];
 
   gyro?: target_gyro_spi_device_t;
   gyro_orientation: number;
@@ -102,6 +109,7 @@ export const target_keys = [
   "serial_ports",
   "serial_soft_ports",
   "spi_ports",
+  "i2c_ports",
   "gyro",
   "gyro_orientation",
   "osd",
