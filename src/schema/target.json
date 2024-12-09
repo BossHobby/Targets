@@ -122,6 +122,29 @@
                 ]
             }
         },
+        "i2c_ports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "index": {
+                        "type": "number"
+                    },
+                    "scl": {
+                        "type": "string"
+                    },
+                    "sda": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "index",
+                    "scl",
+                    "sda"
+                ]
+            }
+        },
         "gyro_orientation": {
             "type": "number"
         },
@@ -285,6 +308,10 @@
             "items": {
                 "type": "string"
             }
+        },
+        "dma": {
+            "type": "object",
+            "additionalProperties": true
         }
     },
     "required": [
