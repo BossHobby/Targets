@@ -53,6 +53,13 @@ spi_ports:
     miso: PB4
     mosi: PB5
     sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+  - index: 2
+    scl: PB10
+    sda: PB11
 gyro:
   port: 2
   nss: PA4
@@ -81,8 +88,8 @@ motor_pins:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 29
-    tag: TIMER4_CH1
+    request: 47
+    tag: TIMER8_CH1
   RGB:
     dma: DMA1_STREAM0
     request: 11

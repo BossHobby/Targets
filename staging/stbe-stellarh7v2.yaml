@@ -1,0 +1,105 @@
+name: stellarh7v2
+manufacturer: STBE
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PE3
+  - invert: true
+    pin: PE4
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PB8
+    tx: PB9
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PD7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
+i2c_ports:
+  - index: 2
+    scl: PB10
+    sda: PB11
+gyro:
+  port: 1
+  nss: PC15
+  exti: PE5
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 4
+  nss: PE11
+vbat: PC0
+ibat: PC1
+ibat_scale: 100
+sdcard_detect:
+  invert: false
+buzzer:
+  invert: true
+  pin: PB2
+motor_pins:
+  - PA0
+  - PA1
+  - PB0
+  - PB1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM0
+    request: 11
+    tag: TIMER1_CH1
+  DSHOT_CH2:
+    dma: DMA1_STREAM1
+    request: 12
+    tag: TIMER1_CH2
+  SPI1_RX:
+    dma: DMA1_STREAM2
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM3
+    request: 38
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM4
+    request: 39
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM5
+    request: 40
+    tag: SPI2_MOSI
+  SPI4_RX:
+    dma: DMA1_STREAM6
+    request: 83
+    tag: SPI4_MISO
+  SPI4_TX:
+    dma: DMA1_STREAM7
+    request: 84
+    tag: SPI4_MOSI

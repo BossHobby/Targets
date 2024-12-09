@@ -34,6 +34,10 @@ spi_ports:
     miso: PE13
     mosi: PE14
     sck: PE12
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
 gyro:
   port: 4
   nss: PE11
@@ -59,9 +63,9 @@ motor_pins:
   - PC7
 dma:
   DSHOT_CH1:
-    channel: 2
-    dma: DMA1_STREAM0
-    tag: TIMER4_CH1
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
   RGB:
     channel: 6
     dma: DMA2_STREAM2

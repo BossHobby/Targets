@@ -1,0 +1,90 @@
+name: hglrcf722aiov2
+manufacturer: HGLR
+mcu: stm32f722
+brushless: true
+leds:
+  - invert: true
+    pin: PA13
+  - invert: true
+    pin: PA14
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro:
+  port: 1
+  nss: PB2
+  exti: PC4
+gyro_orientation: 4
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 2
+  nss: PC10
+usb_detect: PC14
+vbat: PC2
+ibat: PC1
+ibat_scale: 179
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PC13
+motor_pins:
+  - PB0
+  - PB1
+  - PB4
+  - PB5
+dma:
+  DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
