@@ -21,6 +21,10 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
 gyro:
   port: 1
   nss: PA4
