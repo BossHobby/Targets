@@ -31,6 +31,10 @@ spi_ports:
     miso: PC11
     mosi: PC12
     sck: PC10
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
 gyro:
   port: 1
   nss: PA4
