@@ -37,9 +37,6 @@ gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
-flash:
-  port: 2
-  nss: PA8  
 rx_spi:
   port: 3
   nss: PA15
