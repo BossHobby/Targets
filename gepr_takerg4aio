@@ -1,0 +1,90 @@
+name: takerg4aio
+manufacturer: GEPR
+mcu: stm32g473
+brushless: true
+leds:
+  - invert: true
+    pin: PB7
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PB4
+    tx: PB3
+  - index: 4
+    rx: PC11
+    tx: PC10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PA13
+    sda: PA14
+gyro:
+  port: 1
+  nss: PB0
+  exti: PA4
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PA8
+flash:
+  port: 2
+  nss: PC6
+vbat: PB2
+ibat: PB1
+ibat_scale: 120
+rgb_led: PB6
+buzzer:
+  invert: true
+  pin: PA15
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 42
+    tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM0
+    request: 67
+    tag: TIMER4_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM2
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM3
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM4
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM5
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA1_STREAM6
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA1_STREAM7
+    request: 15
+    tag: SPI3_MOSI
