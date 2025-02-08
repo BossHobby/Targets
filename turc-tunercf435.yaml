@@ -55,26 +55,26 @@ motor_pins:
   - PB7
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM0
+    dma: DMA1_STREAM1
     request: 42
     tag: TIMER1_CH1
   DSHOT_CH2:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
   SPI1_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 10
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 11
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
