@@ -61,6 +61,7 @@ export function findDmaAssigments(target: target_t): target_t {
     }
 
     const stream_max = mcu == 'at32f435' ? 7 : 8;
+    const stream_start = (mcu == 'at32f435' || mcu == 'stm32g473') ? 1 : 0;
 
     let dma_count = 0;
 
@@ -76,10 +77,7 @@ export function findDmaAssigments(target: target_t): target_t {
         }
 
         const port = ass.dma ? ass.dma.port : 1 + Math.floor(dma_count / stream_max);
-        let stream = ass.dma ? ass.dma.stream : dma_count % stream_max;
-        if (mcu == 'stm32g473') {
-            stream += 1;
-        }
+        const stream = stream_start + (ass.dma ? ass.dma.stream : dma_count % stream_max);
         dma_count++;
 
         dma_assigments.push({
