@@ -1,10 +1,12 @@
-name: foxeerf745v2_aio
-manufacturer: FOXE
-mcu: stm32f745
+name: botwingf722
+manufacturer: BLDY
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC4
+  - invert: true
+    pin: PB2
 serial_ports:
   - index: 1
     rx: PA10
@@ -12,15 +14,11 @@ serial_ports:
   - index: 2
     rx: PA3
     tx: PA2
-  - index: 3
-    rx: PB11
-    tx: PB10
   - index: 4
     rx: PA1
-    tx: PA0
-  - index: 7
-    rx: PE7
-    tx: PE8
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -34,46 +32,50 @@ spi_ports:
     miso: PC11
     mosi: PC12
     sck: PC10
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
 i2c_ports:
   - index: 1
     scl: PB8
     sda: PB9
+  - index: 3
+    scl: PA8
+    sda: PC9
 gyro:
   port: 3
-  nss: PA15
-  exti: PD0
-gyro_orientation: 16
+  nss: SPI3_NSS_PIN
+  exti: PC13
+gyro_orientation: 0
 osd:
-  port: 1
-  nss: PA4
+  port: 2
+  nss: SPI2_NSS_PIN
 flash:
-  port: 4
-  nss: PE4
-vbat: PC3
-ibat: PC2
-ibat_scale: 100
-rgb_led: PA8
+  port: 1
+  nss: SPI1_NSS_PIN
+vbat: PC2
+vbat_scale: 110
+ibat: PC0
+ibat_scale: 400
+rgb_led: PA0
 buzzer:
   invert: true
-  pin: PD2
+  pin: PB6
 motor_pins:
-  - PB1
-  - PB0
-  - PB4
+  - PB3
+  - PA15
   - PB5
+  - PB4
 dma:
   DSHOT_CH1:
-    channel: 0
-    dma: DMA2_STREAM2
-    tag: TIMER8_CH1
-  RGB:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
+  DSHOT_CH2:
+    channel: 6
+    dma: DMA2_STREAM2
+    tag: TIMER1_CH2
+  RGB:
+    channel: 3
+    dma: DMA1_STREAM5
+    tag: TIMER2_CH1
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0
@@ -98,11 +100,3 @@ dma:
     channel: 0
     dma: DMA1_STREAM5
     tag: SPI3_MOSI
-  SPI4_RX:
-    channel: 4
-    dma: DMA2_STREAM0
-    tag: SPI4_MISO
-  SPI4_TX:
-    channel: 4
-    dma: DMA2_STREAM1
-    tag: SPI4_MOSI

@@ -42,7 +42,7 @@ i2c_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: PB12
+  exti: PB2
 gyro_orientation: 8
 osd:
   port: 2

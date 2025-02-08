@@ -1,25 +1,23 @@
-name: betafpvf435
-manufacturer: BEFH
+name: dakefpvf435hd
+manufacturer: DAKE
 mcu: at32f435
 brushless: true
 leds:
   - invert: true
-    pin: PB5
+    pin: PA15
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 3
-    inverter: PC9
     rx: PB11
-    tx: PB10
   - index: 4
-    rx: PA1
-    tx: PA0
+    rx: PC11
+    tx: PC10
   - index: 5
     rx: PD2
+    tx: PC12
   - index: 6
-    inverter: PC8
     rx: PC7
     tx: PC6
 spi_ports:
@@ -32,72 +30,65 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PC11
-    mosi: PC12
-    sck: PC10
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
 gyro:
   port: 1
   nss: PA4
   exti: PC4
-gyro_orientation: 8
+gyro_orientation: 4
 osd:
-  port: 3
-  nss: PA15
-flash:
   port: 2
   nss: PB12
-sdcard:
-  port: 0
-  nss: PB12
-usb_detect: PC5
-vbat: PC2
-ibat: PC1
-rgb_led: PB6
-sdcard_detect:
-  invert: false
-  pin: PB7
+flash:
+  port: 3
+  nss: PB1
+vbat: PC1
+ibat: PC0
+rgb_led: PC8
 buzzer:
   invert: true
-  pin: PB4
+  pin: PC3
 motor_pins:
-  - PA3
   - PA2
-  - PB0
-  - PB1
+  - PA3
+  - PA0
+  - PA1
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
-  DSHOT_CH2:
-    dma: DMA1_STREAM3
-    request: 43
-    tag: TIMER1_CH2
   RGB:
     dma: DMA1_STREAM1
-    request: 67
-    tag: TIMER4_CH1
+    request: 63
+    tag: TIMER3_CH3
   SPI1_RX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM3
     request: 10
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM4
     request: 11
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM5
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
   SPI3_RX:
-    dma: DMA2_STREAM1
+    dma: DMA1_STREAM7
     request: 14
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA2_STREAM2
+    dma: DMA2_STREAM1
     request: 15
     tag: SPI3_MOSI

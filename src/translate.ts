@@ -2,6 +2,7 @@ import fs from "fs";
 import { walk } from "./util";
 import { GyroRotation, skipEmpty, stringifyTarget, target_t } from "./types";
 import { findDmaAssigments } from "./dma";
+import path from "path";
 
 const OUTPUT_FOLDER = "staging";
 
@@ -26,7 +27,8 @@ const BLACKLIST = [
   "nucleof722",
   "nucleof446",
   "atstartf435",
-  "revo_at"
+  "revo_at",
+  "ark_fpv"
 ];
 
 function mapMCU(mcu: string) {
@@ -256,7 +258,7 @@ function handle(target: target_t, parts: string[]) {
     return handler(parts);
   }
 
-  console.log(`unhandled ${parts[0]}`);
+  //console.log(`unhandled ${parts[0]}`);
 }
 
 async function translate(filename: string, output?: string) {
@@ -277,6 +279,7 @@ async function translate(filename: string, output?: string) {
     gyro_orientation: 0,
   };
 
+  console.log(`processing ${filename}...`);
   const content = (await fs.promises.readFile(filename, { encoding: "utf8" }))
     .replace(/\/\*(.|\s)*?\*\//gm, "")
     .replace(/\/\/.*/gm, "")
@@ -329,6 +332,8 @@ if (args.length) {
   await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
 
   for await (const f of walk("betaflight/configs/")) {
-    await translate(f);
+    if (path.basename(f) == "config.h") {
+      await translate(f);
+    }
   }
 }
