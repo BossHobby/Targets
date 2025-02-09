@@ -45,6 +45,9 @@ usb_detect: PC5
 vbat: PC2
 ibat: PC1
 rgb_led: PB6
+sdcard_detect:
+  invert: true
+  pin: PB7
 buzzer:
   invert: true
   pin: PB4
