@@ -48,6 +48,9 @@ flash:
 vbat: PC0
 ibat: PC1
 rgb_led: PA8
+sdcard_detect:
+  invert: true
+  pin: PB11
 buzzer:
   invert: true
   pin: PC13

@@ -39,14 +39,17 @@ gyro:
 osd:
   port: 3
   nss: PA15
-flash:
-  port: 3
-  nss: PB3
+sdcard:
+  port: 2
+  nss: PB12
 usb_detect: PC5
 vbat: PC2
 ibat: PC1
 ibat_scale: 250
 rgb_led: PB8
+sdcard_detect:
+  invert: false
+  pin: PB7
 buzzer:
   invert: true
   pin: PB4

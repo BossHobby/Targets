@@ -42,6 +42,9 @@ flash:
 vbat: PC2
 ibat: PC1
 rgb_led: PB6
+sdcard_detect:
+  invert: false
+  pin: PB7
 buzzer:
   pin: PB4
 motor_pins:

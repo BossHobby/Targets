@@ -50,6 +50,9 @@ usb_detect: PA8
 vbat: PC3
 ibat: PC2
 rgb_led: PD12
+sdcard_detect:
+  invert: true
+  pin: PD8
 buzzer:
   invert: true
   pin: PD15
