@@ -1,0 +1,98 @@
+name: speedybeef405aio
+manufacturer: SPBE
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PD7
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PD6
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PC11
+    tx: PC10
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro:
+  port: 1
+  nss: PA4
+  exti: PE9
+gyro_orientation: 16
+osd:
+  port: 3
+  nss: PD5
+flash:
+  port: 2
+  nss: PB12
+vbat: PC0
+ibat: PC2
+ibat_scale: 254
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PD11
+motor_pins:
+  - PA2
+  - PA3
+  - PA1
+  - PA0
+dma:
+  DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
+  SPI3_RX:
+    channel: 0
+    dma: DMA1_STREAM0
+    tag: SPI3_MISO
+  SPI3_TX:
+    channel: 0
+    dma: DMA1_STREAM5
+    tag: SPI3_MOSI
