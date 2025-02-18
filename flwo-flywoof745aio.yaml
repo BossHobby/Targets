@@ -1,0 +1,107 @@
+name: flywoof745aio
+manufacturer: FLWO
+mcu: stm32f745
+brushless: true
+leds:
+  - invert: true
+    pin: PA2
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+gyro:
+  port: 4
+  nss: PE4
+  exti: PE1
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 1
+  nss: PA4
+usb_detect: PA8
+vbat: PC3
+ibat: PC2
+ibat_scale: 175
+rgb_led: PD12
+buzzer:
+  invert: true
+  pin: PD15
+motor_pins:
+  - PE9
+  - PE11
+  - PB0
+  - PB1
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  DSHOT_CH2:
+    channel: 6
+    dma: DMA2_STREAM2
+    tag: TIMER1_CH2
+  RGB:
+    channel: 2
+    dma: DMA1_STREAM0
+    tag: TIMER4_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
+  SPI4_RX:
+    channel: 4
+    dma: DMA2_STREAM0
+    tag: SPI4_MISO
+  SPI4_TX:
+    channel: 4
+    dma: DMA2_STREAM1
+    tag: SPI4_MOSI
