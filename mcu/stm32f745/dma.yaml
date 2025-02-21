@@ -72,6 +72,14 @@
   channel: 6
 - tag:
     type: spi
+    index: 2
+    func: miso
+  dma:
+    port: 1
+    stream: 1
+  channel: 9
+- tag:
+    type: spi
     index: 3
     func: miso
   dma:
@@ -248,6 +256,14 @@
   channel: 5
 - tag:
     type: spi
+    index: 2
+    func: mosi
+  dma:
+    port: 1
+    stream: 6
+  channel: 9
+- tag:
+    type: spi
     index: 3
     func: mosi
   dma:
@@ -289,6 +305,7 @@
 - tag:
     type: adc
     index: 1
+    func: '0xff'
   dma:
     port: 2
     stream: 0
@@ -296,6 +313,7 @@
 - tag:
     type: adc
     index: 3
+    func: '0xff'
   dma:
     port: 2
     stream: 0
@@ -319,6 +337,7 @@
 - tag:
     type: adc
     index: 3
+    func: '0xff'
   dma:
     port: 2
     stream: 1
@@ -374,6 +393,7 @@
 - tag:
     type: adc
     index: 2
+    func: '0xff'
   dma:
     port: 2
     stream: 2
@@ -419,8 +439,17 @@
     stream: 2
   channel: 7
 - tag:
+    type: spi
+    index: 4
+    func: mosi
+  dma:
+    port: 2
+    stream: 2
+  channel: 9
+- tag:
     type: adc
     index: 2
+    func: '0xff'
   dma:
     port: 2
     stream: 3
@@ -460,6 +489,7 @@
 - tag:
     type: adc
     index: 1
+    func: '0xff'
   dma:
     port: 2
     stream: 4

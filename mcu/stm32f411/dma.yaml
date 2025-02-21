@@ -209,6 +209,7 @@
 - tag:
     type: adc
     index: 1
+    func: '0xff'
   dma:
     port: 2
     stream: 0
@@ -328,6 +329,7 @@
 - tag:
     type: adc
     index: 1
+    func: '0xff'
   dma:
     port: 2
     stream: 4

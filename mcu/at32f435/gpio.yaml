@@ -17,17 +17,17 @@ PA0:
   - tag:
       type: adc
       index: 1
-      func: "0"
+      func: '0'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "0"
+      func: '0'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "0"
+      func: '0'
     af: -1
 PA1:
   - tag:
@@ -53,17 +53,17 @@ PA1:
   - tag:
       type: adc
       index: 1
-      func: "1"
+      func: '1'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "1"
+      func: '1'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "1"
+      func: '1'
     af: -1
 PA2:
   - tag:
@@ -89,17 +89,17 @@ PA2:
   - tag:
       type: adc
       index: 1
-      func: "2"
+      func: '2'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "2"
+      func: '2'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "2"
+      func: '2'
     af: -1
 PA3:
   - tag:
@@ -125,17 +125,17 @@ PA3:
   - tag:
       type: adc
       index: 1
-      func: "3"
+      func: '3'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "3"
+      func: '3'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "3"
+      func: '3'
     af: -1
 PA4:
   - tag:
@@ -146,12 +146,12 @@ PA4:
   - tag:
       type: adc
       index: 1
-      func: "4"
+      func: '4'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "4"
+      func: '4'
     af: -1
 PA5:
   - tag:
@@ -177,12 +177,12 @@ PA5:
   - tag:
       type: adc
       index: 1
-      func: "5"
+      func: '5'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "5"
+      func: '5'
     af: -1
 PA6:
   - tag:
@@ -203,12 +203,12 @@ PA6:
   - tag:
       type: adc
       index: 1
-      func: "6"
+      func: '6'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "6"
+      func: '6'
     af: -1
 PA7:
   - tag:
@@ -239,12 +239,12 @@ PA7:
   - tag:
       type: adc
       index: 1
-      func: "7"
+      func: '7'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "7"
+      func: '7'
     af: -1
 PA8:
   - tag:
@@ -378,12 +378,12 @@ PB0:
   - tag:
       type: adc
       index: 1
-      func: "8"
+      func: '8'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "8"
+      func: '8'
     af: -1
 PB1:
   - tag:
@@ -414,12 +414,12 @@ PB1:
   - tag:
       type: adc
       index: 1
-      func: "9"
+      func: '9'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "9"
+      func: '9'
     af: -1
 PB2:
   - tag:
@@ -704,17 +704,17 @@ PC0:
   - tag:
       type: adc
       index: 1
-      func: "10"
+      func: '10'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "10"
+      func: '10'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "10"
+      func: '10'
     af: -1
 PC1:
   - tag:
@@ -735,17 +735,17 @@ PC1:
   - tag:
       type: adc
       index: 1
-      func: "11"
+      func: '11'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "11"
+      func: '11'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "11"
+      func: '11'
     af: -1
 PC2:
   - tag:
@@ -766,17 +766,17 @@ PC2:
   - tag:
       type: adc
       index: 1
-      func: "12"
+      func: '12'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "12"
+      func: '12'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "12"
+      func: '12'
     af: -1
 PC3:
   - tag:
@@ -792,17 +792,17 @@ PC3:
   - tag:
       type: adc
       index: 1
-      func: "13"
+      func: '13'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "13"
+      func: '13'
     af: -1
   - tag:
       type: adc
       index: 3
-      func: "13"
+      func: '13'
     af: -1
 PC4:
   - tag:
@@ -818,12 +818,12 @@ PC4:
   - tag:
       type: adc
       index: 1
-      func: "14"
+      func: '14'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "14"
+      func: '14'
     af: -1
 PC5:
   - tag:
@@ -839,12 +839,12 @@ PC5:
   - tag:
       type: adc
       index: 1
-      func: "15"
+      func: '15'
     af: -1
   - tag:
       type: adc
       index: 2
-      func: "15"
+      func: '15'
     af: -1
 PC6:
   - tag:
@@ -1275,7 +1275,7 @@ PF3:
   - tag:
       type: adc
       index: 3
-      func: "9"
+      func: '9'
     af: -1
 PF4:
   - tag:
@@ -1286,7 +1286,7 @@ PF4:
   - tag:
       type: adc
       index: 3
-      func: "14"
+      func: '14'
     af: -1
 PF5:
   - tag:
@@ -1297,7 +1297,7 @@ PF5:
   - tag:
       type: adc
       index: 3
-      func: "15"
+      func: '15'
     af: -1
 PF6:
   - tag:
@@ -1318,7 +1318,7 @@ PF6:
   - tag:
       type: adc
       index: 3
-      func: "4"
+      func: '4'
     af: -1
 PF7:
   - tag:
@@ -1334,7 +1334,7 @@ PF7:
   - tag:
       type: adc
       index: 3
-      func: "5"
+      func: '5'
     af: -1
 PF8:
   - tag:
@@ -1345,7 +1345,7 @@ PF8:
   - tag:
       type: adc
       index: 3
-      func: "6"
+      func: '6'
     af: -1
 PF9:
   - tag:
@@ -1356,7 +1356,7 @@ PF9:
   - tag:
       type: adc
       index: 3
-      func: "7"
+      func: '7'
     af: -1
 PF10:
   - tag:
@@ -1372,7 +1372,7 @@ PF10:
   - tag:
       type: adc
       index: 3
-      func: "8"
+      func: '8'
     af: -1
 PF11: []
 PF12:

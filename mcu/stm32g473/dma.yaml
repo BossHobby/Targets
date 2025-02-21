@@ -1,6 +1,7 @@
 - tag:
     type: adc
     index: 1
+    func: '0xff'
   request: 5
 - tag:
     type: spi
@@ -75,18 +76,22 @@
 - tag:
     type: adc
     index: 2
+    func: '0xff'
   request: 36
 - tag:
     type: adc
     index: 3
+    func: '0xff'
   request: 37
 - tag:
     type: adc
     index: 4
+    func: '0xff'
   request: 38
 - tag:
     type: adc
     index: 5
+    func: '0xff'
   request: 39
 - tag:
     type: timer
@@ -210,36 +215,36 @@
   request: 75
 - tag:
     type: timer
-    index: 5
+    index: 15
     func: ch1
   request: 78
 - tag:
     type: timer
-    index: 6
+    index: 16
     func: ch1
   request: 82
 - tag:
     type: timer
-    index: 7
+    index: 17
     func: ch1
   request: 84
 - tag:
     type: timer
-    index: 0
+    index: 20
     func: ch1
   request: 86
 - tag:
     type: timer
-    index: 0
+    index: 20
     func: ch2
   request: 87
 - tag:
     type: timer
-    index: 0
+    index: 20
     func: ch3
   request: 88
 - tag:
     type: timer
-    index: 0
+    index: 20
     func: ch4
   request: 89

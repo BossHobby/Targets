@@ -1,762 +1,762 @@
 PA0:
-  - tag:
-      type: adc
-      index: 1
-      func: "1"
-    af: -1
-  - tag:
-      type: adc
-      index: 2
-      func: "1"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 5
-      func: ch1
-    af: 2
+- tag:
+    type: adc
+    index: 1
+    func: '1'
+  af: -1
+- tag:
+    type: adc
+    index: 2
+    func: '1'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  af: 2
 PA1:
-  - tag:
-      type: adc
-      index: 1
-      func: "2"
-    af: -1
-  - tag:
-      type: adc
-      index: 2
-      func: "2"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch2
-    af: 1
-  - tag:
-      type: timer
-      index: 5
-      func: ch2
-    af: 2
-  - tag:
-      type: timer
-      index: 15
-      func: ch1n
-    af: 9
+- tag:
+    type: adc
+    index: 1
+    func: '2'
+  af: -1
+- tag:
+    type: adc
+    index: 2
+    func: '2'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch2
+  af: 1
+- tag:
+    type: timer
+    index: 5
+    func: ch2
+  af: 2
+- tag:
+    type: timer
+    index: 15
+    func: ch1n
+  af: 9
 PA2:
-  - tag:
-      type: adc
-      index: 1
-      func: "3"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch3
-    af: 1
-  - tag:
-      type: timer
-      index: 5
-      func: ch3
-    af: 2
-  - tag:
-      type: serial
-      index: 2
-      func: tx
-    af: 7
-  - tag:
-      type: timer
-      index: 15
-      func: ch1
-    af: 9
+- tag:
+    type: adc
+    index: 1
+    func: '3'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch3
+  af: 1
+- tag:
+    type: timer
+    index: 5
+    func: ch3
+  af: 2
+- tag:
+    type: serial
+    index: 2
+    func: tx
+  af: 7
+- tag:
+    type: timer
+    index: 15
+    func: ch1
+  af: 9
 PA3:
-  - tag:
-      type: adc
-      index: 1
-      func: "4"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch4
-    af: 1
-  - tag:
-      type: timer
-      index: 5
-      func: ch4
-    af: 2
-  - tag:
-      type: serial
-      index: 2
-      func: rx
-    af: 7
-  - tag:
-      type: timer
-      index: 15
-      func: ch2
-    af: 9
+- tag:
+    type: adc
+    index: 1
+    func: '4'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch4
+  af: 1
+- tag:
+    type: timer
+    index: 5
+    func: ch4
+  af: 2
+- tag:
+    type: serial
+    index: 2
+    func: rx
+  af: 7
+- tag:
+    type: timer
+    index: 15
+    func: ch2
+  af: 9
 PA4:
-  - tag:
-      type: adc
-      index: 2
-      func: "17"
-    af: -1
-  - tag:
-      type: timer
-      index: 3
-      func: ch2
-    af: 2
+- tag:
+    type: adc
+    index: 2
+    func: '17'
+  af: -1
+- tag:
+    type: timer
+    index: 3
+    func: ch2
+  af: 2
 PA5:
-  - tag:
-      type: adc
-      index: 2
-      func: "13"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch1
-    af: 1
-  - tag:
-      type: spi
-      index: 1
-      func: sck
-    af: 5
+- tag:
+    type: adc
+    index: 2
+    func: '13'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch1
+  af: 1
+- tag:
+    type: spi
+    index: 1
+    func: sck
+  af: 5
 PA6:
-  - tag:
-      type: adc
-      index: 2
-      func: "3"
-    af: -1
-  - tag:
-      type: timer
-      index: 16
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 3
-      func: ch1
-    af: 2
-  - tag:
-      type: spi
-      index: 1
-      func: miso
-    af: 5
+- tag:
+    type: adc
+    index: 2
+    func: '3'
+  af: -1
+- tag:
+    type: timer
+    index: 16
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 3
+    func: ch1
+  af: 2
+- tag:
+    type: spi
+    index: 1
+    func: miso
+  af: 5
 PA7:
-  - tag:
-      type: adc
-      index: 2
-      func: "4"
-    af: -1
-  - tag:
-      type: timer
-      index: 17
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 3
-      func: ch2
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch1n
-    af: 4
-  - tag:
-      type: spi
-      index: 1
-      func: mosi
-    af: 5
-  - tag:
-      type: timer
-      index: 1
-      func: ch1n
-    af: 6
+- tag:
+    type: adc
+    index: 2
+    func: '4'
+  af: -1
+- tag:
+    type: timer
+    index: 17
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 3
+    func: ch2
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch1n
+  af: 4
+- tag:
+    type: spi
+    index: 1
+    func: mosi
+  af: 5
+- tag:
+    type: timer
+    index: 1
+    func: ch1n
+  af: 6
 PA8:
-  - tag:
-      type: adc
-      index: 5
-      func: "1"
-    af: -1
-  - tag:
-      type: timer
-      index: 1
-      func: ch1
-    af: 6
+- tag:
+    type: adc
+    index: 5
+    func: '1'
+  af: -1
+- tag:
+    type: timer
+    index: 1
+    func: ch1
+  af: 6
 PA9:
-  - tag:
-      type: adc
-      index: 5
-      func: "2"
-    af: -1
-  - tag:
-      type: timer
-      index: 1
-      func: ch2
-    af: 6
-  - tag:
-      type: serial
-      index: 1
-      func: tx
-    af: 7
-  - tag:
-      type: timer
-      index: 2
-      func: ch3
-    af: 10
+- tag:
+    type: adc
+    index: 5
+    func: '2'
+  af: -1
+- tag:
+    type: timer
+    index: 1
+    func: ch2
+  af: 6
+- tag:
+    type: serial
+    index: 1
+    func: tx
+  af: 7
+- tag:
+    type: timer
+    index: 2
+    func: ch3
+  af: 10
 PA10:
-  - tag:
-      type: spi
-      index: 2
-      func: miso
-    af: 5
-  - tag:
-      type: timer
-      index: 1
-      func: ch3
-    af: 6
-  - tag:
-      type: serial
-      index: 1
-      func: rx
-    af: 7
-  - tag:
-      type: timer
-      index: 2
-      func: ch4
-    af: 10
+- tag:
+    type: spi
+    index: 2
+    func: miso
+  af: 5
+- tag:
+    type: timer
+    index: 1
+    func: ch3
+  af: 6
+- tag:
+    type: serial
+    index: 1
+    func: rx
+  af: 7
+- tag:
+    type: timer
+    index: 2
+    func: ch4
+  af: 10
 PA11:
-  - tag:
-      type: spi
-      index: 2
-      func: mosi
-    af: 5
-  - tag:
-      type: timer
-      index: 1
-      func: ch1n
-    af: 6
-  - tag:
-      type: timer
-      index: 4
-      func: ch1
-    af: 10
-  - tag:
-      type: timer
-      index: 1
-      func: ch4
-    af: 11
+- tag:
+    type: spi
+    index: 2
+    func: mosi
+  af: 5
+- tag:
+    type: timer
+    index: 1
+    func: ch1n
+  af: 6
+- tag:
+    type: timer
+    index: 4
+    func: ch1
+  af: 10
+- tag:
+    type: timer
+    index: 1
+    func: ch4
+  af: 11
 PA12:
-  - tag:
-      type: timer
-      index: 16
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 1
-      func: ch2n
-    af: 6
-  - tag:
-      type: timer
-      index: 4
-      func: ch2
-    af: 10
+- tag:
+    type: timer
+    index: 16
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 1
+    func: ch2n
+  af: 6
+- tag:
+    type: timer
+    index: 4
+    func: ch2
+  af: 10
 PA13:
-  - tag:
-      type: timer
-      index: 16
-      func: ch1n
-    af: 1
-  - tag:
-      type: timer
-      index: 4
-      func: ch3
-    af: 10
+- tag:
+    type: timer
+    index: 16
+    func: ch1n
+  af: 1
+- tag:
+    type: timer
+    index: 4
+    func: ch3
+  af: 10
 PA14:
-  - tag:
-      type: timer
-      index: 8
-      func: ch2
-    af: 5
-  - tag:
-      type: serial
-      index: 2
-      func: tx
-    af: 7
+- tag:
+    type: timer
+    index: 8
+    func: ch2
+  af: 5
+- tag:
+    type: serial
+    index: 2
+    func: tx
+  af: 7
 PA15:
-  - tag:
-      type: timer
-      index: 2
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 8
-      func: ch1
-    af: 2
-  - tag:
-      type: serial
-      index: 2
-      func: rx
-    af: 7
+- tag:
+    type: timer
+    index: 2
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 8
+    func: ch1
+  af: 2
+- tag:
+    type: serial
+    index: 2
+    func: rx
+  af: 7
 PB0:
-  - tag:
-      type: adc
-      index: 1
-      func: "15"
-    af: -1
-  - tag:
-      type: adc
-      index: 3
-      func: "12"
-    af: -1
-  - tag:
-      type: timer
-      index: 3
-      func: ch3
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch2n
-    af: 4
-  - tag:
-      type: timer
-      index: 1
-      func: ch2n
-    af: 6
+- tag:
+    type: adc
+    index: 1
+    func: '15'
+  af: -1
+- tag:
+    type: adc
+    index: 3
+    func: '12'
+  af: -1
+- tag:
+    type: timer
+    index: 3
+    func: ch3
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch2n
+  af: 4
+- tag:
+    type: timer
+    index: 1
+    func: ch2n
+  af: 6
 PB1:
-  - tag:
-      type: adc
-      index: 1
-      func: "12"
-    af: -1
-  - tag:
-      type: adc
-      index: 3
-      func: "1"
-    af: -1
-  - tag:
-      type: timer
-      index: 3
-      func: ch4
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch3n
-    af: 4
-  - tag:
-      type: timer
-      index: 1
-      func: ch3n
-    af: 6
+- tag:
+    type: adc
+    index: 1
+    func: '12'
+  af: -1
+- tag:
+    type: adc
+    index: 3
+    func: '1'
+  af: -1
+- tag:
+    type: timer
+    index: 3
+    func: ch4
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch3n
+  af: 4
+- tag:
+    type: timer
+    index: 1
+    func: ch3n
+  af: 6
 PB2:
-  - tag:
-      type: adc
-      index: 2
-      func: "12"
-    af: -1
-  - tag:
-      type: timer
-      index: 5
-      func: ch1
-    af: 2
-  - tag:
-      type: timer
-      index: 20
-      func: ch1
-    af: 3
+- tag:
+    type: adc
+    index: 2
+    func: '12'
+  af: -1
+- tag:
+    type: timer
+    index: 5
+    func: ch1
+  af: 2
+- tag:
+    type: timer
+    index: 20
+    func: ch1
+  af: 3
 PB3:
-  - tag:
-      type: timer
-      index: 2
-      func: ch2
-    af: 1
-  - tag:
-      type: timer
-      index: 8
-      func: ch1n
-    af: 4
-  - tag:
-      type: spi
-      index: 1
-      func: sck
-    af: 5
-  - tag:
-      type: spi
-      index: 3
-      func: sck
-    af: 6
-  - tag:
-      type: serial
-      index: 2
-      func: tx
-    af: 7
+- tag:
+    type: timer
+    index: 2
+    func: ch2
+  af: 1
+- tag:
+    type: timer
+    index: 8
+    func: ch1n
+  af: 4
+- tag:
+    type: spi
+    index: 1
+    func: sck
+  af: 5
+- tag:
+    type: spi
+    index: 3
+    func: sck
+  af: 6
+- tag:
+    type: serial
+    index: 2
+    func: tx
+  af: 7
 PB4:
-  - tag:
-      type: timer
-      index: 16
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 3
-      func: ch1
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch2n
-    af: 4
-  - tag:
-      type: spi
-      index: 1
-      func: miso
-    af: 5
-  - tag:
-      type: spi
-      index: 3
-      func: miso
-    af: 6
-  - tag:
-      type: serial
-      index: 2
-      func: rx
-    af: 7
+- tag:
+    type: timer
+    index: 16
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 3
+    func: ch1
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch2n
+  af: 4
+- tag:
+    type: spi
+    index: 1
+    func: miso
+  af: 5
+- tag:
+    type: spi
+    index: 3
+    func: miso
+  af: 6
+- tag:
+    type: serial
+    index: 2
+    func: rx
+  af: 7
 PB5:
-  - tag:
-      type: timer
-      index: 3
-      func: ch2
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch3n
-    af: 3
-  - tag:
-      type: spi
-      index: 1
-      func: mosi
-    af: 5
-  - tag:
-      type: spi
-      index: 3
-      func: mosi
-    af: 6
-  - tag:
-      type: timer
-      index: 17
-      func: ch1
-    af: 10
+- tag:
+    type: timer
+    index: 3
+    func: ch2
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch3n
+  af: 3
+- tag:
+    type: spi
+    index: 1
+    func: mosi
+  af: 5
+- tag:
+    type: spi
+    index: 3
+    func: mosi
+  af: 6
+- tag:
+    type: timer
+    index: 17
+    func: ch1
+  af: 10
 PB6:
-  - tag:
-      type: timer
-      index: 16
-      func: ch1n
-    af: 1
-  - tag:
-      type: timer
-      index: 4
-      func: ch1
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch1
-    af: 5
-  - tag:
-      type: serial
-      index: 1
-      func: tx
-    af: 7
+- tag:
+    type: timer
+    index: 16
+    func: ch1n
+  af: 1
+- tag:
+    type: timer
+    index: 4
+    func: ch1
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch1
+  af: 5
+- tag:
+    type: serial
+    index: 1
+    func: tx
+  af: 7
 PB7:
-  - tag:
-      type: timer
-      index: 17
-      func: ch1n
-    af: 1
-  - tag:
-      type: timer
-      index: 4
-      func: ch2
-    af: 2
-  - tag:
-      type: serial
-      index: 1
-      func: rx
-    af: 7
-  - tag:
-      type: timer
-      index: 3
-      func: ch4
-    af: 10
+- tag:
+    type: timer
+    index: 17
+    func: ch1n
+  af: 1
+- tag:
+    type: timer
+    index: 4
+    func: ch2
+  af: 2
+- tag:
+    type: serial
+    index: 1
+    func: rx
+  af: 7
+- tag:
+    type: timer
+    index: 3
+    func: ch4
+  af: 10
 PB8:
-  - tag:
-      type: timer
-      index: 16
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 4
-      func: ch3
-    af: 2
-  - tag:
-      type: serial
-      index: 3
-      func: rx
-    af: 7
-  - tag:
-      type: timer
-      index: 8
-      func: ch2
-    af: 10
+- tag:
+    type: timer
+    index: 16
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 4
+    func: ch3
+  af: 2
+- tag:
+    type: serial
+    index: 3
+    func: rx
+  af: 7
+- tag:
+    type: timer
+    index: 8
+    func: ch2
+  af: 10
 PB9:
-  - tag:
-      type: timer
-      index: 17
-      func: ch1
-    af: 1
-  - tag:
-      type: timer
-      index: 4
-      func: ch4
-    af: 2
-  - tag:
-      type: serial
-      index: 3
-      func: tx
-    af: 7
-  - tag:
-      type: timer
-      index: 8
-      func: ch3
-    af: 10
-  - tag:
-      type: timer
-      index: 1
-      func: ch3n
-    af: 12
+- tag:
+    type: timer
+    index: 17
+    func: ch1
+  af: 1
+- tag:
+    type: timer
+    index: 4
+    func: ch4
+  af: 2
+- tag:
+    type: serial
+    index: 3
+    func: tx
+  af: 7
+- tag:
+    type: timer
+    index: 8
+    func: ch3
+  af: 10
+- tag:
+    type: timer
+    index: 1
+    func: ch3n
+  af: 12
 PB10:
-  - tag:
-      type: timer
-      index: 2
-      func: ch3
-    af: 1
-  - tag:
-      type: serial
-      index: 3
-      func: tx
-    af: 7
+- tag:
+    type: timer
+    index: 2
+    func: ch3
+  af: 1
+- tag:
+    type: serial
+    index: 3
+    func: tx
+  af: 7
 PB11:
-  - tag:
-      type: adc
-      index: 1
-      func: "14"
-    af: -1
-  - tag:
-      type: adc
-      index: 2
-      func: "14"
-    af: -1
-  - tag:
-      type: timer
-      index: 2
-      func: ch4
-    af: 1
-  - tag:
-      type: serial
-      index: 3
-      func: rx
-    af: 7
+- tag:
+    type: adc
+    index: 1
+    func: '14'
+  af: -1
+- tag:
+    type: adc
+    index: 2
+    func: '14'
+  af: -1
+- tag:
+    type: timer
+    index: 2
+    func: ch4
+  af: 1
+- tag:
+    type: serial
+    index: 3
+    func: rx
+  af: 7
 PB12:
-  - tag:
-      type: adc
-      index: 1
-      func: "11"
-    af: -1
-  - tag:
-      type: adc
-      index: 4
-      func: "3"
-    af: -1
+- tag:
+    type: adc
+    index: 1
+    func: '11'
+  af: -1
+- tag:
+    type: adc
+    index: 4
+    func: '3'
+  af: -1
 PB13:
-  - tag:
-      type: adc
-      index: 3
-      func: "5"
-    af: -1
-  - tag:
-      type: spi
-      index: 2
-      func: sck
-    af: 5
-  - tag:
-      type: timer
-      index: 1
-      func: ch1n
-    af: 6
+- tag:
+    type: adc
+    index: 3
+    func: '5'
+  af: -1
+- tag:
+    type: spi
+    index: 2
+    func: sck
+  af: 5
+- tag:
+    type: timer
+    index: 1
+    func: ch1n
+  af: 6
 PB14:
-  - tag:
-      type: adc
-      index: 1
-      func: "5"
-    af: -1
-  - tag:
-      type: adc
-      index: 4
-      func: "4"
-    af: -1
-  - tag:
-      type: timer
-      index: 15
-      func: ch1
-    af: 1
-  - tag:
-      type: spi
-      index: 2
-      func: miso
-    af: 5
-  - tag:
-      type: timer
-      index: 1
-      func: ch2n
-    af: 6
+- tag:
+    type: adc
+    index: 1
+    func: '5'
+  af: -1
+- tag:
+    type: adc
+    index: 4
+    func: '4'
+  af: -1
+- tag:
+    type: timer
+    index: 15
+    func: ch1
+  af: 1
+- tag:
+    type: spi
+    index: 2
+    func: miso
+  af: 5
+- tag:
+    type: timer
+    index: 1
+    func: ch2n
+  af: 6
 PB15:
-  - tag:
-      type: adc
-      index: 2
-      func: "15"
-    af: -1
-  - tag:
-      type: adc
-      index: 4
-      func: "5"
-    af: -1
-  - tag:
-      type: timer
-      index: 15
-      func: ch2
-    af: 1
-  - tag:
-      type: timer
-      index: 15
-      func: ch1n
-    af: 2
-  - tag:
-      type: timer
-      index: 1
-      func: ch3n
-    af: 4
-  - tag:
-      type: spi
-      index: 2
-      func: mosi
-    af: 5
+- tag:
+    type: adc
+    index: 2
+    func: '15'
+  af: -1
+- tag:
+    type: adc
+    index: 4
+    func: '5'
+  af: -1
+- tag:
+    type: timer
+    index: 15
+    func: ch2
+  af: 1
+- tag:
+    type: timer
+    index: 15
+    func: ch1n
+  af: 2
+- tag:
+    type: timer
+    index: 1
+    func: ch3n
+  af: 4
+- tag:
+    type: spi
+    index: 2
+    func: mosi
+  af: 5
 PC4:
-  - tag:
-      type: adc
-      index: 2
-      func: "5"
-    af: -1
-  - tag:
-      type: serial
-      index: 1
-      func: tx
-    af: 7
+- tag:
+    type: adc
+    index: 2
+    func: '5'
+  af: -1
+- tag:
+    type: serial
+    index: 1
+    func: tx
+  af: 7
 PC6:
-  - tag:
-      type: timer
-      index: 3
-      func: ch1
-    af: 2
-  - tag:
-      type: timer
-      index: 8
-      func: ch1
-    af: 4
+- tag:
+    type: timer
+    index: 3
+    func: ch1
+  af: 2
+- tag:
+    type: timer
+    index: 8
+    func: ch1
+  af: 4
 PC10:
-  - tag:
-      type: timer
-      index: 8
-      func: ch1n
-    af: 4
-  - tag:
-      type: serial
-      index: 4
-      func: tx
-    af: 5
-  - tag:
-      type: spi
-      index: 3
-      func: sck
-    af: 6
-  - tag:
-      type: serial
-      index: 3
-      func: tx
-    af: 7
+- tag:
+    type: timer
+    index: 8
+    func: ch1n
+  af: 4
+- tag:
+    type: serial
+    index: 4
+    func: tx
+  af: 5
+- tag:
+    type: spi
+    index: 3
+    func: sck
+  af: 6
+- tag:
+    type: serial
+    index: 3
+    func: tx
+  af: 7
 PC11:
-  - tag:
-      type: timer
-      index: 8
-      func: ch2n
-    af: 4
-  - tag:
-      type: serial
-      index: 4
-      func: rx
-    af: 5
-  - tag:
-      type: spi
-      index: 3
-      func: miso
-    af: 6
-  - tag:
-      type: serial
-      index: 3
-      func: rx
-    af: 7
+- tag:
+    type: timer
+    index: 8
+    func: ch2n
+  af: 4
+- tag:
+    type: serial
+    index: 4
+    func: rx
+  af: 5
+- tag:
+    type: spi
+    index: 3
+    func: miso
+  af: 6
+- tag:
+    type: serial
+    index: 3
+    func: rx
+  af: 7
 PC13:
-  - tag:
-      type: timer
-      index: 1
-      func: ch1n
-    af: 4
-  - tag:
-      type: timer
-      index: 8
-      func: ch4n
-    af: 6
+- tag:
+    type: timer
+    index: 1
+    func: ch1n
+  af: 4
+- tag:
+    type: timer
+    index: 8
+    func: ch4n
+  af: 6
 PC14: []
 PC15: []
 PF0:
-  - tag:
-      type: adc
-      index: 1
-      func: "10"
-    af: -1
-  - tag:
-      type: timer
-      index: 1
-      func: ch3n
-    af: 6
+- tag:
+    type: adc
+    index: 1
+    func: '10'
+  af: -1
+- tag:
+    type: timer
+    index: 1
+    func: ch3n
+  af: 6
 PF1:
-  - tag:
-      type: adc
-      index: 2
-      func: "10"
-    af: -1
-  - tag:
-      type: spi
-      index: 2
-      func: sck
-    af: 5
+- tag:
+    type: adc
+    index: 2
+    func: '10'
+  af: -1
+- tag:
+    type: spi
+    index: 2
+    func: sck
+  af: 5
 PG10: []

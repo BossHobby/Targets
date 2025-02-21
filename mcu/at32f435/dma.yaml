@@ -24,7 +24,7 @@
     type: serial
     index: 2
     func: rx
-  request: 26w
+  request: 26
 - tag:
     type: serial
     index: 2
