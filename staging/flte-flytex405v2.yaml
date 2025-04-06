@@ -1,0 +1,99 @@
+name: flytex405v2
+manufacturer: FLTE
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PB0
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 2
+    scl: PB10
+    sda: PB11
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+gyro_orientation: 0
+osd:
+  port: 3
+  nss: PB12
+flash:
+  port: 2
+  nss: PA15
+vbat: PC0
+vbat_scale: 110
+ibat: PC1
+ibat_scale: 326
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PC5
+motor_pins:
+  - PC7
+  - PC6
+  - PC9
+  - PC8
+baro:
+  port: 2
+dma:
+  DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
+  SPI3_RX:
+    channel: 0
+    dma: DMA1_STREAM0
+    tag: SPI3_MISO
+  SPI3_TX:
+    channel: 0
+    dma: DMA1_STREAM5
+    tag: SPI3_MOSI

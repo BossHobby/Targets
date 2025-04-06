@@ -63,6 +63,8 @@ buzzer:
 motor_pins:
   - PB7
   - PB6
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     channel: 0

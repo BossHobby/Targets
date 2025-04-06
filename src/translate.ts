@@ -47,6 +47,10 @@ function parseSPI(spi: string) {
   return parseInt(spi.substring(3));
 }
 
+function parseI2C(i2c: string) {
+  return parseInt(i2c.substring('I2CDEV_'.length));
+}
+
 function handle(target: target_t, parts: string[]) {
   const range = (str: string, min: number, max: number, func) => {
     let result = {};
@@ -164,6 +168,12 @@ function handle(target: target_t, parts: string[]) {
         orientation |= GyroRotation.FLIP_180;
       }
       target.gyro_orientation = orientation;
+    },
+    baro_i2c_instance: () => {
+      target.baro = {
+        ...(target.baro),
+        port: parseI2C(parts[1]),
+      }
     },
     ...range("led{i}_pin", 0, 2, (index: number) => {
       target.leds[index] = {

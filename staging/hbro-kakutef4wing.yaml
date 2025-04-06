@@ -59,6 +59,8 @@ rgb_led: PA1
 motor_pins:
   - PA8
   - PA9
+baro:
+  port: 2
 dma:
   DSHOT_CH1:
     channel: 6

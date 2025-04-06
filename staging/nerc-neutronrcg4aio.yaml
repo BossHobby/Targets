@@ -55,6 +55,8 @@ motor_pins:
   - PB4
   - PB1
   - PB0
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM2

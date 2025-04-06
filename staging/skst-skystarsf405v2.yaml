@@ -1,0 +1,105 @@
+name: skystarsf405v2
+manufacturer: SKST
+mcu: stm32f405
+brushless: true
+leds:
+  - invert: true
+    pin: PA14
+  - invert: true
+    pin: PA13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+  - index: 3
+    scl: PA8
+    sda: PC9
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PA15
+vbat: PC0
+ibat: PC1
+rgb_led: PC8
+buzzer:
+  invert: true
+  pin: PC13
+motor_pins:
+  - PB10
+  - PB11
+  - PB0
+  - PB1
+baro:
+  port: 3
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  RGB:
+    channel: 5
+    dma: DMA1_STREAM7
+    tag: TIMER3_CH3
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI
+  SPI3_RX:
+    channel: 0
+    dma: DMA1_STREAM0
+    tag: SPI3_MISO
+  SPI3_TX:
+    channel: 0
+    dma: DMA1_STREAM5
+    tag: SPI3_MOSI

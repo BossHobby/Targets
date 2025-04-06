@@ -63,6 +63,8 @@ motor_pins:
   - PC9
   - PC6
   - PC7
+baro:
+  port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM2

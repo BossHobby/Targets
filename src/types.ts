@@ -47,6 +47,10 @@ export interface target_spi_device_t {
   nss: gpio_pins_t;
 }
 
+export interface target_i2c_device_t {
+  port: number;
+}
+
 export interface target_gyro_spi_device_t {
   port: number;
   nss: gpio_pins_t;
@@ -84,6 +88,8 @@ export interface target_t {
   flash?: target_spi_device_t;
   sdcard?: target_spi_device_t;
   rx_spi?: target_rx_spi_device_t;
+
+  baro?: target_i2c_device_t;
 
   usb_detect?: gpio_pins_t;
   fpv?: gpio_pins_t;

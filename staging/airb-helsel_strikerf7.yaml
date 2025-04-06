@@ -53,6 +53,8 @@ motor_pins:
   - PB1
   - PC8
   - PC9
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     channel: 6

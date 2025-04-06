@@ -66,6 +66,8 @@ motor_pins:
   - PC8
   - PA9
   - PA8
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM2

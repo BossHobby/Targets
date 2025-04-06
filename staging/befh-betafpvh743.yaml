@@ -76,6 +76,8 @@ motor_pins:
   - PB1
   - PD12
   - PD13
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1

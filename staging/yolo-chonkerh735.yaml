@@ -58,3 +58,5 @@ motor_pins:
   - PC7
   - PC6
   - PC9
+baro:
+  port: 2

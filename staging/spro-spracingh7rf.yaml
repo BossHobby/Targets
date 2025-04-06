@@ -63,3 +63,5 @@ motor_pins:
   - PA7
   - PB0
   - PB1
+baro:
+  port: 2
