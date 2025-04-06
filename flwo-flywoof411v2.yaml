@@ -53,6 +53,8 @@ motor_pins:
   - PA15
   - PA8
   - PB3
+baro:
+  port: 1
 dma:
   DSHOT_CH1:
     channel: 6
