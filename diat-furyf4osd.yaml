@@ -95,5 +95,5 @@ dma:
     tag: SPI3_MISO
   SPI3_TX:
     channel: 0
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM7
     tag: SPI3_MOSI

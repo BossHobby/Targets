@@ -65,8 +65,8 @@ dma:
     dma: DMA2_STREAM2
     tag: TIMER8_CH1
   DSHOT_CH2:
-    channel: 0
-    dma: DMA2_STREAM2
+    channel: 7
+    dma: DMA2_STREAM3
     tag: TIMER8_CH2
   RGB:
     channel: 6
@@ -78,7 +78,7 @@ dma:
     tag: SPI1_MISO
   SPI1_TX:
     channel: 3
-    dma: DMA2_STREAM3
+    dma: DMA2_STREAM5
     tag: SPI1_MOSI
   SPI2_RX:
     channel: 0

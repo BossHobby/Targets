@@ -92,11 +92,7 @@ dma:
     channel: 0
     dma: DMA1_STREAM4
     tag: SPI2_MOSI
-  SPI4_RX:
-    channel: 4
-    dma: DMA2_STREAM0
-    tag: SPI4_MISO
   SPI4_TX:
-    channel: 4
-    dma: DMA2_STREAM1
+    channel: 5
+    dma: DMA2_STREAM4
     tag: SPI4_MOSI

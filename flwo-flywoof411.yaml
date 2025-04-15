@@ -69,8 +69,8 @@ dma:
     dma: DMA2_STREAM0
     tag: SPI1_MISO
   SPI1_TX:
-    channel: 2
-    dma: DMA2_STREAM2
+    channel: 3
+    dma: DMA2_STREAM3
     tag: SPI1_MOSI
   SPI2_RX:
     channel: 0
