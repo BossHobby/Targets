@@ -49,7 +49,6 @@ usb_detect: PA8
 vbat: PC3
 ibat: PC2
 ibat_scale: 170
-rgb_led: PA9
 buzzer:
   invert: true
   pin: PC13
@@ -62,14 +61,10 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    channel: 0
-    dma: DMA2_STREAM2
-    tag: TIMER8_CH1
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
   DSHOT_CH2:
-    channel: 0
-    dma: DMA2_STREAM2
-    tag: TIMER8_CH2
-  RGB:
     channel: 6
     dma: DMA2_STREAM2
     tag: TIMER1_CH2

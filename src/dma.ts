@@ -10,6 +10,27 @@ interface device_tag {
     func?: string;
 }
 
+interface dma_tag {
+    port: number;
+    stream: number;
+}
+
+interface dma_resource {
+    tag: device_tag;
+    dma?: dma_tag;
+    channel?: number;
+    request?: number;
+}
+
+interface dma_assigment {
+    res: dma_resource;
+
+    dev: string;
+    tag: string;
+    dma: string;
+    channel?: number;
+}
+
 const mcus = await fs.promises.readdir("mcu");
 const gpios = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "gpio.yaml"), "utf8")) }), {});
 const dmas = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "dma.yaml"), "utf8")) }), {});
@@ -26,12 +47,13 @@ function mapMCU(mcu: string) {
     }
 }
 
-function assEqual(lhs: any, rhs: any): boolean {
-    const ignore = ["tag", "dev"]
-    return Object.keys(lhs).every(key => ignore.includes(key) || lhs[key] == rhs[key])
+function assEqual(lhs: dma_resource, rhs: dma_resource): boolean {
+    const ignore = ["tag", "dev", "channel"]
+    const replacer = (k, v) => ignore.includes(k) ? undefined : v;
+    return JSON.stringify(lhs, replacer) == JSON.stringify(rhs, replacer);
 }
-function assIncludes(array: any[], ass: device_tag) {
-    return array.find((e) => assEqual(e, ass))
+function assIncludes(array: dma_assigment[], ass: dma_resource) {
+    return array.find((e) => assEqual(e.res, ass))
 }
 
 function tagEqual(lhs: device_tag, rhs: device_tag): boolean {
@@ -45,14 +67,14 @@ function tagIncludes(array: device_tag[], tag: device_tag) {
 
 export function findDmaAssigments(target: target_t): target_t {
     const mcu = mapMCU(target.mcu);
-    const dma = dmas[mcu];
+    const dma = dmas[mcu] as dma_resource[];
     const gpio = gpios[mcu];
 
     if (!dma || !gpio) {
         return target;
     }
 
-    const dma_assigments = [] as any[];
+    const dma_assigments = [] as dma_assigment[];
     const timer_assigments = [] as device_tag[];
 
     let motor_timers = [{ type: "timer", index: 1 }]
@@ -81,8 +103,9 @@ export function findDmaAssigments(target: target_t): target_t {
         dma_count++;
 
         dma_assigments.push({
-            dev,
+            res: ass,
             ...ass,
+            dev,
             tag: `${tag.type}${tag.index}${tag.func ? '_' + tag.func : ''}`.toUpperCase(),
             dma: `DMA${port}_STREAM${stream}`
         });
@@ -123,7 +146,6 @@ export function findDmaAssigments(target: target_t): target_t {
         const tag = { ...motor_timer, func: "ch" + (i + 1) };
         addTimer("DSHOT", tag);
         if (!addDmaAssigment("DSHOT_CH" + (i + 1), tag)) {
-            console.log(motor_timer, dma_assigments);
             throw new Error("no motor dma found!");
         }
     }
@@ -144,7 +166,7 @@ export function findDmaAssigments(target: target_t): target_t {
 
     const entries = {}
     for (const ass of dma_assigments) {
-        const ignore = ["dev"]
+        const ignore = ["res", "dev"];
         entries[ass.dev] = Object.keys(ass).reduce((prev, curr) => {
             if (!ignore.includes(curr))
                 prev[curr] = ass[curr];
@@ -160,6 +182,16 @@ if (!module.parent) {
         console.log("processing ", f)
 
         const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
-        await fs.promises.writeFile(f, stringifyTarget(findDmaAssigments(target)));
+        try {
+            await fs.promises.writeFile(f, stringifyTarget(findDmaAssigments(target)));
+        } catch (err) {
+            if (err.message == "no motor dma found!" && target.rgb_led) {
+                console.log("no motor dma found! re-trying without rgb_led");
+                target.rgb_led = undefined;
+                await fs.promises.writeFile(f, stringifyTarget(findDmaAssigments(target)));
+            } else {
+                throw err;
+            }
+        }
     }
 }
