@@ -75,14 +75,14 @@ dma:
     channel: 4
     dma: DMA1_STREAM6
     tag: SERIAL2_TX
+  SERIAL3_RX:
+    channel: 4
+    dma: DMA1_STREAM3
+    tag: SERIAL3_TX
   SERIAL6_TX:
     channel: 5
     dma: DMA2_STREAM6
     tag: SERIAL6_TX
-  SERIAL7_RX:
-    channel: 5
-    dma: DMA1_STREAM3
-    tag: SERIAL7_RX
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0
