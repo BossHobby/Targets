@@ -64,46 +64,6 @@ dma:
     dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
-  SERIAL1_RX:
-    dma: DMA1_STREAM7
-    request: 24
-    tag: SERIAL1_RX
-  SERIAL1_TX:
-    dma: DMA2_STREAM1
-    request: 25
-    tag: SERIAL1_TX
-  SERIAL2_RX:
-    dma: DMA2_STREAM2
-    request: 26
-    tag: SERIAL2_RX
-  SERIAL2_TX:
-    dma: DMA2_STREAM3
-    request: 27
-    tag: SERIAL2_TX
-  SERIAL3_RX:
-    dma: DMA2_STREAM4
-    request: 29
-    tag: SERIAL3_TX
-  SERIAL3_TX:
-    dma: DMA2_STREAM5
-    request: 28
-    tag: SERIAL3_RX
-  SERIAL5_RX:
-    dma: DMA2_STREAM6
-    request: 32
-    tag: SERIAL5_RX
-  SERIAL5_TX:
-    dma: DMA2_STREAM7
-    request: 33
-    tag: SERIAL5_TX
-  SERIAL7_RX:
-    dma: DMA3_STREAM1
-    request: 116
-    tag: SERIAL7_RX
-  SERIAL7_TX:
-    dma: DMA3_STREAM2
-    request: 117
-    tag: SERIAL7_TX
   SPI1_RX:
     dma: DMA1_STREAM3
     request: 10
