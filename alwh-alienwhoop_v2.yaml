@@ -47,6 +47,14 @@ dma:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
+  SERIAL2_TX:
+    channel: 4
+    dma: DMA1_STREAM6
+    tag: SERIAL2_TX
+  SERIAL3_RX:
+    channel: 4
+    dma: DMA1_STREAM1
+    tag: SERIAL3_RX
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0
