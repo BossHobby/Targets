@@ -78,10 +78,6 @@ baro:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 47
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM0
     request: 11
     tag: TIMER1_CH1
   SPI1_RX:
@@ -109,7 +105,7 @@ dma:
     request: 62
     tag: SPI3_MOSI
   SPI4_RX:
-    dma: DMA2_STREAM0
+    dma: DMA1_STREAM8
     request: 83
     tag: SPI4_MISO
   SPI4_TX:

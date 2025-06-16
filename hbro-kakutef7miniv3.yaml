@@ -66,10 +66,6 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    channel: 0
-    dma: DMA2_STREAM2
-    tag: TIMER8_CH1
-  RGB:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
@@ -95,5 +91,5 @@ dma:
     tag: SPI3_MISO
   SPI3_TX:
     channel: 0
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM7
     tag: SPI3_MOSI

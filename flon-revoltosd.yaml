@@ -63,8 +63,8 @@ dma:
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
   DSHOT_CH2:
-    channel: 6
-    dma: DMA2_STREAM2
+    channel: 0
+    dma: DMA2_STREAM6
     tag: TIMER1_CH2
   RGB:
     channel: 2
