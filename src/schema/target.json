@@ -305,13 +305,68 @@
         },
         "motor_pins": {
             "type": "array",
+            "description": "Motor output pins for DSHOT/PWM control",
             "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^P[A-K][0-9]{1,2}$"
+            },
+            "minItems": 1,
+            "maxItems": 8
+        },
+        "timers": {
+            "type": "array",
+            "description": "Timer configuration (typically empty as DMA handles timer assignments)",
+            "items": {
+                "type": "object"
             }
         },
         "dma": {
             "type": "object",
-            "additionalProperties": true
+            "description": "DMA assignments for peripherals - each stream must be unique",
+            "patternProperties": {
+                "^(RGB|DSHOT_CH[1-8]|SPI[1-4]_(RX|TX)|SERIAL[1-8]_(RX|TX)|I2C[1-4]_(RX|TX)|UART[1-8]_(RX|TX))$": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "tag": {
+                            "type": "string",
+                            "description": "Hardware peripheral tag identifier",
+                            "pattern": "^(TIMER[1-9][0-9]?_CH[1-4]|SPI[1-4]_(MISO|MOSI)|SERIAL[1-8]_(RX|TX)|UART[1-8]_(RX|TX)|I2C[1-4]_(RX|TX))$"
+                        },
+                        "dma": {
+                            "type": "string",
+                            "description": "DMA stream assignment (must be unique across all peripherals)",
+                            "pattern": "^DMA[1-2]_STREAM[0-9]+$"
+                        },
+                        "channel": {
+                            "type": "number",
+                            "description": "DMA channel for F4/F7 series",
+                            "minimum": 0,
+                            "maximum": 7
+                        },
+                        "request": {
+                            "type": "number",
+                            "description": "DMAMUX request number for G4/H7/AT32 series",
+                            "minimum": 0,
+                            "maximum": 255
+                        }
+                    },
+                    "required": ["tag", "dma"],
+                    "anyOf": [
+                        {
+                            "description": "STM32F4/F7 series: fixed stream/channel architecture",
+                            "required": ["channel"],
+                            "not": {"required": ["request"]}
+                        },
+                        {
+                            "description": "STM32G4/H7/AT32 series: flexible DMAMUX architecture", 
+                            "required": ["request"],
+                            "not": {"required": ["channel"]}
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
         }
     },
     "required": [

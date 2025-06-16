@@ -69,6 +69,12 @@ export interface target_rx_spi_device_t {
   reset?: gpio_pins_t;
 }
 
+export interface target_dma_assignment_t {
+  tag: string;
+  dma: string;
+  channel?: number;
+}
+
 export interface target_t {
   name: string;
   manufacturer: string;
@@ -103,6 +109,9 @@ export interface target_t {
 
   vbat_scale?: number;
   ibat_scale?: number;
+  
+  dma?: Record<string, target_dma_assignment_t>;
+  timers?: any[];
 }
 
 export const target_keys = [

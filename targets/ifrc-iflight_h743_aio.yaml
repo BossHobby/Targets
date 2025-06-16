@@ -1,3 +1,22 @@
+# DMA Assignment Summary
+# Target: iflight_h743_aio (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 11
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM1 (req29) [TIMER4_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM3 (req12) [TIMER1_CH2]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req40) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM8 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req62) [SPI3_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA2_STREAM2 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA2_STREAM3 (req84) [SPI4_MOSI]
+#
+# Summary: 11 devices assigned, 5/16 streams available
 name: iflight_h743_aio
 manufacturer: IFRC
 mcu: stm32h743
@@ -76,46 +95,46 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM2
     request: 11
     tag: TIMER1_CH1
   DSHOT_CH2:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 12
     tag: TIMER1_CH2
   RGB:
-    dma: DMA1_STREAM0
+    dma: DMA1_STREAM1
     request: 29
     tag: TIMER4_CH1
   SPI1_RX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 38
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM6
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM7
     request: 40
     tag: SPI2_MOSI
   SPI3_RX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM8
     request: 61
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA2_STREAM0
+    dma: DMA2_STREAM1
     request: 62
     tag: SPI3_MOSI
   SPI4_RX:
-    dma: DMA2_STREAM1
+    dma: DMA2_STREAM2
     request: 83
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA2_STREAM2
+    dma: DMA2_STREAM3
     request: 84
     tag: SPI4_MOSI
