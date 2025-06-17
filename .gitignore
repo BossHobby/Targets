@@ -1,3 +1,41 @@
-node_modules
-output
-build
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+output/
+
+# Configuration files (may contain sensitive data)
+targets.config.json
+.env
+.env.local
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Testing
+.vitest/

@@ -23,8 +23,11 @@ jobs:
       - name: install npm packages
         run: npm install
 
+      - name: run tests
+        run: npm test
+
       - name: run indexer
-        run: npx vite-node src/index.ts
+        run: npm run targets build
 
       - name: upload artifacts
         uses: actions/upload-artifact@v4

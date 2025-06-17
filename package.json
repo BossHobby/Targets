@@ -2,9 +2,17 @@
   "name": "targets",
   "version": "0.0.0",
   "description": "",
+  "bin": {
+    "targets-cli": "./dist/cli.js"
+  },
   "scripts": {
-    "translate": "vite-node src/translate.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "vite-node src/cli.ts",
+    "targets": "vite-node src/cli.ts --",
+    "test": "vitest --run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --run --coverage"
   },
   "repository": {
     "type": "git",
@@ -16,12 +24,17 @@
     "url": "https://github.com/BossHobby/Targets/issues"
   },
   "homepage": "https://github.com/BossHobby/Targets#readme",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^14.0.0",
+    "z3-solver": "^4.15.1"
+  },
   "devDependencies": {
-    "yaml": "^2.2.2",
     "@types/node": "^20.2.1",
+    "@vitest/coverage-c8": "^0.31.1",
     "tslib": "^2.5.2",
     "typescript": "^5.0.4",
-    "vite-node": "^0.31.1"
+    "vite-node": "^0.31.1",
+    "vitest": "^0.31.1",
+    "yaml": "^2.2.2"
   }
 }

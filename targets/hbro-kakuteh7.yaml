@@ -1,19 +1,41 @@
 # DMA Assignment Summary
 # Target: kakuteh7 (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 7
+#
+# Motor Control: DMAR mode (UP Timer DMA) - burst transfers for all motors
+# ✓ Benefits: Single DMA stream for all 4 motors, optimal performance
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM1 (req29) [TIMER4_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req39) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req40) [SPI2_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req83) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA1_STREAM8 (req84) [SPI4_MOSI]
+#   RGB              -> available                                        (options: flexible)
+#   DSHOT_DMAR       -> ASSIGNED: DMA1_STREAM1 (req22) [TIMER2]
+#   DSHOT_CCR_M0     -> available                                        (options: flexible)
+#   DSHOT_CCR_M1     -> available                                        (options: flexible)
+#   DSHOT_CCR_M2     -> available                                        (options: flexible)
+#   DSHOT_CCR_M3     -> available                                        (options: flexible)
+#   DSHOT_BB_CH1     -> available                                        (options: flexible)
+#   DSHOT_BB_CH2     -> available                                        (options: flexible)
+#   DSHOT_BB_CH3     -> available                                        (options: flexible)
+#   SPI1_RX          -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
+#   SPI1_TX          -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
+#   SPI2_RX          -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
+#   SPI2_TX          -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
+#   SPI4_RX          -> ASSIGNED: DMA1_STREAM6 (req83) [SPI4_MISO]
+#   SPI4_TX          -> ASSIGNED: DMA1_STREAM7 (req84) [SPI4_MOSI]
+#   SERIAL1_RX       -> available                                        (options: flexible)
+#   SERIAL1_TX       -> available                                        (options: flexible)
+#   SERIAL2_RX       -> available                                        (options: flexible)
+#   SERIAL2_TX       -> available                                        (options: flexible)
+#   SERIAL3_RX       -> available                                        (options: flexible)
+#   SERIAL3_TX       -> available                                        (options: flexible)
+#   SERIAL4_RX       -> available                                        (options: flexible)
+#   SERIAL4_TX       -> available                                        (options: flexible)
+#   SERIAL6_RX       -> available                                        (options: flexible)
+#   SERIAL6_TX       -> available                                        (options: flexible)
+#   SERIAL7_RX       -> available                                        (options: flexible)
+#   SERIAL7_TX       -> available                                        (options: flexible)
 #
-# Summary: 8 devices assigned, 8/16 streams available
+# Summary: 7 devices assigned
 name: kakuteh7
 manufacturer: HBRO
 mcu: stm32h743
@@ -88,35 +110,31 @@ motor_pins:
 baro:
   port: 1
 dma:
-  DSHOT_CH1:
-    dma: DMA1_STREAM2
-    request: 11
-    tag: TIMER1_CH1
-  RGB:
-    dma: DMA1_STREAM1
-    request: 29
-    tag: TIMER4_CH1
+  DSHOT_DMAR:
+    dma: DMA1_STREAM7
+    request: 22
+    tag: TIMER2
   SPI1_RX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM2
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM1
     request: 38
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM4
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM3
     request: 40
     tag: SPI2_MOSI
   SPI4_RX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM6
     request: 83
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA1_STREAM8
+    dma: DMA1_STREAM5
     request: 84
     tag: SPI4_MOSI

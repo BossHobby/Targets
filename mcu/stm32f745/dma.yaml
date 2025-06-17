@@ -7,6 +7,14 @@
     stream: 0
   channel: 0
 - tag:
+    type: i2c
+    index: 1
+    func: rx
+  dma:
+    port: 1
+    stream: 0
+  channel: 1
+- tag:
     type: timer
     index: 4
     func: ch1
@@ -40,8 +48,40 @@
   channel: 6
 - tag:
     type: timer
+    index: 5
+    func: up
+  dma:
+    port: 1
+    stream: 0
+  channel: 6
+- tag:
+    type: i2c
+    index: 3
+    func: tx
+  dma:
+    port: 1
+    stream: 0
+  channel: 8
+- tag:
+    type: i2c
+    index: 3
+    func: rx
+  dma:
+    port: 1
+    stream: 1
+  channel: 1
+- tag:
+    type: timer
     index: 2
     func: ch3
+  dma:
+    port: 1
+    stream: 1
+  channel: 3
+- tag:
+    type: timer
+    index: 2
+    func: up
   dma:
     port: 1
     stream: 1
@@ -71,6 +111,22 @@
     stream: 1
   channel: 6
 - tag:
+    type: timer
+    index: 6
+    func: up
+  dma:
+    port: 1
+    stream: 1
+  channel: 7
+- tag:
+    type: i2c
+    index: 4
+    func: rx
+  dma:
+    port: 1
+    stream: 1
+  channel: 8
+- tag:
     type: spi
     index: 2
     func: miso
@@ -86,6 +142,30 @@
     port: 1
     stream: 2
   channel: 0
+- tag:
+    type: timer
+    index: 7
+    func: up
+  dma:
+    port: 1
+    stream: 2
+  channel: 1
+- tag:
+    type: i2c
+    index: 4
+    func: rx
+  dma:
+    port: 1
+    stream: 2
+  channel: 2
+- tag:
+    type: i2c
+    index: 3
+    func: rx
+  dma:
+    port: 1
+    stream: 2
+  channel: 3
 - tag:
     type: serial
     index: 4
@@ -104,12 +184,28 @@
   channel: 5
 - tag:
     type: timer
+    index: 3
+    func: up
+  dma:
+    port: 1
+    stream: 2
+  channel: 5
+- tag:
+    type: timer
     index: 5
     func: ch1
   dma:
     port: 1
     stream: 2
   channel: 6
+- tag:
+    type: i2c
+    index: 2
+    func: rx
+  dma:
+    port: 1
+    stream: 2
+  channel: 7
 - tag:
     type: spi
     index: 2
@@ -151,6 +247,14 @@
     stream: 3
   channel: 6
 - tag:
+    type: i2c
+    index: 2
+    func: rx
+  dma:
+    port: 1
+    stream: 3
+  channel: 7
+- tag:
     type: spi
     index: 2
     func: mosi
@@ -158,6 +262,22 @@
     port: 1
     stream: 4
   channel: 0
+- tag:
+    type: timer
+    index: 7
+    func: up
+  dma:
+    port: 1
+    stream: 4
+  channel: 1
+- tag:
+    type: i2c
+    index: 3
+    func: tx
+  dma:
+    port: 1
+    stream: 4
+  channel: 3
 - tag:
     type: serial
     index: 4
@@ -191,6 +311,14 @@
     stream: 4
   channel: 7
 - tag:
+    type: i2c
+    index: 2
+    func: tx
+  dma:
+    port: 1
+    stream: 4
+  channel: 8
+- tag:
     type: spi
     index: 3
     func: mosi
@@ -198,6 +326,22 @@
     port: 1
     stream: 5
   channel: 0
+- tag:
+    type: i2c
+    index: 1
+    func: rx
+  dma:
+    port: 1
+    stream: 5
+  channel: 1
+- tag:
+    type: i2c
+    index: 4
+    func: tx
+  dma:
+    port: 1
+    stream: 5
+  channel: 2
 - tag:
     type: timer
     index: 2
@@ -222,6 +366,22 @@
     port: 1
     stream: 5
   channel: 5
+- tag:
+    type: i2c
+    index: 1
+    func: tx
+  dma:
+    port: 1
+    stream: 6
+  channel: 1
+- tag:
+    type: timer
+    index: 4
+    func: up
+  dma:
+    port: 1
+    stream: 6
+  channel: 2
 - tag:
     type: timer
     index: 2
@@ -255,6 +415,22 @@
     stream: 6
   channel: 5
 - tag:
+    type: timer
+    index: 5
+    func: up
+  dma:
+    port: 1
+    stream: 6
+  channel: 6
+- tag:
+    type: i2c
+    index: 4
+    func: tx
+  dma:
+    port: 1
+    stream: 6
+  channel: 8
+- tag:
     type: spi
     index: 2
     func: mosi
@@ -271,6 +447,14 @@
     stream: 7
   channel: 0
 - tag:
+    type: i2c
+    index: 1
+    func: tx
+  dma:
+    port: 1
+    stream: 7
+  channel: 1
+- tag:
     type: timer
     index: 4
     func: ch3
@@ -282,6 +466,14 @@
     type: timer
     index: 2
     func: ch4
+  dma:
+    port: 1
+    stream: 7
+  channel: 3
+- tag:
+    type: timer
+    index: 2
+    func: up
   dma:
     port: 1
     stream: 7
@@ -302,6 +494,14 @@
     port: 1
     stream: 7
   channel: 5
+- tag:
+    type: i2c
+    index: 2
+    func: tx
+  dma:
+    port: 1
+    stream: 7
+  channel: 7
 - tag:
     type: adc
     index: 1
@@ -366,6 +566,14 @@
     port: 2
     stream: 1
   channel: 6
+- tag:
+    type: timer
+    index: 8
+    func: up
+  dma:
+    port: 2
+    stream: 1
+  channel: 7
 - tag:
     type: timer
     index: 8
@@ -534,6 +742,14 @@
     port: 2
     stream: 5
   channel: 4
+- tag:
+    type: timer
+    index: 1
+    func: up
+  dma:
+    port: 2
+    stream: 5
+  channel: 6
 - tag:
     type: timer
     index: 1

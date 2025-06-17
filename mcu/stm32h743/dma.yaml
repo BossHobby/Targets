@@ -30,6 +30,11 @@
   request: 14
 - tag:
     type: timer
+    index: 1
+    func: up
+  request: 15
+- tag:
+    type: timer
     index: 2
     func: ch1
   request: 18
@@ -48,6 +53,11 @@
     index: 2
     func: ch4
   request: 21
+- tag:
+    type: timer
+    index: 2
+    func: up
+  request: 22
 - tag:
     type: timer
     index: 3
@@ -70,6 +80,11 @@
   request: 26
 - tag:
     type: timer
+    index: 3
+    func: up
+  request: 27
+- tag:
+    type: timer
     index: 4
     func: ch1
   request: 29
@@ -83,6 +98,31 @@
     index: 4
     func: ch3
   request: 31
+- tag:
+    type: timer
+    index: 4
+    func: up
+  request: 32
+- tag:
+    type: i2c
+    index: 1
+    func: rx
+  request: 33
+- tag:
+    type: i2c
+    index: 1
+    func: tx
+  request: 34
+- tag:
+    type: i2c
+    index: 2
+    func: rx
+  request: 35
+- tag:
+    type: i2c
+    index: 2
+    func: tx
+  request: 36
 - tag:
     type: spi
     index: 1
@@ -155,6 +195,11 @@
   request: 50
 - tag:
     type: timer
+    index: 8
+    func: up
+  request: 51
+- tag:
+    type: timer
     index: 5
     func: ch1
   request: 55
@@ -173,6 +218,11 @@
     index: 5
     func: ch4
   request: 58
+- tag:
+    type: timer
+    index: 5
+    func: up
+  request: 59
 - tag:
     type: spi
     index: 3
@@ -204,6 +254,16 @@
     func: tx
   request: 66
 - tag:
+    type: timer
+    index: 6
+    func: up
+  request: 69
+- tag:
+    type: timer
+    index: 7
+    func: up
+  request: 70
+- tag:
     type: serial
     index: 6
     func: rx
@@ -213,6 +273,16 @@
     index: 6
     func: tx
   request: 72
+- tag:
+    type: i2c
+    index: 3
+    func: rx
+  request: 73
+- tag:
+    type: i2c
+    index: 3
+    func: tx
+  request: 74
 - tag:
     type: serial
     index: 7
@@ -250,14 +320,29 @@
   request: 105
 - tag:
     type: timer
+    index: 15
+    func: up
+  request: 106
+- tag:
+    type: timer
     index: 16
     func: ch1
   request: 109
 - tag:
     type: timer
+    index: 16
+    func: up
+  request: 110
+- tag:
+    type: timer
     index: 17
     func: ch1
   request: 111
+- tag:
+    type: timer
+    index: 17
+    func: up
+  request: 112
 - tag:
     type: adc
     index: 3

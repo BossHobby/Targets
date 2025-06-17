@@ -322,16 +322,37 @@
         },
         "dma": {
             "type": "object",
-            "description": "DMA assignments for peripherals - each stream must be unique",
+            "description": "DMA assignments for peripherals - each stream must be unique. DSHOT modes: DSHOT_DMAR (Timer Burst DMA for all 4 motors, eliminates F4 errata), DSHOT_CCR_M0-M3 (individual channel DMA, F4 errata safe), DSHOT_BB_CH1-3 (bitbang GPIO, F4 errata risk)",
             "patternProperties": {
-                "^(RGB|DSHOT_CH[1-8]|SPI[1-4]_(RX|TX)|SERIAL[1-8]_(RX|TX)|I2C[1-4]_(RX|TX)|UART[1-8]_(RX|TX))$": {
+                "^(RGB|DSHOT_CH[1-8]|DSHOT_DMAR|DSHOT_CCR_M[0-3]|DSHOT_BB_CH[1-3]|SPI[1-4]_(RX|TX)|SERIAL[1-8]_(RX|TX)|I2C[1-4]_(RX|TX)|UART[1-8]_(RX|TX))$": {
                     "type": "object",
                     "additionalProperties": false,
                     "properties": {
                         "tag": {
                             "type": "string",
-                            "description": "Hardware peripheral tag identifier",
-                            "pattern": "^(TIMER[1-9][0-9]?_CH[1-4]|SPI[1-4]_(MISO|MOSI)|SERIAL[1-8]_(RX|TX)|UART[1-8]_(RX|TX)|I2C[1-4]_(RX|TX))$"
+                            "description": "Hardware peripheral tag identifier - must match device type format",
+                            "anyOf": [
+                                {
+                                    "description": "DMAR mode: Timer burst DMA (TIMER1, TIMER8, etc.)",
+                                    "pattern": "^TIMER[1-9][0-9]*$"
+                                },
+                                {
+                                    "description": "CCR/BB mode: Timer channel DMA (TIMER1_CH1, TIMER8_CH3, etc.)",
+                                    "pattern": "^TIMER[1-9][0-9]*_CH[1-4]$"
+                                },
+                                {
+                                    "description": "SPI peripheral tags (SPI1_MISO, SPI2_MOSI, etc.)",
+                                    "pattern": "^SPI[1-4]_(MISO|MOSI)$"
+                                },
+                                {
+                                    "description": "Serial/UART peripheral tags (SERIAL1_RX, UART2_TX, etc.)",
+                                    "pattern": "^(SERIAL|UART)[1-8]_(RX|TX)$"
+                                },
+                                {
+                                    "description": "I2C peripheral tags (I2C1_RX, I2C2_TX, etc.)",
+                                    "pattern": "^I2C[1-4]_(RX|TX)$"
+                                }
+                            ]
                         },
                         "dma": {
                             "type": "string",

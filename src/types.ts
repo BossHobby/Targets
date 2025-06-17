@@ -1,4 +1,3 @@
-import YAML, { Pair, Scalar } from "yaml";
 
 export enum GyroRotation {
   ROTATE_NONE = 0x0,
@@ -146,23 +145,6 @@ export const target_keys = [
   "nss",
 ];
 
-function sortMapEntries(
-  a: Pair<Scalar, unknown>,
-  b: Pair<Scalar, unknown>
-): number {
-  const aIndex = target_keys.indexOf(a.key.value as string);
-  const bIndex = target_keys.indexOf(b.key.value as string);
-  if (aIndex == -1 && bIndex == -1) {
-    return (a.key.value as string).localeCompare(b.key.value as string);
-  }
-  if (aIndex == -1) {
-    return 1;
-  }
-  if (bIndex == -1) {
-    return -1;
-  }
-  return aIndex - bIndex;
-}
 
 export function skipEmpty(val: any) {
   if (val === undefined) {
@@ -197,6 +179,4 @@ export function skipEmpty(val: any) {
   return val;
 }
 
-export function stringifyTarget(target: target_t) {
-  return YAML.stringify(skipEmpty(target), { sortMapEntries });
-}
+// stringifyTarget functions moved to util.ts to avoid circular dependencies

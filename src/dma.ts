@@ -1,512 +1,971 @@
-import fs from "fs";
-import path from "path";
-import YAML, { Pair, Scalar } from "yaml";
-import { walk } from "./util";
-import { stringifyTarget, target_t, skipEmpty, target_keys } from "./types";
+import { target_t } from './types';
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import YAML from 'yaml';
+import { init } from 'z3-solver';
 
-interface device_tag {
+// Types
+export interface device_tag {
     type: string;
     index: number;
     func?: string;
 }
 
-interface dma_resource {
+export interface dma_resource {
     tag: device_tag;
     dma?: { port: number; stream: number };
     channel?: number;
     request?: number;
 }
 
+export interface DmaContext {
+    mcu: string;
+    gpio: any;
+    resources: dma_resource[];
+    usedStreams: Set<string>;
+}
 
-const mcus = await fs.promises.readdir("mcu");
-const gpios = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "gpio.yaml"), "utf8")) }), {});
-const dmas = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "dma.yaml"), "utf8")) }), {});
+export type DshotMode = 'DMAR' | 'CCR' | 'BB';
 
-const mapMCU = (mcu: string) => ({ at32f435m: "at32f435" }[mcu] || mcu);
+interface PeripheralRequirement {
+    device: string;
+    tag: device_tag;
+    priority: number;
+}
 
-const tagEqual = (lhs: device_tag, rhs: device_tag) => 
-    lhs.type === rhs.type && lhs.index === rhs.index && (!lhs.func || !rhs.func || lhs.func === rhs.func);
+// Utility functions
+export const tagEqual = (a: device_tag, b: device_tag): boolean =>
+    a.type === b.type && a.index === b.index && (!a.func || !b.func || a.func === b.func);
 
-const getDmaArchitecture = (mcu: string) => 
-    ['stm32f405', 'stm32f411', 'stm32f722', 'stm32f745', 'stm32f765'].includes(mcu) ? 'fixed' : 'flexible';
+export const mapMCU = (mcu: string): string => ({ at32f435m: "at32f435" }[mcu] || mcu);
 
-export function findDmaAssignments(target: target_t): target_t {
-    const mcu = mapMCU(target.mcu);
-    const dma = dmas[mcu] as dma_resource[];
-    const gpio = gpios[mcu];
+export const getDmaArchitecture = (mcu: string): 'fixed' | 'flexible' => {
+    const mcuLower = mcu.toLowerCase();
+    return ['stm32f405', 'stm32f411', 'stm32f722', 'stm32f745', 'stm32f765'].includes(mcuLower) ? 'fixed' : 'flexible';
+};
 
-    if (!dma || !gpio) {
-        return target;
+const formatTag = (tag: device_tag): string => {
+    if (tag.type === 'timer' && tag.func === 'up') {
+        return `TIMER${tag.index}`;
+    }
+    if (tag.func?.startsWith('ch')) {
+        return `${tag.type}${tag.index}_${tag.func}`.toUpperCase();
+    }
+    return `${tag.type}${tag.index}${tag.func ? '_' + tag.func : ''}`.toUpperCase();
+};
+
+// Z3 SAT Solver
+interface SolverOptions {
+    debug?: boolean;
+}
+
+class Z3Solver {
+    private Z3: any;
+    private ctx: any;
+    private solver: any;
+    private variables: Map<string, any> = new Map();
+    private ready: Promise<void>;
+
+    constructor() {
+        this.ready = this.initialize();
     }
 
-    const assignments: any[] = [];
-    const usedResources = new Set<string>();
-    const usedTimers = new Set<string>();
-    const usedStreams = new Set<string>();
+    private async initialize() {
+        this.Z3 = await init();
+        this.ctx = new this.Z3.Context();
+        this.solver = new this.ctx.Solver();
+    }
 
-    let motorTimers = mcu === "stm32f411" ? [{ type: "timer", index: 1 }] : [{ type: "timer", index: 1 }, { type: "timer", index: 8 }];
+    async reset() {
+        await this.ready;
+        this.solver = new this.ctx.Solver();
+        this.variables.clear();
+    }
 
-    function findOptimalDmaResource(tag: device_tag, allPeripherals: device_tag[]): dma_resource | null {
-        const candidateResources = dma.filter(d => 
-            tagEqual(d.tag, tag) && !usedResources.has(JSON.stringify(d))
-        );
+    async addVariable(name: string) {
+        await this.ready;
+        this.variables.set(name, this.ctx.Bool.const(name));
+    }
 
-        if (candidateResources.length === 0) return null;
+    async addConstraint(expr: any) {
+        await this.ready;
+        this.solver.add(expr);
+    }
 
-        // For flexible architecture, use sequential assignment
-        if (getDmaArchitecture(mcu) === 'flexible') {
-            return candidateResources[0];
+    async or(...args: string[]): Promise<any> {
+        await this.ready;
+        const vars = args.map(name => this.variables.get(name)).filter(v => v);
+        return this.ctx.Or(...vars);
+    }
+
+    async and(...args: string[]): Promise<any> {
+        await this.ready;
+        const vars = args.map(name => this.variables.get(name)).filter(v => v);
+        return this.ctx.And(...vars);
+    }
+
+    async not(arg: string): Promise<any> {
+        await this.ready;
+        const v = this.variables.get(arg);
+        return v ? this.ctx.Not(v) : null;
+    }
+
+    async atMostOne(...args: string[]): Promise<any> {
+        await this.ready;
+        const vars = args.map(name => this.variables.get(name)).filter(v => v);
+        const pairs: any[] = [];
+        for (let i = 0; i < vars.length; i++) {
+            for (let j = i + 1; j < vars.length; j++) {
+                pairs.push(this.ctx.Not(this.ctx.And(vars[i], vars[j])));
+            }
+        }
+        return pairs.length > 0 ? this.ctx.And(...pairs) : this.ctx.Bool.val(true);
+    }
+
+    async solve(options?: SolverOptions): Promise<Map<string, boolean> | null> {
+        await this.ready;
+
+        if (options?.debug) {
+            console.log(`[Z3] Solving with ${this.variables.size} variables`);
         }
 
-        // For fixed F4/F7 architecture, analyze scarcity
-        const resourceScarcity = candidateResources.map(resource => {
-            const streamName = `DMA${resource.dma?.port || 1}_STREAM${resource.dma?.stream || 0}`;
-            
-            if (usedStreams.has(streamName)) {
-                return { resource, scarcity: Infinity };
-            }
+        const result = await this.solver.check();
 
-            // Count competing peripherals for this stream
-            let competingPeripherals = 0;
-            for (const otherPeripheral of allPeripherals) {
-                if (tagEqual(otherPeripheral, tag)) continue;
-                
-                const otherCandidates = dma.filter(d => tagEqual(d.tag, otherPeripheral));
-                for (const candidate of otherCandidates) {
-                    const otherStreamName = `DMA${candidate.dma?.port || 1}_STREAM${candidate.dma?.stream || 0}`;
-                    if (otherStreamName === streamName) {
-                        competingPeripherals++;
-                        break;
+        if (options?.debug) {
+            console.log(`[Z3] Result: ${result}`);
+        }
+
+        if (result === 'sat') {
+            const model = this.solver.model();
+            const solution = new Map<string, boolean>();
+
+            for (const [name, variable] of this.variables) {
+                const value = model.eval(variable);
+                if (value && typeof value.isBool === 'function' && value.isBool()) {
+                    solution.set(name, value.isTrue());
+                } else {
+                    const strValue = value?.toString();
+                    if (strValue === 'true' || strValue === 'false') {
+                        solution.set(name, strValue === 'true');
                     }
                 }
             }
+
+            return solution;
+        }
+
+        return null;
+    }
+}
+
+// Simple DSHOT mode ordering - try in sequence
+async function tryDshotMode(
+    target: target_t,
+    gpio: any,
+    ctx: DmaContext,
+    mode: DshotMode,
+    debug: boolean = false
+): Promise<Map<string, dma_resource> | null> {
+    
+    const solver = new Z3Solver();
+    await solver.reset();
+
+    if (debug) {
+        console.log(`[SAT] Trying ${mode} mode for ${target.name}`);
+    }
+
+    // Enumerate peripherals for this specific mode
+    const peripherals = enumeratePeripherals(target, gpio, mode, ctx);
+    
+    // Split into SPI (mandatory) and DSHOT (mandatory) and others
+    const spiPeripherals = peripherals.filter(p => p.tag.type === 'spi');
+    const dshotPeripherals = peripherals.filter(p => p.priority === 100);
+    const otherPeripherals = peripherals.filter(p => p.tag.type !== 'spi' && p.priority !== 100);
+
+    if (debug) {
+        console.log(`[SAT] ${mode}: ${spiPeripherals.length} SPI, ${dshotPeripherals.length} DSHOT, ${otherPeripherals.length} other`);
+    }
+
+    // Calculate stream congestion first to sort resources by preference
+    const arch = getDmaArchitecture(ctx.mcu);
+    const streamCongestion = new Map<string, number>();
+    if (arch === 'fixed') {
+        // Pre-calculate all possible assignments to understand congestion
+        const allPeripherals = [...spiPeripherals, ...dshotPeripherals, ...otherPeripherals];
+        for (const peripheral of allPeripherals) {
+            const compatibleResources = ctx.resources.filter(r => tagEqual(r.tag, peripheral.tag));
+            for (const resource of compatibleResources) {
+                if (resource.dma) {
+                    const streamName = `DMA${resource.dma.port}_STREAM${resource.dma.stream}`;
+                    streamCongestion.set(streamName, (streamCongestion.get(streamName) || 0) + 1);
+                }
+            }
+        }
+        
+        if (debug) {
+            console.log(`[SAT] Stream congestion analysis:`);
+            const sortedStreams = Array.from(streamCongestion.entries())
+                .sort((a, b) => a[1] - b[1]) // Sort by congestion (least congested first)
+                .slice(0, 8);
+            for (const [stream, count] of sortedStreams) {
+                console.log(`[SAT]   ${stream}: ${count} competing peripherals`);
+            }
+        }
+    }
+
+    // Create variables for all peripheral-resource pairs, sorted by stream preference
+    const allPeripherals = [...spiPeripherals, ...dshotPeripherals, ...otherPeripherals];
+    const validPairs: Array<{ 
+        peripheral: string, 
+        resource: dma_resource, 
+        variable: string,
+        congestion: number
+    }> = [];
+    
+    for (const peripheral of allPeripherals) {
+        const compatibleResources = ctx.resources.filter(r => tagEqual(r.tag, peripheral.tag));
+        
+        // Sort resources by congestion (prefer less congested streams)
+        const sortedResources = compatibleResources.sort((a, b) => {
+            if (!a.dma && !b.dma) return 0;
+            if (!a.dma) return 1; // Put non-DMA at end
+            if (!b.dma) return -1;
             
-            return { resource, scarcity: competingPeripherals };
+            const aCongestion = streamCongestion.get(`DMA${a.dma.port}_STREAM${a.dma.stream}`) || 0;
+            const bCongestion = streamCongestion.get(`DMA${b.dma.port}_STREAM${b.dma.stream}`) || 0;
+            return aCongestion - bCongestion; // Less congested first
         });
-
-        resourceScarcity.sort((a, b) => a.scarcity - b.scarcity);
-        const chosen = resourceScarcity[0];
         
-        return chosen.resource;
-    }
-
-    function getDmaStreamName(resource: dma_resource, assignmentIndex: number): string {
-        if (getDmaArchitecture(mcu) === 'flexible') {
-            const streamsPerController = mcu === 'at32f435' ? 7 : 8;
-            const startStream = 1;
-            const dmaController = assignmentIndex < streamsPerController ? 1 : 2;
-            const streamNumber = startStream + (assignmentIndex % streamsPerController);
-            return `DMA${dmaController}_STREAM${streamNumber}`;
-        } else {
-            return `DMA${resource.dma?.port || 1}_STREAM${resource.dma?.stream || 0}`;
+        for (const resource of sortedResources) {
+            const resourceId = resource.dma
+                ? `${resource.dma.port}_${resource.dma.stream}_${resource.channel || 0}`
+                : `flex_${resource.request || 0}`;
+            const varName = `${peripheral.device}_${resourceId}`;
+            const congestion = resource.dma 
+                ? streamCongestion.get(`DMA${resource.dma.port}_STREAM${resource.dma.stream}`) || 0
+                : 0;
+            
+            await solver.addVariable(varName);
+            validPairs.push({ 
+                peripheral: peripheral.device, 
+                resource, 
+                variable: varName,
+                congestion
+            });
         }
     }
 
-    const addAssignment = (dev: string, tag: device_tag, allPeripherals: device_tag[]): boolean => {
-        const resource = findOptimalDmaResource(tag, allPeripherals);
-        if (!resource) return false;
-
-        usedResources.add(JSON.stringify(resource));
-        const dmaStream = getDmaStreamName(resource, assignments.length);
-
-        if (usedStreams.has(dmaStream)) {
-            throw new Error(`DMA stream conflict: ${dmaStream} already assigned`);
+    // Constraint 1: ALL SPI ports must be assigned
+    for (const spiPeripheral of spiPeripherals) {
+        const peripheralVars = validPairs
+            .filter(p => p.peripheral === spiPeripheral.device)
+            .map(p => p.variable);
+        
+        if (peripheralVars.length === 0) {
+            if (debug) console.log(`[SAT] No DMA for SPI peripheral ${spiPeripheral.device} - mode fails`);
+            return null;
         }
+        
+        // Exactly one assignment per SPI peripheral
+        await solver.addConstraint(await solver.or(...peripheralVars));
+        await solver.addConstraint(await solver.atMostOne(...peripheralVars));
+    }
 
-        usedStreams.add(dmaStream);
-        assignments.push({
-            dev,
-            tag: `${tag.type}${tag.index}${tag.func ? '_' + tag.func : ''}`.toUpperCase(),
-            dma: dmaStream,
-            channel: resource.channel,
-            request: resource.request
-        });
-        return true;
-    };
-
-    const findAvailableTimer = (dev: string, gpios: any[]) => {
-        const timerGpios = gpios.filter((g: any) =>
-            g.tag.type === 'timer' && !usedTimers.has(`${g.tag.type}${g.tag.index}_${g.tag.func}`)
+    // Constraint 2: DSHOT must work (at least some motor assignments)
+    if (dshotPeripherals.length > 0) {
+        const allDshotVars = dshotPeripherals.flatMap(dshot => 
+            validPairs
+                .filter(p => p.peripheral === dshot.device)
+                .map(p => p.variable)
         );
-        return dev === "RGB" 
-            ? timerGpios.filter((g: any) => !motorTimers.some(mt => mt.type === g.tag.type && mt.index === g.tag.index))
-            : timerGpios;
-    };
-
-    const peripheralStatus = {
-        rgb: { attempted: false, assigned: false, reason: '' },
-        motors: { attempted: false, assigned: 0, total: 0, reason: '' },
-        spi: { attempted: false, assigned: 0, total: 0, reason: '' }
-    };
-
-    // Collect all potential peripherals for scarcity analysis
-    const allPeripherals: device_tag[] = [];
-    
-    if (target.rgb_led) {
-        const timers = findAvailableTimer("RGB", gpio[target.rgb_led]);
-        allPeripherals.push(...timers.map(t => t.tag));
-    }
-    
-    const motorPorts = target.motor_pins.map(p => p.slice(0, 2)).filter((v, i, a) => a.indexOf(v) === i);
-    const primaryMotorTimer = motorTimers[0];
-    if (primaryMotorTimer) {
-        for (let i = 0; i < motorPorts.length; i++) {
-            allPeripherals.push({ ...primaryMotorTimer, func: `ch${i + 1}` });
-        }
-    }
-    
-    for (const spi of target.spi_ports || []) {
-        allPeripherals.push({ type: 'spi', index: spi.index, func: 'miso' });
-        allPeripherals.push({ type: 'spi', index: spi.index, func: 'mosi' });
-    }
-    
-    for (const serial of target.serial_ports || []) {
-        allPeripherals.push({ type: 'serial', index: serial.index, func: 'rx' });
-        allPeripherals.push({ type: 'serial', index: serial.index, func: 'tx' });
-    }
-    
-    for (const i2c of target.i2c_ports || []) {
-        allPeripherals.push({ type: 'i2c', index: i2c.index, func: 'rx' });
-        allPeripherals.push({ type: 'i2c', index: i2c.index, func: 'tx' });
-    }
-
-    // 1. Assign RGB LED timer first
-    if (target.rgb_led) {
-        peripheralStatus.rgb.attempted = true;
-        const timers = findAvailableTimer("RGB", gpio[target.rgb_led]);
-        for (const timer of timers) {
-            if (addAssignment("RGB", timer.tag, allPeripherals)) {
-                peripheralStatus.rgb.assigned = true;
-                usedTimers.add(`${timer.tag.type}${timer.tag.index}_${timer.tag.func}`);
-                motorTimers = motorTimers.filter(mt => !(mt.type === timer.tag.type && mt.index === timer.tag.index));
-                break;
-            }
-        }
-        if (!peripheralStatus.rgb.assigned) {
-            peripheralStatus.rgb.reason = 'No available timer or DMA resource';
-        }
-    }
-
-    // 2. Assign motor channels
-    peripheralStatus.motors.attempted = true;
-    peripheralStatus.motors.total = motorPorts.length;
-
-    if (!primaryMotorTimer) {
-        throw new Error("No motor timer available!");
-    }
-
-    for (let i = 0; i < motorPorts.length; i++) {
-        const motorTag = { ...primaryMotorTimer, func: `ch${i + 1}` };
-        usedTimers.add(`${motorTag.type}${motorTag.index}_${motorTag.func}`);
-
-        if (!addAssignment(`DSHOT_CH${i + 1}`, motorTag, allPeripherals)) {
-            if (motorTimers.length > 1) {
-                const fallbackTag = { ...motorTimers[1], func: `ch${i + 1}` };
-                if (!addAssignment(`DSHOT_CH${i + 1}`, fallbackTag, allPeripherals)) {
-                    throw new Error(`No motor DMA found for channel ${i + 1}!`);
-                }
-            } else {
-                throw new Error(`No motor DMA found for channel ${i + 1}!`);
-            }
-        }
-        peripheralStatus.motors.assigned++;
-    }
-
-    // 3. Assign SPI channels
-    if (target.spi_ports && target.spi_ports.length > 0) {
-        peripheralStatus.spi.attempted = true;
-        peripheralStatus.spi.total = target.spi_ports.length * 2;
         
-        for (const spi of target.spi_ports) {
-            const misoGpios = gpio[spi.miso]?.filter((g: any) =>
-                g.tag.type === 'spi' && g.tag.index === spi.index && g.tag.func === 'miso') || [];
-            const mosiGpios = gpio[spi.mosi]?.filter((g: any) =>
-                g.tag.type === 'spi' && g.tag.index === spi.index && g.tag.func === 'mosi') || [];
-
-            for (const miso of misoGpios) {
-                if (addAssignment(`SPI${spi.index}_RX`, miso.tag, allPeripherals)) {
-                    peripheralStatus.spi.assigned++;
-                    break;
-                }
+        if (allDshotVars.length === 0) {
+            if (debug) console.log(`[SAT] No DMA for DSHOT - mode fails`);
+            return null;
+        }
+        
+        // At least one DSHOT assignment must succeed
+        await solver.addConstraint(await solver.or(...allDshotVars));
+        
+        // Each DSHOT peripheral gets at most one assignment
+        for (const dshotPeripheral of dshotPeripherals) {
+            const peripheralVars = validPairs
+                .filter(p => p.peripheral === dshotPeripheral.device)
+                .map(p => p.variable);
+            
+            if (peripheralVars.length > 0) {
+                await solver.addConstraint(await solver.atMostOne(...peripheralVars));
             }
-            for (const mosi of mosiGpios) {
-                if (addAssignment(`SPI${spi.index}_TX`, mosi.tag, allPeripherals)) {
-                    peripheralStatus.spi.assigned++;
-                    break;
+        }
+    }
+
+    // Constraint 3: Stream conflicts
+    if (arch === 'fixed') {
+        const streamGroups = new Map<string, string[]>();
+
+        for (const pair of validPairs) {
+            if (!pair.resource.dma) continue;
+            const streamName = `DMA${pair.resource.dma.port}_STREAM${pair.resource.dma.stream}`;
+            if (!streamGroups.has(streamName)) {
+                streamGroups.set(streamName, []);
+            }
+            streamGroups.get(streamName)!.push(pair.variable);
+        }
+        
+        for (const [streamName, vars] of streamGroups) {
+            if (vars.length > 1 && !ctx.usedStreams.has(streamName)) {
+                await solver.addConstraint(await solver.atMostOne(...vars));
+            } else if (ctx.usedStreams.has(streamName)) {
+                for (const var_ of vars) {
+                    await solver.addConstraint(await solver.not(var_));
                 }
             }
         }
     }
 
-    // Convert assignments to target format
-    const dmaEntries: Record<string, any> = {};
-    for (const assignment of assignments) {
-        const entry: any = {
-            tag: assignment.tag,
-            dma: assignment.dma
-        };
-        if (assignment.channel !== undefined) entry.channel = assignment.channel;
-        if (assignment.request !== undefined) entry.request = assignment.request;
-        dmaEntries[assignment.dev] = entry;
+    // Constraint 4: STM32F4 DMA2 errata
+    if (ctx.mcu.toLowerCase().startsWith('stm32f4')) {
+        const problematicPairs = validPairs.filter(p =>
+            p.resource.dma?.port === 2 &&
+            [0, 2].includes(p.resource.dma.stream) &&
+            [3, 4].includes(p.resource.channel || 0)
+        );
+
+        if (problematicPairs.length > 1) {
+            await solver.addConstraint(await solver.atMostOne(...problematicPairs.map(p => p.variable)));
+        }
     }
 
-    const result = { 
-        ...target, 
-        dma: dmaEntries, 
-        timers: []
-    };
-
-    // Store data for header generation
-    (result as any)._dmaStatus = peripheralStatus;
-    (result as any)._usedStreams = usedStreams;
-    (result as any)._mcu = mcu;
-    (result as any)._dmaResources = dma;
+    // SAT optimization: try to maximize usable serial ports and RGB availability
+    let solution = null;
     
-    return result;
+    if (arch === 'fixed') {
+        // Calculate streams needed for serial ports and RGB
+        const serialStreamNeeds = new Map<string, string[]>(); // stream -> serial ports that could use it
+        const rgbStreamNeeds = new Set<string>(); // streams that RGB could use
+        
+        // Analyze serial port needs
+        for (const peripheral of otherPeripherals) {
+            if (peripheral.device.startsWith('SERIAL')) {
+                const compatibleResources = ctx.resources.filter(r => tagEqual(r.tag, peripheral.tag));
+                for (const resource of compatibleResources) {
+                    if (resource.dma) {
+                        const streamName = `DMA${resource.dma.port}_STREAM${resource.dma.stream}`;
+                        if (!serialStreamNeeds.has(streamName)) {
+                            serialStreamNeeds.set(streamName, []);
+                        }
+                        serialStreamNeeds.get(streamName)!.push(peripheral.device);
+                    }
+                }
+            }
+        }
+        
+        // Analyze RGB needs (look for timer resources that aren't Timer1/Timer8)
+        if (target.rgb_led) {
+            for (const resource of ctx.resources) {
+                if (resource.tag.type === 'timer' && 
+                    resource.tag.func === 'up' && 
+                    ![1, 8].includes(resource.tag.index) &&
+                    resource.dma) {
+                    const streamName = `DMA${resource.dma.port}_STREAM${resource.dma.stream}`;
+                    rgbStreamNeeds.add(streamName);
+                }
+            }
+        }
+        
+        if (debug) {
+            console.log(`[SAT] Serial port stream analysis:`);
+            const sortedSerial = Array.from(serialStreamNeeds.entries())
+                .sort((a, b) => b[1].length - a[1].length)
+                .slice(0, 5);
+            for (const [stream, serials] of sortedSerial) {
+                console.log(`[SAT]   ${stream}: needed by ${serials.length} serial ports (${serials.join(', ')})`);
+            }
+            
+            if (rgbStreamNeeds.size > 0) {
+                console.log(`[SAT] RGB could use ${rgbStreamNeeds.size} streams: ${Array.from(rgbStreamNeeds).join(', ')}`);
+            }
+        }
+        
+        // Add soft constraints to prefer assignments that leave streams free for serial/RGB
+        const preferredStreams = new Set<string>();
+        
+        // Add streams needed by 2+ serial ports
+        for (const [stream, serials] of serialStreamNeeds) {
+            if (serials.length >= 2) {
+                preferredStreams.add(stream);
+            }
+        }
+        
+        // Add RGB streams
+        for (const stream of rgbStreamNeeds) {
+            preferredStreams.add(stream);
+        }
+        
+        if (preferredStreams.size > 0 && debug) {
+            console.log(`[SAT] Trying to avoid ${preferredStreams.size} preferred streams for serial/RGB: ${Array.from(preferredStreams).slice(0, 3).join(', ')}${preferredStreams.size > 3 ? '...' : ''}`);
+        }
+        
+        // Add soft constraints - penalize using preferred streams for non-critical assignments
+        for (const pair of validPairs) {
+            if (!pair.resource.dma) continue;
+            
+            const streamName = `DMA${pair.resource.dma.port}_STREAM${pair.resource.dma.stream}`;
+            if (preferredStreams.has(streamName)) {
+                // This is a soft constraint - we prefer NOT to use this assignment
+                // For SPI (non-critical), add a penalty
+                if (pair.peripheral.startsWith('SPI')) {
+                    // We can't add true soft constraints in basic SAT, but we can try alternatives first
+                    // by ordering variables - Z3 will try false first for these variables
+                    await solver.addVariable(`avoid_${pair.variable}`);
+                    await solver.addConstraint(await solver.or(`avoid_${pair.variable}`, await solver.not(pair.variable)));
+                }
+            }
+        }
+        
+        solution = await solver.solve({ debug });
+    } else {
+        // For flexible architecture, just solve normally
+        solution = await solver.solve({ debug });
+    }
+    if (!solution) {
+        if (debug) console.log(`[SAT] ${mode} mode failed to solve`);
+        return null;
+    }
+
+    // Extract assignments
+    const assignments = new Map<string, dma_resource>();
+    for (const pair of validPairs) {
+        if (solution.get(pair.variable)) {
+            assignments.set(pair.peripheral, pair.resource);
+        }
+    }
+
+    if (debug) {
+        console.log(`[SAT] ${mode} mode succeeded with ${assignments.size} assignments`);
+    }
+
+    return assignments;
 }
 
 
-function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams: Set<string>, mcu: string, dma: any[]): string {
-    const status = target._dmaStatus;
-    if (!status) return '';
+// Try DSHOT modes in preference order
+async function solveDmaAssignment(
+    target: target_t,
+    gpio: any,
+    ctx: DmaContext,
+    debug: boolean = false
+): Promise<{ assignments: Map<string, dma_resource>; dshotMode: DshotMode } | null> {
 
+    if (debug) {
+        console.log(`[SAT] Processing ${target.name} (${target.mcu})`);
+    }
+
+    // Enforce 4-motor requirement
+    if (!target.motor_pins || target.motor_pins.length !== 4) {
+        throw new Error(`Target ${target.name} must have exactly 4 motors, found ${target.motor_pins?.length || 0}`);
+    }
+
+    // Try modes in preference order
+    const modes: DshotMode[] = ['DMAR', 'CCR', 'BB'];
+    
+    // For non-F4, skip CCR mode
+    if (!ctx.mcu.toLowerCase().startsWith('stm32f4')) {
+        modes.splice(1, 1); // Remove CCR
+    }
+    
+    // TODO: Future optimization for STM32F7 targets
+    // F7 has fixed DMA but no errata risk, so we could prioritize BB mode over DMAR
+    // when it would significantly increase serial port availability. However, there
+    // are few F7 targets currently, so this optimization is deferred.
+
+    for (const mode of modes) {
+        const assignments = await tryDshotMode(target, gpio, ctx, mode, debug);
+        if (assignments) {
+            if (debug) {
+                console.log(`[SAT] SUCCESS: ${mode} mode worked for ${target.name}`);
+            }
+            return { assignments, dshotMode: mode };
+        }
+    }
+
+    if (debug) {
+        console.log(`[SAT] FAILED: No viable mode for ${target.name}`);
+    }
+    return null;
+}
+
+// Main DMA assignment function
+async function loadDmaData(mcu: string): Promise<[dma_resource[], any]> {
+    const mcuName = mcu.toLowerCase();
+    const mcuPath = mapMCU(mcuName);
+
+    const [dmaYaml, gpioYaml] = await Promise.all([
+        fs.readFile(join('mcu', mcuPath, 'dma.yaml'), 'utf8'),
+        fs.readFile(join('mcu', mcuPath, 'gpio.yaml'), 'utf8')
+    ]);
+
+    const dmaData = YAML.parse(dmaYaml);
+    const gpioData = YAML.parse(gpioYaml);
+
+    return [dmaData || [], gpioData];
+}
+
+
+function enumeratePeripherals(target: target_t, gpio: any, dshotMode: DshotMode, ctx?: DmaContext): PeripheralRequirement[] {
+    const peripherals: PeripheralRequirement[] = [];
+
+    // Sort timer functions to prefer those with better DMA availability
+    const sortTimerFuncs = (timerFuncs: { tag: device_tag }[]) => {
+        return timerFuncs.sort((a: { tag: device_tag }, b: { tag: device_tag }) => {
+            // Prefer commonly available timers that work well: TIMER2, TIMER3, TIMER5, then others
+            const getTimerPriority = (index: number) => {
+                if (index === 2) return 1;  // TIMER2 is very commonly supported
+                if (index === 3) return 2;  // TIMER3 is also well supported
+                if (index === 5) return 3;  // TIMER5 is commonly used
+                if (index === 4) return 4;  // TIMER4 is decent
+                if (index === 1) return 5;  // TIMER1 can have conflicts
+                return 10;  // Higher timers are often less supported
+            };
+            
+            return getTimerPriority(a.tag.index) - getTimerPriority(b.tag.index);
+        });
+    };
+
+    // Motor peripherals based on DSHOT mode
+    if (target.motor_pins && target.motor_pins.length > 0) {
+        if (dshotMode === 'DMAR') {
+            const timersUsed = new Set<number>();
+            for (const motorPin of target.motor_pins) {
+                const pinFuncs = gpio[motorPin];
+                if (pinFuncs) {
+                    const timerFuncs = pinFuncs.filter((f: { tag?: device_tag }) => f.tag?.type === 'timer' && f.tag?.func?.startsWith('ch'));
+                    const sortedTimerFuncs = sortTimerFuncs(timerFuncs);
+                    if (sortedTimerFuncs.length > 0) {
+                        timersUsed.add(sortedTimerFuncs[0].tag.index);
+                    }
+                }
+            }
+
+            timersUsed.forEach(timerIndex => {
+                peripherals.push({
+                    device: `TIMER${timerIndex}_UP`,
+                    tag: { type: 'timer', index: timerIndex, func: 'up' },
+                    priority: 100
+                });
+            });
+        } else if (dshotMode === 'CCR') {
+            // CCR mode: Find the best timer assignment for each motor
+            // Prefer timers with DMA resources and avoid conflicts
+            for (let index = 0; index < target.motor_pins.length; index++) {
+                const motorPin = target.motor_pins[index];
+                const pinFuncs = gpio[motorPin];
+                if (pinFuncs) {
+                    const timerFuncs = pinFuncs.filter((f: { tag?: device_tag }) => f.tag?.type === 'timer' && f.tag?.func?.startsWith('ch'));
+                    
+                    // Sort by DMA availability first, then by timer preference
+                    const timerFuncsWithDma = timerFuncs.filter((f: any) => {
+                        if (!ctx) return true;
+                        return ctx.resources.some(r => tagEqual(r.tag, f.tag));
+                    });
+                    
+                    const sortedTimerFuncs = timerFuncsWithDma.length > 0 ? 
+                        sortTimerFuncs(timerFuncsWithDma) : 
+                        sortTimerFuncs(timerFuncs);
+                        
+                    if (sortedTimerFuncs.length > 0) {
+                        const timerFunc = sortedTimerFuncs[0];
+                        const channelTag = `TIMER${timerFunc.tag.index}_${timerFunc.tag.func.toUpperCase()}`;
+                        peripherals.push({
+                            device: channelTag,
+                            tag: timerFunc.tag,
+                            priority: 100
+                        });
+                    }
+                }
+            }
+        } else if (dshotMode === 'BB') {
+            const portsUsed = new Set<string>();
+            target.motor_pins.forEach((motorPin: string) => {
+                const portName = motorPin.slice(0, 2);
+                portsUsed.add(portName);
+            });
+
+            let channelIndex = 1;
+            portsUsed.forEach(port => {
+                peripherals.push({
+                    device: `${port}_DSHOT`,
+                    tag: { type: 'timer', index: 1, func: `ch${channelIndex}` },
+                    priority: 100
+                });
+                channelIndex++;
+            });
+        }
+    }
+
+    // SPI ports - intelligent priority based on usage
+    for (const spi of target.spi_ports || []) {
+        const isGyro = target.gyro?.port === spi.index;
+        const isFlash = target.flash?.port === spi.index;
+        
+        if (spi.mosi && gpio[spi.mosi]) {
+            // Gyro SPI is critical, Flash is important, others are optional
+            const priority = isGyro ? 70 : isFlash ? 60 : 30;
+            peripherals.push({
+                device: `SPI${spi.index}_TX`,
+                tag: { type: 'spi', index: spi.index, func: 'mosi' },
+                priority
+            });
+        }
+        if (spi.miso && gpio[spi.miso]) {
+            // Gyro RX is most critical for flight control
+            const priority = isGyro ? 75 : isFlash ? 55 : 25;
+            peripherals.push({
+                device: `SPI${spi.index}_RX`,
+                tag: { type: 'spi', index: spi.index, func: 'miso' },
+                priority
+            });
+        }
+    }
+
+    // Serial ports (lower priority)
+    for (const serial of target.serial_ports || []) {
+        if (serial.tx && gpio[serial.tx]) {
+            peripherals.push({
+                device: `SERIAL${serial.index}_TX`,
+                tag: { type: 'serial', index: serial.index, func: 'tx' },
+                priority: 10
+            });
+        }
+        if (serial.rx && gpio[serial.rx]) {
+            peripherals.push({
+                device: `SERIAL${serial.index}_RX`,
+                tag: { type: 'serial', index: serial.index, func: 'rx' },
+                priority: 10
+            });
+        }
+    }
+
+    // RGB LED (lowest priority)
+    if (target.rgb_led && gpio[target.rgb_led]) {
+        const pinFuncs = gpio[target.rgb_led];
+        const timerFunc = pinFuncs.find((f: { tag?: device_tag }) =>
+            f.tag?.type === 'timer' &&
+            f.tag?.index !== 1 &&
+            f.tag?.index !== 8 &&
+            f.tag?.func?.startsWith('ch')
+        );
+        if (timerFunc) {
+            peripherals.push({
+                device: 'RGB',
+                tag: timerFunc.tag,
+                priority: 5
+            });
+        }
+    }
+
+    return peripherals;
+}
+
+function buildDmaObject(
+    assignments: Map<string, dma_resource>,
+    ctx: DmaContext
+): any {
+    const dma: any = {};
+    const arch = getDmaArchitecture(ctx.mcu);
+    let assignmentIndex = ctx.usedStreams.size;
+
+
+    // Build DMA entries from assignments
+    for (const [device, resource] of assignments) {
+        const streamName = arch === 'fixed' && resource.dma
+            ? `DMA${resource.dma.port}_STREAM${resource.dma.stream}`
+            : `DMA${Math.floor(assignmentIndex / 8) + 1}_STREAM${(assignmentIndex % 8) + 1}`;
+
+        const entry: any = {
+            tag: formatTag(resource.tag),
+            dma: streamName
+        };
+
+        if (arch === 'fixed' && resource.channel !== undefined) {
+            entry.channel = resource.channel;
+        }
+        if (arch === 'flexible' && resource.request !== undefined) {
+            entry.request = resource.request;
+        }
+
+        // Map device names to expected DMA keys
+        if (device.startsWith('TIMER') && device.endsWith('_UP')) {
+            dma.DSHOT_DMAR = entry;
+        } else if (device.startsWith('DSHOT_CCR_M')) {
+            // CCR mode - device name already has the motor index
+            dma[device] = entry;
+        } else if (device.endsWith('_DSHOT')) {
+            // BB mode - extract proper channel from enumerated ports
+            const bbDevices = Array.from(assignments.keys())
+                .filter(k => k.endsWith('_DSHOT'))
+                .sort(); // Ensure consistent ordering
+            const channelIndex = bbDevices.indexOf(device) + 1;
+            dma[`DSHOT_BB_CH${channelIndex}`] = entry;
+        } else {
+            // Regular peripherals
+            dma[device] = entry;
+        }
+
+        assignmentIndex++;
+    }
+
+    return dma;
+}
+
+function generateHeader(
+    target: target_t,
+    assignments: Map<string, dma_resource>,
+    ctx: DmaContext,
+    dshotMode: DshotMode,
+    peripherals: PeripheralRequirement[],
+    gpio: any
+): string {
     const lines: string[] = [];
+    const arch = getDmaArchitecture(ctx.mcu);
+
     lines.push('# DMA Assignment Summary');
     lines.push(`# Target: ${target.name} (${target.mcu})`);
-    lines.push(`# Architecture: ${getDmaArchitecture(mapMCU(target.mcu))}`);
-    lines.push(`# Total DMA assignments: ${Object.keys(target.dma || {}).length}`);
+    lines.push(`# Architecture: ${arch === 'flexible' ? 'flexible' : 'fixed'}`);
+    lines.push(`# Total DMA assignments: ${assignments.size}`);
     lines.push('#');
 
-    // Collect all DMA devices present in target and their potential assignments
-    const allDevices = new Map<string, { assigned?: string, options: string[] }>();
-    const isFixedArch = getDmaArchitecture(mcu) === 'fixed';
-    
-    // Add assigned devices
-    if (target.dma) {
-        Object.entries(target.dma).forEach(([dev, assignment]: [string, any]) => {
-            const details = assignment.channel !== undefined ? `ch${assignment.channel}` : `req${assignment.request}`;
-            allDevices.set(dev, { 
-                assigned: `${assignment.dma} (${details}) [${assignment.tag}]`,
-                options: []
-            });
-        });
+    if (target.motor_pins && target.motor_pins.length > 0) {
+        switch (dshotMode) {
+            case 'DMAR':
+                lines.push('# Motor Control: DMAR mode (UP Timer DMA) - burst transfers for all motors');
+                lines.push('# ✓ Benefits: Single DMA stream for all 4 motors, optimal performance');
+                break;
+            case 'CCR':
+                lines.push('# Motor Control: CCR mode (Channel Register DMA) - individual channel transfers');
+                lines.push('# ✓ Benefits: STM32F4 DMA2 errata 2.2.19 avoided, flexible timer selection');
+                break;
+            case 'BB':
+                lines.push('# Motor Control: BB mode (Bitbang GPIO) - flexible pin assignment');
+                const portsUsed = new Set<string>();
+                target.motor_pins.forEach((motorPin: string) => portsUsed.add(motorPin.slice(0, 2)));
+                lines.push(`# ✓ Configuration: ${portsUsed.size} GPIO port${portsUsed.size > 1 ? 's' : ''} used`);
+                break;
+        }
+        lines.push('#');
     }
 
-    // For fixed architectures, find potential assignments for all devices
-    if (isFixedArch) {
-        // Add all potential motor channels
-        const motorPorts = target.motor_pins ? target.motor_pins.map(p => p.slice(0, 2)).filter((v, i, a) => a.indexOf(v) === i) : [];
-        for (let i = 0; i < motorPorts.length; i++) {
-            const deviceName = `DSHOT_CH${i + 1}`;
-            if (!allDevices.has(deviceName)) {
-                allDevices.set(deviceName, { options: [] });
-            }
-            
-            // Find potential streams for this motor channel
-            const potentialStreams: string[] = [];
-            for (const resource of dma) {
-                if (resource.tag.type === 'timer' && (resource.tag.index === 1 || resource.tag.index === 8) && 
-                    resource.tag.func === `ch${i + 1}`) {
-                    const streamName = `DMA${resource.dma?.port}_STREAM${resource.dma?.stream}`;
-                    potentialStreams.push(streamName);
-                }
-            }
-            allDevices.get(deviceName)!.options = potentialStreams;
-        }
-
-        // Add all potential SPI channels
-        if (target.spi_ports) {
-            for (const spi of target.spi_ports) {
-                const rxDevice = `SPI${spi.index}_RX`;
-                const txDevice = `SPI${spi.index}_TX`;
-                
-                if (!allDevices.has(rxDevice)) allDevices.set(rxDevice, { options: [] });
-                if (!allDevices.has(txDevice)) allDevices.set(txDevice, { options: [] });
-                
-                // Find potential streams
-                const rxStreams: string[] = [];
-                const txStreams: string[] = [];
-                for (const resource of dma) {
-                    if (resource.tag.type === 'spi' && resource.tag.index === spi.index) {
-                        const streamName = `DMA${resource.dma?.port}_STREAM${resource.dma?.stream}`;
-                        if (resource.tag.func === 'miso') rxStreams.push(streamName);
-                        if (resource.tag.func === 'mosi') txStreams.push(streamName);
-                    }
-                }
-                allDevices.get(rxDevice)!.options = rxStreams;
-                allDevices.get(txDevice)!.options = txStreams;
-            }
-        }
-
-        // Add RGB if present
-        if (target.rgb_led) {
-            if (!allDevices.has('RGB')) allDevices.set('RGB', { options: [] });
-            
-            const rgbStreams: string[] = [];
-            for (const resource of dma) {
-                if (resource.tag.type === 'timer' && resource.tag.index !== 1 && resource.tag.index !== 8) {
-                    const streamName = `DMA${resource.dma?.port}_STREAM${resource.dma?.stream}`;
-                    rgbStreams.push(streamName);
-                }
-            }
-            allDevices.get('RGB')!.options = rgbStreams;
-        }
-
-        // Add serial ports
-        if (target.serial_ports) {
-            for (const serial of target.serial_ports) {
-                const rxDevice = `SERIAL${serial.index}_RX`;
-                const txDevice = `SERIAL${serial.index}_TX`;
-                
-                if (!allDevices.has(rxDevice)) allDevices.set(rxDevice, { options: [] });
-                if (!allDevices.has(txDevice)) allDevices.set(txDevice, { options: [] });
-                
-                const rxStreams: string[] = [];
-                const txStreams: string[] = [];
-                for (const resource of dma) {
-                    if (resource.tag.type === 'serial' && resource.tag.index === serial.index) {
-                        const streamName = `DMA${resource.dma?.port}_STREAM${resource.dma?.stream}`;
-                        if (resource.tag.func === 'rx') rxStreams.push(streamName);
-                        if (resource.tag.func === 'tx') txStreams.push(streamName);
-                    }
-                }
-                allDevices.get(rxDevice)!.options = rxStreams;
-                allDevices.get(txDevice)!.options = txStreams;
-            }
-        }
-    }
-
+    // List all DMA assignments with available options
     lines.push('# DMA Device Assignments:');
-    
-    // Sort devices for consistent output
-    const sortedDevices = Array.from(allDevices.entries()).sort(([a], [b]) => {
-        // Sort order: RGB, DSHOT, SPI, SERIAL, I2C
-        const priority = (name: string) => {
-            if (name === 'RGB') return 0;
-            if (name.startsWith('DSHOT_')) return 1;
-            if (name.startsWith('SPI')) return 2;
-            if (name.startsWith('SERIAL')) return 3;
-            if (name.startsWith('I2C')) return 4;
-            return 5;
-        };
-        return priority(a) - priority(b) || a.localeCompare(b);
-    });
 
-    for (const [deviceName, info] of sortedDevices) {
-        if (info.assigned) {
-            if (isFixedArch && info.options.length > 0) {
-                const optionsList = info.options.join(', ');
-                lines.push(`#   ${deviceName.padEnd(15)} -> ASSIGNED: ${info.assigned.padEnd(30)} (options: ${optionsList})`);
-            } else {
-                lines.push(`#   ${deviceName.padEnd(15)} -> ASSIGNED: ${info.assigned}`);
-            }
+    // Create mapping from peripheral device names to final DMA keys
+    const deviceToDmaKey = new Map<string, string>();
+    const dmaKeyToDevice = new Map<string, string>();
+    
+    for (const [device] of assignments) {
+        // Map device names to expected DMA keys (same logic as buildDmaObject)
+        if (device.startsWith('TIMER') && device.endsWith('_UP')) {
+            deviceToDmaKey.set(device, 'DSHOT_DMAR');
+            dmaKeyToDevice.set('DSHOT_DMAR', device);
+        } else if (device.startsWith('DSHOT_CCR_M')) {
+            deviceToDmaKey.set(device, device);
+            dmaKeyToDevice.set(device, device);
+        } else if (device.endsWith('_DSHOT')) {
+            const bbDevices = Array.from(assignments.keys())
+                .filter(k => k.endsWith('_DSHOT'))
+                .sort();
+            const channelIndex = bbDevices.indexOf(device) + 1;
+            const dmaKey = `DSHOT_BB_CH${channelIndex}`;
+            deviceToDmaKey.set(device, dmaKey);
+            dmaKeyToDevice.set(dmaKey, device);
         } else {
-            if (isFixedArch && info.options.length > 0) {
-                const optionsList = info.options.join(', ');
-                lines.push(`#   ${deviceName.padEnd(15)} -> available${' '.repeat(40)} (options: ${optionsList})`);
-            } else {
-                lines.push(`#   ${deviceName.padEnd(15)} -> available`);
-            }
+            deviceToDmaKey.set(device, device);
+            dmaKeyToDevice.set(device, device);
         }
     }
-    
-    lines.push('#');
-    
-    // Summary
-    let totalStreams = 16;
-    if (getDmaArchitecture(mcu) === 'flexible') {
-        totalStreams = mcu === 'at32f435' ? 14 : 16;
+
+    // Build a map of all peripherals to their available resources
+    const availableOptions = new Map<string, dma_resource[]>();
+    for (const peripheral of peripherals) {
+        const compatible = ctx.resources.filter(r => tagEqual(r.tag, peripheral.tag));
+        availableOptions.set(peripheral.device, compatible);
     }
-    const availableStreams = totalStreams - usedStreams.size;
-    lines.push(`# Summary: ${Object.keys(target.dma || {}).length} devices assigned, ${availableStreams}/${totalStreams} streams available`);
+
+    // Build comprehensive list in the correct order (RGB, DSHOT modes, SPI, SERIAL)
+    const orderedDmaKeys: string[] = [];
     
+    // Add RGB first if target has RGB LED
+    if (target.rgb_led) {
+        orderedDmaKeys.push('RGB');
+    }
+    
+    // Add all DSHOT mode options for context (DMAR, CCR, BB)
+    orderedDmaKeys.push('DSHOT_DMAR');
+    for (let i = 0; i < 4; i++) {
+        orderedDmaKeys.push(`DSHOT_CCR_M${i}`);
+    }
+    for (let i = 1; i <= 3; i++) {
+        orderedDmaKeys.push(`DSHOT_BB_CH${i}`);
+    }
+    
+    // Add all SPI ports (RX, then TX for each port)
+    for (const spi of target.spi_ports || []) {
+        orderedDmaKeys.push(`SPI${spi.index}_RX`);
+        orderedDmaKeys.push(`SPI${spi.index}_TX`);
+    }
+    
+    // Add all serial ports (RX, then TX for each port)
+    for (const serial of target.serial_ports || []) {
+        orderedDmaKeys.push(`SERIAL${serial.index}_RX`);
+        orderedDmaKeys.push(`SERIAL${serial.index}_TX`);
+    }
+
+    let assignmentIndex = ctx.usedStreams.size;
+    const usedStreams = new Set<string>();
+
+    // Track used streams from assignments
+    for (const [, resource] of assignments) {
+        if (arch === 'fixed' && resource.dma) {
+            usedStreams.add(`DMA${resource.dma.port}_STREAM${resource.dma.stream}`);
+        }
+    }
+
+    for (const dmaKey of orderedDmaKeys) {
+        const deviceName = dmaKeyToDevice.get(dmaKey) || dmaKey;
+        const assigned = assignments.get(deviceName);
+        let available = availableOptions.get(deviceName) || [];
+        
+        // For unassigned DSHOT modes, compute their theoretical availability
+        if (!assigned && dmaKey.startsWith('DSHOT_')) {
+            if (dmaKey === 'DSHOT_DMAR') {
+                // Check for timer UP channels that could support DMAR
+                const timerUps = peripherals.filter(p => p.device.endsWith('_UP'));
+                available = timerUps.flatMap(p => ctx.resources.filter(r => tagEqual(r.tag, p.tag)));
+            } else if (dmaKey.startsWith('DSHOT_CCR_M')) {
+                // Check for motor timer channels that could support CCR mode
+                const motorIndex = parseInt(dmaKey.split('_M')[1]);
+                if (target.motor_pins && target.motor_pins[motorIndex] && gpio[target.motor_pins[motorIndex]]) {
+                    const pinFuncs = gpio[target.motor_pins[motorIndex]];
+                    const timerFuncs = pinFuncs.filter((f: { tag?: device_tag }) => f.tag?.type === 'timer' && f.tag?.func?.startsWith('ch'));
+                    available = timerFuncs.flatMap((f: { tag: device_tag }) => ctx.resources.filter(r => tagEqual(r.tag, f.tag)));
+                }
+            } else if (dmaKey.startsWith('DSHOT_BB_CH')) {
+                // Check for timer channels that could support BB mode
+                const timerChannels = peripherals.filter(p => p.tag.type === 'timer' && p.tag.func?.startsWith('ch'));
+                available = timerChannels.flatMap(p => ctx.resources.filter(r => tagEqual(r.tag, p.tag)));
+            }
+        }
+
+        if (assigned) {
+            const streamName = arch === 'fixed' && assigned.dma
+                ? `DMA${assigned.dma.port}_STREAM${assigned.dma.stream}`
+                : `DMA${Math.floor(assignmentIndex / 8) + 1}_STREAM${(assignmentIndex % 8) + 1}`;
+
+            const channelInfo = arch === 'fixed' && assigned.channel !== undefined
+                ? ` (ch${assigned.channel})`
+                : arch === 'flexible' && assigned.request !== undefined
+                ? ` (req${assigned.request})`
+                : '';
+
+            // Show available options for assigned devices
+            const options = available
+                .filter(r => arch !== 'fixed' || !r.dma || !usedStreams.has(`DMA${r.dma.port}_STREAM${r.dma.stream}`))
+                .map(r => r.dma ? `DMA${r.dma.port}_STREAM${r.dma.stream}` : 'flexible')
+                .filter((v, i, a) => a.indexOf(v) === i); // unique
+
+            const optionsStr = options.length > 1 ? ` (options: ${options.join(', ')})` : '';
+
+            lines.push(`#   ${dmaKey.padEnd(16)} -> ASSIGNED: ${streamName}${channelInfo} [${formatTag(assigned.tag)}]${optionsStr}`);
+            assignmentIndex++;
+        } else {
+            // Show available options for unassigned devices
+            const options = available
+                .filter(r => arch !== 'fixed' || !r.dma || !usedStreams.has(`DMA${r.dma.port}_STREAM${r.dma.stream}`))
+                .map(r => r.dma ? `DMA${r.dma.port}_STREAM${r.dma.stream}` : 'flexible');
+
+            const uniqueOptions = options.filter((v, i, a) => a.indexOf(v) === i);
+            const optionsStr = uniqueOptions.length > 0 ? `(options: ${uniqueOptions.join(', ')})` : '(no options available)';
+
+            lines.push(`#   ${dmaKey.padEnd(16)} -> available${' '.repeat(39)} ${optionsStr}`);
+        }
+    }
+
+    lines.push('#');
+
+    // Add summary
+    const totalStreams = arch === 'fixed' ? 16 : 'unlimited';
+    const streamsAvailable = arch === 'fixed' ? 16 - usedStreams.size : 'N/A';
+    lines.push(`# Summary: ${assignments.size} devices assigned${arch === 'fixed' ? `, ${streamsAvailable}/${totalStreams} streams available` : ''}`);
+
     return lines.join('\n') + '\n';
 }
 
-function sortMapEntries(a: Pair<Scalar, unknown>, b: Pair<Scalar, unknown>): number {
-    const aIndex = target_keys.indexOf(a.key.value as string);
-    const bIndex = target_keys.indexOf(b.key.value as string);
-    if (aIndex == -1 && bIndex == -1) {
-        return (a.key.value as string).localeCompare(b.key.value as string);
+export async function findDmaAssignments(target: target_t, debug: boolean = false): Promise<target_t> {
+    const [resources, gpio] = await loadDmaData(target.mcu);
+
+    const ctx: DmaContext = {
+        mcu: target.mcu,
+        gpio,
+        resources,
+        usedStreams: new Set()
+    };
+
+    // Clear any existing DMA assignments
+    if (target.dma) {
+        delete target.dma;
     }
-    if (aIndex == -1) return 1;
-    if (bIndex == -1) return -1;
-    return aIndex - bIndex;
-}
 
-export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: any; _usedStreams?: Set<string>; _mcu?: string; _dmaResources?: any[] }): string {
-    const header = generateDmaHeader(
-        target, 
-        target._usedStreams || new Set(), 
-        target._mcu || target.mcu, 
-        target._dmaResources || []
-    );
-    
-    // Remove internal data before stringifying
-    const cleanTarget = { ...target };
-    delete (cleanTarget as any)._dmaStatus;
-    delete (cleanTarget as any)._usedStreams;
-    delete (cleanTarget as any)._mcu;
-    delete (cleanTarget as any)._dmaResources;
-    
-    const yamlContent = YAML.stringify(skipEmpty(cleanTarget), { sortMapEntries });
-    
-    return header + yamlContent;
-}
+    if (debug) {
+        console.log(`[DMA] Target: ${target.name} (${target.mcu})`);
+    }
 
-// Main execution
-if (!module.parent) {
-    (async () => {
-        const files = process.argv.slice(2);
-        
-        if (files.length > 0) {
-            for (const f of files) {
-                try {
-                    const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
-                    const result = findDmaAssignments(target);
-                    await fs.promises.writeFile(f, stringifyTargetWithDmaHeader(result));
-                    console.log(`✓ Processed ${f}`);
-                } catch (err) {
-                    try {
-                        const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
-                        if (err.message.includes("No motor DMA") && target.rgb_led) {
-                            const targetWithoutRgb = { ...target, rgb_led: undefined };
-                            const result = findDmaAssignments(targetWithoutRgb);
-                            await fs.promises.writeFile(f, stringifyTargetWithDmaHeader(result));
-                            console.log(`✓ Processed ${f} (RGB disabled due to conflict)`);
-                        }
-                    } catch (retryErr) {
-                        console.error(`✗ Failed to process ${f}: ${err.message}`);
-                    }
+    // Use SAT solver to find assignments and best DSHOT mode
+    const result = await solveDmaAssignment(target, gpio, ctx, debug);
+
+    if (!result) {
+        throw new Error('No valid DMA assignment found');
+    }
+
+    const { assignments, dshotMode } = result;
+
+    // Get peripherals for the selected mode for header generation
+    const peripherals = enumeratePeripherals(target, gpio, dshotMode, ctx);
+    peripherals.sort((a, b) => b.priority - a.priority);
+
+    // Build DMA object
+    const dma = buildDmaObject(assignments, ctx);
+
+    // Generate header
+    const header = generateHeader(target, assignments, ctx, dshotMode, peripherals, gpio);
+
+    // Get timer info for DMAR mode
+    let timerInfo = undefined;
+    if (dshotMode === 'DMAR' && target.motor_pins) {
+        // Find which timer is used for all motors
+        const timersUsed = new Map<number, number>();
+        for (const motorPin of target.motor_pins) {
+            const pinFuncs = gpio[motorPin];
+            if (pinFuncs) {
+                const timerFuncs = pinFuncs.filter((f: { tag?: device_tag }) => f.tag?.type === 'timer' && f.tag?.func?.startsWith('ch'));
+                timerFuncs.sort((a: { tag: device_tag }, b: { tag: device_tag }) => b.tag.index - a.tag.index);
+                if (timerFuncs.length > 0) {
+                    const timerIndex = timerFuncs[0].tag.index;
+                    timersUsed.set(timerIndex, (timersUsed.get(timerIndex) || 0) + 1);
                 }
             }
-        } else {
-            // Process all files in targets directory
-            let processed = 0;
-            let failed = 0;
-            
-            for await (const f of walk("targets")) {
-                try {
-                    const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
-                    const result = findDmaAssignments(target);
-                    await fs.promises.writeFile(f, stringifyTargetWithDmaHeader(result));
-                    processed++;
-                } catch (err) {
-                    try {
-                        const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
-                        if (err.message.includes("No motor DMA") && target.rgb_led) {
-                            const targetWithoutRgb = { ...target, rgb_led: undefined };
-                            const result = findDmaAssignments(targetWithoutRgb);
-                            await fs.promises.writeFile(f, stringifyTargetWithDmaHeader(result));
-                            processed++;
-                        }
-                    } catch (retryErr) {
-                        failed++;
-                    }
-                }
-            }
-            
-            console.log(`Batch processing complete: ${processed} processed, ${failed} failed`);
         }
-    })();
+        for (const [timerIndex, count] of timersUsed) {
+            if (count === 4) {
+                timerInfo = { type: 'timer', index: timerIndex, func: 'up' };
+                break;
+            }
+        }
+    }
+
+    return {
+        ...target,
+        dma,
+        _dmaHeader: header,
+        _dshotMode: { mode: dshotMode, reason: 'SAT solver selected', timer: timerInfo }
+    } as any;
 }
