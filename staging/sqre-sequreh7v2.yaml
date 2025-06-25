@@ -1,3 +1,18 @@
+# DMA Assignment Summary
+# Target: sequreh7v2 (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 7
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM6 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (req62) [SPI3_MOSI]
+#
+# Summary: 7 devices assigned, 9/16 streams available
 name: sequreh7v2
 manufacturer: SQRE
 mcu: stm32h743
@@ -69,10 +84,6 @@ baro:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 47
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM0
     request: 11
     tag: TIMER1_CH1
   SPI1_RX:

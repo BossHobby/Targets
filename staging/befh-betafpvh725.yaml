@@ -1,0 +1,70 @@
+name: betafpvh725
+manufacturer: BEFH
+mcu: stm32h725
+brushless: true
+leds:
+  - invert: true
+    pin: PC5
+  - invert: true
+    pin: PB2
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 7
+    rx: PA8
+    tx: PA15
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+gyro_orientation: 0
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PB6
+vbat: PC0
+ibat: PC1
+ibat_scale: 750
+rgb_led: PB10
+buzzer:
+  invert: true
+  pin: PC9
+motor_pins:
+  - PB0
+  - PB1
+  - PC6
+  - PC7
+baro:
+  port: 1

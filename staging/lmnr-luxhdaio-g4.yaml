@@ -1,3 +1,17 @@
+# DMA Assignment Summary
+# Target: luxhdaio-g4 (stm32g473)
+# Architecture: flexible
+# Total DMA assignments: 6
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM1 (req67) [TIMER4_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#
+# Summary: 6 devices assigned, 10/16 streams available
 name: luxhdaio-g4
 manufacturer: LMNR
 mcu: stm32g473

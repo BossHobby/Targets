@@ -1,3 +1,19 @@
+# DMA Assignment Summary
+# Target: sakurah743 (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req12) [TIMER1_CH2]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req40) [SPI2_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA1_STREAM8 (req84) [SPI4_MOSI]
+#
+# Summary: 8 devices assigned, 8/16 streams available
 name: sakurah743
 manufacturer: SSAK
 mcu: stm32h743
@@ -53,8 +69,8 @@ i2c_ports:
     sda: PB11
 gyro:
   port: 4
-  nss: PA4
-  exti: PC4
+  nss: PE11
+  exti: PB2
 gyro_orientation: 32
 vbat: PC3
 vbat_scale: 170
@@ -74,16 +90,12 @@ motor_pins:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 47
-    tag: TIMER8_CH1
-  DSHOT_CH2:
-    dma: DMA1_STREAM2
-    request: 48
-    tag: TIMER8_CH2
-  RGB:
-    dma: DMA1_STREAM0
     request: 11
     tag: TIMER1_CH1
+  DSHOT_CH2:
+    dma: DMA1_STREAM2
+    request: 12
+    tag: TIMER1_CH2
   SPI1_RX:
     dma: DMA1_STREAM3
     request: 37
@@ -105,6 +117,6 @@ dma:
     request: 83
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA2_STREAM0
+    dma: DMA1_STREAM8
     request: 84
     tag: SPI4_MOSI

@@ -1,3 +1,31 @@
+# DMA Assignment Summary
+# Target: omninxt4 (stm32f405)
+# Architecture: fixed
+# Total DMA assignments: 7
+#
+# DMA Device Assignments:
+#   RGB             -> available                                         (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (ch0) [SPI2_MOSI] (options: DMA1_STREAM4)
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM0 (ch0) [SPI3_MISO] (options: DMA1_STREAM0, DMA1_STREAM2)
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM5 (ch0) [SPI3_MOSI] (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
+#   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
+#   SERIAL4_RX      -> available                                         (options: DMA1_STREAM2)
+#   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
+#   SERIAL5_RX      -> available                                         (options: DMA1_STREAM0)
+#   SERIAL5_TX      -> available                                         (options: DMA1_STREAM7)
+#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
+#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
+#
+# Summary: 7 devices assigned, 9/16 streams available
 name: omninxt4
 manufacturer: AIRB
 mcu: stm32f405
@@ -64,13 +92,9 @@ motor_pins:
   - PB4
 dma:
   DSHOT_CH1:
-    channel: 0
-    dma: DMA2_STREAM2
-    tag: TIMER8_CH1
-  RGB:
     channel: 6
-    dma: DMA2_STREAM2
-    tag: TIMER1_CH2
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0

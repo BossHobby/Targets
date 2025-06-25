@@ -1,3 +1,19 @@
+# DMA Assignment Summary
+# Target: dakefpvf435 (at32f435)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM1 (req63) [TIMER3_CH3]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
+#
+# Summary: 8 devices assigned, 6/14 streams available
 name: dakefpvf435
 manufacturer: DAKE
 mcu: at32f435

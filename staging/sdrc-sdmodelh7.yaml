@@ -1,3 +1,19 @@
+# DMA Assignment Summary
+# Target: sdmodelh7 (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM1 (req29) [TIMER4_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req40) [SPI2_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA1_STREAM8 (req84) [SPI4_MOSI]
+#
+# Summary: 8 devices assigned, 8/16 streams available
 name: sdmodelh7
 manufacturer: SDRC
 mcu: stm32h743
@@ -69,34 +85,34 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM2
     request: 11
     tag: TIMER1_CH1
   RGB:
-    dma: DMA1_STREAM0
+    dma: DMA1_STREAM1
     request: 29
     tag: TIMER4_CH1
   SPI1_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 38
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM6
     request: 40
     tag: SPI2_MOSI
   SPI4_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM7
     request: 83
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM8
     request: 84
     tag: SPI4_MOSI

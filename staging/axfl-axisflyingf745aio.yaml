@@ -1,0 +1,145 @@
+# DMA Assignment Summary
+# Target: axisflyingf745aio (stm32f745)
+# Architecture: fixed
+# Total DMA assignments: 10
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (ch5) [TIMER3_CH4] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM6 (ch0) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> ASSIGNED: DMA2_STREAM5 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM1 (ch9) [SPI2_MISO] (options: DMA1_STREAM1, DMA1_STREAM3)
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (ch9) [SPI2_MOSI] (options: DMA1_STREAM4, DMA1_STREAM6)
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM0 (ch0) [SPI3_MISO] (options: DMA1_STREAM0, DMA1_STREAM2)
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM5 (ch0) [SPI3_MOSI] (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SPI4_RX         -> ASSIGNED: DMA2_STREAM3 (ch5) [SPI4_MISO] (options: DMA2_STREAM0, DMA2_STREAM3)
+#   SPI4_TX         -> ASSIGNED: DMA2_STREAM4 (ch5) [SPI4_MOSI] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM4)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
+#   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
+#   SERIAL4_RX      -> available                                         (options: DMA1_STREAM2)
+#   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
+#   SERIAL5_RX      -> available                                         (options: DMA1_STREAM0)
+#   SERIAL5_TX      -> available                                         (options: DMA1_STREAM7)
+#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
+#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
+#
+# Summary: 10 devices assigned, 6/16 streams available
+name: axisflyingf745aio
+manufacturer: AXFL
+mcu: stm32f745
+brushless: true
+leds:
+  - invert: true
+    pin: PD15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PD6
+    sck: PC10
+  - index: 4
+    miso: PE5
+    mosi: PE6
+    sck: PE2
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+  - index: 4
+    scl: PD12
+    sda: PD13
+gyro:
+  port: 1
+  nss: PA4
+  exti: PD0
+gyro_orientation: 0
+osd:
+  port: 4
+  nss: PE4
+flash:
+  port: 3
+  nss: PA15
+vbat: PC3
+ibat: PC2
+rgb_led: PC9
+buzzer:
+  invert: true
+  pin: PD3
+motor_pins:
+  - PB4
+  - PB0
+  - PB5
+  - PB1
+baro:
+  port: 4
+dma:
+  DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM6
+    tag: TIMER1_CH1
+  RGB:
+    channel: 5
+    dma: DMA1_STREAM2
+    tag: TIMER3_CH4
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM5
+    tag: SPI1_MOSI
+  SPI2_RX:
+    channel: 9
+    dma: DMA1_STREAM1
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 9
+    dma: DMA1_STREAM6
+    tag: SPI2_MOSI
+  SPI3_RX:
+    channel: 0
+    dma: DMA1_STREAM0
+    tag: SPI3_MISO
+  SPI3_TX:
+    channel: 0
+    dma: DMA1_STREAM5
+    tag: SPI3_MOSI
+  SPI4_RX:
+    channel: 5
+    dma: DMA2_STREAM3
+    tag: SPI4_MISO
+  SPI4_TX:
+    channel: 5
+    dma: DMA2_STREAM4
+    tag: SPI4_MOSI

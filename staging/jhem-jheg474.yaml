@@ -1,3 +1,21 @@
+# DMA Assignment Summary
+# Target: jheg474 (stm32g473)
+# Architecture: flexible
+# Total DMA assignments: 10
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM1 (req72) [TIMER5_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM3 (req43) [TIMER1_CH2]
+#   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM4 (req44) [TIMER1_CH3]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM5 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM6 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM7 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM8 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA2_STREAM1 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM2 (req15) [SPI3_MOSI]
+#
+# Summary: 10 devices assigned, 6/16 streams available
 name: jheg474
 manufacturer: JHEM
 mcu: stm32g473

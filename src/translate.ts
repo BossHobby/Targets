@@ -1,7 +1,8 @@
 import fs from "fs";
 import { walk } from "./util";
 import { GyroRotation, skipEmpty, stringifyTarget, target_t } from "./types";
-import { findDmaAssigments } from "./dma";
+import * as YAML from "yaml";
+import { findDmaAssignments, stringifyTargetWithDmaHeader } from "./dma";
 import path from "path";
 
 const OUTPUT_FOLDER = "staging";
@@ -271,6 +272,7 @@ function handle(target: target_t, parts: string[]) {
   //console.log(`unhandled ${parts[0]}`);
 }
 
+
 async function translate(filename: string, output?: string) {
   const target: target_t = {
     name: "",
@@ -330,7 +332,15 @@ async function translate(filename: string, output?: string) {
       target.name
     }.yaml`;
   }
-  await fs.promises.writeFile(output, stringifyTarget(findDmaAssigments(skipEmpty(target))));
+  
+  try {
+    const processedTarget = findDmaAssignments(skipEmpty(target));
+    await fs.promises.writeFile(output, stringifyTargetWithDmaHeader(processedTarget));
+  } catch (error) {
+    console.error(`Error processing ${target.name}: ${error.message}`);
+    // Write the target without DMA assignments if DMA assignment fails
+    await fs.promises.writeFile(output, stringifyTarget(skipEmpty(target)));
+  }
 }
 
 const args = process.argv.slice(2);

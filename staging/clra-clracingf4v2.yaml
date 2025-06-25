@@ -1,3 +1,28 @@
+# DMA Assignment Summary
+# Target: clracingf4v2 (stm32f405)
+# Architecture: fixed
+# Total DMA assignments: 9
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM7 (ch2) [TIMER4_CH3] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   DSHOT_CH2       -> ASSIGNED: DMA2_STREAM6 (ch0) [TIMER1_CH2] (options: DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (ch0) [SPI2_MOSI] (options: DMA1_STREAM4)
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM0 (ch0) [SPI3_MISO] (options: DMA1_STREAM0, DMA1_STREAM2)
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM5 (ch0) [SPI3_MOSI] (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
+#   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
+#   SERIAL4_RX      -> available                                         (options: DMA1_STREAM2)
+#   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
+#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
+#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
+#
+# Summary: 9 devices assigned, 7/16 streams available
 name: clracingf4v2
 manufacturer: CLRA
 mcu: stm32f405
@@ -68,8 +93,8 @@ dma:
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
   DSHOT_CH2:
-    channel: 6
-    dma: DMA2_STREAM2
+    channel: 0
+    dma: DMA2_STREAM6
     tag: TIMER1_CH2
   RGB:
     channel: 2
