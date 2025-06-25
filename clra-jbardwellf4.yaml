@@ -24,10 +24,6 @@ spi_ports:
     miso: PA6
     mosi: PA7
     sck: PA5
-  - index: 2
-    miso: PB14
-    mosi: PB15
-    sck: PB13
   - index: 3
     miso: PC11
     mosi: PC12
@@ -40,8 +36,8 @@ osd:
   port: 3
   nss: PA15
 flash:
-  port: 2
-  nss: PB12
+  port: 3
+  nss: PB3
 usb_detect: PC5
 vbat: PC2
 ibat: PC1
@@ -76,14 +72,6 @@ dma:
     channel: 3
     dma: DMA2_STREAM3
     tag: SPI1_MOSI
-  SPI2_RX:
-    channel: 0
-    dma: DMA1_STREAM3
-    tag: SPI2_MISO
-  SPI2_TX:
-    channel: 0
-    dma: DMA1_STREAM4
-    tag: SPI2_MOSI
   SPI3_RX:
     channel: 0
     dma: DMA1_STREAM0
