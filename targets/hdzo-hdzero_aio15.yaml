@@ -38,7 +38,7 @@ gyro:
   port: 2
   nss: PC6
   exti: PB12
-gyro_orientation: 36
+gyro_orientation: 34
 vbat: PB1
 ibat: PB0
 ibat_scale: 295
@@ -47,10 +47,10 @@ buzzer:
   invert: false
   pin: PA9
 motor_pins:
-  - PA1
-  - PA0
   - PA3
+  - PA1
   - PA2
+  - PA0
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
