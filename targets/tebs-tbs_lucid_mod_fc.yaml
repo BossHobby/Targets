@@ -1,18 +1,19 @@
 # DMA Assignment Summary
 # Target: tbs_lucid_mod_fc (at32f435m)
 # Architecture: flexible
-# Total DMA assignments: 7
+# Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req13) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA1_STREAM6 (req14) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (req15) [SPI3_MOSI]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
 #
-# Summary: 7 devices assigned, 7/14 streams available
+# Summary: 8 devices assigned, 6/14 streams available
 name: tbs_lucid_mod_fc
 manufacturer: TEBS
 mcu: at32f435m
@@ -82,29 +83,33 @@ baro:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
+    request: 49
+    tag: TIMER8_CH1
+  RGB:
+    dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
   SPI1_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 10
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 11
     tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
   SPI3_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM7
     request: 14
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA1_STREAM7
+    dma: DMA2_STREAM1
     request: 15
     tag: SPI3_MOSI

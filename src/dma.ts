@@ -24,10 +24,10 @@ const dmas = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.
 
 const mapMCU = (mcu: string) => ({ at32f435m: "at32f435" }[mcu] || mcu);
 
-const tagEqual = (lhs: device_tag, rhs: device_tag) => 
+const tagEqual = (lhs: device_tag, rhs: device_tag) =>
     lhs.type === rhs.type && lhs.index === rhs.index && (!lhs.func || !rhs.func || lhs.func === rhs.func);
 
-const getDmaArchitecture = (mcu: string) => 
+const getDmaArchitecture = (mcu: string) =>
     ['stm32f405', 'stm32f411', 'stm32f722', 'stm32f745', 'stm32f765'].includes(mcu) ? 'fixed' : 'flexible';
 
 export function findDmaAssignments(target: target_t): target_t {
@@ -47,7 +47,7 @@ export function findDmaAssignments(target: target_t): target_t {
     let motorTimers = mcu === "stm32f411" ? [{ type: "timer", index: 1 }] : [{ type: "timer", index: 1 }, { type: "timer", index: 8 }];
 
     function findOptimalDmaResource(tag: device_tag, allPeripherals: device_tag[]): dma_resource | null {
-        const candidateResources = dma.filter(d => 
+        const candidateResources = dma.filter(d =>
             tagEqual(d.tag, tag) && !usedResources.has(JSON.stringify(d))
         );
 
@@ -61,7 +61,7 @@ export function findDmaAssignments(target: target_t): target_t {
         // For fixed F4/F7 architecture, analyze scarcity
         const resourceScarcity = candidateResources.map(resource => {
             const streamName = `DMA${resource.dma?.port || 1}_STREAM${resource.dma?.stream || 0}`;
-            
+
             if (usedStreams.has(streamName)) {
                 return { resource, scarcity: Infinity };
             }
@@ -70,7 +70,7 @@ export function findDmaAssignments(target: target_t): target_t {
             let competingPeripherals = 0;
             for (const otherPeripheral of allPeripherals) {
                 if (tagEqual(otherPeripheral, tag)) continue;
-                
+
                 const otherCandidates = dma.filter(d => tagEqual(d.tag, otherPeripheral));
                 for (const candidate of otherCandidates) {
                     const otherStreamName = `DMA${candidate.dma?.port || 1}_STREAM${candidate.dma?.stream || 0}`;
@@ -80,13 +80,13 @@ export function findDmaAssignments(target: target_t): target_t {
                     }
                 }
             }
-            
+
             return { resource, scarcity: competingPeripherals };
         });
 
         resourceScarcity.sort((a, b) => a.scarcity - b.scarcity);
         const chosen = resourceScarcity[0];
-        
+
         return chosen.resource;
     }
 
@@ -128,7 +128,7 @@ export function findDmaAssignments(target: target_t): target_t {
         const timerGpios = gpios.filter((g: any) =>
             g.tag.type === 'timer' && !usedTimers.has(`${g.tag.type}${g.tag.index}_${g.tag.func}`)
         );
-        return dev === "RGB" 
+        return dev === "RGB"
             ? timerGpios.filter((g: any) => !motorTimers.some(mt => mt.type === g.tag.type && mt.index === g.tag.index))
             : timerGpios;
     };
@@ -141,12 +141,12 @@ export function findDmaAssignments(target: target_t): target_t {
 
     // Collect all potential peripherals for scarcity analysis
     const allPeripherals: device_tag[] = [];
-    
+
     if (target.rgb_led) {
         const timers = findAvailableTimer("RGB", gpio[target.rgb_led]);
         allPeripherals.push(...timers.map(t => t.tag));
     }
-    
+
     const motorPorts = target.motor_pins.map(p => p.slice(0, 2)).filter((v, i, a) => a.indexOf(v) === i);
     const primaryMotorTimer = motorTimers[0];
     if (primaryMotorTimer) {
@@ -154,40 +154,23 @@ export function findDmaAssignments(target: target_t): target_t {
             allPeripherals.push({ ...primaryMotorTimer, func: `ch${i + 1}` });
         }
     }
-    
+
     for (const spi of target.spi_ports || []) {
         allPeripherals.push({ type: 'spi', index: spi.index, func: 'miso' });
         allPeripherals.push({ type: 'spi', index: spi.index, func: 'mosi' });
     }
-    
+
     for (const serial of target.serial_ports || []) {
         allPeripherals.push({ type: 'serial', index: serial.index, func: 'rx' });
         allPeripherals.push({ type: 'serial', index: serial.index, func: 'tx' });
     }
-    
+
     for (const i2c of target.i2c_ports || []) {
         allPeripherals.push({ type: 'i2c', index: i2c.index, func: 'rx' });
         allPeripherals.push({ type: 'i2c', index: i2c.index, func: 'tx' });
     }
 
-    // 1. Assign RGB LED timer first
-    if (target.rgb_led) {
-        peripheralStatus.rgb.attempted = true;
-        const timers = findAvailableTimer("RGB", gpio[target.rgb_led]);
-        for (const timer of timers) {
-            if (addAssignment("RGB", timer.tag, allPeripherals)) {
-                peripheralStatus.rgb.assigned = true;
-                usedTimers.add(`${timer.tag.type}${timer.tag.index}_${timer.tag.func}`);
-                motorTimers = motorTimers.filter(mt => !(mt.type === timer.tag.type && mt.index === timer.tag.index));
-                break;
-            }
-        }
-        if (!peripheralStatus.rgb.assigned) {
-            peripheralStatus.rgb.reason = 'No available timer or DMA resource';
-        }
-    }
-
-    // 2. Assign motor channels
+    // 1. Assign motor channels first (highest priority)
     peripheralStatus.motors.attempted = true;
     peripheralStatus.motors.total = motorPorts.length;
 
@@ -195,28 +178,129 @@ export function findDmaAssignments(target: target_t): target_t {
         throw new Error("No motor timer available!");
     }
 
-    for (let i = 0; i < motorPorts.length; i++) {
-        const motorTag = { ...primaryMotorTimer, func: `ch${i + 1}` };
+    // Try to assign all motor channels to the same timer
+    let selectedMotorTimer: device_tag | null = null;
+    let motorAssignments: Array<{ channel: number, tag: device_tag, resource: dma_resource, dmaStream: string }> = [];
+
+    // Smart motor timer selection: if RGB can only use one of the motor timers, try others first
+    let orderedMotorTimers = [...motorTimers];
+    if (target.rgb_led && gpio[target.rgb_led]) {
+        const rgbTimers = gpio[target.rgb_led].filter((g: any) => g.tag.type === 'timer');
+        const rgbTimerIndices = rgbTimers.map((t: any) => t.tag.index);
+        
+        // If RGB has limited timer options that overlap with motor timers, deprioritize those
+        if (rgbTimerIndices.length > 0) {
+            orderedMotorTimers.sort((a, b) => {
+                const aConflictsWithRgb = rgbTimerIndices.includes(a.index);
+                const bConflictsWithRgb = rgbTimerIndices.includes(b.index);
+                if (aConflictsWithRgb && !bConflictsWithRgb) return 1;
+                if (!aConflictsWithRgb && bConflictsWithRgb) return -1;
+                return 0;
+            });
+        }
+    }
+    
+    // Try each available motor timer
+    for (const motorTimer of orderedMotorTimers) {
+        let canAssignAll = true;
+        let tempAssignments: Array<{ channel: number, tag: device_tag, resource: dma_resource, dmaStream: string }> = [];
+        let tempUsedResources = new Set(usedResources);
+        let tempUsedStreams = new Set(usedStreams);
+        let tempAssignmentCount = assignments.length;
+
+        // Check if we can assign all channels to this timer
+        for (let i = 0; i < motorPorts.length; i++) {
+            const motorTag = { ...motorTimer, func: `ch${i + 1}` };
+            const resource = findOptimalDmaResource(motorTag, allPeripherals);
+
+            if (!resource) {
+                canAssignAll = false;
+                break;
+            }
+
+            const resourceKey = JSON.stringify(resource);
+            if (tempUsedResources.has(resourceKey)) {
+                canAssignAll = false;
+                break;
+            }
+
+            const dmaStream = getDmaStreamName(resource, tempAssignmentCount + i);
+
+            if (!dmaStream || tempUsedStreams.has(dmaStream)) {
+                canAssignAll = false;
+                break;
+            }
+
+            tempAssignments.push({
+                channel: i + 1,
+                tag: motorTag,
+                resource,
+                dmaStream
+            });
+            tempUsedResources.add(resourceKey);
+            tempUsedStreams.add(dmaStream);
+        }
+
+        if (canAssignAll) {
+            selectedMotorTimer = motorTimer;
+            motorAssignments = tempAssignments;
+            break;
+        }
+    }
+
+    if (!selectedMotorTimer) {
+        throw new Error("No motor timer can accommodate all DSHOT channels!");
+    }
+
+    // Now actually assign the motor channels
+    for (const assignment of motorAssignments) {
+        const motorTag = assignment.tag;
         usedTimers.add(`${motorTag.type}${motorTag.index}_${motorTag.func}`);
 
-        if (!addAssignment(`DSHOT_CH${i + 1}`, motorTag, allPeripherals)) {
-            if (motorTimers.length > 1) {
-                const fallbackTag = { ...motorTimers[1], func: `ch${i + 1}` };
-                if (!addAssignment(`DSHOT_CH${i + 1}`, fallbackTag, allPeripherals)) {
-                    throw new Error(`No motor DMA found for channel ${i + 1}!`);
-                }
-            } else {
-                throw new Error(`No motor DMA found for channel ${i + 1}!`);
-            }
+        if (!addAssignment(`DSHOT_CH${assignment.channel}`, motorTag, allPeripherals)) {
+            throw new Error(`Failed to assign motor DMA for channel ${assignment.channel}!`);
         }
         peripheralStatus.motors.assigned++;
+    }
+
+    // 2. Assign RGB LED (lower priority than motors)
+    if (target.rgb_led) {
+        peripheralStatus.rgb.attempted = true;
+        // First try non-motor timers
+        const timers = findAvailableTimer("RGB", gpio[target.rgb_led]);
+        for (const timer of timers) {
+            if (addAssignment("RGB", timer.tag, allPeripherals)) {
+                peripheralStatus.rgb.assigned = true;
+                usedTimers.add(`${timer.tag.type}${timer.tag.index}_${timer.tag.func}`);
+                break;
+            }
+        }
+        
+        // If that fails, try any available timer
+        if (!peripheralStatus.rgb.assigned) {
+            const allTimers = gpio[target.rgb_led]?.filter((g: any) =>
+                g.tag.type === 'timer' && !usedTimers.has(`${g.tag.type}${g.tag.index}_${g.tag.func}`)
+            ) || [];
+            
+            for (const timer of allTimers) {
+                if (addAssignment("RGB", timer.tag, allPeripherals)) {
+                    peripheralStatus.rgb.assigned = true;
+                    peripheralStatus.rgb.reason = 'Assigned using motor timer';
+                    break;
+                }
+            }
+        }
+        
+        if (!peripheralStatus.rgb.assigned) {
+            peripheralStatus.rgb.reason = 'No available timer or DMA resource';
+        }
     }
 
     // 3. Assign SPI channels
     if (target.spi_ports && target.spi_ports.length > 0) {
         peripheralStatus.spi.attempted = true;
         peripheralStatus.spi.total = target.spi_ports.length * 2;
-        
+
         for (const spi of target.spi_ports) {
             const misoGpios = gpio[spi.miso]?.filter((g: any) =>
                 g.tag.type === 'spi' && g.tag.index === spi.index && g.tag.func === 'miso') || [];
@@ -250,9 +334,9 @@ export function findDmaAssignments(target: target_t): target_t {
         dmaEntries[assignment.dev] = entry;
     }
 
-    const result = { 
-        ...target, 
-        dma: dmaEntries, 
+    const result = {
+        ...target,
+        dma: dmaEntries,
         timers: []
     };
 
@@ -261,7 +345,7 @@ export function findDmaAssignments(target: target_t): target_t {
     (result as any)._usedStreams = usedStreams;
     (result as any)._mcu = mcu;
     (result as any)._dmaResources = dma;
-    
+
     return result;
 }
 
@@ -280,12 +364,12 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
     // Collect all DMA devices present in target and their potential assignments
     const allDevices = new Map<string, { assigned?: string, options: string[] }>();
     const isFixedArch = getDmaArchitecture(mcu) === 'fixed';
-    
+
     // Add assigned devices
     if (target.dma) {
         Object.entries(target.dma).forEach(([dev, assignment]: [string, any]) => {
             const details = assignment.channel !== undefined ? `ch${assignment.channel}` : `req${assignment.request}`;
-            allDevices.set(dev, { 
+            allDevices.set(dev, {
                 assigned: `${assignment.dma} (${details}) [${assignment.tag}]`,
                 options: []
             });
@@ -301,11 +385,11 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
             if (!allDevices.has(deviceName)) {
                 allDevices.set(deviceName, { options: [] });
             }
-            
+
             // Find potential streams for this motor channel
             const potentialStreams: string[] = [];
             for (const resource of dma) {
-                if (resource.tag.type === 'timer' && (resource.tag.index === 1 || resource.tag.index === 8) && 
+                if (resource.tag.type === 'timer' && (resource.tag.index === 1 || resource.tag.index === 8) &&
                     resource.tag.func === `ch${i + 1}`) {
                     const streamName = `DMA${resource.dma?.port}_STREAM${resource.dma?.stream}`;
                     potentialStreams.push(streamName);
@@ -319,10 +403,10 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
             for (const spi of target.spi_ports) {
                 const rxDevice = `SPI${spi.index}_RX`;
                 const txDevice = `SPI${spi.index}_TX`;
-                
+
                 if (!allDevices.has(rxDevice)) allDevices.set(rxDevice, { options: [] });
                 if (!allDevices.has(txDevice)) allDevices.set(txDevice, { options: [] });
-                
+
                 // Find potential streams
                 const rxStreams: string[] = [];
                 const txStreams: string[] = [];
@@ -341,7 +425,7 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
         // Add RGB if present
         if (target.rgb_led) {
             if (!allDevices.has('RGB')) allDevices.set('RGB', { options: [] });
-            
+
             const rgbStreams: string[] = [];
             for (const resource of dma) {
                 if (resource.tag.type === 'timer' && resource.tag.index !== 1 && resource.tag.index !== 8) {
@@ -357,10 +441,10 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
             for (const serial of target.serial_ports) {
                 const rxDevice = `SERIAL${serial.index}_RX`;
                 const txDevice = `SERIAL${serial.index}_TX`;
-                
+
                 if (!allDevices.has(rxDevice)) allDevices.set(rxDevice, { options: [] });
                 if (!allDevices.has(txDevice)) allDevices.set(txDevice, { options: [] });
-                
+
                 const rxStreams: string[] = [];
                 const txStreams: string[] = [];
                 for (const resource of dma) {
@@ -377,7 +461,7 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
     }
 
     lines.push('# DMA Device Assignments:');
-    
+
     // Sort devices for consistent output
     const sortedDevices = Array.from(allDevices.entries()).sort(([a], [b]) => {
         // Sort order: RGB, DSHOT, SPI, SERIAL, I2C
@@ -409,9 +493,9 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
             }
         }
     }
-    
+
     lines.push('#');
-    
+
     // Summary
     let totalStreams = 16;
     if (getDmaArchitecture(mcu) === 'flexible') {
@@ -419,7 +503,7 @@ function generateDmaHeader(target: target_t & { _dmaStatus?: any }, usedStreams:
     }
     const availableStreams = totalStreams - usedStreams.size;
     lines.push(`# Summary: ${Object.keys(target.dma || {}).length} devices assigned, ${availableStreams}/${totalStreams} streams available`);
-    
+
     return lines.join('\n') + '\n';
 }
 
@@ -436,21 +520,21 @@ function sortMapEntries(a: Pair<Scalar, unknown>, b: Pair<Scalar, unknown>): num
 
 export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: any; _usedStreams?: Set<string>; _mcu?: string; _dmaResources?: any[] }): string {
     const header = generateDmaHeader(
-        target, 
-        target._usedStreams || new Set(), 
-        target._mcu || target.mcu, 
+        target,
+        target._usedStreams || new Set(),
+        target._mcu || target.mcu,
         target._dmaResources || []
     );
-    
+
     // Remove internal data before stringifying
     const cleanTarget = { ...target };
     delete (cleanTarget as any)._dmaStatus;
     delete (cleanTarget as any)._usedStreams;
     delete (cleanTarget as any)._mcu;
     delete (cleanTarget as any)._dmaResources;
-    
+
     const yamlContent = YAML.stringify(skipEmpty(cleanTarget), { sortMapEntries });
-    
+
     return header + yamlContent;
 }
 
@@ -458,7 +542,7 @@ export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: a
 if (!module.parent) {
     (async () => {
         const files = process.argv.slice(2);
-        
+
         if (files.length > 0) {
             for (const f of files) {
                 try {
@@ -484,7 +568,7 @@ if (!module.parent) {
             // Process all files in targets directory
             let processed = 0;
             let failed = 0;
-            
+
             for await (const f of walk("targets")) {
                 try {
                     const target = YAML.parse(await fs.promises.readFile(f, "utf8")) as target_t;
@@ -505,7 +589,7 @@ if (!module.parent) {
                     }
                 }
             }
-            
+
             console.log(`Batch processing complete: ${processed} processed, ${failed} failed`);
         }
     })();

@@ -1,14 +1,15 @@
 # DMA Assignment Summary
 # Target: hdzero_aio15 (stm32g473)
 # Architecture: flexible
-# Total DMA assignments: 3
+# Total DMA assignments: 4
 #
 # DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM2 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM3 (req13) [SPI2_MOSI]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (req13) [SPI2_MOSI]
 #
-# Summary: 3 devices assigned, 13/16 streams available
+# Summary: 4 devices assigned, 12/16 streams available
 name: hdzero_aio15
 manufacturer: HDZO
 mcu: stm32g473
@@ -54,13 +55,17 @@ motor_pins:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
+    request: 49
+    tag: TIMER8_CH1
+  RGB:
+    dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
   SPI2_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 13
     tag: SPI2_MOSI
