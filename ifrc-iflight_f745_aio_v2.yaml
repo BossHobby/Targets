@@ -78,6 +78,10 @@ baro:
 dma:
   DSHOT_CH1:
     channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
+    channel: 0
     dma: DMA2_STREAM6
     tag: TIMER1_CH1
   SPI1_RX:

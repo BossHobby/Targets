@@ -61,20 +61,24 @@ motor_pins:
   - PC7
 dma:
   DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  DSHOT_CH2:
+    channel: 7
+    dma: DMA2_STREAM3
+    tag: TIMER8_CH2
+  RGB:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
-  DSHOT_CH2:
-    channel: 0
-    dma: DMA2_STREAM6
-    tag: TIMER1_CH2
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0
     tag: SPI1_MISO
   SPI1_TX:
     channel: 3
-    dma: DMA2_STREAM3
+    dma: DMA2_STREAM5
     tag: SPI1_MOSI
   SPI2_RX:
     channel: 0

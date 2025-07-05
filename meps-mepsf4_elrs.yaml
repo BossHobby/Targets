@@ -49,6 +49,10 @@ dma:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
+  RGB:
+    channel: 0
+    dma: DMA2_STREAM6
+    tag: TIMER1_CH3
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0
