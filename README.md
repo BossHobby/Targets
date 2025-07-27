@@ -5,4 +5,4 @@
 This repository holds target configurations for the [QUICKSILVER Flight Controller Firmware](https://github.com/BossHobby/QUICKSILVER)
 
 See the folder `targets` for existing targets.
-The folder `staging` holds targets converted from the [Betaflight unified targets](https://github.com/betaflight/unified-targets/) as a starting point for creating new targets.
+The folder `staging` holds targets converted from the [Betaflight configs](https://github.com/betaflight/config/) as a starting point for creating new targets.
