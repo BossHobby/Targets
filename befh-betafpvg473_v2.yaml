@@ -1,0 +1,105 @@
+name: betafpvg473_v2
+manufacturer: BEFH
+mcu: stm32g473
+brushless: true
+leds:
+  - invert: true
+    pin: PB6
+  - invert: true
+    pin: PC4
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PC11
+    tx: PC10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PA15
+    sda: PB7
+gyro:
+  port: 1
+  nss: PC14
+  exti: PC15
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PC13
+vbat: PA0
+ibat: PA1
+ibat_scale: 750
+rgb_led: PB2
+buzzer:
+  invert: true
+  pin: PA8
+motor_pins:
+  - PC6
+  - PA4
+  - PB0
+  - PB1
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM2
+    request: 42
+    tag: TIMER1_CH1
+  DSHOT_CH2:
+    dma: DMA1_STREAM3
+    request: 43
+    tag: TIMER1_CH2
+  DSHOT_CH3:
+    dma: DMA1_STREAM4
+    request: 44
+    tag: TIMER1_CH3
+  RGB:
+    dma: DMA1_STREAM1
+    request: 72
+    tag: TIMER5_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM5
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM6
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM7
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM8
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA2_STREAM1
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA2_STREAM2
+    request: 15
+    tag: SPI3_MOSI
