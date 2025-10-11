@@ -1,0 +1,98 @@
+name: crazybee473
+manufacturer: HAMO
+mcu: stm32g473
+brushless: true
+leds:
+  - invert: true
+    pin: PC4
+  - invert: true
+    pin: PC6
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA15
+    tx: PA14
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PC11
+    tx: PC10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+gyro:
+  port: 3
+  nss: PC13
+  exti: PA8
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 1
+  nss: PA4
+vbat: PB0
+vbat_scale: 113
+ibat: PB1
+ibat_scale: 235
+rgb_led: PB9
+buzzer:
+  invert: true
+  pin: PC15
+motor_pins:
+  - PA3
+  - PA2
+  - PA1
+  - PA0
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 42
+    tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 84
+    tag: TIMER17_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM3
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM4
+    request: 11
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM5
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM6
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA1_STREAM7
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA1_STREAM8
+    request: 15
+    tag: SPI3_MOSI
