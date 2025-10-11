@@ -1,95 +1,99 @@
 # DMA Assignment Summary
-# Target: nbd_hummingbird200rs (at32f435)
+# Target: airbotsuperf4v2 (at32f435m)
 # Architecture: flexible
 # Total DMA assignments: 9
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM1 (req64) [TIMER3_CH4]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM3 (req43) [TIMER1_CH2]
+#   RGB             -> ASSIGNED: DMA1_STREAM3 (req56) [TIMER2_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req13) [SPI2_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA2_STREAM1 (req106) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA2_STREAM2 (req107) [SPI4_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA2_STREAM1 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM2 (req15) [SPI3_MOSI]
 #
 # Summary: 9 devices assigned, 5/14 streams available
-name: nbd_hummingbird200rs
-manufacturer: NEBD
-mcu: at32f435
+name: airbotsuperf4v2
+manufacturer: AIRB
+mcu: at32f435m
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PC15
 serial_ports:
   - index: 1
     rx: PA10
     tx: PA9
   - index: 2
-    rx: PA3
     tx: PA2
   - index: 3
-    rx: PB11
-  - index: 6
-    rx: PA5
-    tx: PA4
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 7
+    rx: PC1
+    tx: PC0
+  - index: 8
+    rx: PC3
+    tx: PC2
 spi_ports:
   - index: 1
-    miso: PB4
-    mosi: PB5
-    sck: PB3
+    miso: PA6
+    mosi: PA7
+    sck: PA5
   - index: 2
     miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 4
-    miso: PB8
-    mosi: PB9
-    sck: PB7
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 i2c_ports:
-  - index: 2
-    scl: PH2
-    sda: PH3
+  - index: 1
+    scl: PB8
+    sda: PB9
 gyro:
   port: 1
-  nss: PA15
-  exti: PC13
-gyro_orientation: 4
-osd:
-  port: 4
-  nss: PB6
+  nss: PC14
+  exti: PB12
+gyro_orientation: 0
 flash:
-  port: 2
-  nss: PB12
-vbat: PA6
-vbat_scale: 107
-ibat: PA7
-ibat_scale: 300
-rgb_led: PB1
+  port: 3
+  nss: PC13
+vbat: PC4
+ibat: PA3
+rgb_led: PA15
 buzzer:
   invert: true
-  pin: PB0
+  pin: PB10
 motor_pins:
-  - PA0
-  - PA1
-  - PA8
-  - PB10
+  - PB7
+  - PB6
+  - PC9
+  - PC8
 baro:
-  port: 2
+  port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM1
     request: 42
     tag: TIMER1_CH1
   DSHOT_CH2:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
   RGB:
-    dma: DMA1_STREAM1
-    request: 64
-    tag: TIMER3_CH4
+    dma: DMA1_STREAM3
+    request: 56
+    tag: TIMER2_CH1
   SPI1_RX:
     dma: DMA1_STREAM4
     request: 10
@@ -106,11 +110,11 @@ dma:
     dma: DMA1_STREAM7
     request: 13
     tag: SPI2_MOSI
-  SPI4_RX:
+  SPI3_RX:
     dma: DMA2_STREAM1
-    request: 106
-    tag: SPI4_MISO
-  SPI4_TX:
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
     dma: DMA2_STREAM2
-    request: 107
-    tag: SPI4_MOSI
+    request: 15
+    tag: SPI3_MOSI

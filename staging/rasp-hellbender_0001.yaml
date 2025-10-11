@@ -1,0 +1,41 @@
+name: hellbender_0001
+manufacturer: RASP
+mcu: rp2350b
+brushless: true
+leds:
+  - invert: true
+    pin: PA6
+  - invert: true
+    pin: PA7
+serial_ports:
+  - index: 1
+    rx: PA21
+    tx: PA20
+spi_ports:
+  - index: 1
+    miso: PA24
+    mosi: PA27
+    sck: PA26
+gyro:
+  port: 0
+  nss: PA1
+  exti: PA22
+gyro_orientation: 0
+osd:
+  port: 1
+sdcard:
+  port: 1
+  nss: PA25
+vbat: PA40
+ibat: PA41
+rgb_led: PA38
+buzzer:
+  invert: false
+  pin: PA5
+motor_pins:
+  - PA30
+  - PA31
+  - PA28
+  - PA29
+baro:
+  port: 0

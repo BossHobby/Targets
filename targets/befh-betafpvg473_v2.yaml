@@ -4,10 +4,10 @@
 # Total DMA assignments: 10
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM1 (req72) [TIMER5_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM3 (req43) [TIMER1_CH2]
-#   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM4 (req44) [TIMER1_CH3]
+#   RGB             -> ASSIGNED: DMA1_STREAM4 (req72) [TIMER5_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
+#   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM3 (req44) [TIMER1_CH3]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM5 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM6 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM7 (req12) [SPI2_MISO]
@@ -82,19 +82,19 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM1
     request: 42
     tag: TIMER1_CH1
   DSHOT_CH2:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
   DSHOT_CH3:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM3
     request: 44
     tag: TIMER1_CH3
   RGB:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM4
     request: 72
     tag: TIMER5_CH1
   SPI1_RX:

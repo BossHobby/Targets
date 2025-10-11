@@ -75,6 +75,7 @@ flash:
   port: 3
   nss: PB2
 vbat: PC1
+vbat_scale: 160
 ibat: PC0
 ibat_scale: 120
 rgb_led: PA0

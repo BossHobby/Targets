@@ -1,6 +1,6 @@
 name: chonkerh735
-manufacturer: YOLO
-mcu: stm32h725
+manufacturer: FOSS
+mcu: stm32h735
 brushless: true
 leds:
   - invert: true
@@ -47,11 +47,12 @@ gyro:
   port: 2
   nss: PB12
   exti: PD10
-gyro_orientation: 32
+gyro_orientation: 8
 flash:
   port: 4
   nss: PE4
 usb_detect: PA9
+vbat: PC5
 ibat: PA5
 motor_pins:
   - PC8

@@ -1,0 +1,13 @@
+name: pico2_2350a
+manufacturer: RASP
+mcu: rp2350a
+brushless: true
+leds:
+  - invert: true
+    pin: PA25
+gyro_orientation: 0
+motor_pins:
+  - PA12
+  - PA13
+  - PA10
+  - PA11

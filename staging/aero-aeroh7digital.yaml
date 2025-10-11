@@ -1,0 +1,78 @@
+# DMA Assignment Summary
+# Target: aeroh7digital (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 3
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
+#
+# Summary: 3 devices assigned, 13/16 streams available
+name: aeroh7digital
+manufacturer: AERO
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PD8
+  - invert: true
+    pin: PB14
+  - invert: true
+    pin: PB15
+serial_ports:
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PD9
+  - index: 4
+    rx: PD0
+    tx: PD1
+  - index: 5
+    rx: PB12
+    tx: PB13
+  - index: 7
+    rx: PE7
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+  - index: 4
+    scl: PB6
+    sda: PB7
+gyro:
+  port: 1
+  nss: PB0
+  exti: PB1
+gyro_orientation: 4
+vbat: PA0
+ibat: PA1
+motor_pins:
+  - PE13
+  - PE14
+  - PE9
+  - PE11
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 11
+    tag: TIMER1_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM2
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM3
+    request: 38
+    tag: SPI1_MOSI

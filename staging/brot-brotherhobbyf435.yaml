@@ -4,9 +4,9 @@
 # Total DMA assignments: 9
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM1 (req64) [TIMER3_CH4]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM3 (req43) [TIMER1_CH2]
+#   RGB             -> ASSIGNED: DMA1_STREAM3 (req64) [TIMER3_CH4]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
@@ -83,15 +83,15 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM1
     request: 42
     tag: TIMER1_CH1
   DSHOT_CH2:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
   RGB:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM3
     request: 64
     tag: TIMER3_CH4
   SPI1_RX:

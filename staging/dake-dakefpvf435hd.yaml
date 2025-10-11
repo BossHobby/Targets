@@ -4,8 +4,8 @@
 # Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM1 (req63) [TIMER3_CH3]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req63) [TIMER3_CH3]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
@@ -65,7 +65,9 @@ flash:
   port: 3
   nss: PB1
 vbat: PC1
+vbat_scale: 160
 ibat: PC0
+ibat_scale: 120
 rgb_led: PC8
 buzzer:
   invert: true
@@ -79,11 +81,11 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM1
     request: 42
     tag: TIMER1_CH1
   RGB:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM2
     request: 63
     tag: TIMER3_CH3
   SPI1_RX:

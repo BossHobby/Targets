@@ -1,16 +1,17 @@
 # DMA Assignment Summary
 # Target: tjrch743 (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 5
+# Total DMA assignments: 6
 #
 # DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA1_STREAM4 (req61) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA1_STREAM5 (req62) [SPI3_MOSI]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req47) [TIMER8_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM5 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM6 (req62) [SPI3_MOSI]
 #
-# Summary: 5 devices assigned, 11/16 streams available
+# Summary: 6 devices assigned, 10/16 streams available
 name: tjrch743
 manufacturer: TJRC
 mcu: stm32h743
@@ -78,21 +79,25 @@ baro:
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
+    request: 47
+    tag: TIMER8_CH1
+  RGB:
+    dma: DMA1_STREAM2
     request: 11
     tag: TIMER1_CH1
   SPI1_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM3
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 38
     tag: SPI1_MOSI
   SPI3_RX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 61
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM6
     request: 62
     tag: SPI3_MOSI

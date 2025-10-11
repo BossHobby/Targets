@@ -1,0 +1,81 @@
+# DMA Assignment Summary
+# Target: matekf411wte (stm32f411)
+# Architecture: fixed
+# Total DMA assignments: 3
+#
+# DMA Device Assignments:
+#   RGB             -> available                                         (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (ch0) [SPI2_MOSI] (options: DMA1_STREAM4)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#
+# Summary: 3 devices assigned, 13/16 streams available
+name: matekf411wte
+manufacturer: MTKS
+mcu: stm32f411
+brushless: true
+leds:
+  - invert: true
+    pin: PA14
+  - invert: true
+    pin: PA13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+serial_soft_ports:
+  - index: 1
+    rx: PA1
+    tx: PA0
+  - index: 2
+    rx: PB3
+    tx: PA15
+spi_ports:
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro:
+  port: 2
+  nss: PC13
+  exti: PC14
+gyro_orientation: 48
+osd:
+  port: 2
+  nss: PB12
+vbat: PA4
+ibat: PA5
+ibat_scale: 250
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PB2
+motor_pins:
+  - PB6
+  - PB7
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI

@@ -1,0 +1,125 @@
+# DMA Assignment Summary
+# Target: hakrch743 (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req47) [TIMER8_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM5 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM6 (req62) [SPI3_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA1_STREAM8 (req84) [SPI4_MOSI]
+#
+# Summary: 8 devices assigned, 8/16 streams available
+name: hakrch743
+manufacturer: HARC
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PE3
+  - invert: true
+    pin: PE4
+serial_ports:
+  - index: 1
+    rx: PA10
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PB8
+    tx: PB9
+  - index: 5
+    rx: PB12
+    tx: PB13
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PD7
+    sck: PA5
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+  - index: 4
+    miso: PE13
+    mosi: PE14
+    sck: PE12
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+  - index: 2
+    scl: PB10
+    sda: PB11
+gyro:
+  port: 1
+  nss: PC15
+  exti: PB2
+gyro_orientation: 0
+osd:
+  port: 3
+  nss: PE2
+vbat: PC0
+vbat_scale: 250
+ibat: PC1
+ibat_scale: 110
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PE9
+motor_pins:
+  - PA2
+  - PA3
+  - PA0
+  - PA1
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 47
+    tag: TIMER8_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 11
+    tag: TIMER1_CH1
+  SPI1_RX:
+    dma: DMA1_STREAM3
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM4
+    request: 38
+    tag: SPI1_MOSI
+  SPI3_RX:
+    dma: DMA1_STREAM5
+    request: 61
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA1_STREAM6
+    request: 62
+    tag: SPI3_MOSI
+  SPI4_RX:
+    dma: DMA1_STREAM7
+    request: 83
+    tag: SPI4_MISO
+  SPI4_TX:
+    dma: DMA1_STREAM8
+    request: 84
+    tag: SPI4_MOSI

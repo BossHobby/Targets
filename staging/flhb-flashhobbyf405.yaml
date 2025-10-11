@@ -1,11 +1,11 @@
 # DMA Assignment Summary
-# Target: hglrcf405v2 (stm32f405)
+# Target: flashhobbyf405 (stm32f405)
 # Architecture: fixed
 # Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM2 (ch5) [TIMER3_CH4] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
-#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   RGB             -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM2 (ch0) [TIMER8_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
 #   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
 #   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
@@ -22,15 +22,17 @@
 #   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
 #   SERIAL5_RX      -> available                                         (options: DMA1_STREAM0)
 #   SERIAL5_TX      -> available                                         (options: DMA1_STREAM7)
+#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
+#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
 #
 # Summary: 8 devices assigned, 8/16 streams available
-name: hglrcf405v2
-manufacturer: HGLRC
+name: flashhobbyf405
+manufacturer: FLHB
 mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PC13
+    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10
@@ -39,14 +41,16 @@ serial_ports:
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PC11
-    tx: PC10
+    rx: PB11
+    tx: PB10
   - index: 4
     rx: PA1
     tx: PA0
   - index: 5
     rx: PD2
-    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
 spi_ports:
   - index: 1
     miso: PA6
@@ -57,47 +61,48 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PB4
-    mosi: PB5
-    sck: PB3
+    miso: PC11
+    mosi: PC12
+    sck: PC10
 i2c_ports:
   - index: 1
-    scl: PB6
-    sda: PB7
+    scl: PB8
+    sda: PB9
 gyro:
   port: 1
   nss: PA4
   exti: PC4
-gyro_orientation: 8
+gyro_orientation: 0
 osd:
   port: 2
-  nss: PA13
+  nss: PB12
 flash:
   port: 3
-  nss: PC0
-usb_detect: PB12
+  nss: PA15
+usb_detect: PC5
 vbat: PC2
 ibat: PC1
-rgb_led: PB1
+ibat_scale: 200
+rgb_led: PA8
 buzzer:
   invert: true
-  pin: PB8
+  pin: PB2
 motor_pins:
-  - PC8
-  - PC9
-  - PC6
-  - PC7
+  - PB5
+  - PB4
+  - PB0
+  - PB1
 baro:
   port: 1
 dma:
   DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
-  RGB:
-    channel: 5
-    dma: DMA1_STREAM2
-    tag: TIMER3_CH4
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0

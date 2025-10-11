@@ -84,7 +84,9 @@ flash:
   port: 3
   nss: PA15
 vbat: PC1
+vbat_scale: 160
 ibat: PC0
+ibat_scale: 120
 rgb_led: PB3
 buzzer:
   invert: true

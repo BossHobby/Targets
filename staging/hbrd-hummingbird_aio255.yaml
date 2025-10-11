@@ -1,0 +1,111 @@
+# DMA Assignment Summary
+# Target: hummingbird_aio255 (at32f435)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req56) [TIMER2_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM5 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM6 (req15) [SPI3_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req106) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA2_STREAM1 (req107) [SPI4_MOSI]
+#
+# Summary: 8 devices assigned, 6/14 streams available
+name: hummingbird_aio255
+manufacturer: HBRD
+mcu: at32f435
+brushless: true
+leds:
+  - invert: true
+    pin: PH2
+serial_ports:
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PB5
+    tx: PB6
+  - index: 6
+    rx: PA5
+    tx: PA4
+  - index: 7
+    rx: PB3
+spi_ports:
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB0
+    sck: PB12
+  - index: 4
+    miso: PB8
+    mosi: PB9
+    sck: PB7
+i2c_ports:
+  - index: 2
+    scl: PB10
+    sda: PB11
+gyro:
+  port: 4
+  nss: PC14
+  exti: PC13
+gyro_orientation: 0
+osd:
+  port: 2
+  nss: PA8
+flash:
+  port: 3
+  nss: PC15
+vbat: PA2
+vbat_scale: 107
+ibat: PA3
+ibat_scale: 300
+rgb_led: PA15
+buzzer:
+  invert: true
+  pin: PB1
+motor_pins:
+  - PA10
+  - PA9
+  - PA6
+  - PA7
+baro:
+  port: 2
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 42
+    tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 56
+    tag: TIMER2_CH1
+  SPI2_RX:
+    dma: DMA1_STREAM3
+    request: 12
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM4
+    request: 13
+    tag: SPI2_MOSI
+  SPI3_RX:
+    dma: DMA1_STREAM5
+    request: 14
+    tag: SPI3_MISO
+  SPI3_TX:
+    dma: DMA1_STREAM6
+    request: 15
+    tag: SPI3_MOSI
+  SPI4_RX:
+    dma: DMA1_STREAM7
+    request: 106
+    tag: SPI4_MISO
+  SPI4_TX:
+    dma: DMA2_STREAM1
+    request: 107
+    tag: SPI4_MOSI
