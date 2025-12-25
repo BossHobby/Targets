@@ -52,7 +52,7 @@ vbat: PA0
 ibat: PA1
 rgb_led: PB2
 buzzer:
-  invert: true
+  invert: false
   pin: PA8
 motor_pins:
   - PA4
