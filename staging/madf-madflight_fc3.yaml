@@ -1,0 +1,45 @@
+name: madflight_fc3
+manufacturer: MADF
+mcu: rp2350b
+brushless: true
+leds:
+  - invert: true
+    pin: PA45
+  - invert: true
+    pin: PA12
+  - invert: true
+    pin: PA13
+serial_ports:
+  - index: 1
+    rx: PA5
+    tx: PA4
+spi_ports:
+  - index: 1
+    miso: PA28
+    mosi: PA31
+    sck: PA30
+i2c_ports:
+  - index: 1
+    scl: PA3
+    sda: PA2
+gyro:
+  port: 1
+  nss: PA29
+  exti: PA27
+gyro_orientation: 16
+sdcard:
+  port: 0
+  nss: PA39
+vbat: PA44
+vbat_scale: 110
+ibat: PA41
+rgb_led: PA46
+sdcard_detect:
+  invert: true
+motor_pins:
+  - PA8
+  - PA9
+  - PA6
+  - PA7
+baro:
+  port: 1

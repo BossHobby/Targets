@@ -1,0 +1,111 @@
+# DMA Assignment Summary
+# Target: airbrainh743 (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 6
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req20) [TIMER2_CH3]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req40) [SPI2_MOSI]
+#
+# Summary: 6 devices assigned, 10/16 streams available
+name: airbrainh743
+manufacturer: GEUP
+mcu: stm32h743
+brushless: true
+leds:
+  - invert: true
+    pin: PB15
+  - invert: true
+    pin: PD11
+  - invert: true
+    pin: PD15
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PD6
+    tx: PD5
+  - index: 3
+    rx: PD9
+    tx: PD8
+  - index: 4
+    rx: PB8
+    tx: PB9
+  - index: 5
+    rx: PB12
+    tx: PB13
+  - index: 7
+    rx: PE7
+    tx: PE8
+  - index: 8
+    rx: PE0
+    tx: PE1
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PC3
+    sck: PD3
+  - index: 3
+    miso: PE5
+    mosi: PE6
+    sck: PE12
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+gyro:
+  port: 1
+  nss: PA3
+  exti: PC6
+gyro_orientation: 4
+flash:
+  port: 2
+  nss: PD4
+vbat: PC4
+vbat_scale: 143
+ibat: PC5
+rgb_led: PA2
+buzzer:
+  invert: true
+  pin: PA15
+motor_pins:
+  - PE13
+  - PE14
+  - PE9
+  - PE11
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 11
+    tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 20
+    tag: TIMER2_CH3
+  SPI1_RX:
+    dma: DMA1_STREAM3
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM4
+    request: 38
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM5
+    request: 39
+    tag: SPI2_MISO
+  SPI2_TX:
+    dma: DMA1_STREAM6
+    request: 40
+    tag: SPI2_MOSI

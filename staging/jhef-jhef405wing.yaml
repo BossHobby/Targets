@@ -1,5 +1,5 @@
 # DMA Assignment Summary
-# Target: hummingbird_fc305 (stm32f722)
+# Target: jhef405wing (stm32f405)
 # Architecture: fixed
 # Total DMA assignments: 8
 #
@@ -26,22 +26,25 @@
 #   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
 #
 # Summary: 8 devices assigned, 8/16 streams available
-name: hummingbird_fc305
-manufacturer: HBRD
-mcu: stm32f722
+name: jhef405wing
+manufacturer: JHEF
+mcu: stm32f405
 brushless: true
 leds:
   - invert: true
-    pin: PA15
+    pin: PA14
+  - invert: true
+    pin: PA13
 serial_ports:
   - index: 1
-    rx: PB7
+    rx: PA10
+    tx: PA9
   - index: 2
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PB11
-    tx: PB10
+    rx: PC11
+    tx: PC10
   - index: 4
     rx: PA1
     tx: PA0
@@ -57,41 +60,37 @@ spi_ports:
     mosi: PA7
     sck: PA5
   - index: 2
-    miso: PB14
-    mosi: PB15
+    miso: PC2
+    mosi: PC3
     sck: PB13
   - index: 3
-    miso: PC11
-    mosi: PB2
-    sck: PC10
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 i2c_ports:
   - index: 1
     scl: PB8
     sda: PB9
 gyro:
-  port: 2
-  nss: SPI2_NSS_PIN
-  exti: PB6
-gyro_orientation: 0
-osd:
-  port: 3
-  nss: SPI3_NSS_PIN
-sdcard:
   port: 1
-  nss: SPI1_NSS_PIN
+  nss: PA4
+gyro_orientation: 8
+osd:
+  port: 2
+  nss: PB12
+sdcard:
+  port: 3
+  nss: PC14
 vbat: PC0
-vbat_scale: 110
 ibat: PC1
-ibat_scale: 250
+ibat_scale: 195
 rgb_led: PA8
 buzzer:
   invert: true
   pin: PC15
 motor_pins:
-  - PB4
-  - PB1
-  - PB0
-  - PB5
+  - PB7
+  - PB6
 baro:
   port: 1
 dma:
