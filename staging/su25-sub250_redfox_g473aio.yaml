@@ -1,40 +1,38 @@
 # DMA Assignment Summary
-# Target: tunercf435 (at32f435)
+# Target: sub250_redfox_g473aio (stm32g473)
 # Architecture: flexible
 # Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req72) [TIMER5_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
 #   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM8 (req15) [SPI3_MOSI]
 #
-# Summary: 8 devices assigned, 6/14 streams available
-name: tunercf435
-manufacturer: TURC
-mcu: at32f435
+# Summary: 8 devices assigned, 8/16 streams available
+name: sub250_redfox_g473aio
+manufacturer: SU25
+mcu: stm32g473
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PA10
+  - invert: true
+    pin: PB9
 serial_ports:
   - index: 1
-    rx: PA10
-    tx: PA9
+    rx: PB7
+    tx: PB6
   - index: 2
-    rx: PA3
-    tx: PA2
+    rx: PB4
+    tx: PB3
   - index: 3
-    rx: PB10
-    tx: PB11
-  - index: 4
-    inverter: PC15
-    rx: PA1
-    tx: PA0
+    rx: PB11
+    tx: PB10
 spi_ports:
   - index: 1
     miso: PA6
@@ -45,46 +43,47 @@ spi_ports:
     mosi: PB15
     sck: PB13
   - index: 3
-    miso: PB4
+    miso: PC11
     mosi: PB5
-    sck: PB3
+    sck: PC10
 i2c_ports:
   - index: 2
-    scl: PH2
-    sda: PH3
+    scl: PA9
+    sda: PA8
 gyro:
   port: 1
-  nss: PA4
-  exti: PC13
-gyro_orientation: 4
+  nss: PC13
+  exti: PC4
+gyro_orientation: 8
 osd:
   port: 2
   nss: PB12
 flash:
   port: 3
-  nss: PA15
-vbat: PB0
-ibat: PB1
-rgb_led: PA8
+  nss: PC6
+vbat: PB1
+ibat: PB0
+ibat_scale: 750
+rgb_led: PB2
 buzzer:
   invert: true
-  pin: PB2
+  pin: PA15
 motor_pins:
-  - PB7
-  - PB6
-  - PB9
-  - PB8
+  - PA2
+  - PA3
+  - PA0
+  - PA1
 baro:
   port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 49
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 72
+    tag: TIMER5_CH1
   SPI1_RX:
     dma: DMA1_STREAM3
     request: 10
@@ -106,6 +105,6 @@ dma:
     request: 14
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA2_STREAM1
+    dma: DMA1_STREAM8
     request: 15
     tag: SPI3_MOSI

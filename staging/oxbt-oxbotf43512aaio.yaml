@@ -1,40 +1,39 @@
 # DMA Assignment Summary
-# Target: tunercf435 (at32f435)
+# Target: oxbotf43512aaio (at32f435)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 6
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req72) [TIMER5_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
 #
-# Summary: 8 devices assigned, 6/14 streams available
-name: tunercf435
-manufacturer: TURC
+# Summary: 6 devices assigned, 8/14 streams available
+name: oxbotf43512aaio
+manufacturer: OXBT
 mcu: at32f435
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PA8
 serial_ports:
   - index: 1
     rx: PA10
     tx: PA9
   - index: 2
     rx: PA3
-    tx: PA2
   - index: 3
-    rx: PB10
-    tx: PB11
-  - index: 4
-    inverter: PC15
-    rx: PA1
-    tx: PA0
+    rx: PB11
+    tx: PB10
+  - index: 5
+    rx: PB8
+    tx: PB9
+  - index: 7
+    rx: PB3
+    tx: PB4
 spi_ports:
   - index: 1
     miso: PA6
@@ -44,10 +43,6 @@ spi_ports:
     miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 3
-    miso: PB4
-    mosi: PB5
-    sck: PB3
 i2c_ports:
   - index: 2
     scl: PH2
@@ -55,36 +50,34 @@ i2c_ports:
 gyro:
   port: 1
   nss: PA4
-  exti: PC13
-gyro_orientation: 4
-osd:
-  port: 2
-  nss: PB12
+  exti: PA15
+gyro_orientation: 8
 flash:
-  port: 3
-  nss: PA15
-vbat: PB0
-ibat: PB1
-rgb_led: PA8
+  port: 2
+  nss: PC13
+vbat: PA0
+ibat: PA1
+ibat_scale: 290
+rgb_led: PB12
 buzzer:
   invert: true
-  pin: PB2
+  pin: PB5
 motor_pins:
-  - PB7
+  - PB0
+  - PB1
   - PB6
-  - PB9
-  - PB8
+  - PB7
 baro:
   port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 49
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 72
+    tag: TIMER5_CH1
   SPI1_RX:
     dma: DMA1_STREAM3
     request: 10
@@ -101,11 +94,3 @@ dma:
     dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
-  SPI3_RX:
-    dma: DMA1_STREAM7
-    request: 14
-    tag: SPI3_MISO
-  SPI3_TX:
-    dma: DMA2_STREAM1
-    request: 15
-    tag: SPI3_MOSI

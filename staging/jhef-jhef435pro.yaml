@@ -1,11 +1,11 @@
 # DMA Assignment Summary
-# Target: tunercf435 (at32f435)
+# Target: jhef435pro (at32f435)
 # Architecture: flexible
 # Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req67) [TIMER4_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
@@ -14,27 +14,23 @@
 #   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
 #
 # Summary: 8 devices assigned, 6/14 streams available
-name: tunercf435
-manufacturer: TURC
+name: jhef435pro
+manufacturer: JHEF
 mcu: at32f435
 brushless: true
 leds:
   - invert: true
-    pin: PC14
+    pin: PB7
 serial_ports:
   - index: 1
     rx: PA10
     tx: PA9
-  - index: 2
-    rx: PA3
-    tx: PA2
-  - index: 3
-    rx: PB10
-    tx: PB11
   - index: 4
-    inverter: PC15
-    rx: PA1
-    tx: PA0
+    rx: PH2
+    tx: PH3
+  - index: 5
+    rx: PB8
+    tx: PB9
 spi_ports:
   - index: 1
     miso: PA6
@@ -50,12 +46,12 @@ spi_ports:
     sck: PB3
 i2c_ports:
   - index: 2
-    scl: PH2
-    sda: PH3
+    scl: PB10
+    sda: PB11
 gyro:
   port: 1
   nss: PA4
-  exti: PC13
+  exti: PC14
 gyro_orientation: 4
 osd:
   port: 2
@@ -65,26 +61,26 @@ flash:
   nss: PA15
 vbat: PB0
 ibat: PB1
-rgb_led: PA8
+rgb_led: PB6
 buzzer:
   invert: true
-  pin: PB2
+  pin: PC15
 motor_pins:
-  - PB7
-  - PB6
-  - PB9
-  - PB8
+  - PA3
+  - PA2
+  - PA0
+  - PA1
 baro:
   port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
-    request: 49
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM2
     request: 42
     tag: TIMER1_CH1
+  RGB:
+    dma: DMA1_STREAM2
+    request: 67
+    tag: TIMER4_CH1
   SPI1_RX:
     dma: DMA1_STREAM3
     request: 10

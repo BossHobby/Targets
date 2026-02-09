@@ -9,8 +9,12 @@ leds:
     pin: PA7
 serial_ports:
   - index: 1
-    rx: PA21
-    tx: PA20
+    rx: PA9
+    tx: PA8
+  - index: 5
+    rx: PA36
+  - index: 6
+    rx: PA37
 spi_ports:
   - index: 1
     miso: PA24
@@ -23,6 +27,10 @@ gyro:
 gyro_orientation: 0
 osd:
   port: 1
+  nss: PA17
+flash:
+  port: 0
+  nss: PA0
 sdcard:
   port: 1
   nss: PA25

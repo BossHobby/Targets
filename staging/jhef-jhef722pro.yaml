@@ -1,12 +1,11 @@
 # DMA Assignment Summary
-# Target: brahma_f405 (stm32f405)
+# Target: jhef722pro (stm32f722)
 # Architecture: fixed
-# Total DMA assignments: 9
+# Total DMA assignments: 8
 #
 # DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM7 (ch5) [TIMER3_CH3] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
-#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
-#   DSHOT_CH2       -> ASSIGNED: DMA2_STREAM6 (ch0) [TIMER1_CH2] (options: DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   RGB             -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM2 (ch0) [TIMER8_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
 #   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
 #   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
@@ -15,34 +14,39 @@
 #   SPI3_TX         -> ASSIGNED: DMA1_STREAM5 (ch0) [SPI3_MOSI] (options: DMA1_STREAM5, DMA1_STREAM7)
 #   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
 #   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
 #   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
 #   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
 #   SERIAL4_RX      -> available                                         (options: DMA1_STREAM2)
 #   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
-#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
-#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
+#   SERIAL5_RX      -> available                                         (options: DMA1_STREAM0)
+#   SERIAL5_TX      -> available                                         (options: DMA1_STREAM7)
 #
-# Summary: 9 devices assigned, 7/16 streams available
-name: brahma_f405
-manufacturer: DARK
-mcu: stm32f405
+# Summary: 8 devices assigned, 8/16 streams available
+name: jhef722pro
+manufacturer: JHEF
+mcu: stm32f722
 brushless: true
 leds:
   - invert: true
-    pin: PA8
+    pin: PA15
 serial_ports:
   - index: 1
     rx: PA10
     tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
   - index: 3
     rx: PB11
     tx: PB10
   - index: 4
     rx: PA1
     tx: PA0
-  - index: 6
-    rx: PC7
-    tx: PC6
+  - index: 5
+    rx: PD2
+    tx: PC12
 spi_ports:
   - index: 1
     miso: PA6
@@ -54,50 +58,45 @@ spi_ports:
     sck: PB13
   - index: 3
     miso: PC11
-    mosi: PC12
+    mosi: PB5
     sck: PC10
 i2c_ports:
   - index: 1
     scl: PB6
     sda: PB7
 gyro:
-  port: 3
-  nss: PB3
-  exti: PB8
-gyro_orientation: 0
-osd:
   port: 1
   nss: PA4
-flash:
+  exti: PC3
+gyro_orientation: 4
+osd:
   port: 2
   nss: PB12
-vbat: PC4
-ibat: PC3
-ibat_scale: 270
-rgb_led: PC8
+flash:
+  port: 3
+  nss: PC13
+vbat: PC2
+ibat: PC1
+rgb_led: PA8
 buzzer:
   invert: true
-  pin: PC13
+  pin: PC15
 motor_pins:
-  - PA3
-  - PA2
-  - PB1
-  - PB0
+  - PC8
+  - PC9
+  - PC6
+  - PC7
 baro:
   port: 1
 dma:
   DSHOT_CH1:
+    channel: 0
+    dma: DMA2_STREAM2
+    tag: TIMER8_CH1
+  RGB:
     channel: 6
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
-  DSHOT_CH2:
-    channel: 0
-    dma: DMA2_STREAM6
-    tag: TIMER1_CH2
-  RGB:
-    channel: 5
-    dma: DMA1_STREAM7
-    tag: TIMER3_CH3
   SPI1_RX:
     channel: 3
     dma: DMA2_STREAM0

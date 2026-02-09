@@ -17,9 +17,9 @@ leds:
   - invert: true
     pin: PD8
   - invert: true
-    pin: PB14
-  - invert: true
     pin: PB15
+  - invert: true
+    pin: PB14
 serial_ports:
   - index: 2
     rx: PA3
