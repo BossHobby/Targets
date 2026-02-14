@@ -1,0 +1,64 @@
+name: lyif722d
+manufacturer: LYI
+mcu: stm32f722
+brushless: true
+leds:
+  - invert: true
+    pin: PA14
+  - invert: false
+    pin: PA13
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PA1
+    tx: PA0
+  - index: 5
+    rx: PD2
+    tx: PC12
+  - index: 6
+    rx: PC7
+    tx: PC6
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PC11
+    mosi: PB2
+    sck: PC10
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+  gyro_orientation: 16
+flash:
+  port: 2
+  nss: PB12
+osd:
+  port: 3
+  nss: PA15
+vbat: PC1
+ibat: PC0
+ibat_scale: 177
+rgb_led: PA8
+buzzer:
+  invert: true
+  pin: PC14
+motor_pins:
+  - PB4
+  - PB5
+  - PB6
+  - PB7
