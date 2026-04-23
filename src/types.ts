@@ -107,6 +107,8 @@ export interface target_t {
   buzzer?: target_invert_pin_t;
   motor_pins: gpio_pins_t[];
 
+  vehicles?: number;
+
   vbat_scale?: number;
   ibat_scale?: number;
   
@@ -141,6 +143,7 @@ export const target_keys = [
   "sdcard_detect",
   "buzzer",
   "motor_pins",
+  "vehicles",
   "index",
   "port",
   "nss",

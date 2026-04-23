@@ -313,6 +313,12 @@
             "minItems": 1,
             "maxItems": 8
         },
+        "vehicles": {
+            "type": "number",
+            "description": "Bitmask of supported vehicle types (1=multi, 2=rover, 4=wing)",
+            "minimum": 1,
+            "maximum": 7
+        },
         "timers": {
             "type": "array",
             "description": "Timer configuration (typically empty as DMA handles timer assignments)",
