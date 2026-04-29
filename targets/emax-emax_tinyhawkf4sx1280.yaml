@@ -21,7 +21,7 @@
 name: emax_tinyhawkf4sx1280
 manufacturer: EMAX
 mcu: stm32f411
-brushless: false
+brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -58,7 +58,7 @@ ibat: PB1
 ibat_scale: 179
 rgb_led: PA0
 buzzer:
-  invert: true
+  invert: false
   pin: PC15
 motor_pins:
   - PB7
