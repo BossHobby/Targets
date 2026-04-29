@@ -1,5 +1,5 @@
 # DMA Assignment Summary
-# Target: emax_tinyhawkf4sx1280 (stm32f411)
+# Target: emax_tinyhawkf4rx_elrs (stm32f411)
 # Architecture: fixed
 # Total DMA assignments: 8
 #
@@ -18,7 +18,7 @@
 #   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
 #
 # Summary: 8 devices assigned, 8/16 streams available
-name: emax_tinyhawkf4sx1280
+name: emax_tinyhawkf4rx_elrs
 manufacturer: EMAX
 mcu: stm32f411
 brushless: true
@@ -58,7 +58,7 @@ ibat: PB1
 ibat_scale: 179
 rgb_led: PA0
 buzzer:
-  invert: true
+  invert: false
   pin: PC15
 motor_pins:
   - PB7
