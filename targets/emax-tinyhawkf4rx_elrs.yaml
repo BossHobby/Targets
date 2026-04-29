@@ -18,7 +18,7 @@
 #   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
 #
 # Summary: 8 devices assigned, 8/16 streams available
-name: emax_tinyhawkf4rx_elrs
+name: tinyhawkf4rx_elrs
 manufacturer: EMAX
 mcu: stm32f411
 brushless: true
