@@ -1,4 +1,4 @@
-name: emax_tinyhawkf4rx_elrs
+name: tinyhawkf4rx_elrs
 manufacturer: EMAX
 mcu: stm32f411
 brushless: true
