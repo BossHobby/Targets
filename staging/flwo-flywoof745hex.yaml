@@ -70,3 +70,22 @@ motor_pins:
   - PC9
 baro:
   port: 1
+vehicles:
+  - multi
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PE11
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo

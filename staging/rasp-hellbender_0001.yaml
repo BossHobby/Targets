@@ -47,3 +47,22 @@ motor_pins:
   - PA29
 baro:
   port: 0
+vehicles:
+  - multi
+outputs:
+  - pin: PA30
+    caps:
+      - motor
+      - servo
+  - pin: PA31
+    caps:
+      - motor
+      - servo
+  - pin: PA28
+    caps:
+      - motor
+      - servo
+  - pin: PA29
+    caps:
+      - motor
+      - servo

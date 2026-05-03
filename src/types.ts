@@ -75,12 +75,21 @@ export interface target_dma_assignment_t {
   channel?: number;
 }
 
+export type vehicle_type_t = "multi" | "rover" | "wing";
+export type target_output_cap_t = "motor" | "servo";
+
+export interface target_output_t {
+  pin: gpio_pins_t;
+  caps: target_output_cap_t[];
+}
+
 export interface target_t {
   name: string;
   manufacturer: string;
   mcu: string;
   alias?: string[];
   brushless: boolean;
+  vehicles: vehicle_type_t[];
 
   leds: target_led_t[];
   serial_ports: target_serial_port_t[];
@@ -106,6 +115,7 @@ export interface target_t {
   sdcard_detect?: target_invert_pin_t;
   buzzer?: target_invert_pin_t;
   motor_pins: gpio_pins_t[];
+  outputs: target_output_t[];
 
   vbat_scale?: number;
   ibat_scale?: number;
@@ -120,6 +130,7 @@ export const target_keys = [
   "mcu",
   "alias",
   "brushless",
+  "vehicles",
   "leds",
   "serial_ports",
   "serial_soft_ports",
@@ -141,9 +152,12 @@ export const target_keys = [
   "sdcard_detect",
   "buzzer",
   "motor_pins",
+  "outputs",
   "index",
   "port",
   "nss",
+  "pin",
+  "caps",
 ];
 
 function sortMapEntries(

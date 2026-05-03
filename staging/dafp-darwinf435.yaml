@@ -1,18 +1,3 @@
-# DMA Assignment Summary
-# Target: darwinf435 (at32f435)
-# Architecture: flexible
-# Total DMA assignments: 7
-#
-# DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM3 (req42) [TIMER1_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
-#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req50) [TIMER8_CH2]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req13) [SPI2_MOSI]
-#
-# Summary: 7 devices assigned, 7/14 streams available
 name: darwinf435
 manufacturer: DAFP
 mcu: at32f435
@@ -105,3 +90,22 @@ dma:
     dma: DMA1_STREAM7
     request: 13
     tag: SPI2_MOSI
+vehicles:
+  - multi
+outputs:
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo

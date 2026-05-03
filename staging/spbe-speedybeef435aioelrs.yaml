@@ -1,17 +1,3 @@
-# DMA Assignment Summary
-# Target: speedybeef435aioelrs (at32f435)
-# Architecture: flexible
-# Total DMA assignments: 6
-#
-# DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM2 (req72) [TIMER5_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
-#
-# Summary: 6 devices assigned, 8/14 streams available
 name: speedybeef435aioelrs
 manufacturer: SPBE
 mcu: at32f435
@@ -94,3 +80,22 @@ dma:
     dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
+vehicles:
+  - multi
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo

@@ -45,3 +45,22 @@ motor_pins:
   - PB7
   - PA0
   - PA1
+vehicles:
+  - multi
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo

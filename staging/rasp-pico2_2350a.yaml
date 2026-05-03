@@ -11,3 +11,22 @@ motor_pins:
   - PA13
   - PA10
   - PA11
+vehicles:
+  - multi
+outputs:
+  - pin: PA12
+    caps:
+      - motor
+      - servo
+  - pin: PA13
+    caps:
+      - motor
+      - servo
+  - pin: PA10
+    caps:
+      - motor
+      - servo
+  - pin: PA11
+    caps:
+      - motor
+      - servo

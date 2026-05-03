@@ -62,3 +62,22 @@ motor_pins:
   - PC6
   - PC9
   - PC8
+vehicles:
+  - multi
+outputs:
+  - pin: PC7
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo

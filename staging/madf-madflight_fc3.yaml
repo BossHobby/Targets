@@ -43,3 +43,22 @@ motor_pins:
   - PA7
 baro:
   port: 1
+vehicles:
+  - multi
+outputs:
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
+  - pin: PA6
+    caps:
+      - motor
+      - servo
+  - pin: PA7
+    caps:
+      - motor
+      - servo

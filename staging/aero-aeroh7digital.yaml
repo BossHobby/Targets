@@ -1,14 +1,3 @@
-# DMA Assignment Summary
-# Target: aeroh7digital (stm32h743)
-# Architecture: flexible
-# Total DMA assignments: 3
-#
-# DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
-#
-# Summary: 3 devices assigned, 13/16 streams available
 name: aeroh7digital
 manufacturer: AERO
 mcu: stm32h743
@@ -76,3 +65,22 @@ dma:
     dma: DMA1_STREAM3
     request: 38
     tag: SPI1_MOSI
+vehicles:
+  - multi
+outputs:
+  - pin: PE13
+    caps:
+      - motor
+      - servo
+  - pin: PE14
+    caps:
+      - motor
+      - servo
+  - pin: PE9
+    caps:
+      - motor
+      - servo
+  - pin: PE11
+    caps:
+      - motor
+      - servo

@@ -1,20 +1,3 @@
-# DMA Assignment Summary
-# Target: tbs_lucid_pro_fc (at32f435m)
-# Architecture: flexible
-# Total DMA assignments: 9
-#
-# DMA Device Assignments:
-#   RGB             -> ASSIGNED: DMA1_STREAM3 (req42) [TIMER1_CH1]
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
-#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req50) [TIMER8_CH2]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req13) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA2_STREAM1 (req14) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA2_STREAM2 (req15) [SPI3_MOSI]
-#
-# Summary: 9 devices assigned, 5/14 streams available
 name: tbs_lucid_pro_fc
 manufacturer: TEBS
 mcu: at32f435m
@@ -123,3 +106,22 @@ dma:
     dma: DMA2_STREAM2
     request: 15
     tag: SPI3_MOSI
+vehicles:
+  - multi
+outputs:
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo

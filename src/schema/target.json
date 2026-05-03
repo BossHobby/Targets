@@ -25,6 +25,16 @@
         "brushless": {
             "type": "boolean"
         },
+        "vehicles": {
+            "type": "array",
+            "description": "Vehicle firmware types supported by this target",
+            "items": {
+                "type": "string",
+                "enum": ["multi", "rover", "wing"]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
         "leds": {
             "type": "array",
             "items": {
@@ -313,6 +323,32 @@
             "minItems": 1,
             "maxItems": 8
         },
+        "outputs": {
+            "type": "array",
+            "description": "Physical output pins and their supported capabilities",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "pin": {
+                        "type": "string",
+                        "pattern": "^P[A-K][0-9]{1,2}$"
+                    },
+                    "caps": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": ["motor", "servo"]
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                    }
+                },
+                "required": ["pin", "caps"]
+            },
+            "minItems": 1,
+            "maxItems": 8
+        },
         "timers": {
             "type": "array",
             "description": "Timer configuration (typically empty as DMA handles timer assignments)",
@@ -374,7 +410,9 @@
         "manufacturer",
         "mcu",
         "brushless",
+        "vehicles",
         "gyro",
-        "motor_pins"
+        "motor_pins",
+        "outputs"
     ]
 }

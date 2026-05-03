@@ -68,3 +68,22 @@ motor_pins:
   - PC7
 baro:
   port: 1
+vehicles:
+  - multi
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC7
+    caps:
+      - motor
+      - servo

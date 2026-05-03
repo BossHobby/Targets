@@ -51,3 +51,22 @@ motor_pins:
   - PB4
 baro:
   port: .nan
+vehicles:
+  - multi
+outputs:
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB15
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
