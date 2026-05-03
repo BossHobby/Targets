@@ -107,6 +107,7 @@ dma:
     tag: SPI3_MOSI
 vehicles:
   - multi
+  - rover
 outputs:
   - pin: PC8
     caps:
