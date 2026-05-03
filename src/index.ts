@@ -30,11 +30,13 @@ for await (const f of walk("targets")) {
   console.log(`processing ${target.manufacturer} / ${target.name}...`);
 
   const targetFile = `${target.manufacturer}-${target.name}`.toLowerCase();
+  const vehicles = target.vehicles || ["multi"];
   targetIndex.push({
     name: target.name,
     target: targetFile,
     manufacturer: target.manufacturer,
     mcu: target.mcu,
+    vehicles,
   });
 
   for (const alias of target.alias || []) {
@@ -58,6 +60,7 @@ for await (const f of walk("targets")) {
       target: targetFile,
       manufacturer: manufacturer,
       mcu: target.mcu,
+      vehicles,
     });
   }
 
@@ -79,13 +82,15 @@ await fs.promises.writeFile(
 
 let targetIni = "";
 for (const target of targetIndex) {
-  if (target.manufacturer) {
-    const mgfr = target.manufacturer.toLowerCase();
-    targetIni += `\n[env:${mgfr}-${target.name}]\n`;
-  } else {
-    targetIni += `\n[env:${target.name}]\n`;
+  const mgfr = target.manufacturer.toLowerCase();
+  const targetEnv = `${mgfr}-${target.name}`;
+  const targetName = target.target;
+  for (const vehicle of target.vehicles) {
+    targetIni += `\n[env:${vehicle}-${targetEnv}]\n`;
+    targetIni += `extends = ${vehicle}-${target.mcu}\n`;
+    targetIni += `target_name = ${targetName}\n`;
+    targetIni += `base_env = ${vehicle}-${target.mcu}\n`;
   }
-  targetIni += `extends = ${target.mcu}\n`;
 }
 
 await fs.promises.writeFile(path.join(OUTPUT_FOLDER, "_index.ini"), targetIni);
