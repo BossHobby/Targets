@@ -4,6 +4,7 @@ mcu: at32f435m
 brushless: true
 vehicles:
   - multi
+  - rover
 leds:
   - pin: PC14
     invert: true
