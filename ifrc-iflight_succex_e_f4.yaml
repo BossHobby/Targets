@@ -2,9 +2,11 @@ name: iflight_succex_e_f4
 manufacturer: IFRC
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB5
+  - pin: PB5
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -53,13 +55,30 @@ ibat: PC1
 ibat_scale: 100
 rgb_led: PB6
 buzzer:
-  invert: true
   pin: PB4
+  invert: true
 motor_pins:
   - PC9
   - PC8
   - PB0
   - PB1
+outputs:
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

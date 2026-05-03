@@ -2,11 +2,13 @@ name: ff_racepit
 manufacturer: FFPV
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB9
-  - invert: true
-    pin: PB8
+  - pin: PB9
+    invert: true
+  - pin: PB8
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -59,13 +61,30 @@ vbat: PC2
 ibat: PC1
 rgb_led: PB6
 buzzer:
-  invert: true
   pin: PC3
+  invert: true
 motor_pins:
   - PB11
   - PB10
   - PB0
   - PB1
+outputs:
+  - pin: PB11
+    caps:
+      - motor
+      - servo
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

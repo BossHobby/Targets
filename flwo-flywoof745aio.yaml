@@ -2,9 +2,11 @@ name: flywoof745aio
 manufacturer: FLWO
 mcu: stm32f745
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA2
+  - pin: PA2
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -61,13 +63,30 @@ ibat: PC2
 ibat_scale: 175
 rgb_led: PD12
 buzzer:
-  invert: true
   pin: PD15
+  invert: true
 motor_pins:
   - PE9
   - PE11
   - PB0
   - PB1
+outputs:
+  - pin: PE9
+    caps:
+      - motor
+      - servo
+  - pin: PE11
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

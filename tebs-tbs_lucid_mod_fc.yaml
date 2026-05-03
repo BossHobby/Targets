@@ -2,11 +2,13 @@ name: tbs_lucid_mod_fc
 manufacturer: TEBS
 mcu: at32f435m
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+  - pin: PC14
+    invert: true
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -55,13 +57,30 @@ flash:
 vbat: PC0
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PC8
   - PC9
   - PC6
   - PC7
+outputs:
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC7
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

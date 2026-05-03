@@ -2,11 +2,13 @@ name: crazybee473
 manufacturer: HAMO
 mcu: stm32g473
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC4
-  - invert: true
-    pin: PC6
+  - pin: PC4
+    invert: true
+  - pin: PC6
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -54,13 +56,30 @@ ibat: PB1
 ibat_scale: 235
 rgb_led: PB9
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PA3
   - PA2
   - PA1
   - PA0
+outputs:
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

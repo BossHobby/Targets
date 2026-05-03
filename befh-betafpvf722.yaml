@@ -2,9 +2,11 @@ name: betafpvf722
 manufacturer: BEFH
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -57,13 +59,30 @@ ibat: PC1
 ibat_scale: 450
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PA1
   - PA0
   - PB0
   - PB1
+outputs:
+  - pin: PA1
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 0

@@ -2,9 +2,11 @@ name: sp8aio
 manufacturer: FRAC
 mcu: at32f435
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA13
+  - pin: PA13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -52,6 +54,23 @@ motor_pins:
   - PB1
   - PA3
   - PA2
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1

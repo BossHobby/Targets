@@ -2,11 +2,13 @@ name: jheg474
 manufacturer: JHEF
 mcu: stm32g473
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB6
-  - invert: true
-    pin: PB9
+  - pin: PB6
+    invert: true
+  - pin: PB9
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -52,13 +54,30 @@ vbat: PA0
 ibat: PA1
 rgb_led: PB2
 buzzer:
-  invert: false
   pin: PA8
+  invert: false
 motor_pins:
   - PA4
   - PC6
   - PB0
   - PB1
+outputs:
+  - pin: PA4
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

@@ -2,11 +2,13 @@ name: mambaf722_i2c
 manufacturer: DIAT
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
-  - invert: true
-    pin: PC14
+  - pin: PC15
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -58,13 +60,30 @@ vbat: PC1
 ibat: PC3
 rgb_led: PB3
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PA8
   - PA9
   - PC8
   - PC9
+outputs:
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

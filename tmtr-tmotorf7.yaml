@@ -2,9 +2,11 @@ name: tmotorf7
 manufacturer: TMTR
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB2
+  - pin: PB2
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -52,13 +54,30 @@ vbat: PC1
 ibat: PC2
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PB0
   - PB1
   - PC6
   - PC7
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 0

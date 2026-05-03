@@ -2,9 +2,11 @@ name: axisflyingf7pro
 manufacturer: AXFL
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -57,13 +59,30 @@ ibat: PC1
 ibat_scale: 200
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PC8
   - PC9
   - PB1
   - PB0
+outputs:
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

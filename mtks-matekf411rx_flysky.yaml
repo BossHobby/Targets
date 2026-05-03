@@ -4,9 +4,11 @@ mcu: stm32f411
 alias:
   - hamo-crazybee_f4_flysky
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
   - pin: PB9
 serial_ports:
   - index: 1
@@ -48,6 +50,23 @@ motor_pins:
   - PB8
   - PB10
   - PB6
+outputs:
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

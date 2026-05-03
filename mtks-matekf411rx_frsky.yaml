@@ -2,9 +2,11 @@ name: matekf411rx_frsky
 manufacturer: MTKS
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -43,13 +45,30 @@ rx_spi:
 vbat: PB0
 ibat: PB1
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PB7
   - PB8
   - PB10
   - PB6
+outputs:
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

@@ -2,9 +2,11 @@ name: clracingf7
 manufacturer: CLRA
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB0
+  - pin: PB0
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -56,16 +58,33 @@ ibat: PC1
 ibat_scale: 250
 rgb_led: PB1
 sdcard_detect:
-  invert: true
   pin: PC3
-buzzer:
   invert: true
+buzzer:
   pin: PB4
+  invert: true
 motor_pins:
   - PB8
   - PB9
   - PB6
   - PB7
+outputs:
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB9
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

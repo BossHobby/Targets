@@ -2,9 +2,11 @@ name: neutronrcf435se
 manufacturer: NERC
 mcu: at32f435
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC4
+  - pin: PC4
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -58,13 +60,30 @@ ibat: PC1
 ibat_scale: 100
 rgb_led: PA1
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PC7
   - PC6
   - PC9
   - PC8
+outputs:
+  - pin: PC7
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

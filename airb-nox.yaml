@@ -2,9 +2,11 @@ name: nox
 manufacturer: AIRB
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA4
+  - pin: PA4
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -37,13 +39,30 @@ fpv: PA13
 vbat: PA5
 rgb_led: PA0
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PB8
   - PB1
   - PA1
   - PA7
+outputs:
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
+  - pin: PA7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

@@ -2,11 +2,13 @@ name: matekf405se
 manufacturer: MTKS
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA14
-  - invert: true
-    pin: PA13
+  - pin: PA14
+    invert: true
+  - pin: PA13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -63,13 +65,30 @@ ibat: PC1
 ibat_scale: 179
 rgb_led: PA15
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PB0
   - PB1
   - PB7
   - PB6
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

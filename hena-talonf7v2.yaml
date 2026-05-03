@@ -2,9 +2,11 @@ name: talonf7v2
 manufacturer: HENA
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB0
+  - pin: PB0
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -53,13 +55,30 @@ ibat: PC1
 ibat_scale: 150
 rgb_led: PB1
 buzzer:
-  invert: true
   pin: PB4
+  invert: true
 motor_pins:
   - PB8
   - PC8
   - PB6
   - PB7
+outputs:
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

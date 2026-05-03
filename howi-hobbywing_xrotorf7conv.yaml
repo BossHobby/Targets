@@ -2,9 +2,11 @@ name: hobbywing_xrotorf7conv
 manufacturer: HOWI
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -57,13 +59,30 @@ ibat: PC0
 ibat_scale: 170
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PB3
   - PA15
   - PB1
   - PB4
+outputs:
+  - pin: PB3
+    caps:
+      - motor
+      - servo
+  - pin: PA15
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

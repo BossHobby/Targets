@@ -2,10 +2,12 @@ name: matekf765se
 manufacturer: MTKS
 mcu: stm32f765
 brushless: true
+vehicles:
+  - multi
 leds:
   - pin: PD10
-  - invert: true
-    pin: PD11
+  - pin: PD11
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -51,13 +53,30 @@ osd:
   nss: PB12
 vbat: PC2
 buzzer:
-  invert: true
   pin: PB9
+  invert: true
 motor_pins:
   - PA2
   - PA3
   - PA0
   - PA1
+outputs:
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 0

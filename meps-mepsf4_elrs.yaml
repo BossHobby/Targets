@@ -2,9 +2,11 @@ name: mepsf4_elrs
 manufacturer: MEPS
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     tx: PA9
@@ -37,13 +39,30 @@ ibat: PA0
 ibat_scale: 250
 rgb_led: PA10
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB6
   - PB7
   - PB0
   - PB1
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

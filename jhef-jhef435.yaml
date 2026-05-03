@@ -2,9 +2,11 @@ name: jhef435
 manufacturer: JHEF
 mcu: at32f435
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -50,13 +52,30 @@ vbat: PA0
 ibat: PA1
 rgb_led: PB1
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PA3
   - PA2
   - PB6
   - PB7
+outputs:
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

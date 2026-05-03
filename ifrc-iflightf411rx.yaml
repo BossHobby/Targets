@@ -2,9 +2,11 @@ name: iflightf411rx
 manufacturer: IFRC
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -45,6 +47,23 @@ motor_pins:
   - PB7
   - PA0
   - PA1
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

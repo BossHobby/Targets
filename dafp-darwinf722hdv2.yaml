@@ -2,11 +2,13 @@ name: darwinf722hdv2
 manufacturer: DAFP
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA14
-  - invert: true
-    pin: PA13
+  - pin: PA14
+    invert: true
+  - pin: PA13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -58,13 +60,30 @@ vbat: PC2
 ibat: PC1
 ibat_scale: 125
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PB0
   - PB1
   - PB4
   - PB5
+outputs:
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

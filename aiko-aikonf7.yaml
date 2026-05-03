@@ -2,9 +2,11 @@ name: aikonf7
 manufacturer: AIKO
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -52,13 +54,30 @@ vbat: PC0
 ibat: PC1
 rgb_led: PA15
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PC8
   - PC9
   - PC6
   - PC7
+outputs:
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

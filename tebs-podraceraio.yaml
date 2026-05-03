@@ -2,9 +2,11 @@ name: podraceraio
 manufacturer: TEBS
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -38,13 +40,30 @@ ibat: PA4
 ibat_scale: 250
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB6
   - PB7
   - PA0
   - PA1
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

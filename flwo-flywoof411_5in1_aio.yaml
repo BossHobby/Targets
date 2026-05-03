@@ -2,9 +2,11 @@ name: flywoof411_5in1_aio
 manufacturer: FLWO
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -43,13 +45,30 @@ ibat: PA1
 ibat_scale: 200
 rgb_led: PA0
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PB10
   - PB7
   - PA8
   - PB6
+outputs:
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

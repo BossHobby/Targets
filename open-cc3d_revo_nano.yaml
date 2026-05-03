@@ -2,9 +2,11 @@ name: cc3d_revo_nano
 manufacturer: OPEN
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
   - pin: PC13
 serial_ports:
   - index: 1
@@ -34,13 +36,30 @@ gyro_orientation: 16
 fpv: PA13
 vbat: PA6
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PB8
   - PB9
   - PB3
   - PB10
+outputs:
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB9
+    caps:
+      - motor
+      - servo
+  - pin: PB3
+    caps:
+      - motor
+      - servo
+  - pin: PB10
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

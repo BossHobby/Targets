@@ -2,9 +2,11 @@ name: tunercf405
 manufacturer: TURC
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB9
+  - pin: PB9
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -55,13 +57,30 @@ ibat: PC1
 ibat_scale: 453
 rgb_led: PB1
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB8
   - PA15
   - PB0
   - PA8
+outputs:
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PA15
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

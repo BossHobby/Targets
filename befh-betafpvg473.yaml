@@ -2,11 +2,13 @@ name: betafpvg473
 manufacturer: BEFH
 mcu: stm32g473
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
-  - invert: true
-    pin: PC14
+  - pin: PC15
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -53,13 +55,30 @@ ibat: PA1
 ibat_scale: 750
 rgb_led: PB2
 buzzer:
-  invert: true
   pin: PA8
+  invert: true
 motor_pins:
   - PB6
   - PC13
   - PB0
   - PB1
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PC13
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

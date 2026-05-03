@@ -2,11 +2,13 @@ name: geprcf405
 manufacturer: GEPR
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+  - pin: PC14
+    invert: true
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -67,13 +69,30 @@ ibat: PC0
 ibat_scale: 179
 rgb_led: PB1
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PA10
   - PC8
   - PA8
   - PA9
+outputs:
+  - pin: PA10
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

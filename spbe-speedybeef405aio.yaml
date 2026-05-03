@@ -2,9 +2,11 @@ name: speedybeef405aio
 manufacturer: SPBE
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PD7
+  - pin: PD7
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -56,13 +58,30 @@ ibat: PC2
 ibat_scale: 254
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PD11
+  invert: true
 motor_pins:
   - PA2
   - PA3
   - PA1
   - PA0
+outputs:
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

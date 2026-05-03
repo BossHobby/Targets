@@ -2,9 +2,11 @@ name: fortinif4osd
 manufacturer: FFPV
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB5
+  - pin: PB5
+    invert: true
   - pin: PB6
 serial_ports:
   - index: 1
@@ -43,13 +45,30 @@ osd:
 fpv: PA13
 vbat: PC2
 buzzer:
-  invert: true
   pin: PB4
+  invert: true
 motor_pins:
   - PA3
   - PA2
   - PB0
   - PB1
+outputs:
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

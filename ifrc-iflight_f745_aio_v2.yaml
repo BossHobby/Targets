@@ -2,9 +2,11 @@ name: iflight_f745_aio_v2
 manufacturer: IFRC
 mcu: stm32f745
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -66,13 +68,30 @@ ibat: PC2
 ibat_scale: 100
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PD2
+  invert: true
 motor_pins:
   - PB4
   - PB5
   - PB0
   - PB1
+outputs:
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

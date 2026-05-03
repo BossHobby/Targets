@@ -2,11 +2,13 @@ name: mambaf405us_i2c
 manufacturer: DIAT
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
-  - invert: true
-    pin: PC14
+  - pin: PC15
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     inverter: PC0
@@ -59,13 +61,30 @@ vbat: PC1
 ibat: PC3
 rgb_led: PB3
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PC9
   - PC8
   - PA9
   - PA8
+outputs:
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

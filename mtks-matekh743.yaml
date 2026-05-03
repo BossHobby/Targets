@@ -2,11 +2,13 @@ name: matekh743
 manufacturer: MTKS
 mcu: stm32h743
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PE3
-  - invert: true
-    pin: PE4
+  - pin: PE3
+    invert: true
+  - pin: PE4
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -66,13 +68,30 @@ ibat: PC1
 ibat_scale: 250
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PA15
+  invert: true
 motor_pins:
   - PA0
   - PA1
   - PB0
   - PB1
+outputs:
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

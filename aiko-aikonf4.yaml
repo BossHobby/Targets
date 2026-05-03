@@ -2,9 +2,11 @@ name: aikonf4
 manufacturer: AIKO
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB4
+  - pin: PB4
+    invert: true
 serial_ports:
   - index: 1
     inverter: PC0
@@ -51,13 +53,30 @@ vbat: PC2
 ibat: PC1
 rgb_led: PB6
 buzzer:
-  invert: true
   pin: PB5
+  invert: true
 motor_pins:
   - PC8
   - PC9
   - PC6
   - PC7
+outputs:
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC7
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

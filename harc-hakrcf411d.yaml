@@ -2,11 +2,13 @@ name: hakrcf411d
 manufacturer: HARC
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
-  - invert: true
-    pin: PC14
+  - pin: PC13
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -50,6 +52,23 @@ motor_pins:
   - PB7
   - PB4
   - PB5
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

@@ -2,11 +2,13 @@ name: lyif722d
 manufacturer: LYII
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PA14
-  - invert: false
-    pin: PA13
+  - pin: PA14
+    invert: true
+  - pin: PA13
+    invert: false
 serial_ports:
   - index: 1
     rx: PA10
@@ -54,13 +56,30 @@ ibat: PC0
 ibat_scale: 177
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PB4
   - PB5
   - PB6
   - PB7
+outputs:
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 0

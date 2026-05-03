@@ -2,9 +2,11 @@ name: tunercf435
 manufacturer: TURC
 mcu: at32f435
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -51,13 +53,30 @@ vbat: PB0
 ibat: PB1
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB7
   - PB6
   - PB9
   - PB8
+outputs:
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB9
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
 baro:
   port: 2
 dma:

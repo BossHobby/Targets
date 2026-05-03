@@ -2,9 +2,11 @@ name: flywoof405nano
 manufacturer: FLWO
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -51,13 +53,30 @@ vbat: PC3
 ibat: PC2
 ibat_scale: 170
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PA3
   - PA2
   - PB0
   - PB1
+outputs:
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

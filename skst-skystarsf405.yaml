@@ -2,11 +2,13 @@ name: skystarsf405
 manufacturer: SKST
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+  - pin: PC14
+    invert: true
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -59,13 +61,30 @@ vbat: PC0
 ibat: PC1
 rgb_led: PC8
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PB4
   - PB3
   - PB7
   - PB6
+outputs:
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB3
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

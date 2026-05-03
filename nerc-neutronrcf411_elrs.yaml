@@ -2,9 +2,11 @@ name: neutronrcf411_elrs
 manufacturer: NERC
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
   - pin: PC15
 serial_ports:
   - index: 1
@@ -52,6 +54,23 @@ motor_pins:
   - PB7
   - PB8
   - PA0
+outputs:
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

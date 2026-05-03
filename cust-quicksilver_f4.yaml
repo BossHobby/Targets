@@ -2,9 +2,11 @@ name: quicksilver_f4
 manufacturer: CUST
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC12
+  - pin: PC12
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -41,13 +43,30 @@ osd:
 fpv: PC13
 vbat: PC2
 buzzer:
-  invert: true
   pin: PA14
+  invert: true
 motor_pins:
   - PC7
   - PC6
   - PC9
   - PC8
+outputs:
+  - pin: PC7
+    caps:
+      - motor
+      - servo
+  - pin: PC6
+    caps:
+      - motor
+      - servo
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

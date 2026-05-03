@@ -2,9 +2,11 @@ name: nbd_infinityf4
 manufacturer: NEBD
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC0
+  - pin: PC0
+    invert: true
 serial_ports:
   - index: 1
     inverter: PA0
@@ -45,13 +47,30 @@ fpv: PA13
 vbat: PC4
 ibat: PC3
 buzzer:
-  invert: true
   pin: PB6
+  invert: true
 motor_pins:
   - PC9
   - PA8
   - PB1
   - PB0
+outputs:
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

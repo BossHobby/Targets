@@ -2,9 +2,11 @@ name: kakutef7miniv3
 manufacturer: HBRO
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PD2
+  - pin: PD2
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -55,13 +57,30 @@ ibat: PC1
 ibat_scale: 275
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC8
+  invert: true
 motor_pins:
   - PB4
   - PB5
   - PB0
   - PB1
+outputs:
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

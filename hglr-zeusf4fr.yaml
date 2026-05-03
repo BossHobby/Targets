@@ -2,9 +2,11 @@ name: zeusf4fr
 manufacturer: HGLR
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -45,13 +47,30 @@ ibat: PB1
 ibat_scale: 179
 rgb_led: PA0
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PB7
   - PB8
   - PB10
   - PB6
+outputs:
+  - pin: PB7
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB10
+    caps:
+      - motor
+      - servo
+  - pin: PB6
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

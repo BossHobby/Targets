@@ -2,11 +2,13 @@ name: furyf4osd
 manufacturer: DIAT
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB5
-  - invert: true
-    pin: PB4
+  - pin: PB5
+    invert: true
+  - pin: PB4
+    invert: true
 serial_ports:
   - index: 1
     inverter: PC0
@@ -51,13 +53,30 @@ vbat: PC1
 ibat: PC3
 rgb_led: PA0
 buzzer:
-  invert: true
   pin: PA8
+  invert: true
 motor_pins:
   - PB1
   - PA2
   - PA3
   - PB0
+outputs:
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

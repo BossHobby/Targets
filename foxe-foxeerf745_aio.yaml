@@ -2,9 +2,11 @@ name: foxeerf745_aio
 manufacturer: FOXE
 mcu: stm32f745
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -58,13 +60,30 @@ ibat: PC2
 ibat_scale: 100
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PD2
+  invert: true
 motor_pins:
   - PB1
   - PB0
   - PB4
   - PB5
+outputs:
+  - pin: PB1
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB5
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

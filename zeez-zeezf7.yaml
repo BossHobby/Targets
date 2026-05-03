@@ -2,11 +2,13 @@ name: zeezf7
 manufacturer: ZEEZ
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC15
+  - pin: PC14
+    invert: true
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -56,13 +58,30 @@ ibat: PC3
 ibat_scale: 350
 rgb_led: PB0
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB6
   - PB4
   - PB8
   - PB7
+outputs:
+  - pin: PB6
+    caps:
+      - motor
+      - servo
+  - pin: PB4
+    caps:
+      - motor
+      - servo
+  - pin: PB8
+    caps:
+      - motor
+      - servo
+  - pin: PB7
+    caps:
+      - motor
+      - servo
 dma:
   DSHOT_CH1:
     channel: 6

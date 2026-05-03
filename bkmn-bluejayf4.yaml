@@ -2,13 +2,15 @@ name: bluejayf4
 manufacturer: BKMN
 mcu: stm32f405
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PB6
-  - invert: true
-    pin: PB5
-  - invert: true
-    pin: PB4
+  - pin: PB6
+    invert: true
+  - pin: PB5
+    invert: true
+  - pin: PB4
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -47,16 +49,33 @@ vbat: PC3
 ibat: PC2
 rgb_led: PB0
 sdcard_detect:
-  invert: true
   pin: PD2
-buzzer:
   invert: true
+buzzer:
   pin: PC1
+  invert: true
 motor_pins:
   - PA2
   - PA3
   - PA0
   - PA1
+outputs:
+  - pin: PA2
+    caps:
+      - motor
+      - servo
+  - pin: PA3
+    caps:
+      - motor
+      - servo
+  - pin: PA0
+    caps:
+      - motor
+      - servo
+  - pin: PA1
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

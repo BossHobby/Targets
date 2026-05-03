@@ -2,9 +2,11 @@ name: flywoof411
 manufacturer: FLWO
 mcu: stm32f411
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -42,13 +44,30 @@ ibat: PA1
 ibat_scale: 170
 rgb_led: PA15
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PA10
   - PB0
   - PA8
   - PA9
+outputs:
+  - pin: PA10
+    caps:
+      - motor
+      - servo
+  - pin: PB0
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:

@@ -2,9 +2,11 @@ name: foxeerf722v4
 manufacturer: FOXE
 mcu: stm32f722
 brushless: true
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC15
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -56,13 +58,30 @@ vbat: PC0
 ibat: PC2
 rgb_led: PA15
 buzzer:
-  invert: true
   pin: PA4
+  invert: true
 motor_pins:
   - PC9
   - PC8
   - PA9
   - PA8
+outputs:
+  - pin: PC9
+    caps:
+      - motor
+      - servo
+  - pin: PC8
+    caps:
+      - motor
+      - servo
+  - pin: PA9
+    caps:
+      - motor
+      - servo
+  - pin: PA8
+    caps:
+      - motor
+      - servo
 baro:
   port: 1
 dma:
