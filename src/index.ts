@@ -88,8 +88,8 @@ for (const target of targetIndex) {
   for (const vehicle of target.vehicles) {
     targetIni += `\n[env:${vehicle}-${targetEnv}]\n`;
     targetIni += `extends = ${vehicle}-${target.mcu}\n`;
-    targetIni += `target_name = ${targetName}\n`;
-    targetIni += `base_env = ${vehicle}-${target.mcu}\n`;
+    targetIni += `custom_target_name = ${targetName}\n`;
+    targetIni += `custom_base_env = ${vehicle}-${target.mcu}\n`;
   }
 }
 
