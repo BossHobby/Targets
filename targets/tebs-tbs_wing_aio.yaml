@@ -54,7 +54,7 @@ osd:
   port: 2
   nss: PB12
 vbat: PC0
-vbat_scale: 2100
+vbat_scale: 210
 ibat: PC1
 ibat_scale: 200
 rgb_led: PA15
@@ -99,7 +99,7 @@ dma:
     request: 40
     tag: SPI2_MOSI
 vehicles:
-  - multi
+  - wing
   - rover
 outputs:
   - pin: PB0
