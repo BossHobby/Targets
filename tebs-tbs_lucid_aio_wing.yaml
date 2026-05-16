@@ -53,21 +53,15 @@ buzzer:
   pin: PC13
 motor_pins:
   - PA10
-  - PB6
-  - PB7
   - PA3
   - PA8
   - PA9
+  - PB6
+  - PB7
 outputs:
   - pin: PA10
     caps:
       - motor
-      - servo
-  - pin: PB6
-    caps:
-      - servo
-  - pin: PB7
-    caps:
       - servo
   - pin: PA3
     caps:
@@ -80,6 +74,12 @@ outputs:
   - pin: PA9
     caps:
       - motor
+      - servo
+  - pin: PB6
+    caps:
+      - servo
+  - pin: PB7
+    caps:
       - servo
 baro:
   port: 2
