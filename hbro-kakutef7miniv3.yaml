@@ -1,7 +1,6 @@
 name: kakutef7miniv3
 manufacturer: HBRO
 mcu: stm32f722
-brushless: true
 vehicles:
   - multi
 leds:
@@ -67,20 +66,20 @@ motor_pins:
 outputs:
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB5
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

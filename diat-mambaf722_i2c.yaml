@@ -1,7 +1,6 @@
 name: mambaf722_i2c
 manufacturer: DIAT
 mcu: stm32f722
-brushless: true
 vehicles:
   - multi
 leds:
@@ -70,20 +69,20 @@ motor_pins:
 outputs:
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

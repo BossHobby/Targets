@@ -1,7 +1,6 @@
 name: betafpvg473
 manufacturer: BEFH
 mcu: stm32g473
-brushless: true
 vehicles:
   - multi
 leds:
@@ -65,20 +64,20 @@ motor_pins:
 outputs:
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC13
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

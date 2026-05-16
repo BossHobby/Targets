@@ -1,7 +1,6 @@
 name: crazybeef405
 manufacturer: HAMO
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -61,20 +60,20 @@ motor_pins:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 2
 dma:

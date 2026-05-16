@@ -1,7 +1,6 @@
 name: speedybeef405aiov2
 manufacturer: SPBE
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -68,20 +67,20 @@ motor_pins:
 outputs:
   - pin: PA2
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

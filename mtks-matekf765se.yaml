@@ -1,7 +1,6 @@
 name: matekf765se
 manufacturer: MTKS
 mcu: stm32f765
-brushless: true
 vehicles:
   - multi
 leds:
@@ -63,20 +62,20 @@ motor_pins:
 outputs:
   - pin: PA2
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 0

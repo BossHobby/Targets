@@ -1,7 +1,6 @@
 name: nox
 manufacturer: AIRB
 mcu: stm32f411
-brushless: true
 vehicles:
   - multi
 leds:
@@ -49,20 +48,20 @@ motor_pins:
 outputs:
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 6

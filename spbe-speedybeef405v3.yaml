@@ -1,7 +1,6 @@
 name: speedybeef405v3
 manufacturer: SPBE
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -64,20 +63,20 @@ motor_pins:
 outputs:
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 2
 dma:

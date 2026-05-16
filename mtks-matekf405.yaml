@@ -1,7 +1,6 @@
 name: matekf405
 manufacturer: MTKS
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -57,20 +56,20 @@ motor_pins:
 outputs:
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 6

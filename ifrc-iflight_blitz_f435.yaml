@@ -1,7 +1,6 @@
 name: iflight_blitz_f435
 manufacturer: IFRC
 mcu: at32f435
-brushless: true
 vehicles:
   - multi
 leds:
@@ -71,20 +70,20 @@ motor_pins:
 outputs:
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

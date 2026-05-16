@@ -1,7 +1,6 @@
 name: jhef411
 manufacturer: JHEF
 mcu: stm32f411
-brushless: true
 vehicles:
   - multi
 leds:
@@ -54,20 +53,20 @@ motor_pins:
 outputs:
   - pin: PA10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

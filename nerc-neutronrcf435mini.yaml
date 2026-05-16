@@ -1,7 +1,6 @@
 name: neutronrcf435mini
 manufacturer: NERC
 mcu: at32f435
-brushless: true
 vehicles:
   - multi
 leds:
@@ -63,20 +62,20 @@ motor_pins:
 outputs:
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 2
 dma:

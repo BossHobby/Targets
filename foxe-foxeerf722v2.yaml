@@ -1,7 +1,6 @@
 name: foxeerf722v2
 manufacturer: FOXE
 mcu: stm32f722
-brushless: true
 vehicles:
   - multi
 leds:
@@ -66,20 +65,20 @@ motor_pins:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

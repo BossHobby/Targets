@@ -1,7 +1,6 @@
 name: iflight_f745_aio
 manufacturer: IFRC
 mcu: stm32f745
-brushless: true
 vehicles:
   - multi
 leds:
@@ -76,20 +75,20 @@ motor_pins:
 outputs:
   - pin: PE9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PE11
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

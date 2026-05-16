@@ -1,7 +1,6 @@
 name: geprcf405
 manufacturer: GEPR
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -79,20 +78,20 @@ motor_pins:
 outputs:
   - pin: PA10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 2
 dma:

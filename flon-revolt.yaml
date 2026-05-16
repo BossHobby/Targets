@@ -1,7 +1,6 @@
 name: revolt
 manufacturer: FLON
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -59,20 +58,20 @@ motor_pins:
 outputs:
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA2
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 6

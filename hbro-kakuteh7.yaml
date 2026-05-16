@@ -1,7 +1,6 @@
 name: kakuteh7
 manufacturer: HBRO
 mcu: stm32h743
-brushless: true
 vehicles:
   - multi
 leds:
@@ -74,20 +73,20 @@ motor_pins:
 outputs:
   - pin: PB3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:

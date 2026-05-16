@@ -1,7 +1,6 @@
 name: ff_racepit
 manufacturer: FFPV
 mcu: stm32f405
-brushless: true
 vehicles:
   - multi
 leds:
@@ -71,20 +70,20 @@ motor_pins:
 outputs:
   - pin: PB11
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 6

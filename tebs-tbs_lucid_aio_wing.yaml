@@ -1,7 +1,6 @@
 name: tbs_lucid_aio_wing
 manufacturer: TEBS
 mcu: at32f435m
-brushless: true
 vehicles:
   - wing
 leds:
@@ -61,26 +60,26 @@ motor_pins:
 outputs:
   - pin: PA10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - servo
+      - pwm
   - pin: PB7
     caps:
-      - servo
+      - pwm
 baro:
   port: 2
 dma:

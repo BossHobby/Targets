@@ -1,7 +1,6 @@
 name: talonf7v2
 manufacturer: HENA
 mcu: stm32f722
-brushless: true
 vehicles:
   - multi
 leds:
@@ -65,20 +64,20 @@ motor_pins:
 outputs:
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     channel: 6
