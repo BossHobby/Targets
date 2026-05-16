@@ -21,7 +21,6 @@
 name: tbs_wing_aio
 manufacturer: TEBS
 mcu: stm32h743
-brushless: true
 vehicles:
   - wing
   - rover
@@ -95,32 +94,32 @@ motor_pins:
 outputs:
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA2
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PD12
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1

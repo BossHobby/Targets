@@ -1,7 +1,6 @@
 name: spedixf405
 manufacturer: SPDX
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PC14
@@ -103,17 +102,17 @@ vehicles:
 outputs:
   - pin: PB5
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

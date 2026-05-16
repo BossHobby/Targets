@@ -1,7 +1,6 @@
 name: hakrcf411d
 manufacturer: HARC
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -78,17 +77,17 @@ vehicles:
 outputs:
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB5
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

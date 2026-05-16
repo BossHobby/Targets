@@ -1,7 +1,6 @@
 name: betaflightf4
 manufacturer: FPVM
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PB5
@@ -99,17 +98,17 @@ vehicles:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

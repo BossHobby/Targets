@@ -1,7 +1,6 @@
 name: aikonf7
 manufacturer: AIKO
 mcu: stm32f722
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -97,17 +96,17 @@ vehicles:
 outputs:
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

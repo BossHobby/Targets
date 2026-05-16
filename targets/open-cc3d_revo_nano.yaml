@@ -1,7 +1,6 @@
 name: cc3d_revo_nano
 manufacturer: OPEN
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC14
@@ -75,17 +74,17 @@ vehicles:
 outputs:
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

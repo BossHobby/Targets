@@ -1,7 +1,6 @@
 name: matekf405se
 manufacturer: MTKS
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PA14
@@ -110,17 +109,17 @@ vehicles:
 outputs:
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

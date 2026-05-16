@@ -1,7 +1,6 @@
 name: skystarsf405
 manufacturer: SKST
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PC14
@@ -104,17 +103,17 @@ vehicles:
 outputs:
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

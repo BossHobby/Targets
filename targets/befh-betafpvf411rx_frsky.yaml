@@ -1,7 +1,6 @@
 name: betafpvf411rx_frsky
 manufacturer: BEFH
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC14
@@ -89,17 +88,17 @@ vehicles:
 outputs:
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

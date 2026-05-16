@@ -1,7 +1,6 @@
 name: neutronrcf435se
 manufacturer: NERC
 mcu: at32f435
-brushless: true
 leds:
   - invert: true
     pin: PC4
@@ -105,17 +104,17 @@ vehicles:
 outputs:
   - pin: PC7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

@@ -1,7 +1,6 @@
 name: iflight_f411_pro
 manufacturer: IFRC
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -93,17 +92,17 @@ vehicles:
 outputs:
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

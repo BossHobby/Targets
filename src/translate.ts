@@ -278,7 +278,6 @@ async function translate(filename: string, output?: string) {
     name: "",
     mcu: "",
     manufacturer: "",
-    brushless: true,
 
     leds: [],
     serial_ports: [],

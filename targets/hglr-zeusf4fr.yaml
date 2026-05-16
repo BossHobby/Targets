@@ -1,7 +1,6 @@
 name: zeusf4fr
 manufacturer: HGLR
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -90,17 +89,17 @@ vehicles:
 outputs:
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

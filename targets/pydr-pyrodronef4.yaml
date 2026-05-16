@@ -1,7 +1,6 @@
 name: pyrodronef4
 manufacturer: PYDR
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PB4
@@ -92,17 +91,17 @@ vehicles:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

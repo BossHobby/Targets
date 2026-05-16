@@ -1,7 +1,6 @@
 name: flywoof411v2
 manufacturer: FLWO
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -89,17 +88,17 @@ vehicles:
 outputs:
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA15
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

@@ -1,7 +1,6 @@
 name: mambaf411
 manufacturer: DIAT
 mcu: stm32f411
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -69,17 +68,17 @@ vehicles:
 outputs:
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

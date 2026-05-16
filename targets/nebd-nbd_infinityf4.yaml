@@ -1,7 +1,6 @@
 name: nbd_infinityf4
 manufacturer: NEBD
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PC0
@@ -94,17 +93,17 @@ vehicles:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

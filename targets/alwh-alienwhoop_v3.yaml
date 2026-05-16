@@ -1,7 +1,6 @@
 name: alienwhoop_v3
 manufacturer: ALWH
 mcu: stm32f405
-brushless: true
 leds:
   - pin: PC12
   - invert: true
@@ -80,17 +79,17 @@ vehicles:
 outputs:
   - pin: PC7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

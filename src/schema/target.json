@@ -22,9 +22,6 @@
                 "type": "string"
             }
         },
-        "brushless": {
-            "type": "boolean"
-        },
         "vehicles": {
             "type": "array",
             "description": "Vehicle firmware types supported by this target",
@@ -338,7 +335,7 @@
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "enum": ["motor", "servo"]
+                            "enum": ["pwm", "dshot", "brushed"]
                         },
                         "minItems": 1,
                         "uniqueItems": true
@@ -409,7 +406,6 @@
         "name",
         "manufacturer",
         "mcu",
-        "brushless",
         "vehicles",
         "gyro",
         "motor_pins",

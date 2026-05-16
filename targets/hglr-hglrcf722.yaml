@@ -1,7 +1,6 @@
 name: hglrcf722
 manufacturer: HGLR
 mcu: stm32f722
-brushless: true
 leds:
   - invert: true
     pin: PA14
@@ -104,17 +103,17 @@ vehicles:
 outputs:
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB5
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

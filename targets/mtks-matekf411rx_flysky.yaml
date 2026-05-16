@@ -3,7 +3,6 @@ manufacturer: MTKS
 mcu: stm32f411
 alias:
   - hamo-crazybee_f4_flysky
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -82,17 +81,17 @@ vehicles:
 outputs:
   - pin: PB7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

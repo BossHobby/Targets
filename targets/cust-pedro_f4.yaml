@@ -1,7 +1,6 @@
 name: pedro_f4
 manufacturer: CUST
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PC12
@@ -78,17 +77,17 @@ vehicles:
 outputs:
   - pin: PC9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC7
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

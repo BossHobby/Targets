@@ -1,7 +1,6 @@
 name: betafpvf405
 manufacturer: BEFH
 mcu: stm32f405
-brushless: true
 leds:
   - invert: true
     pin: PB5
@@ -104,17 +103,17 @@ vehicles:
 outputs:
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA2
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

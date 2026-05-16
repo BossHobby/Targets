@@ -76,7 +76,7 @@ export interface target_dma_assignment_t {
 }
 
 export type vehicle_type_t = "multi" | "rover" | "wing";
-export type target_output_cap_t = "motor" | "servo";
+export type target_output_cap_t = "pwm" | "dshot" | "brushed";
 
 export interface target_output_t {
   pin: gpio_pins_t;
@@ -88,7 +88,6 @@ export interface target_t {
   manufacturer: string;
   mcu: string;
   alias?: string[];
-  brushless: boolean;
   vehicles: vehicle_type_t[];
 
   leds: target_led_t[];
@@ -129,7 +128,6 @@ export const target_keys = [
   "manufacturer",
   "mcu",
   "alias",
-  "brushless",
   "vehicles",
   "leds",
   "serial_ports",

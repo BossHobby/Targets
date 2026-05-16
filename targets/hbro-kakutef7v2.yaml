@@ -1,7 +1,6 @@
 name: kakutef7v2
 manufacturer: HBRO
 mcu: stm32f745
-brushless: true
 leds:
   - invert: true
     pin: PA2
@@ -105,17 +104,17 @@ vehicles:
 outputs:
   - pin: PE9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PE11
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

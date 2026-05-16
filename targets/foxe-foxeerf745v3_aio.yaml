@@ -1,7 +1,6 @@
 name: foxeerf745v3_aio
 manufacturer: FOXE
 mcu: stm32f745
-brushless: true
 leds:
   - invert: true
     pin: PC13
@@ -113,17 +112,17 @@ vehicles:
 outputs:
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB5
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

@@ -1,7 +1,6 @@
 name: betafpvg473_v2
 manufacturer: BEFH
 mcu: stm32g473
-brushless: true
 leds:
   - invert: true
     pin: PB6
@@ -108,17 +107,17 @@ vehicles:
 outputs:
   - pin: PC6
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA4
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB0
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PB1
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm

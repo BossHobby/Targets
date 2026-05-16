@@ -1,7 +1,6 @@
 name: tbs_lucid_aio
 manufacturer: TEBS
 mcu: at32f435m
-brushless: true
 leds:
   - invert: false
     pin: PC14
@@ -93,17 +92,17 @@ vehicles:
 outputs:
   - pin: PA10
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA3
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA8
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
   - pin: PA9
     caps:
-      - motor
-      - servo
+      - dshot
+      - pwm
