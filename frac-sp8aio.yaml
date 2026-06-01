@@ -48,10 +48,10 @@ ibat_scale: 1180
 buzzer:
   pin: PA8
 motor_pins:
-  - PA2
-  - PA3
-  - PB1
   - PB0
+  - PB1
+  - PA3
+  - PA2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
