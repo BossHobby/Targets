@@ -300,6 +300,7 @@ async function translate(filename: string, output?: string) {
     .split(/\r?\n/)
     .map((l) => l.trim())
     .filter((l) => l.length && l.startsWith("#define"));
+  const defines: Record<string, string> = {};
   for (const l of lines) {
     let start = 0;
     let line = "" + l;
@@ -319,11 +320,28 @@ async function translate(filename: string, output?: string) {
     parts.push(line.substring(start, line.length));
     parts = parts.slice(1).map((p) => p.trim().toLowerCase());
 
+    defines[parts[0]] = parts[1];
     handle(target, parts);
   }
 
   if (BLACKLIST.includes(target.name)) {
     return;
+  }
+
+  if ("sdio_device" in defines || "use_sdcard_sdio" in defines) {
+    // SDIO configs may retain obsolete SPI definitions; do not mix transports.
+    delete target.sdcard;
+    const index = Number(defines.sdio_device?.match(/^sdiodev_([12])$/)?.[1]);
+    const signals = ["ck", "cmd", "d0", "d1", "d2", "d3"];
+    const pins = signals.map(signal => defines[`sdio_${signal}_pin`]);
+    if (index && ["1", "true"].includes(defines.sdio_use_4bit) &&
+        pins.every(pin => /^p[a-z]\d+$/.test(pin || ""))) {
+      const [clk, cmd, d0, d1, d2, d3] = pins.map(parsePin);
+      target.sdio_ports = [{ index, clk, cmd, d0, d1, d2, d3 }];
+      target.sdcard = { sdio: index };
+    } else {
+      console.warn(`Skipping SDIO on ${target.name}: requires port 1 or 2, four-bit mode, and all six pins`);
+    }
   }
 
   if (!output) {

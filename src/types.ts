@@ -47,6 +47,22 @@ export interface target_spi_device_t {
   nss: gpio_pins_t;
 }
 
+export interface target_sdio_port_t {
+  index: number;
+  clk: gpio_pins_t;
+  cmd: gpio_pins_t;
+  d0: gpio_pins_t;
+  d1: gpio_pins_t;
+  d2: gpio_pins_t;
+  d3: gpio_pins_t;
+}
+
+export interface target_sdcard_t {
+  port?: number;
+  nss?: gpio_pins_t;
+  sdio?: number;
+}
+
 export interface target_i2c_device_t {
   port: number;
 }
@@ -94,13 +110,14 @@ export interface target_t {
   serial_ports: target_serial_port_t[];
   serial_soft_ports: target_serial_port_t[];
   spi_ports: target_spi_port_t[];
+  sdio_ports?: target_sdio_port_t[];
   i2c_ports: target_i2c_port_t[];
 
   gyro?: target_gyro_spi_device_t;
   gyro_orientation: number;
   osd?: target_spi_device_t;
   flash?: target_spi_device_t;
-  sdcard?: target_spi_device_t;
+  sdcard?: target_sdcard_t;
   rx_spi?: target_rx_spi_device_t;
 
   baro?: target_i2c_device_t;
@@ -133,6 +150,7 @@ export const target_keys = [
   "serial_ports",
   "serial_soft_ports",
   "spi_ports",
+  "sdio_ports",
   "i2c_ports",
   "gyro",
   "gyro_orientation",

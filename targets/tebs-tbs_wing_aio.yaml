@@ -68,6 +68,16 @@ spi_ports:
     miso: PE13
     mosi: PE14
     sck: PE12
+sdio_ports:
+  - index: 1
+    clk: PC12
+    cmd: PD2
+    d0: PC8
+    d1: PC9
+    d2: PC10
+    d3: PC11
+sdcard:
+  sdio: 1
 gyro:
   port: 1
   nss: PC15

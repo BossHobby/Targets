@@ -18,6 +18,33 @@ await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
 for await (const f of walk("targets")) {
   const target = YAML.parse(await fs.promises.readFile(f, "utf8"));
 
+  if (target.sdcard?.sdio || target.sdio_ports?.length) {
+    const ports = target.sdio_ports || [];
+    if (target.mcu !== "stm32h743" || ports.length > 2 ||
+        ![1, 2].includes(target.sdcard?.sdio) ||
+        target.sdcard.port !== undefined || target.sdcard.nss !== undefined ||
+        !ports.some((port: any) => port.index === target.sdcard.sdio) ||
+        new Set(ports.map((port: any) => port.index)).size !== ports.length) {
+      throw new Error(`invalid SDIO port selection on target ${target.name}`);
+    }
+    const gpio = YAML.parse(await fs.promises.readFile(path.join("mcu", target.mcu, "gpio.yaml"), "utf8"));
+    const signals = ["clk", "cmd", "d0", "d1", "d2", "d3"];
+    for (const port of ports) {
+      if (![1, 2].includes(port.index)) {
+        throw new Error(`invalid SDIO port index on target ${target.name}`);
+      }
+      if (new Set(signals.map(signal => port[signal])).size !== signals.length) {
+        throw new Error(`duplicate SDIO pins on target ${target.name}`);
+      }
+      for (const signal of signals) {
+        if (!gpio[port[signal]]?.some((af: any) =>
+          af.tag.type === "sdio" && af.tag.index === port.index && af.tag.func === signal)) {
+          throw new Error(`invalid SDIO ${signal} pin on target ${target.name}`);
+        }
+      }
+    }
+  }
+
   if (!target.manufacturer) {
     throw new Error(`manufacturer missing from target ${target.name}`);
   }

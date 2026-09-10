@@ -206,6 +206,24 @@
                 "nss"
             ]
         },
+        "sdio_ports": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "index": { "enum": [1, 2] },
+                    "clk": { "type": "string" },
+                    "cmd": { "type": "string" },
+                    "d0": { "type": "string" },
+                    "d1": { "type": "string" },
+                    "d2": { "type": "string" },
+                    "d3": { "type": "string" }
+                },
+                "required": ["index", "clk", "cmd", "d0", "d1", "d2", "d3"]
+            }
+        },
         "sdcard": {
             "type": "object",
             "additionalProperties": false,
@@ -215,11 +233,25 @@
                 },
                 "nss": {
                     "type": "string"
+                },
+                "sdio": {
+                    "enum": [1, 2]
                 }
             },
-            "required": [
-                "port",
-                "nss"
+            "oneOf": [
+                {
+                    "required": ["port", "nss"],
+                    "not": { "required": ["sdio"] }
+                },
+                {
+                    "required": ["sdio"],
+                    "not": {
+                        "anyOf": [
+                            { "required": ["port"] },
+                            { "required": ["nss"] }
+                        ]
+                    }
+                }
             ]
         },
         "rx_spi": {

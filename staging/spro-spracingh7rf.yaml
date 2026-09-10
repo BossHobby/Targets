@@ -36,6 +36,14 @@ spi_ports:
     miso: PB4
     mosi: PB5
     sck: PB3
+sdio_ports:
+  - index: 1
+    clk: PC12
+    cmd: PD2
+    d0: PC8
+    d1: PC9
+    d2: PC10
+    d3: PC11
 i2c_ports:
   - index: 1
     scl: PB8
@@ -48,6 +56,8 @@ gyro:
   nss: PA15
   exti: PD15
 gyro_orientation: 40
+sdcard:
+  sdio: 1
 vbat: PC3
 ibat: PC1
 rgb_led: PB7

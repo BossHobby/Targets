@@ -68,6 +68,14 @@ spi_ports:
     miso: PE5
     mosi: PE6
     sck: PE12
+sdio_ports:
+  - index: 2
+    clk: PC1
+    cmd: PD7
+    d0: PB14
+    d1: PB15
+    d2: PB3
+    d3: PB4
 i2c_ports:
   - index: 2
     scl: PB10
@@ -83,6 +91,8 @@ osd:
 flash:
   port: 3
   nss: PA15
+sdcard:
+  sdio: 2
 vbat: PA4
 vbat_scale: 160
 ibat: PC0

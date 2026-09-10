@@ -1,5 +1,10 @@
 PA0:
 - tag:
+    type: sdio
+    index: 2
+    func: cmd
+  af: 9
+- tag:
     type: timer
     index: 2
     func: ch1
@@ -264,6 +269,11 @@ PB2:
   af: 7
 PB3:
 - tag:
+    type: sdio
+    index: 2
+    func: d2
+  af: 9
+- tag:
     type: timer
     index: 2
     func: ch2
@@ -289,6 +299,11 @@ PB3:
     func: rx
   af: 11
 PB4:
+- tag:
+    type: sdio
+    index: 2
+    func: d3
+  af: 9
 - tag:
     type: timer
     index: 3
@@ -460,6 +475,11 @@ PB13:
   af: 14
 PB14:
 - tag:
+    type: sdio
+    index: 2
+    func: d0
+  af: 9
+- tag:
     type: timer
     index: 1
     func: ch2n
@@ -485,6 +505,11 @@ PB14:
     func: miso
   af: 5
 PB15:
+- tag:
+    type: sdio
+    index: 2
+    func: d1
+  af: 9
 - tag:
     type: timer
     index: 1
@@ -512,6 +537,11 @@ PB15:
   af: 5
 PC0: []
 PC1:
+- tag:
+    type: sdio
+    index: 2
+    func: clk
+  af: 9
 - tag:
     type: spi
     index: 2
@@ -565,6 +595,11 @@ PC7:
   af: 7
 PC8:
 - tag:
+    type: sdio
+    index: 1
+    func: d0
+  af: 12
+- tag:
     type: timer
     index: 3
     func: ch3
@@ -576,6 +611,11 @@ PC8:
   af: 3
 PC9:
 - tag:
+    type: sdio
+    index: 1
+    func: d1
+  af: 12
+- tag:
     type: timer
     index: 3
     func: ch4
@@ -586,6 +626,11 @@ PC9:
     func: ch4
   af: 3
 PC10:
+- tag:
+    type: sdio
+    index: 1
+    func: d2
+  af: 12
 - tag:
     type: spi
     index: 3
@@ -603,6 +648,11 @@ PC10:
   af: 8
 PC11:
 - tag:
+    type: sdio
+    index: 1
+    func: d3
+  af: 12
+- tag:
     type: spi
     index: 3
     func: miso
@@ -618,6 +668,11 @@ PC11:
     func: rx
   af: 8
 PC12:
+- tag:
+    type: sdio
+    index: 1
+    func: clk
+  af: 12
 - tag:
     type: spi
     index: 3
@@ -645,6 +700,11 @@ PD1:
   af: 8
 PD2:
 - tag:
+    type: sdio
+    index: 1
+    func: cmd
+  af: 12
+- tag:
     type: serial
     index: 5
     func: rx
@@ -664,6 +724,11 @@ PD5:
   af: 7
 PD6:
 - tag:
+    type: sdio
+    index: 2
+    func: clk
+  af: 11
+- tag:
     type: spi
     index: 3
     func: mosi
@@ -674,6 +739,11 @@ PD6:
     func: rx
   af: 7
 PD7:
+- tag:
+    type: sdio
+    index: 2
+    func: cmd
+  af: 11
 - tag:
     type: spi
     index: 1

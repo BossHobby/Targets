@@ -53,6 +53,14 @@ spi_ports:
     miso: PC2
     mosi: PC3
     sck: PD3
+sdio_ports:
+  - index: 1
+    clk: PC12
+    cmd: PD2
+    d0: PC8
+    d1: PC9
+    d2: PC10
+    d3: PC11
 i2c_ports:
   - index: 1
     scl: PB6
@@ -67,6 +75,8 @@ gyro_orientation: 0
 osd:
   port: 1
   nss: PB12
+sdcard:
+  sdio: 1
 vbat: PC0
 vbat_scale: 213
 ibat: PC1

@@ -82,9 +82,6 @@ gyro_orientation: 4
 osd:
   port: 2
   nss: PB12
-sdcard:
-  port: 0
-  nss: PA4
 usb_detect: PA9
 vbat: PC5
 vbat_scale: 182
