@@ -1,10 +1,9 @@
 name: spracingh7zero
 manufacturer: SPRO
 mcu: stm32h750
-brushless: true
 leds:
-  - invert: true
-    pin: PE3
+  - pin: PE3
+    invert: true
 serial_ports:
   - index: 1
     rx: PB15
@@ -61,11 +60,11 @@ ibat: PC1
 ibat_scale: 100
 rgb_led: PA8
 sdcard_detect:
-  invert: true
   pin: PD10
+  invert: true
 buzzer:
-  invert: false
   pin: PD7
+  invert: false
 motor_pins:
   - PA2
   - PA3
@@ -73,22 +72,3 @@ motor_pins:
   - PA1
 baro:
   port: 1
-vehicles:
-  - multi
-outputs:
-  - pin: PA2
-    caps:
-      - motor
-      - servo
-  - pin: PA3
-    caps:
-      - motor
-      - servo
-  - pin: PA0
-    caps:
-      - motor
-      - servo
-  - pin: PA1
-    caps:
-      - motor
-      - servo

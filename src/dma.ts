@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import YAML, { Pair, Scalar } from "yaml";
 import { walk } from "./util";
 import { stringifyTarget, target_t, skipEmpty, target_keys } from "./types";
@@ -539,7 +540,7 @@ export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: a
 }
 
 // Main execution
-if (!module.parent) {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
     (async () => {
         const files = process.argv.slice(2);
 

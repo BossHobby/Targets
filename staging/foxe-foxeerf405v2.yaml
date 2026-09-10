@@ -1,12 +1,11 @@
 name: foxeerf405v2
 manufacturer: FOXE
 mcu: stm32f405
-brushless: true
 leds:
-  - invert: true
-    pin: PA13
-  - invert: true
-    pin: PA14
+  - pin: PA13
+    invert: true
+  - pin: PA14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -59,8 +58,8 @@ ibat: PC1
 ibat_scale: 70
 rgb_led: PB7
 buzzer:
-  invert: false
   pin: PC15
+  invert: false
 motor_pins:
   - PC8
   - PB15
@@ -68,22 +67,3 @@ motor_pins:
   - PC9
 baro:
   port: 1
-vehicles:
-  - multi
-outputs:
-  - pin: PC8
-    caps:
-      - motor
-      - servo
-  - pin: PB15
-    caps:
-      - motor
-      - servo
-  - pin: PA8
-    caps:
-      - motor
-      - servo
-  - pin: PC9
-    caps:
-      - motor
-      - servo

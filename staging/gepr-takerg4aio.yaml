@@ -1,10 +1,9 @@
 name: takerg4aio
 manufacturer: GEPR
-mcu: stm32g473
-brushless: true
+mcu: stm32g474
 leds:
-  - invert: true
-    pin: PB7
+  - pin: PB7
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -48,8 +47,8 @@ ibat: PB1
 ibat_scale: 120
 rgb_led: PB6
 buzzer:
-  invert: true
   pin: PA15
+  invert: true
 motor_pins:
   - PA2
   - PA3
@@ -57,55 +56,3 @@ motor_pins:
   - PA1
 baro:
   port: 1
-dma:
-  DSHOT_CH1:
-    dma: DMA1_STREAM1
-    request: 42
-    tag: TIMER1_CH1
-  RGB:
-    dma: DMA1_STREAM2
-    request: 67
-    tag: TIMER4_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM3
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM4
-    request: 11
-    tag: SPI1_MOSI
-  SPI2_RX:
-    dma: DMA1_STREAM5
-    request: 12
-    tag: SPI2_MISO
-  SPI2_TX:
-    dma: DMA1_STREAM6
-    request: 13
-    tag: SPI2_MOSI
-  SPI3_RX:
-    dma: DMA1_STREAM7
-    request: 14
-    tag: SPI3_MISO
-  SPI3_TX:
-    dma: DMA1_STREAM8
-    request: 15
-    tag: SPI3_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PA2
-    caps:
-      - motor
-      - servo
-  - pin: PA3
-    caps:
-      - motor
-      - servo
-  - pin: PA0
-    caps:
-      - motor
-      - servo
-  - pin: PA1
-    caps:
-      - motor
-      - servo

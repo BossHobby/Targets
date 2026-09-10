@@ -1,0 +1,29 @@
+name: nucleoh563zi
+manufacturer: STMI
+mcu: stm32h563
+leds:
+  - pin: PB0
+    invert: true
+  - pin: PF4
+    invert: true
+  - pin: PG4
+    invert: true
+serial_ports:
+  - index: 3
+    rx: PD9
+    tx: PD8
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro_orientation: 0
+motor_pins:
+  - PE13
+  - PE14
+  - PE9
+  - PE11

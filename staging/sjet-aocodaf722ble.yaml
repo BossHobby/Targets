@@ -1,10 +1,9 @@
 name: aocodaf722ble
 manufacturer: SJET
 mcu: stm32f722
-brushless: true
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -55,29 +54,10 @@ ibat: PC1
 ibat_scale: 166
 rgb_led: PB7
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PC7
   - PC6
   - PC9
   - PC8
-vehicles:
-  - multi
-outputs:
-  - pin: PC7
-    caps:
-      - motor
-      - servo
-  - pin: PC6
-    caps:
-      - motor
-      - servo
-  - pin: PC9
-    caps:
-      - motor
-      - servo
-  - pin: PC8
-    caps:
-      - motor
-      - servo

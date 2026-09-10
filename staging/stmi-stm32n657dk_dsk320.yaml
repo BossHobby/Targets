@@ -1,0 +1,10 @@
+name: stm32n657dk_dsk320
+manufacturer: STMI
+mcu: stm32n657
+leds:
+  - pin: PO1
+    invert: true
+  - pin: PG10
+    invert: true
+gyro_orientation: 0
+vbat: PB0

@@ -1,10 +1,9 @@
 name: hdzero_aio15
 manufacturer: HDZO
-mcu: stm32g473
-brushless: true
+mcu: stm32g474
 leds:
-  - invert: true
-    pin: PA4
+  - pin: PA4
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -33,46 +32,10 @@ ibat: PB0
 ibat_scale: 295
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PA9
+  invert: true
 motor_pins:
   - PA1
   - PA0
   - PA3
   - PA2
-dma:
-  DSHOT_CH1:
-    dma: DMA1_STREAM1
-    request: 49
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM2
-    request: 42
-    tag: TIMER1_CH1
-  SPI2_RX:
-    dma: DMA1_STREAM3
-    request: 12
-    tag: SPI2_MISO
-  SPI2_TX:
-    dma: DMA1_STREAM4
-    request: 13
-    tag: SPI2_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PA1
-    caps:
-      - motor
-      - servo
-  - pin: PA0
-    caps:
-      - motor
-      - servo
-  - pin: PA3
-    caps:
-      - motor
-      - servo
-  - pin: PA2
-    caps:
-      - motor
-      - servo

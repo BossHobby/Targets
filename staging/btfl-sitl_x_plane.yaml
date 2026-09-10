@@ -1,0 +1,4 @@
+name: sitl_x_plane
+manufacturer: BTFL
+mcu: sitl
+gyro_orientation: 0

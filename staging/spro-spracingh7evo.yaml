@@ -1,12 +1,11 @@
 name: spracingh7evo
 manufacturer: SPRO
 mcu: stm32h730
-brushless: true
 leds:
-  - invert: true
-    pin: PE5
-  - invert: true
-    pin: PE6
+  - pin: PE5
+    invert: true
+  - pin: PE6
+    invert: true
   - invert: true
 serial_ports:
   - index: 1
@@ -55,11 +54,11 @@ vbat: PC0
 ibat: PC3
 rgb_led: PC6
 sdcard_detect:
-  invert: true
   pin: PC13
-buzzer:
   invert: true
+buzzer:
   pin: PE4
+  invert: true
 motor_pins:
   - PA1
   - PA0
@@ -67,22 +66,3 @@ motor_pins:
   - PA2
 baro:
   port: 2
-vehicles:
-  - multi
-outputs:
-  - pin: PA1
-    caps:
-      - motor
-      - servo
-  - pin: PA0
-    caps:
-      - motor
-      - servo
-  - pin: PA3
-    caps:
-      - motor
-      - servo
-  - pin: PA2
-    caps:
-      - motor
-      - servo

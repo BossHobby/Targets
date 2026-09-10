@@ -1,0 +1,4 @@
+name: sitl_real_flight
+manufacturer: BTFL
+mcu: sitl
+gyro_orientation: 0

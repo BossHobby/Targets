@@ -1,0 +1,68 @@
+name: speedybeeh5dev
+manufacturer: SPBE
+mcu: stm32h563
+leds:
+  - pin: PC3
+    invert: true
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PC11
+    tx: PC10
+  - index: 4
+    rx: PD11
+    tx: PD12
+  - index: 6
+    rx: PC7
+    tx: PC6
+  - index: 8
+    rx: PE0
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PB8
+    sda: PB9
+gyro:
+  port: 1
+  nss: PA4
+  exti: PC4
+gyro_orientation: 4
+osd:
+  port: 2
+  nss: PB12
+sdcard:
+  port: 3
+  nss: PC12
+vbat: PC0
+ibat: PC1
+ibat_scale: 400
+rgb_led: PA8
+sdcard_detect:
+  invert: true
+buzzer:
+  pin: PA15
+  invert: true
+motor_pins:
+  - PB0
+  - PB1
+  - PB6
+  - PB7
+baro:
+  port: 1

@@ -1,12 +1,26 @@
+# DMA Assignment Summary
+# Target: accif435elite (at32f435)
+# Architecture: flexible
+# Total DMA assignments: 7
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM3 (req57) [TIMER2_CH2]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req13) [SPI2_MOSI]
+#
+# Summary: 7 devices assigned, 7/14 streams available
 name: accif435elite
 manufacturer: FOSS
 mcu: at32f435
-brushless: true
 leds:
-  - invert: true
-    pin: PC15
-  - invert: true
-    pin: PC14
+  - pin: PC15
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -52,8 +66,8 @@ vbat_scale: 113
 ibat: PC3
 rgb_led: PB3
 buzzer:
-  invert: true
   pin: PC13
+  invert: true
 motor_pins:
   - PC9
   - PC8
@@ -90,22 +104,3 @@ dma:
     dma: DMA1_STREAM7
     request: 13
     tag: SPI2_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PC9
-    caps:
-      - motor
-      - servo
-  - pin: PC8
-    caps:
-      - motor
-      - servo
-  - pin: PA9
-    caps:
-      - motor
-      - servo
-  - pin: PA8
-    caps:
-      - motor
-      - servo

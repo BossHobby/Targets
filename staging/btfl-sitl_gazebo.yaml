@@ -1,0 +1,4 @@
+name: sitl_gazebo
+manufacturer: BTFL
+mcu: sitl
+gyro_orientation: 0

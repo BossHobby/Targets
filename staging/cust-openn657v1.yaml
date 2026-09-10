@@ -1,0 +1,27 @@
+name: openn657v1
+manufacturer: CUST
+mcu: stm32n657
+leds:
+  - pin: PD15
+    invert: true
+spi_ports:
+  - index: 1
+    miso: PB8
+    mosi: PA7
+    sck: PB9
+i2c_ports:
+  - index: 1
+    scl: PH9
+    sda: PC1
+gyro:
+  port: 42688
+  nss: ICM42688P_CS_PIN
+  exti: ICM42688P_EXTI_PIN
+gyro_orientation: 0
+motor_pins:
+  - PD2
+  - PC12
+  - PE9
+  - PE11
+baro:
+  port: 1

@@ -1,12 +1,11 @@
 name: chonkerh735
 manufacturer: FOSS
 mcu: stm32h735
-brushless: true
 leds:
-  - invert: true
-    pin: PA10
-  - invert: true
-    pin: PA8
+  - pin: PA10
+    invert: true
+  - pin: PA8
+    invert: true
 serial_ports:
   - index: 2
     rx: PD6
@@ -61,22 +60,3 @@ motor_pins:
   - PC9
 baro:
   port: 2
-vehicles:
-  - multi
-outputs:
-  - pin: PC8
-    caps:
-      - motor
-      - servo
-  - pin: PC7
-    caps:
-      - motor
-      - servo
-  - pin: PC6
-    caps:
-      - motor
-      - servo
-  - pin: PC9
-    caps:
-      - motor
-      - servo

@@ -292,7 +292,7 @@ async function translate(filename: string, output?: string) {
 
   console.log(`processing ${filename}...`);
   const content = (await fs.promises.readFile(filename, { encoding: "utf8" }))
-    .replace(/\/\*(.|\s)*?\*\//gm, "")
+    .replace(/\/\*[\s\S]*?\*\//g, "")
     .replace(/\/\/.*/gm, "")
     .replace(/\\r?\n/gm, "");
 

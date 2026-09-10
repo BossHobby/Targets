@@ -1,0 +1,55 @@
+name: tbs_lucid_rpi_fc
+manufacturer: TEBS
+mcu: rp2350b
+leds:
+  - pin: PA0
+    invert: true
+  - pin: PA1
+    invert: true
+serial_ports:
+  - index: 1
+    rx: PA37
+    tx: PA36
+  - index: 2
+    rx: PA43
+    tx: PA42
+  - index: 3
+    rx: PA17
+    tx: PA16
+  - index: 4
+    rx: PA5
+  - index: 5
+    rx: PA41
+spi_ports:
+  - index: 1
+    miso: PA28
+    mosi: PA31
+    sck: PA30
+i2c_ports:
+  - index: 1
+    scl: PA39
+    sda: PA38
+gyro:
+  port: 0
+  nss: PA33
+  exti: PA26
+gyro_orientation: 0
+flash:
+  port: 0
+  nss: PA0
+sdcard:
+  port: 1
+  nss: PA29
+vbat: PA46
+ibat: PA47
+rgb_led: PA2
+buzzer:
+  pin: PA3
+  invert: false
+motor_pins:
+  - PA7
+  - PA6
+  - PA9
+  - PA8
+baro:
+  port: 0

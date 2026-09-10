@@ -1,12 +1,30 @@
+# DMA Assignment Summary
+# Target: kakuteh7wing (stm32h743)
+# Architecture: flexible
+# Total DMA assignments: 11
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM3 (req18) [TIMER2_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req12) [TIMER1_CH2]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req40) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM8 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req62) [SPI3_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA2_STREAM2 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA2_STREAM3 (req84) [SPI4_MOSI]
+#
+# Summary: 11 devices assigned, 5/16 streams available
 name: kakuteh7wing
 manufacturer: HBRO
 mcu: stm32h743
-brushless: true
 leds:
-  - invert: true
-    pin: PC15
-  - invert: true
-    pin: PC14
+  - pin: PC15
+    invert: true
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -74,11 +92,11 @@ ibat: PC4
 ibat_scale: 366
 rgb_led: PA15
 sdcard_detect:
-  invert: false
   pin: PA3
+  invert: false
 buzzer:
-  invert: true
   pin: PB9
+  invert: true
 motor_pins:
   - PE13
   - PE14
@@ -131,22 +149,3 @@ dma:
     dma: DMA2_STREAM3
     request: 84
     tag: SPI4_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PE13
-    caps:
-      - motor
-      - servo
-  - pin: PE14
-    caps:
-      - motor
-      - servo
-  - pin: PA8
-    caps:
-      - motor
-      - servo
-  - pin: PE11
-    caps:
-      - motor
-      - servo

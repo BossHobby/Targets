@@ -1,10 +1,9 @@
 name: hybridg4
 manufacturer: NERC
-mcu: stm32g473
-brushless: true
+mcu: stm32g474
 leds:
-  - invert: true
-    pin: PC15
+  - pin: PC15
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -47,62 +46,10 @@ vbat: PA0
 ibat: PA1
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PC14
+  invert: true
 motor_pins:
   - PB2
   - PB3
   - PB0
   - PB1
-dma:
-  DSHOT_CH1:
-    dma: DMA1_STREAM1
-    request: 49
-    tag: TIMER8_CH1
-  RGB:
-    dma: DMA1_STREAM2
-    request: 42
-    tag: TIMER1_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM3
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM4
-    request: 11
-    tag: SPI1_MOSI
-  SPI2_RX:
-    dma: DMA1_STREAM5
-    request: 12
-    tag: SPI2_MISO
-  SPI2_TX:
-    dma: DMA1_STREAM6
-    request: 13
-    tag: SPI2_MOSI
-  SPI3_RX:
-    dma: DMA1_STREAM7
-    request: 14
-    tag: SPI3_MISO
-  SPI3_TX:
-    dma: DMA1_STREAM8
-    request: 15
-    tag: SPI3_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PB2
-    caps:
-      - motor
-      - servo
-  - pin: PB3
-    caps:
-      - motor
-      - servo
-  - pin: PB0
-    caps:
-      - motor
-      - servo
-  - pin: PB1
-    caps:
-      - motor
-      - servo

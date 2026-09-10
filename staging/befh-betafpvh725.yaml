@@ -1,12 +1,11 @@
 name: betafpvh725
 manufacturer: BEFH
 mcu: stm32h725
-brushless: true
 leds:
-  - invert: true
-    pin: PC5
-  - invert: true
-    pin: PB2
+  - pin: PC5
+    invert: true
+  - pin: PB2
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -59,8 +58,8 @@ ibat: PC1
 ibat_scale: 750
 rgb_led: PB10
 buzzer:
-  invert: true
   pin: PC9
+  invert: true
 motor_pins:
   - PB0
   - PB1
@@ -68,22 +67,3 @@ motor_pins:
   - PC7
 baro:
   port: 1
-vehicles:
-  - multi
-outputs:
-  - pin: PB0
-    caps:
-      - motor
-      - servo
-  - pin: PB1
-    caps:
-      - motor
-      - servo
-  - pin: PC6
-    caps:
-      - motor
-      - servo
-  - pin: PC7
-    caps:
-      - motor
-      - servo

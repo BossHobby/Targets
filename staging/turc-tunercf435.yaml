@@ -1,10 +1,25 @@
+# DMA Assignment Summary
+# Target: tunercf435 (at32f435)
+# Architecture: flexible
+# Total DMA assignments: 8
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req42) [TIMER1_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req49) [TIMER8_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
+#
+# Summary: 8 devices assigned, 6/14 streams available
 name: tunercf435
 manufacturer: TURC
 mcu: at32f435
-brushless: true
 leds:
-  - invert: true
-    pin: PC14
+  - pin: PC14
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -51,8 +66,8 @@ vbat: PB0
 ibat: PB1
 rgb_led: PA8
 buzzer:
-  invert: true
   pin: PB2
+  invert: true
 motor_pins:
   - PB7
   - PB6
@@ -93,22 +108,3 @@ dma:
     dma: DMA2_STREAM1
     request: 15
     tag: SPI3_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PB7
-    caps:
-      - motor
-      - servo
-  - pin: PB6
-    caps:
-      - motor
-      - servo
-  - pin: PB9
-    caps:
-      - motor
-      - servo
-  - pin: PB8
-    caps:
-      - motor
-      - servo

@@ -1,12 +1,11 @@
 name: colibri
 manufacturer: TEBS
 mcu: stm32f405
-brushless: true
 leds:
-  - invert: true
-    pin: PC14
-  - invert: true
-    pin: PC13
+  - pin: PC14
+    invert: true
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PB7
@@ -42,8 +41,8 @@ flash:
 usb_detect: PA9
 rgb_led: PB7
 buzzer:
-  invert: false
   pin: PC5
+  invert: false
 motor_pins:
   - PB1
   - PB15
@@ -51,22 +50,3 @@ motor_pins:
   - PB4
 baro:
   port: .nan
-vehicles:
-  - multi
-outputs:
-  - pin: PB1
-    caps:
-      - motor
-      - servo
-  - pin: PB15
-    caps:
-      - motor
-      - servo
-  - pin: PB0
-    caps:
-      - motor
-      - servo
-  - pin: PB4
-    caps:
-      - motor
-      - servo

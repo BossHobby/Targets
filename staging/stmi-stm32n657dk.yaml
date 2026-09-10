@@ -1,0 +1,4 @@
+name: stm32n657dk
+manufacturer: STMI
+mcu: stm32n657
+gyro_orientation: 0
