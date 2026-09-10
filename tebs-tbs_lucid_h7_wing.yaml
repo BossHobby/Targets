@@ -1,4 +1,4 @@
-name: tbs_wing_aio
+name: tbs_lucid_h7_wing
 manufacturer: TEBS
 mcu: stm32h743
 vehicles:
@@ -56,10 +56,17 @@ sdio_ports:
     d1: PC9
     d2: PC10
     d3: PC11
+i2c_ports:
+  - index: 1
+    scl: PB6
+    sda: PB7
+  - index: 2
+    scl: PB10
+    sda: PB11
 gyro:
   port: 1
   nss: PC15
-gyro_orientation: 8
+gyro_orientation: 48
 osd:
   port: 2
   nss: PB12
@@ -81,6 +88,7 @@ motor_pins:
   - PA2
   - PA3
   - PD12
+  - PD13
 outputs:
   - pin: PB0
     caps:
@@ -110,6 +118,12 @@ outputs:
     caps:
       - dshot
       - pwm
+  - pin: PD13
+    caps:
+      - dshot
+      - pwm
+baro:
+  port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM1
