@@ -94,7 +94,7 @@ export function findDmaAssignments(target: target_t): target_t {
     function getDmaStreamName(resource: dma_resource, assignmentIndex: number): string {
         if (getDmaArchitecture(mcu) === 'flexible') {
             const streamsPerController = mcu === 'at32f435' ? 7 : 8;
-            const startStream = 1;
+            const startStream = mcu === 'stm32h743' ? 0 : 1;
             const dmaController = assignmentIndex < streamsPerController ? 1 : 2;
             const streamNumber = startStream + (assignmentIndex % streamsPerController);
             return `DMA${dmaController}_STREAM${streamNumber}`;
