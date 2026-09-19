@@ -99,6 +99,30 @@ export interface target_output_t {
   caps: target_output_cap_t[];
 }
 
+export type target_receiver_protocol_t = "crsf" | "sbus";
+export type target_vtx_protocol_t = "smart_audio" | "tramp";
+
+export interface target_serial_defaults_t {
+  rx?: number;
+  smart_audio?: number;
+  hdzero?: number;
+  gps?: number;
+}
+
+export interface target_receiver_defaults_t {
+  protocol: target_receiver_protocol_t;
+}
+
+export interface target_vtx_defaults_t {
+  protocol: target_vtx_protocol_t;
+}
+
+export interface target_defaults_t {
+  serial?: target_serial_defaults_t;
+  receiver?: target_receiver_defaults_t;
+  vtx?: target_vtx_defaults_t;
+}
+
 export interface target_t {
   name: string;
   manufacturer: string;
@@ -121,6 +145,8 @@ export interface target_t {
   rx_spi?: target_rx_spi_device_t;
 
   baro?: target_i2c_device_t;
+
+  defaults?: target_defaults_t;
 
   usb_detect?: gpio_pins_t;
   fpv?: gpio_pins_t;
@@ -146,6 +172,7 @@ export const target_keys = [
   "mcu",
   "alias",
   "vehicles",
+  "defaults",
   "leds",
   "serial_ports",
   "serial_soft_ports",

@@ -4,6 +4,14 @@ import { GyroRotation, skipEmpty, stringifyTarget, target_t } from "./types";
 import * as YAML from "yaml";
 import { findDmaAssignments, stringifyTargetWithDmaHeader } from "./dma";
 import path from "path";
+import {
+  defaults_review_entry_t,
+  extractDefaults,
+  loadMcuGpio,
+  mapMCU,
+  stripConfigComments,
+  validateDefaults,
+} from "./defaults";
 
 const OUTPUT_FOLDER = "staging";
 
@@ -18,12 +26,6 @@ const GYRO_ANGLE_MAP = {
   315: GyroRotation.ROTATE_45_CCW,
 };
 
-const MCU_MAP = {
-  stm32f7x2: "stm32f722",
-  stm32g47x: "stm32g473",
-  at32f435g: "at32f435",
-};
-
 const BLACKLIST = [
   "nucleof722",
   "nucleof446",
@@ -32,13 +34,7 @@ const BLACKLIST = [
   "ark_fpv"
 ];
 
-function mapMCU(mcu: string) {
-  if (MCU_MAP[mcu]) {
-    return MCU_MAP[mcu];
-  } else {
-    return mcu;
-  }
-}
+const reviewReport = new Map<string, defaults_review_entry_t[]>();
 
 function parsePin(pin: string) {
   return pin.toUpperCase();
@@ -291,10 +287,9 @@ async function translate(filename: string, output?: string) {
   };
 
   console.log(`processing ${filename}...`);
-  const content = (await fs.promises.readFile(filename, { encoding: "utf8" }))
-    .replace(/\/\*[\s\S]*?\*\//g, "")
-    .replace(/\/\/.*/gm, "")
-    .replace(/\\r?\n/gm, "");
+  const content = stripConfigComments(
+    await fs.promises.readFile(filename, { encoding: "utf8" })
+  );
 
   const lines = content
     .split(/\r?\n/)
@@ -344,6 +339,27 @@ async function translate(filename: string, output?: string) {
     }
   }
 
+  const extraction = extractDefaults(content);
+  for (const diagnostic of extraction.diagnostics) {
+    console.warn(`[defaults] ${target.name}: ${diagnostic}`);
+  }
+  if (extraction.review.length > 0) {
+    reviewReport.set(target.name, extraction.review);
+  }
+  if (extraction.defaults) {
+    const validated = validateDefaults(
+      target,
+      extraction.defaults,
+      await loadMcuGpio(target.mcu)
+    );
+    for (const diagnostic of validated.diagnostics) {
+      console.warn(`[defaults] ${target.name}: ${diagnostic}`);
+    }
+    if (validated.defaults) {
+      target.defaults = validated.defaults;
+    }
+  }
+
   if (!output) {
     output = `${OUTPUT_FOLDER}/${target.manufacturer.toLowerCase()}-${
       target.name
@@ -373,4 +389,19 @@ if (args.length) {
       await translate(f);
     }
   }
+}
+
+if (reviewReport.size > 0) {
+  let report =
+    "defaults import review (conditional or conflicting definitions, not imported):\n";
+  for (const [name, entries] of reviewReport) {
+    report += `  ${name}:\n`;
+    for (const entry of entries) {
+      report += `    ${entry.define} = ${entry.value}\n`;
+    }
+  }
+  console.log(report);
+  await fs.promises
+    .writeFile(path.join(OUTPUT_FOLDER, "defaults-review.txt"), report)
+    .catch(() => {});
 }

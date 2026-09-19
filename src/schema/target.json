@@ -32,6 +32,54 @@
             "minItems": 1,
             "uniqueItems": true
         },
+        "defaults": {
+            "type": "object",
+            "description": "Initial serial/receiver/vtx assignments applied to a fresh profile",
+            "additionalProperties": false,
+            "properties": {
+                "serial": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "rx": {
+                            "type": "integer",
+                            "description": "Serial port for the receiver (UART number, 101+ for soft serial)"
+                        },
+                        "smart_audio": {
+                            "type": "integer"
+                        },
+                        "hdzero": {
+                            "type": "integer"
+                        },
+                        "gps": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "receiver": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "protocol": {
+                            "type": "string",
+                            "enum": ["crsf", "sbus"]
+                        }
+                    },
+                    "required": ["protocol"]
+                },
+                "vtx": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "protocol": {
+                            "type": "string",
+                            "enum": ["smart_audio", "tramp"]
+                        }
+                    },
+                    "required": ["protocol"]
+                }
+            }
+        },
         "leds": {
             "type": "array",
             "items": {
