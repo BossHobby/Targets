@@ -1,6 +1,11 @@
 name: tbs_lucid_fc
 manufacturer: TEBS
 mcu: at32f435m
+defaults:
+  serial:
+    rx: 5
+  receiver:
+    protocol: crsf
 leds:
   - invert: true
     pin: PC14

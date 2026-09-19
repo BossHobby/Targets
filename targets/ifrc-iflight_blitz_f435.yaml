@@ -1,6 +1,9 @@
 name: iflight_blitz_f435
 manufacturer: IFRC
 mcu: at32f435
+defaults:
+  serial:
+    rx: 2
 leds:
   - invert: true
     pin: PC15

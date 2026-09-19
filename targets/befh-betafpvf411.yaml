@@ -1,6 +1,10 @@
 name: betafpvf411
 manufacturer: BEFH
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 1
+    hdzero: 2
 leds:
   - invert: true
     pin: PC13

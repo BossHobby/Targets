@@ -1,6 +1,9 @@
 name: mambaf411
 manufacturer: DIAT
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 1
 leds:
   - invert: true
     pin: PC13

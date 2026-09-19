@@ -1,6 +1,9 @@
 name: spedixf405
 manufacturer: SPDX
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - invert: true
     pin: PC14

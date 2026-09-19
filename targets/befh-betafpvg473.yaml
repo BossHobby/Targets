@@ -1,6 +1,14 @@
 name: betafpvg473
 manufacturer: BEFH
 mcu: stm32g473
+defaults:
+  serial:
+    rx: 3
+    smart_audio: 2
+  receiver:
+    protocol: crsf
+  vtx:
+    protocol: smart_audio
 leds:
   - invert: true
     pin: PC15

@@ -1,6 +1,10 @@
 name: hdzero_aio15
 manufacturer: HDZO
 mcu: stm32g473
+defaults:
+  serial:
+    rx: 2
+    hdzero: 1
 leds:
   - invert: true
     pin: PA4

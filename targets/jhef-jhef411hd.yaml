@@ -1,6 +1,9 @@
 name: jhef411hd
 manufacturer: JHEF
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 2
 leds:
   - invert: true
     pin: PC13

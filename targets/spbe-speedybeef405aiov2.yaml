@@ -1,6 +1,9 @@
 name: speedybeef405aiov2
 manufacturer: SPBE
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 6
 leds:
   - invert: true
     pin: PD7
