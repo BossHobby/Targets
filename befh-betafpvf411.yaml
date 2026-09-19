@@ -5,7 +5,6 @@ vehicles:
   - multi
 defaults:
   serial:
-    hdzero: 2
     rx: 1
 leds:
   - pin: PC13
