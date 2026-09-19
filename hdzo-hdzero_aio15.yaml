@@ -3,6 +3,10 @@ manufacturer: HDZO
 mcu: stm32g473
 vehicles:
   - multi
+defaults:
+  serial:
+    hdzero: 1
+    rx: 2
 leds:
   - pin: PA4
     invert: true

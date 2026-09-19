@@ -3,6 +3,9 @@ manufacturer: DIAT
 mcu: stm32f411
 vehicles:
   - multi
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC13
     invert: true

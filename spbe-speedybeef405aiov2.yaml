@@ -3,6 +3,9 @@ manufacturer: SPBE
 mcu: stm32f405
 vehicles:
   - multi
+defaults:
+  serial:
+    rx: 6
 leds:
   - pin: PD7
     invert: true

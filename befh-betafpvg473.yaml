@@ -3,6 +3,14 @@ manufacturer: BEFH
 mcu: stm32g473
 vehicles:
   - multi
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 3
+    smart_audio: 2
+  vtx:
+    protocol: smart_audio
 leds:
   - pin: PC15
     invert: true

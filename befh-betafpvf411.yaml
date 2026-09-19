@@ -3,6 +3,10 @@ manufacturer: BEFH
 mcu: stm32f411
 vehicles:
   - multi
+defaults:
+  serial:
+    hdzero: 2
+    rx: 1
 leds:
   - pin: PC13
     invert: true

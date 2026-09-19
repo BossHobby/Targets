@@ -3,6 +3,9 @@ manufacturer: JHEF
 mcu: stm32f411
 vehicles:
   - multi
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC13
     invert: true

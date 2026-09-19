@@ -4,6 +4,11 @@ mcu: at32f435m
 vehicles:
   - multi
   - rover
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 5
 leds:
   - pin: PC14
     invert: true

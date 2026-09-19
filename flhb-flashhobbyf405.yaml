@@ -3,6 +3,9 @@ manufacturer: FLHB
 mcu: stm32f405
 vehicles:
   - multi
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC14
     invert: true

@@ -3,6 +3,10 @@ manufacturer: SPBE
 mcu: stm32f405
 vehicles:
   - multi
+defaults:
+  serial:
+    hdzero: 1
+    rx: 2
 leds:
   - pin: PC8
     invert: true
