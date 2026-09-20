@@ -59,28 +59,115 @@ export function parsePort(value: string): number | undefined {
 }
 
 // Extract serial/receiver/vtx defaults from a comment-stripped Betaflight
-// config.h. Only unconditional definitions are imported; anything under a
-// preprocessor conditional (or defined conflictingly) is returned in `review`
+// config.h. Simple `#ifdef` / `#ifndef` / `#else` / `#endif` blocks are
+// evaluated against the macros that the config defines unconditionally, so
+// the active branch of a conditional is imported instead of dumped into
+// `review`. Anything still ambiguous (unknown `#if` expressions, conflicting
+// active definitions, nested unreconciled branches) is returned in `review`
 // for a human to resolve. Unsupported values are reported, never guessed.
 export function extractDefaults(content: string): defaults_extraction_t {
-  const unconditional = new Map<string, string[]>();
-  const conditional = new Map<string, string[]>();
+  const lines = content.split(/\r?\n/);
 
-  let depth = 0;
-  for (const raw of content.split(/\r?\n/)) {
+  // First pass: collect the macros this file defines unconditionally.
+  // These are the "known" flags for evaluating simple conditionals.
+  const definedMacros = new Set<string>();
+  for (const raw of lines) {
     const line = raw.trim();
     if (!line.startsWith("#")) {
       continue;
     }
     const directive = line.substring(1).trim();
     if (/^(?:if|ifdef|ifndef)\b/.test(directive)) {
-      depth++;
       continue;
     }
     if (/^endif\b/.test(directive)) {
-      depth = Math.max(0, depth - 1);
       continue;
     }
+    const match = /^define\s+(\S+)(?:\s+\S+)?/.exec(directive);
+    if (!match) {
+      continue;
+    }
+    definedMacros.add(match[1].toLowerCase());
+  }
+
+  const effective = new Map<string, string[]>();
+  const reviewed = new Map<string, string[]>();
+
+  type BlockState = "active" | "inactive" | "unknown";
+
+  // Stack of preprocessor block states. A line is importable only when every
+  // level is active. Defines in inactive branches are ignored entirely.
+  // Defines in unknown-condition branches are kept for review.
+  const stateStack: BlockState[] = [];
+
+  const currentState = (): BlockState => {
+    if (stateStack.length === 0) {
+      return "active";
+    }
+    if (stateStack.some((s) => s === "unknown")) {
+      return "unknown";
+    }
+    if (stateStack.some((s) => s === "inactive")) {
+      return "inactive";
+    }
+    return "active";
+  };
+
+  const evaluateCondition = (expr: string): BlockState => {
+    const m = expr.match(
+      /^(?:if|ifdef|ifndef|elif)\s+(!?defined\s*\(\s*(\S+?)\s*\)|(\S+))$/i
+    );
+    if (!m) {
+      return "unknown";
+    }
+    const name = (m[2] || m[3]).toLowerCase();
+    const negated = m[1].startsWith("!");
+    const defined = definedMacros.has(name);
+    const wanted = expr.startsWith("ifndef") ? !defined : defined;
+    return (wanted !== negated) ? "active" : "inactive";
+  };
+
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line.startsWith("#")) {
+      continue;
+    }
+    const directive = line.substring(1).trim();
+
+    if (/^(?:if|ifdef|ifndef)\b/.test(directive)) {
+      stateStack.push(evaluateCondition(directive));
+      continue;
+    }
+
+    if (/^else\b/.test(directive)) {
+      if (stateStack.length > 0) {
+        const top = stateStack[stateStack.length - 1];
+        stateStack[stateStack.length - 1] =
+          top === "active" ? "inactive" : top === "inactive" ? "active" : top;
+      }
+      continue;
+    }
+
+    if (/^elif\b/.test(directive)) {
+      const next = evaluateCondition(directive);
+      if (stateStack.length > 0) {
+        const top = stateStack[stateStack.length - 1];
+        // Once a branch was active, later #elif branches are inactive.
+        if (top === "active") {
+          stateStack[stateStack.length - 1] = "inactive";
+        } else if (top === "inactive") {
+          stateStack[stateStack.length - 1] = next;
+        }
+        // unknown stays unknown
+      }
+      continue;
+    }
+
+    if (/^endif\b/.test(directive)) {
+      stateStack.pop();
+      continue;
+    }
+
     const match = /^define\s+(\S+)(?:\s+(\S+))?/.exec(directive);
     if (!match) {
       continue;
@@ -90,7 +177,11 @@ export function extractDefaults(content: string): defaults_extraction_t {
       continue;
     }
     const value = (match[2] || "").toLowerCase();
-    const bucket = depth > 0 ? conditional : unconditional;
+    const state = currentState();
+    if (state === "inactive") {
+      continue;
+    }
+    const bucket = state === "active" ? effective : reviewed;
     if (!bucket.has(name)) {
       bucket.set(name, []);
     }
@@ -99,18 +190,19 @@ export function extractDefaults(content: string): defaults_extraction_t {
 
   const extraction: defaults_extraction_t = { review: [], diagnostics: [] };
 
-  // A define is importable only as a single, unconditional occurrence.
-  // Conditional twins of an unconditional define are conflicts, not overrides.
+  // A define is importable only as a single, effective occurrence.
+  // Conflicting effective values or any value from an unknown-condition branch
+  // is returned in review. Inactive-branch twins are ignored.
   const resolve = (name: string): string | undefined => {
-    const cond = conditional.get(name) || [];
-    const unc = unconditional.get(name) || [];
-    if (cond.length > 0 || new Set(unc).size > 1) {
-      for (const value of [...unc, ...cond]) {
+    const rev = reviewed.get(name) || [];
+    const eff = effective.get(name) || [];
+    if (rev.length > 0 || new Set(eff).size > 1) {
+      for (const value of [...eff, ...rev]) {
         extraction.review.push({ define: name, value });
       }
       return undefined;
     }
-    return unc[0];
+    return eff[0];
   };
 
   const serial: Record<string, number> = {};

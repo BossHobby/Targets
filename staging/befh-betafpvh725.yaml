@@ -1,6 +1,9 @@
 name: betafpvh725
 manufacturer: BEFH
 mcu: stm32h725
+defaults:
+  serial:
+    rx: 5
 leds:
   - pin: PC5
     invert: true

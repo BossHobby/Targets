@@ -1,6 +1,11 @@
 name: betafpvg473_v3
 manufacturer: BEFH
 mcu: stm32g474
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 3
 leds:
   - pin: PC6
     invert: true
