@@ -1,6 +1,19 @@
+# DMA Assignment Summary
+# Target: nucleog474 (stm32g473)
+# Architecture: flexible
+# Total DMA assignments: 5
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
+#   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM3 (req44) [TIMER1_CH3]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
+#
+# Summary: 5 devices assigned, 11/16 streams available
 name: nucleog474
 manufacturer: STMI
-mcu: stm32g474
+mcu: stm32g473
 leds:
   - pin: PA5
     invert: true
@@ -25,3 +38,24 @@ motor_pins:
   - PC7
   - PA10
   - PB4
+dma:
+  DSHOT_CH1:
+    dma: DMA1_STREAM1
+    request: 42
+    tag: TIMER1_CH1
+  DSHOT_CH2:
+    dma: DMA1_STREAM2
+    request: 43
+    tag: TIMER1_CH2
+  DSHOT_CH3:
+    dma: DMA1_STREAM3
+    request: 44
+    tag: TIMER1_CH3
+  SPI1_RX:
+    dma: DMA1_STREAM4
+    request: 10
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM5
+    request: 11
+    tag: SPI1_MOSI

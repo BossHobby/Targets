@@ -23,7 +23,7 @@ gyro:
   port: 0
   nss: PA33
   exti: PA26
-gyro_orientation: 0
+gyro_orientation: 16
 sdcard:
   port: 1
   nss: PA29
