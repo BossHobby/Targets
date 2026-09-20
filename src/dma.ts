@@ -540,7 +540,7 @@ export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: a
 }
 
 // Main execution
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (!module.parent) {
     (async () => {
         const files = process.argv.slice(2);
 

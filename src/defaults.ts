@@ -5,6 +5,7 @@ import { target_defaults_t, target_t } from "./types";
 
 const MCU_MAP = {
   stm32f7x2: "stm32f722",
+  stm32g474: "stm32g473",
   stm32g47x: "stm32g473",
   at32f435g: "at32f435",
 };
