@@ -1,0 +1,86 @@
+name: betafpvg473_v3
+manufacturer: BEFH
+mcu: stm32g474
+vehicles:
+  - multi
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 3
+leds:
+  - pin: PC6
+    invert: true
+  - pin: PC4
+    invert: true
+serial_ports:
+  - index: 1
+    rx: PA10
+    tx: PA9
+  - index: 2
+    rx: PA3
+    tx: PA2
+  - index: 3
+    rx: PB11
+    tx: PB10
+  - index: 4
+    rx: PC11
+    tx: PC10
+spi_ports:
+  - index: 1
+    miso: PA6
+    mosi: PA7
+    sck: PA5
+  - index: 2
+    miso: PB14
+    mosi: PB15
+    sck: PB13
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
+i2c_ports:
+  - index: 1
+    scl: PA15
+    sda: PB7
+gyro:
+  port: 1
+  nss: PC14
+  exti: PC15
+gyro_orientation: 16
+osd:
+  port: 2
+  nss: PB12
+flash:
+  port: 3
+  nss: PC13
+vbat: PA4
+ibat: PA0
+rgb_led: PB2
+buzzer:
+  pin: PA8
+  invert: true
+motor_pins:
+  - PB6
+  - PB9
+  - PB0
+  - PB1
+outputs:
+  - pin: PB6
+    caps:
+      - dshot
+      - pwm
+  - pin: PB9
+    caps:
+      - dshot
+      - pwm
+  - pin: PB0
+    caps:
+      - dshot
+      - pwm
+  - pin: PB1
+    caps:
+      - dshot
+      - pwm
+baro:
+  port: 1
