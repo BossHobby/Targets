@@ -26,6 +26,13 @@ const GYRO_ANGLE_MAP = {
   315: GyroRotation.ROTATE_45_CCW,
 };
 
+const GYRO_ANGLE_MAP_REVERSE = Object.fromEntries(
+  Object.entries(GYRO_ANGLE_MAP).map(([angle, rotation]) => [
+    rotation,
+    parseInt(angle),
+  ])
+);
+
 const BLACKLIST = [
   "nucleof722",
   "nucleof446",
@@ -321,6 +328,22 @@ async function translate(filename: string, output?: string) {
 
   if (BLACKLIST.includes(target.name)) {
     return;
+  }
+
+  if (defines.default_align_board_yaw) {
+    // Betaflight composes the board yaw with the sensor alignment
+    // (sensors/boardalignment.c: alignBoard after the align switch, both via
+    // the transposed matrixTrnVectorMul, as is Quicksilver's
+    // sixaxis_apply_matrix). The transpositions cancel, so the composed
+    // Quicksilver angle is simply align + yaw.
+    const yaw = parseInt(defines.default_align_board_yaw);
+    const flip = target.gyro_orientation & GyroRotation.FLIP_180;
+    const angle =
+      GYRO_ANGLE_MAP_REVERSE[target.gyro_orientation & ~GyroRotation.FLIP_180] ??
+      0;
+    const total = (((angle + yaw) % 360) + 360) % 360;
+    target.gyro_orientation =
+      (GYRO_ANGLE_MAP[total] ?? GyroRotation.ROTATE_NONE) | flip;
   }
 
   if ("sdio_device" in defines || "use_sdcard_sdio" in defines) {
