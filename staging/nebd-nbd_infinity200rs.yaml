@@ -31,6 +31,11 @@
 name: nbd_infinity200rs
 manufacturer: NEBD
 mcu: stm32f745
+defaults:
+  serial:
+    smart_audio: 2
+  vtx:
+    protocol: smart_audio
 leds:
   - pin: PC0
     invert: true

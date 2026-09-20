@@ -21,6 +21,9 @@
 name: crazybeef4dx
 manufacturer: HAMO
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC13
     invert: true

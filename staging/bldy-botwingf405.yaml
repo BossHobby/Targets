@@ -30,6 +30,10 @@
 name: botwingf405
 manufacturer: BLDY
 mcu: stm32f405
+defaults:
+  serial:
+    gps: 6
+    rx: 1
 leds:
   - pin: PC0
     invert: true

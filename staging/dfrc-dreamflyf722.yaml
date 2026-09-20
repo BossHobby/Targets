@@ -30,6 +30,9 @@
 name: dreamflyf722
 manufacturer: DFRC
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC15
     invert: true

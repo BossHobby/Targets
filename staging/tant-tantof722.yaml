@@ -30,6 +30,9 @@
 name: tantof722
 manufacturer: TANT
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PB4
     invert: true

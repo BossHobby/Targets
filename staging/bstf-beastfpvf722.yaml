@@ -30,6 +30,11 @@
 name: beastfpvf722
 manufacturer: BSTF
 mcu: stm32f722
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 2
 leds:
   - pin: PC15
     invert: true

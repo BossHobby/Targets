@@ -15,6 +15,9 @@
 name: oxbotf43512aaio
 manufacturer: OXBT
 mcu: at32f435
+defaults:
+  serial:
+    rx: 5
 leds:
   - pin: PA8
     invert: true

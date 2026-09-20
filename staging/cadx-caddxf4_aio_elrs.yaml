@@ -24,6 +24,10 @@
 name: caddxf4_aio_elrs
 manufacturer: CADX
 mcu: stm32f405
+defaults:
+  serial:
+    hdzero: 1
+    rx: 2
 leds:
   - pin: PB5
     invert: true

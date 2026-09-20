@@ -28,6 +28,9 @@
 name: flycolorf7_aio_hd
 manufacturer: FLCO
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PB2
     invert: true

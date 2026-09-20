@@ -15,6 +15,9 @@
 name: speedybeef435aioelrs
 manufacturer: SPBE
 mcu: at32f435
+defaults:
+  serial:
+    rx: 5
 leds:
   - pin: PA8
     invert: true

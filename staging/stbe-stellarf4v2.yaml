@@ -24,6 +24,11 @@
 name: stellarf4v2
 manufacturer: STBE
 mcu: stm32f405
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 2
 leds:
   - pin: PA15
     invert: true

@@ -29,6 +29,9 @@
 name: takerf722se
 manufacturer: GEPR
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 3
 leds:
   - pin: PC14
     invert: true

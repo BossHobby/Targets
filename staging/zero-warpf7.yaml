@@ -27,6 +27,9 @@
 name: warpf7
 manufacturer: ZERO
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC3
     invert: true

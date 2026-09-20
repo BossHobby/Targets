@@ -18,6 +18,9 @@
 name: betafpvf435
 manufacturer: BEFH
 mcu: at32f435
+defaults:
+  serial:
+    rx: 3
 leds:
   - pin: PB5
     invert: true

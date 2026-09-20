@@ -4,14 +4,18 @@
 # Total DMA assignments: 3
 #
 # DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req11) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM0 (req11) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM1 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM2 (req38) [SPI1_MOSI]
 #
 # Summary: 3 devices assigned, 13/16 streams available
 name: aeroh7digital
 manufacturer: AERO
 mcu: stm32h743
+defaults:
+  serial:
+    hdzero: 2
+    rx: 4
 leds:
   - pin: PD8
     invert: true
@@ -74,14 +78,14 @@ baro:
   port: 1
 dma:
   DSHOT_CH1:
-    dma: DMA1_STREAM1
+    dma: DMA1_STREAM0
     request: 11
     tag: TIMER1_CH1
   SPI1_RX:
-    dma: DMA1_STREAM2
+    dma: DMA1_STREAM1
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM2
     request: 38
     tag: SPI1_MOSI

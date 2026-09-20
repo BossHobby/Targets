@@ -27,6 +27,9 @@
 name: aocodarcf722_aio
 manufacturer: SJET
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PA4
     invert: true

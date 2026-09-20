@@ -30,6 +30,10 @@
 name: hglrc_f405_s
 manufacturer: HGLR
 mcu: stm32f405
+defaults:
+  serial:
+    gps: 4
+    rx: 2
 leds:
   - pin: PA8
     invert: true

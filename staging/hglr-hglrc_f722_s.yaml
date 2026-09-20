@@ -27,6 +27,10 @@
 name: hglrc_f722_s
 manufacturer: HGLR
 mcu: stm32f722
+defaults:
+  serial:
+    gps: 1
+    rx: 2
 leds:
   - pin: PC0
     invert: true

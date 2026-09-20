@@ -17,6 +17,9 @@
 name: matekf411wte
 manufacturer: MTKS
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PA14
     invert: true

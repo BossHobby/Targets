@@ -29,6 +29,11 @@
 name: hummingbird_fc305
 manufacturer: HBRD
 mcu: stm32f722
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 6
 leds:
   - pin: PA15
     invert: true

@@ -28,6 +28,11 @@
 name: betafpvf405_elrs
 manufacturer: BEFH
 mcu: stm32f405
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 3
 leds:
   - pin: PB5
     invert: true

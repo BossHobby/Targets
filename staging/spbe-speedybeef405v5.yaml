@@ -29,6 +29,10 @@
 name: speedybeef405v5
 manufacturer: SPBE
 mcu: stm32f405
+defaults:
+  serial:
+    gps: 4
+    rx: 6
 leds:
   - pin: PA15
     invert: true

@@ -27,6 +27,9 @@
 name: dakefpvf722x8
 manufacturer: DAKE
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 5
 leds:
   - pin: PA15
     invert: true

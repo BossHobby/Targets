@@ -1,5 +1,5 @@
 # DMA Assignment Summary
-# Target: kakuteh7 (stm32h743)
+# Target: champ_h743_v2 (stm32h743)
 # Architecture: flexible
 # Total DMA assignments: 8
 #
@@ -10,15 +10,18 @@
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA1_STREAM6 (req83) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA1_STREAM7 (req84) [SPI4_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM6 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (req62) [SPI3_MOSI]
 #
 # Summary: 8 devices assigned, 8/16 streams available
-name: kakuteh7
-manufacturer: HBRO
+name: champ_h743_v2
+manufacturer: OXBT
 mcu: stm32h743
+defaults:
+  serial:
+    hdzero: 5
 leds:
-  - pin: PC2
+  - pin: PB7
     invert: true
 serial_ports:
   - index: 1
@@ -26,65 +29,58 @@ serial_ports:
     tx: PA9
   - index: 2
     rx: PD6
-    tx: PD5
-  - index: 3
-    rx: PD9
-    tx: PD8
-  - index: 4
-    rx: PD0
-    tx: PD1
+  - index: 5
+    rx: PD2
+    tx: PC12
   - index: 6
     rx: PC7
     tx: PC6
   - index: 7
     rx: PE7
+  - index: 8
+    rx: PE0
+    tx: PE1
 spi_ports:
   - index: 1
     miso: PA6
-    mosi: PA7
+    mosi: PD7
     sck: PA5
   - index: 2
     miso: PB14
     mosi: PB15
     sck: PB13
-  - index: 4
-    miso: PE5
-    mosi: PE6
-    sck: PE2
+  - index: 3
+    miso: PB4
+    mosi: PB5
+    sck: PB3
 i2c_ports:
-  - index: 1
-    scl: PB6
-    sda: PB7
+  - index: 2
+    scl: PB10
+    sda: PB11
 gyro:
-  port: 4
-  nss: PE4
-  exti: PE1
-gyro_orientation: 8
+  port: 1
+  nss: PC15
+  exti: PB2
+gyro_orientation: 0
 osd:
   port: 2
   nss: PB12
-sdcard:
-  port: 1
-  nss: PA4
-usb_detect: PA8
+flash:
+  port: 3
+  nss: PD4
 vbat: PC0
-vbat_scale: 109
 ibat: PC1
-ibat_scale: 168
 rgb_led: PD12
-sdcard_detect:
-  pin: PA3
-  invert: true
 buzzer:
-  pin: PC13
+  pin: PA15
   invert: true
 motor_pins:
-  - PB3
-  - PB10
-  - PB0
-  - PB1
+  - PA2
+  - PA3
+  - PA0
+  - PA1
 baro:
-  port: 1
+  port: 2
 dma:
   DSHOT_CH1:
     dma: DMA1_STREAM0
@@ -110,11 +106,11 @@ dma:
     dma: DMA1_STREAM5
     request: 40
     tag: SPI2_MOSI
-  SPI4_RX:
+  SPI3_RX:
     dma: DMA1_STREAM6
-    request: 83
-    tag: SPI4_MISO
-  SPI4_TX:
+    request: 61
+    tag: SPI3_MISO
+  SPI3_TX:
     dma: DMA1_STREAM7
-    request: 84
-    tag: SPI4_MOSI
+    request: 62
+    tag: SPI3_MOSI

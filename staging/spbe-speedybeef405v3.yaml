@@ -27,6 +27,10 @@
 name: speedybeef405v3
 manufacturer: SPBE
 mcu: stm32f405
+defaults:
+  serial:
+    hdzero: 1
+    rx: 2
 leds:
   - pin: PC8
     invert: true

@@ -24,6 +24,9 @@
 name: stellarf7_dual_hd
 manufacturer: STBE
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PB12
     invert: true

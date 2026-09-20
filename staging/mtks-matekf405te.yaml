@@ -29,6 +29,9 @@
 name: matekf405te
 manufacturer: MTKS
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PA14
     invert: true

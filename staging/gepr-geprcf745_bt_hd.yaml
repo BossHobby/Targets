@@ -33,6 +33,10 @@
 name: geprcf745_bt_hd
 manufacturer: GEPR
 mcu: stm32f745
+defaults:
+  serial:
+    hdzero: 1
+    rx: 2
 leds:
   - pin: PC13
     invert: true

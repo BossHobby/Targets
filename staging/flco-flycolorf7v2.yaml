@@ -30,6 +30,9 @@
 name: flycolorf7v2
 manufacturer: FLCO
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC15
     invert: true

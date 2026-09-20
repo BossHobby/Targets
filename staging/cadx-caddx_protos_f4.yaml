@@ -28,6 +28,13 @@
 name: caddx_protos_f4
 manufacturer: CADX
 mcu: stm32f405
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    gps: 1
+    hdzero: 4
+    rx: 6
 leds:
   - pin: PB5
     invert: true

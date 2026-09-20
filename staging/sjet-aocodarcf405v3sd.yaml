@@ -27,6 +27,12 @@
 name: aocodarcf405v3sd
 manufacturer: SJET
 mcu: stm32f405
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    gps: 1
+    rx: 2
 leds:
   - pin: PC13
     invert: true

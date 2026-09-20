@@ -17,6 +17,11 @@
 name: tbs_lucid_aio
 manufacturer: TEBS
 mcu: at32f435m
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 5
 leds:
   - pin: PC14
     invert: true

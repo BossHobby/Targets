@@ -27,6 +27,9 @@
 name: flytex405v2
 manufacturer: FLTE
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PB0
     invert: true

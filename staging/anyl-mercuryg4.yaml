@@ -1,6 +1,9 @@
 name: mercuryg4
 manufacturer: ANYL
 mcu: stm32g474
+defaults:
+  serial:
+    rx: 2
 serial_ports:
   - index: 1
     rx: PB7

@@ -28,6 +28,9 @@
 name: matekf722hd
 manufacturer: MTKS
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PA14
     invert: true

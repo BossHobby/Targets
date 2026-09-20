@@ -30,6 +30,11 @@
 name: flycolorf7micro
 manufacturer: FLCO
 mcu: stm32f722
+defaults:
+  receiver:
+    protocol: sbus
+  serial:
+    rx: 4
 leds:
   - pin: PC15
     invert: true

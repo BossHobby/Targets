@@ -30,6 +30,9 @@
 name: namimnof722
 manufacturer: NAMO
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC15
     invert: true

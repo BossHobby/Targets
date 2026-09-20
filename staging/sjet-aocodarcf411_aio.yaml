@@ -19,6 +19,9 @@
 name: aocodarcf411_aio
 manufacturer: SJET
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC13
     invert: true

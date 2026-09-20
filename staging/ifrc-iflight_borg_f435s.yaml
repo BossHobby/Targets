@@ -17,6 +17,11 @@
 name: iflight_borg_f435s
 manufacturer: IFRC
 mcu: at32f435m
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 4
 leds:
   - pin: PC15
     invert: true

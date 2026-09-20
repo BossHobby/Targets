@@ -17,6 +17,9 @@
 name: hummingbird_200rs
 manufacturer: HBRD
 mcu: at32f435
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PA8
     invert: true

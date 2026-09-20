@@ -30,6 +30,9 @@
 name: sologoodf722
 manufacturer: SLGD
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC15
     invert: true

@@ -29,6 +29,9 @@
 name: jhef405wing
 manufacturer: JHEF
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PA14
     invert: true

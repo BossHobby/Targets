@@ -26,6 +26,13 @@
 name: stellarf7
 manufacturer: STBE
 mcu: stm32f722
+defaults:
+  serial:
+    gps: 5
+    rx: 2
+    smart_audio: 3
+  vtx:
+    protocol: smart_audio
 leds:
   - pin: PB2
     invert: true

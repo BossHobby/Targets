@@ -1,6 +1,14 @@
 name: crazybee473
 manufacturer: HAMO
 mcu: stm32g474
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 3
+    smart_audio: 4
+  vtx:
+    protocol: smart_audio
 leds:
   - pin: PC4
     invert: true

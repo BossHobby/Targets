@@ -1,6 +1,9 @@
 name: spracingh7nano
 manufacturer: SPRO
 mcu: stm32h750
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PE3
     invert: true

@@ -29,6 +29,9 @@
 name: flycolorf4
 manufacturer: FLCO
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 4
 leds:
   - pin: PC15
     invert: true

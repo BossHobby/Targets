@@ -19,6 +19,9 @@
 name: dreamflyf411
 manufacturer: DFRC
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC13
     invert: true

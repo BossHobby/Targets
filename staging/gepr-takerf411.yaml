@@ -19,6 +19,9 @@
 name: takerf411
 manufacturer: GEPR
 mcu: stm32f411
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC13
     invert: true

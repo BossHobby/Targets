@@ -30,6 +30,10 @@
 name: orqaf7
 manufacturer: ORQA
 mcu: stm32f722
+defaults:
+  serial:
+    gps: 6
+    rx: 2
 leds:
   - pin: PC15
     invert: true

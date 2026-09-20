@@ -29,6 +29,9 @@
 name: flysparkf4
 manufacturer: FLYS
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC13
     invert: true

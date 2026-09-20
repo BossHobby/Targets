@@ -1,6 +1,9 @@
 name: speedybeeh5dev
 manufacturer: SPBE
 mcu: stm32h563
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC3
     invert: true

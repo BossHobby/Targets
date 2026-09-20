@@ -30,6 +30,11 @@
 name: geprc_taker_f405aio
 manufacturer: GEPR
 mcu: stm32f405
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 2
 leds:
   - pin: PD15
     invert: true

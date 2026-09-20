@@ -29,6 +29,9 @@
 name: flashhobbyf405
 manufacturer: FLHB
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC14
     invert: true

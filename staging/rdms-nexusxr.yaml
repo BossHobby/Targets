@@ -26,6 +26,11 @@
 name: nexusxr
 manufacturer: RDMS
 mcu: stm32f722
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 5
 leds:
   - pin: PC10
     invert: true

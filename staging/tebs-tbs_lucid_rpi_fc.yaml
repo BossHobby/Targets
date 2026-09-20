@@ -1,6 +1,12 @@
 name: tbs_lucid_rpi_fc
 manufacturer: TEBS
 mcu: rp2350b
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    gps: 1
+    rx: 2
 leds:
   - pin: PA0
     invert: true

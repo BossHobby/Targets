@@ -29,6 +29,11 @@
 name: micoair405mini
 manufacturer: MICO
 mcu: stm32f405
+defaults:
+  serial:
+    gps: 3
+    hdzero: 2
+    rx: 6
 leds:
   - pin: PA8
     invert: true

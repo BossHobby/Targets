@@ -29,6 +29,9 @@
 name: spedixf722
 manufacturer: SPDX
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC14
     invert: true

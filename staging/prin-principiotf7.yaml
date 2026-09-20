@@ -28,6 +28,9 @@
 name: principiotf7
 manufacturer: PRIN
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PA4
     invert: true

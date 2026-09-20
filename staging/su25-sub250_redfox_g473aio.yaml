@@ -1,6 +1,14 @@
 name: sub250_redfox_g473aio
 manufacturer: SU25
 mcu: stm32g474
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    rx: 2
+    smart_audio: 1
+  vtx:
+    protocol: smart_audio
 leds:
   - pin: PA10
     invert: true

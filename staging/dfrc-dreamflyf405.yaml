@@ -30,6 +30,9 @@
 name: dreamflyf405
 manufacturer: DFRC
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC15
     invert: true

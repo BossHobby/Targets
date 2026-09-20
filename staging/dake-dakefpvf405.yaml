@@ -30,6 +30,9 @@
 name: dakefpvf405
 manufacturer: DAKE
 mcu: stm32f405
+defaults:
+  serial:
+    rx: 2
 leds:
   - pin: PC14
     invert: true

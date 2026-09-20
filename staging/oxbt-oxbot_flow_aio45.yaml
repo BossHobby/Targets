@@ -17,6 +17,11 @@
 name: oxbot_flow_aio45
 manufacturer: OXBT
 mcu: at32f435
+defaults:
+  serial:
+    gps: 7
+    hdzero: 2
+    rx: 4
 leds:
   - pin: PB5
     invert: true

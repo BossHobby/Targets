@@ -27,6 +27,10 @@
 name: botwingf722
 manufacturer: BLDY
 mcu: stm32f722
+defaults:
+  serial:
+    gps: 6
+    rx: 2
 leds:
   - pin: PC4
     invert: true

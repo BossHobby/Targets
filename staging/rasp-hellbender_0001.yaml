@@ -1,6 +1,9 @@
 name: hellbender_0001
 manufacturer: RASP
 mcu: rp2350b
+defaults:
+  serial:
+    gps: 1
 leds:
   - pin: PA6
     invert: true

@@ -28,6 +28,9 @@
 name: flycolorf7mini
 manufacturer: FLCO
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 4
 leds:
   - pin: PC15
     invert: true

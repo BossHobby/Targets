@@ -30,6 +30,9 @@
 name: blade_f7_aio
 manufacturer: RUSH
 mcu: stm32f722
+defaults:
+  serial:
+    rx: 1
 leds:
   - pin: PC15
     invert: true
