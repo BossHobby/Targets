@@ -63,7 +63,7 @@ gyro:
   port: 1
   nss: PC14
   exti: PC15
-gyro_orientation: 16
+gyro_orientation: 2
 osd:
   port: 2
   nss: PB12
