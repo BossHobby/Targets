@@ -114,11 +114,3 @@ dma:
     dma: DMA1_STREAM5
     request: 40
     tag: SPI2_MOSI
-  SPI4_RX:
-    dma: DMA1_STREAM6
-    request: 83
-    tag: SPI4_MISO
-  SPI4_TX:
-    dma: DMA1_STREAM7
-    request: 84
-    tag: SPI4_MOSI

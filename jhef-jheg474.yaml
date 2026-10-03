@@ -96,14 +96,6 @@ dma:
     dma: DMA1_STREAM4
     request: 72
     tag: TIMER5_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM5
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM6
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
     dma: DMA1_STREAM7
     request: 12
