@@ -1,19 +1,17 @@
 # DMA Assignment Summary
 # Target: tbs_lucid_aio_wing (at32f435m)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 6
 #
 # DMA Device Assignments:
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
 #   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
 #   SPI3_TX         -> ASSIGNED: DMA2_STREAM1 (req15) [SPI3_MOSI]
 #
-# Summary: 8 devices assigned, 6/14 streams available
+# Summary: 6 devices assigned, 8/14 streams available
 name: tbs_lucid_aio_wing
 manufacturer: TEBS
 mcu: at32f435m
@@ -107,14 +105,6 @@ dma:
     dma: DMA1_STREAM2
     request: 43
     tag: TIMER1_CH2
-  SPI1_RX:
-    dma: DMA1_STREAM3
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM4
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
     dma: DMA1_STREAM5
     request: 12

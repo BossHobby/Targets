@@ -95,14 +95,6 @@ dma:
     dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
-  SPI3_RX:
-    dma: DMA1_STREAM7
-    request: 14
-    tag: SPI3_MISO
-  SPI3_TX:
-    dma: DMA1_STREAM8
-    request: 15
-    tag: SPI3_MOSI
 vehicles:
   - multi
 outputs:

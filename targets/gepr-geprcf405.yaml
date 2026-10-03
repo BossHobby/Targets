@@ -104,14 +104,6 @@ dma:
     channel: 0
     dma: DMA1_STREAM4
     tag: SPI2_MOSI
-  SPI3_RX:
-    channel: 0
-    dma: DMA1_STREAM0
-    tag: SPI3_MISO
-  SPI3_TX:
-    channel: 0
-    dma: DMA1_STREAM5
-    tag: SPI3_MOSI
 vehicles:
   - multi
 outputs:

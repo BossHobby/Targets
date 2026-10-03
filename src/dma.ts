@@ -31,6 +31,16 @@ const tagEqual = (lhs: device_tag, rhs: device_tag) =>
 const getDmaArchitecture = (mcu: string) =>
     ['stm32f405', 'stm32f411', 'stm32f722', 'stm32f745', 'stm32f765'].includes(mcu) ? 'fixed' : 'flexible';
 
+// The gyro only uses polled transfers, so only ports carrying another device need DMA.
+function spiDmaPorts(target: target_t): Set<number> {
+    const ports = new Set<number>();
+    for (const dev of [target.osd, target.flash, target.sdcard?.sdio ? undefined : target.sdcard]) {
+        if (dev?.port && dev.nss) ports.add(dev.port);
+    }
+    if (target.rx_spi?.port) ports.add(target.rx_spi.port);
+    return ports;
+}
+
 export function findDmaAssignments(target: target_t): target_t {
     const mcu = mapMCU(target.mcu);
     const dma = dmas[mcu] as dma_resource[];
@@ -156,7 +166,9 @@ export function findDmaAssignments(target: target_t): target_t {
         }
     }
 
-    for (const spi of target.spi_ports || []) {
+    const dmaPorts = spiDmaPorts(target);
+    const spiPorts = (target.spi_ports || []).filter(spi => dmaPorts.has(spi.index));
+    for (const spi of spiPorts) {
         allPeripherals.push({ type: 'spi', index: spi.index, func: 'miso' });
         allPeripherals.push({ type: 'spi', index: spi.index, func: 'mosi' });
     }
@@ -298,11 +310,11 @@ export function findDmaAssignments(target: target_t): target_t {
     }
 
     // 3. Assign SPI channels
-    if (target.spi_ports && target.spi_ports.length > 0) {
+    if (spiPorts.length > 0) {
         peripheralStatus.spi.attempted = true;
-        peripheralStatus.spi.total = target.spi_ports.length * 2;
+        peripheralStatus.spi.total = spiPorts.length * 2;
 
-        for (const spi of target.spi_ports) {
+        for (const spi of spiPorts) {
             const misoGpios = gpio[spi.miso]?.filter((g: any) =>
                 g.tag.type === 'spi' && g.tag.index === spi.index && g.tag.func === 'miso') || [];
             const mosiGpios = gpio[spi.mosi]?.filter((g: any) =>
