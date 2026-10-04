@@ -8,6 +8,7 @@ const MCU_MAP = {
   stm32g474: "stm32g473",
   stm32g47x: "stm32g473",
   at32f435g: "at32f435",
+  at32f435m: "at32f435",
 };
 
 export function mapMCU(mcu: string) {
