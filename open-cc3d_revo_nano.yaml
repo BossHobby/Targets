@@ -32,6 +32,11 @@ gyro:
   port: 2
   nss: PB12
 gyro_orientation: 16
+pinio:
+  - pin: PA13
+    label: VTX power
+    description: Power supply for the video transmitter
+    invert: false
 fpv: PA13
 vbat: PA6
 buzzer:

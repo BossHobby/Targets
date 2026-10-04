@@ -49,6 +49,10 @@ osd:
 flash:
   port: 3
   nss: PB0
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 vbat: PC0
 ibat: PC1
 rgb_led: PA15

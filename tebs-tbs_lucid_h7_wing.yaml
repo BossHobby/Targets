@@ -72,6 +72,15 @@ osd:
   nss: PB12
 sdcard:
   sdio: 1
+pinio:
+  - pin: PD10
+    label: VTX power
+    description: VSW output; voltage selected by jumper
+    invert: false
+  - pin: PD11
+    label: Camera select
+    description: Selects the C1/C2 analog video input
+    invert: false
 vbat: PC0
 vbat_scale: 210
 ibat: PC1

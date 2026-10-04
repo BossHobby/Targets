@@ -50,6 +50,15 @@ gyro_orientation: 36
 osd:
   port: 2
   nss: PB12
+pinio:
+  - pin: PE4
+    label: VTX power
+    description: Video transmitter power switch
+    invert: false
+  - pin: PE15
+    label: Camera select
+    description: Select between the two camera inputs
+    invert: false
 vbat: PC2
 buzzer:
   pin: PB9

@@ -62,6 +62,15 @@ osd:
 flash:
   port: 3
   nss: PA15
+pinio:
+  - pin: PA13
+    label: GPIO 1
+    description: SWDIO / USER1 pad
+    invert: false
+  - pin: PA14
+    label: GPIO 2
+    description: SWDCLK / USER2 pad
+    invert: false
 vbat: PC0
 ibat: PC1
 rgb_led: PA8

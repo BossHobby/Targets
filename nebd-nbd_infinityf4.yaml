@@ -42,6 +42,14 @@ gyro:
 osd:
   port: 1
   nss: PA4
+pinio:
+  - pin: PA13
+    label: VTX power
+    description: Power supply for the video transmitter
+    invert: false
+  - pin: PC5
+    label: PINIO 1
+    invert: true
 fpv: PA13
 vbat: PC4
 ibat: PC3

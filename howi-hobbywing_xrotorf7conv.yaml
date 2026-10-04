@@ -53,6 +53,13 @@ osd:
 flash:
   port: 3
   nss: PC13
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: false
+  - pin: PB9
+    label: PINIO 2
+    invert: false
 vbat: PC1
 ibat: PC0
 ibat_scale: 170

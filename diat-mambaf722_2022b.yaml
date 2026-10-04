@@ -55,6 +55,13 @@ osd:
 flash:
   port: 3
   nss: PA15
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
+  - pin: PC0
+    label: PINIO 2
+    invert: true
 vbat: PC1
 ibat: PC3
 ibat_scale: 115

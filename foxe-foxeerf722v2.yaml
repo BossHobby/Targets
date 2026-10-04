@@ -50,6 +50,11 @@ osd:
 flash:
   port: 2
   nss: PB12
+pinio:
+  - pin: PC6
+    label: GPS power
+    description: Power supply for the GPS receiver
+    invert: true
 fpv: PC6
 vbat: PC0
 ibat: PC2

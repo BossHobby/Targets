@@ -57,6 +57,10 @@ flash:
   port: 1
   nss: PA4
 usb_detect: PA8
+pinio:
+  - pin: PC0
+    label: PINIO 1
+    invert: false
 vbat: PC3
 ibat: PC2
 ibat_scale: 175

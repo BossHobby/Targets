@@ -54,6 +54,10 @@ osd:
 flash:
   port: 3
   nss: PC13
+pinio:
+  - pin: PA13
+    label: VTX PWR
+    invert: false
 vbat: PA4
 ibat: PA0
 rgb_led: PB2

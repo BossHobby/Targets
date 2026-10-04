@@ -6,8 +6,6 @@ vehicles:
 leds:
   - pin: PC13
     invert: true
-  - pin: PC14
-    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -42,6 +40,13 @@ osd:
 flash:
   port: 2
   nss: PA0
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 vbat: PB0
 ibat: PB1
 buzzer:

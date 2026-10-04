@@ -54,6 +54,10 @@ sdcard:
   port: 1
   nss: PA4
 usb_detect: PA8
+pinio:
+  - pin: PE13
+    label: PINIO 1
+    invert: true
 vbat: PC0
 vbat_scale: 109
 ibat: PC1

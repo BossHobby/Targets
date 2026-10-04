@@ -55,6 +55,10 @@ osd:
 flash:
   port: 2
   nss: PB12
+pinio:
+  - pin: PC14
+    label: 9V BEC OFF
+    invert: true
 vbat: PC0
 ibat: PC2
 ibat_scale: 88

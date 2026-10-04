@@ -52,6 +52,10 @@ osd:
 sdcard:
   port: 2
   nss: PA15
+pinio:
+  - pin: PC3
+    label: PINIO 1
+    invert: true
 vbat: PC0
 ibat: PC1
 ibat_scale: 386

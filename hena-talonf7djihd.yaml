@@ -49,6 +49,10 @@ flash:
   port: 2
   nss: PB12
 usb_detect: PC5
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 vbat: PC2
 vbat_scale: 110
 ibat: PC1

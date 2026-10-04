@@ -51,6 +51,10 @@ flash:
   port: 3
   nss: PD2
 usb_detect: PC14
+pinio:
+  - pin: PC9
+    label: PINIO 1
+    invert: true
 vbat: PC2
 ibat: PC1
 ibat_scale: 250

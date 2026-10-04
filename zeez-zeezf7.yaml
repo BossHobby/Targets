@@ -16,7 +16,6 @@ serial_ports:
     rx: PA3
     tx: PA2
   - index: 3
-    rx: PB11
     tx: PB10
   - index: 4
     rx: PA1
@@ -51,6 +50,10 @@ osd:
 flash:
   port: 1
   nss: PA4
+pinio:
+  - pin: PB11
+    label: VTX power
+    invert: false
 vbat: PC2
 vbat_scale: 110
 ibat: PC3
