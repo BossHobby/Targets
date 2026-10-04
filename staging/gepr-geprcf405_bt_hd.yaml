@@ -30,6 +30,13 @@
 name: geprcf405_bt_hd
 manufacturer: GEPR
 mcu: stm32f405
+pinio:
+  - pin: PA13
+    label: PINIO 1
+    invert: false
+  - pin: PA14
+    label: PINIO 2
+    invert: true
 defaults:
   serial:
     rx: 2

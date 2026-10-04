@@ -30,6 +30,10 @@
 name: wdiyf722
 manufacturer: WDIY
 mcu: stm32f722
+pinio:
+  - pin: PB14
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC8
     invert: true

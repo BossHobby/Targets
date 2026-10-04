@@ -1,6 +1,10 @@
 name: speedybeef7
 manufacturer: SPBE
 mcu: stm32f722
+pinio:
+  - pin: PA15
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC14
     invert: true

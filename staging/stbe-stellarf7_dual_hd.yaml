@@ -24,6 +24,10 @@
 name: stellarf7_dual_hd
 manufacturer: STBE
 mcu: stm32f722
+pinio:
+  - pin: PA15
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 2

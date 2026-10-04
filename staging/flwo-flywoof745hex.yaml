@@ -1,6 +1,10 @@
 name: flywoof745hex
 manufacturer: FLWO
 mcu: stm32f745
+pinio:
+  - pin: PC0
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PA2
     invert: true

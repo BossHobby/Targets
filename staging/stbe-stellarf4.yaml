@@ -26,6 +26,10 @@
 name: stellarf4
 manufacturer: STBE
 mcu: stm32f405
+pinio:
+  - pin: PC3
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 2

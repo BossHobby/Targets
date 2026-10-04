@@ -20,6 +20,10 @@
 name: matekf411se
 manufacturer: MTKS
 mcu: stm32f411
+pinio:
+  - pin: PA13
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC13
     invert: true

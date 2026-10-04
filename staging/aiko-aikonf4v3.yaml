@@ -27,6 +27,13 @@
 name: aikonf4v3
 manufacturer: AIKO
 mcu: stm32f405
+pinio:
+  - pin: PB7
+    label: 10V BEC
+    invert: true
+  - pin: PB3
+    label: Cam1,2
+    invert: false
 leds:
   - pin: PB4
     invert: true

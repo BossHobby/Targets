@@ -29,6 +29,10 @@
 name: flashhobbyf722
 manufacturer: FLHB
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 2

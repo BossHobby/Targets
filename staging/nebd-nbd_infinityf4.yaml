@@ -31,6 +31,10 @@
 name: nbd_infinityf4
 manufacturer: NEBD
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC0
     invert: true

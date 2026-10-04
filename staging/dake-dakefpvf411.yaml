@@ -21,6 +21,10 @@
 name: dakefpvf411
 manufacturer: DAKE
 mcu: stm32f411
+pinio:
+  - pin: PA14
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC13
     invert: true

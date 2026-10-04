@@ -15,6 +15,10 @@
 name: speedybeef435aioelrs
 manufacturer: SPBE
 mcu: at32f435
+pinio:
+  - pin: PC14
+    label: 8V CTRL
+    invert: true
 defaults:
   serial:
     rx: 5

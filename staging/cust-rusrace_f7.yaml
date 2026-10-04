@@ -27,6 +27,10 @@
 name: rusrace_f7
 manufacturer: CUST
 mcu: stm32f722
+pinio:
+  - pin: PC1
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PB9
     invert: true

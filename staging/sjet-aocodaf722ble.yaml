@@ -1,6 +1,10 @@
 name: aocodaf722ble
 manufacturer: SJET
 mcu: stm32f722
+pinio:
+  - pin: PA15
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC14
     invert: true

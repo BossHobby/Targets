@@ -29,6 +29,13 @@
 name: tmotorf7v2
 manufacturer: TMTR
 mcu: stm32f722
+pinio:
+  - pin: PC1
+    label: PINIO 1
+    invert: true
+  - pin: PC15
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC14
     invert: true

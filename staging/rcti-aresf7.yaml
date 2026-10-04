@@ -27,6 +27,10 @@
 name: aresf7
 manufacturer: RCTI
 mcu: stm32f722
+pinio:
+  - pin: PB1
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC0
     invert: true

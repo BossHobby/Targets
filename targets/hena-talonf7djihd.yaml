@@ -1,6 +1,10 @@
 name: talonf7djihd
 manufacturer: HENA
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 leds:
   - invert: true
     pin: PB0

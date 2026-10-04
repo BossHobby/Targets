@@ -343,7 +343,24 @@
             "type": "string"
         },
         "fpv": {
-            "type": "string"
+            "type": "string",
+            "description": "Legacy VTX power pin for older firmware; also define its pinio entry"
+        },
+        "pinio": {
+            "type": "array",
+            "description": "GPIO switches in PINIO AUX order; invert defaults to false",
+            "maxItems": 4,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["pin", "label"],
+                "properties": {
+                    "pin": {"type": "string", "pattern": "^P[A-K](?:[0-9]|1[0-5])$"},
+                    "label": {"type": "string", "minLength": 1, "maxLength": 31},
+                    "description": {"type": "string", "maxLength": 95},
+                    "invert": {"type": "boolean", "description": "Logical on drives the pin low"}
+                }
+            }
         },
         "vbat": {
             "type": "string"

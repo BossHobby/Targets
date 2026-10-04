@@ -18,6 +18,10 @@
 name: airbotsuperf4
 manufacturer: AIRB
 mcu: at32f435m
+pinio:
+  - pin: PC11
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC15
     invert: true

@@ -28,6 +28,10 @@
 name: neutronrcf407
 manufacturer: NERC
 mcu: stm32f405
+pinio:
+  - pin: PB3
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PB5
     invert: true

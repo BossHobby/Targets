@@ -30,6 +30,13 @@
 name: dreamflyf722
 manufacturer: DFRC
 mcu: stm32f722
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
+  - pin: PC0
+    label: PINIO 2
+    invert: true
 defaults:
   serial:
     rx: 2

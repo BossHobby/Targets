@@ -28,6 +28,10 @@
 name: flaof405x8
 manufacturer: FLAO
 mcu: stm32f405
+pinio:
+  - pin: PB9
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC13
     invert: true

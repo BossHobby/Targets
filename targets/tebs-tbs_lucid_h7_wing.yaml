@@ -18,6 +18,16 @@
 name: tbs_lucid_h7_wing
 manufacturer: TEBS
 mcu: stm32h743
+# TBS LUCID manual rev 1.15, p. 53.
+pinio:
+  - pin: PD10
+    label: VTX power
+    description: VSW output; voltage selected by jumper
+    invert: false
+  - pin: PD11
+    label: Camera select
+    description: Selects the C1/C2 analog video input
+    invert: false
 vehicles:
   - wing
   - rover

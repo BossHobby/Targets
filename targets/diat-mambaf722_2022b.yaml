@@ -1,6 +1,13 @@
 name: mambaf722_2022b
 manufacturer: DIAT
 mcu: stm32f722
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
+  - pin: PC0
+    label: PINIO 2
+    invert: true
 leds:
   - invert: true
     pin: PC15

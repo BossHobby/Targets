@@ -28,6 +28,10 @@
 name: speedybee_f745_aio
 manufacturer: SPBE
 mcu: stm32f745
+pinio:
+  - pin: PC4
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PA2
     invert: true

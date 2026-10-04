@@ -30,6 +30,10 @@
 name: talonf7fusion
 manufacturer: HENA
 mcu: stm32f722
+pinio:
+  - pin: PA14
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB0
     invert: true

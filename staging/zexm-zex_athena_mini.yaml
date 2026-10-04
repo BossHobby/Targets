@@ -19,6 +19,10 @@
 name: zex_athena_mini
 manufacturer: ZEXM
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: 12V BEC
+    invert: true
 leds:
   - pin: PE3
     invert: true

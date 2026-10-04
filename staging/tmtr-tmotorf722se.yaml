@@ -27,6 +27,10 @@
 name: tmotorf722se
 manufacturer: TMTR
 mcu: stm32f722
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PA14
     invert: true

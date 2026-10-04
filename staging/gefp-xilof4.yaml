@@ -30,6 +30,10 @@
 name: xilof4
 manufacturer: GEFP
 mcu: stm32f405
+pinio:
+  - pin: PB1
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

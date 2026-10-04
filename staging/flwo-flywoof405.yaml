@@ -26,6 +26,13 @@
 name: flywoof405
 manufacturer: FLWO
 mcu: stm32f405
+pinio:
+  - pin: PB12
+    label: PINIO 1
+    invert: false
+  - pin: PB13
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC14
     invert: true

@@ -17,6 +17,10 @@
 name: champ_h743mpu
 manufacturer: OXBT
 mcu: stm32h743
+pinio:
+  - pin: PD13
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PE3
     invert: true

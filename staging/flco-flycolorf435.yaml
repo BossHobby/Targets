@@ -17,6 +17,13 @@
 name: flycolorf435
 manufacturer: FLCO
 mcu: at32f435
+pinio:
+  - pin: PC0
+    label: BEC SWITCH
+    invert: true
+  - pin: PB0
+    label: CAM 1,2
+    invert: false
 leds:
   - pin: PC4
     invert: true

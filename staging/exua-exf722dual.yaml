@@ -27,6 +27,16 @@
 name: exf722dual
 manufacturer: EXUA
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
+  - pin: PB8
+    label: PINIO 3
+    invert: false
 leds:
   - pin: PC4
     invert: true

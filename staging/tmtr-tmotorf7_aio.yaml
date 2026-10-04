@@ -28,6 +28,10 @@
 name: tmotorf7_aio
 manufacturer: TMTR
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB2
     invert: true

@@ -19,6 +19,16 @@
 name: rmnovah7
 manufacturer: RDMS
 mcu: stm32h743
+pinio:
+  - pin: PA3
+    label: PINIO 1
+    invert: false
+  - pin: PA2
+    label: VTX SW
+    invert: true
+  - pin: PA1
+    label: CAM 1,2
+    invert: false
 leds:
   - pin: PC4
     invert: true

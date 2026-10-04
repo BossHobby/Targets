@@ -1,6 +1,10 @@
 name: jheg474
 manufacturer: JHEF
 mcu: stm32g473
+pinio:
+  - pin: PC15
+    label: PINIO 1
+    invert: false
 leds:
   - invert: true
     pin: PB6

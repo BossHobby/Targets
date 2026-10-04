@@ -17,6 +17,10 @@
 name: hummingbird_200rs
 manufacturer: HBRD
 mcu: at32f435
+pinio:
+  - pin: PC13
+    label: VTX 10V
+    invert: true
 defaults:
   serial:
     rx: 1

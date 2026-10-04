@@ -17,6 +17,16 @@
 name: sdmodelh7v2
 manufacturer: SDRC
 mcu: stm32h743
+pinio:
+  - pin: PE13
+    label: PINIO 1
+    invert: true
+  - pin: PB11
+    label: PINIO 2
+    invert: true
+  - pin: PE9
+    label: PINIO 2
+    invert: true
 defaults:
   serial:
     gps: 4

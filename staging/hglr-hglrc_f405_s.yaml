@@ -30,6 +30,13 @@
 name: hglrc_f405_s
 manufacturer: HGLR
 mcu: stm32f405
+pinio:
+  - pin: PC14
+    label: 12V BEC
+    invert: true
+  - pin: PC15
+    label: Cam1,2
+    invert: false
 defaults:
   serial:
     gps: 4

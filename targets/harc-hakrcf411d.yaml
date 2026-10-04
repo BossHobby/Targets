@@ -1,11 +1,17 @@
 name: hakrcf411d
 manufacturer: HARC
 mcu: stm32f411
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
+# PC14 belongs to PINIO; the status LED driver must not write it.
 leds:
   - invert: true
     pin: PC13
-  - invert: true
-    pin: PC14
 serial_ports:
   - index: 1
     rx: PA10

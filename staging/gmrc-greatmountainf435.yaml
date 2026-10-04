@@ -17,6 +17,10 @@
 name: greatmountainf435
 manufacturer: GMRC
 mcu: at32f435m
+pinio:
+  - pin: PD2
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PD15
     invert: true

@@ -28,6 +28,16 @@
 name: principiotf7
 manufacturer: PRIN
 mcu: stm32f722
+pinio:
+  - pin: PC15
+    label: PINIO 1
+    invert: false
+  - pin: PB3
+    label: PINIO 2
+    invert: false
+  - pin: PA15
+    label: PINIO 3
+    invert: true
 defaults:
   serial:
     rx: 2

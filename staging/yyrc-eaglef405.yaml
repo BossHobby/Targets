@@ -30,6 +30,10 @@
 name: eaglef405
 manufacturer: YYRC
 mcu: stm32f405
+pinio:
+  - pin: PC1
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

@@ -30,6 +30,13 @@
 name: dakefpvf405
 manufacturer: DAKE
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: PINIO 1
+    invert: true
+  - pin: PB4
+    label: PINIO 2
+    invert: true
 defaults:
   serial:
     rx: 2

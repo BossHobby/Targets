@@ -17,6 +17,13 @@
 name: geprc_taker_h743mini
 manufacturer: GEPR
 mcu: stm32h743
+pinio:
+  - pin: PC5
+    label: LIGHT OFF
+    invert: true
+  - pin: PD3
+    label: 12V BEC OFF
+    invert: true
 defaults:
   serial:
     hdzero: 1

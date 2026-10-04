@@ -17,6 +17,10 @@
 name: kakuteh7mini
 manufacturer: HBRO
 mcu: stm32h743
+pinio:
+  - pin: PB11
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC2
     invert: true

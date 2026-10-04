@@ -35,6 +35,10 @@
 name: axisflyingf745aio
 manufacturer: AXFL
 mcu: stm32f745
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PD15
     invert: true

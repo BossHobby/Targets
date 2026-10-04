@@ -17,6 +17,16 @@
 name: hwh7
 manufacturer: HOWI
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: CAM 1,2
+    invert: false
+  - pin: PE4
+    label: SW_VTX
+    invert: true
+  - pin: PD10
+    label: PINIO 3
+    invert: true
 leds:
   - pin: PB2
     invert: true

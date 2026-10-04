@@ -29,6 +29,13 @@
 name: speedybeef405v5
 manufacturer: SPBE
 mcu: stm32f405
+pinio:
+  - pin: PC13
+    label: 9V BEC OFF
+    invert: false
+  - pin: PC14
+    label: PROG PWR SWITCH
+    invert: false
 defaults:
   serial:
     gps: 4

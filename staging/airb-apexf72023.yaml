@@ -30,6 +30,13 @@
 name: apexf72023
 manufacturer: AIRB
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: true
+  - pin: PB11
+    label: PINIO 2
+    invert: true
 leds:
   - pin: PB12
     invert: true

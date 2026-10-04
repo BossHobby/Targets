@@ -20,6 +20,10 @@
 name: emax_babyhawk_ii_hd
 manufacturer: EMAX
 mcu: stm32f411
+pinio:
+  - pin: PB5
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC13
     invert: true

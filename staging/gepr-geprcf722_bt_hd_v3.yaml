@@ -27,6 +27,13 @@
 name: geprcf722_bt_hd_v3
 manufacturer: GEPR
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: true
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC4
     invert: true

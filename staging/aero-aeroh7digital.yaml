@@ -12,6 +12,10 @@
 name: aeroh7digital
 manufacturer: AERO
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: 10V BEC
+    invert: true
 defaults:
   serial:
     hdzero: 2

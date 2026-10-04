@@ -30,6 +30,10 @@
 name: eaglef722
 manufacturer: YYRC
 mcu: stm32f722
+pinio:
+  - pin: PC1
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC15
     invert: true

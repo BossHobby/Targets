@@ -27,6 +27,10 @@
 name: radiolinkf405
 manufacturer: RALI
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: 9V BEC
+    invert: true
 leds:
   - pin: PB0
     invert: true

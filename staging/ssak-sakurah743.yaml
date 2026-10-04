@@ -18,6 +18,16 @@
 name: sakurah743
 manufacturer: SSAK
 mcu: stm32h743
+pinio:
+  - pin: PE15
+    label: PINIO 1
+    invert: true
+  - pin: PD10
+    label: PINIO 2
+    invert: false
+  - pin: PD11
+    label: PINIO 3
+    invert: false
 defaults:
   serial:
     gps: 3

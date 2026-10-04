@@ -1,6 +1,13 @@
 name: hifionrcf7
 manufacturer: HFOR
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
+  - pin: PB9
+    label: PINIO 2
+    invert: false
 leds:
   - invert: true
     pin: PA15

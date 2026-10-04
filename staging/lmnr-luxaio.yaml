@@ -30,6 +30,10 @@
 name: luxaio
 manufacturer: LMNR
 mcu: stm32f722
+pinio:
+  - pin: PB11
+    label: PINIO 2
+    invert: true
 leds:
   - pin: PC14
     invert: true

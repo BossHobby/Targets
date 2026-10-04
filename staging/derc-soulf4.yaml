@@ -24,6 +24,10 @@
 name: soulf4
 manufacturer: DERC
 mcu: stm32f405
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB5
     invert: true

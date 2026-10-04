@@ -17,6 +17,10 @@
 name: revonano
 manufacturer: OPEN
 mcu: stm32f411
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC14
     invert: true

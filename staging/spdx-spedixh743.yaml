@@ -19,6 +19,13 @@
 name: spedixh743
 manufacturer: SPDX
 mcu: stm32h743
+pinio:
+  - pin: PA2
+    label: VTX PWR
+    invert: true
+  - pin: PA3
+    label: CAM SWITCH
+    invert: false
 leds:
   - pin: PC4
     invert: true

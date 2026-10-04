@@ -28,6 +28,10 @@
 name: radiolinkf722
 manufacturer: RALI
 mcu: stm32f722
+pinio:
+  - pin: PC9
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PA14
     invert: true

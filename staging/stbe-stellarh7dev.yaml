@@ -19,6 +19,10 @@
 name: stellarh7dev
 manufacturer: STBE
 mcu: stm32h743
+pinio:
+  - pin: PB3
+    label: VTX switch
+    invert: true
 defaults:
   serial:
     rx: 4

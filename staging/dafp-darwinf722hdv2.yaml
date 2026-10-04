@@ -27,6 +27,13 @@
 name: darwinf722hdv2
 manufacturer: DAFP
 mcu: stm32f722
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
+  - pin: PC9
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PA14
     invert: true

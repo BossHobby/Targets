@@ -1,6 +1,10 @@
 name: pyrodronef4
 manufacturer: PYDR
 mcu: stm32f405
+pinio:
+  - pin: PA15
+    label: PINIO 1
+    invert: false
 leds:
   - invert: true
     pin: PB4

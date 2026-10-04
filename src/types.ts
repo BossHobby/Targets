@@ -17,6 +17,13 @@ export interface target_led_t {
   invert: boolean;
 }
 
+export interface target_pinio_t {
+  pin: gpio_pins_t;
+  label: string;
+  description?: string;
+  invert?: boolean;
+}
+
 export interface target_invert_pin_t {
   pin: gpio_pins_t;
   invert: boolean;
@@ -149,7 +156,8 @@ export interface target_t {
   defaults?: target_defaults_t;
 
   usb_detect?: gpio_pins_t;
-  fpv?: gpio_pins_t;
+  pinio?: target_pinio_t[];
+  fpv?: gpio_pins_t; // Retained in YAML for older firmware.
   vbat?: gpio_pins_t;
   ibat?: gpio_pins_t;
   rgb_led?: gpio_pins_t;
@@ -186,6 +194,7 @@ export const target_keys = [
   "sdcard",
   "rx_spi",
   "usb_detect",
+  "pinio",
   "fpv",
   "vbat",
   "vbat_scale",
@@ -200,6 +209,9 @@ export const target_keys = [
   "port",
   "nss",
   "pin",
+  "label",
+  "description",
+  "invert",
   "caps",
 ];
 

@@ -20,6 +20,13 @@
 name: flywooh743pro
 manufacturer: FLWO
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: 9V BEC
+    invert: false
+  - pin: PD11
+    label: CAM 1,2
+    invert: false
 leds:
   - pin: PE3
     invert: true

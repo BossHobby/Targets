@@ -29,6 +29,10 @@
 name: hummingbird_fc305
 manufacturer: HBRD
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: true
 defaults:
   receiver:
     protocol: crsf

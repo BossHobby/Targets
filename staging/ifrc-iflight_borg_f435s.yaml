@@ -17,6 +17,10 @@
 name: iflight_borg_f435s
 manufacturer: IFRC
 mcu: at32f435m
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: true
 defaults:
   receiver:
     protocol: crsf

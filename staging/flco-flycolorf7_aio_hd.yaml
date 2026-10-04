@@ -28,6 +28,10 @@
 name: flycolorf7_aio_hd
 manufacturer: FLCO
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 1

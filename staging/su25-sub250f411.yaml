@@ -19,6 +19,10 @@
 name: sub250f411
 manufacturer: SU25
 mcu: stm32f411
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 2

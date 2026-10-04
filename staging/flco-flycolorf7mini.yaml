@@ -28,6 +28,16 @@
 name: flycolorf7mini
 manufacturer: FLCO
 mcu: stm32f722
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: false
+  - pin: PB9
+    label: PINIO 2
+    invert: false
+  - pin: PB8
+    label: PINIO 1
+    invert: true
 defaults:
   serial:
     rx: 4

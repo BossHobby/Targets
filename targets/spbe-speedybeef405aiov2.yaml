@@ -1,6 +1,10 @@
 name: speedybeef405aiov2
 manufacturer: SPBE
 mcu: stm32f405
+pinio:
+  - pin: PC14
+    label: 9V BEC OFF
+    invert: true
 defaults:
   serial:
     rx: 6

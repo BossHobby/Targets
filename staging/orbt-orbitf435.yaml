@@ -17,6 +17,10 @@
 name: orbitf435
 manufacturer: ORBT
 mcu: at32f435
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC13
     invert: true

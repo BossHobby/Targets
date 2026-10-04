@@ -19,6 +19,13 @@
 name: luxh743ndaa
 manufacturer: LMNR
 mcu: stm32h743
+pinio:
+  - pin: PB1
+    label: CAM 1,2
+    invert: false
+  - pin: PB2
+    label: VTX PWR
+    invert: false
 leds:
   - pin: PE3
     invert: true

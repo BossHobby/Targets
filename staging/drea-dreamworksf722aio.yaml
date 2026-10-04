@@ -27,6 +27,10 @@
 name: dreamworksf722aio
 manufacturer: DREA
 mcu: stm32f722
+pinio:
+  - pin: PB9
+    label: COB
+    invert: false
 leds:
   - pin: PA15
     invert: true

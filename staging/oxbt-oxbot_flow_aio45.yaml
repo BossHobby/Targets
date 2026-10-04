@@ -17,6 +17,10 @@
 name: oxbot_flow_aio45
 manufacturer: OXBT
 mcu: at32f435
+pinio:
+  - pin: PA14
+    label: VTX BEC OFF
+    invert: true
 defaults:
   serial:
     gps: 7

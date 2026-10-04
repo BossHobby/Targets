@@ -18,6 +18,13 @@
 name: skystarsf435pro
 manufacturer: SKST
 mcu: at32f435m
+pinio:
+  - pin: PC0
+    label: CAM 1,2
+    invert: false
+  - pin: PC5
+    label: 12V BEC
+    invert: true
 leds:
   - pin: PC3
     invert: true

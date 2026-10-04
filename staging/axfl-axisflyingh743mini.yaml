@@ -17,6 +17,10 @@
 name: axisflyingh743mini
 manufacturer: AXFL
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: VTX PWR
+    invert: true
 defaults:
   serial:
     rx: 4

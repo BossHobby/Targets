@@ -17,6 +17,10 @@
 name: hummingbird_aio255
 manufacturer: HBRD
 mcu: at32f435
+pinio:
+  - pin: PH3
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PH2
     invert: true

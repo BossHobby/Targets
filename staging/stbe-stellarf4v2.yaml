@@ -24,6 +24,10 @@
 name: stellarf4v2
 manufacturer: STBE
 mcu: stm32f405
+pinio:
+  - pin: PC14
+    label: CAM 1,2
+    invert: false
 defaults:
   receiver:
     protocol: crsf

@@ -17,6 +17,10 @@
 name: konexh743
 manufacturer: KONX
 mcu: stm32h743
+pinio:
+  - pin: PE3
+    label: PINIO 1
+    invert: true
 defaults:
   serial:
     rx: 4

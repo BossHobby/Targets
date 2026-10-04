@@ -30,6 +30,13 @@
 name: hobbywing_xrotorf7conv2
 manufacturer: HOWI
 mcu: stm32f722
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: false
+  - pin: PB9
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC15
     invert: true

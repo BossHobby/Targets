@@ -17,6 +17,19 @@
 name: aedroxh7
 manufacturer: AEDR
 mcu: stm32h743
+pinio:
+  - pin: PA2
+    label: PINIO 1
+    invert: false
+  - pin: PA3
+    label: PINIO 2
+    invert: false
+  - pin: PB1
+    label: VTX POWER
+    invert: true
+  - pin: PD15
+    label: CAM SWITCH
+    invert: false
 defaults:
   serial:
     rx: 3

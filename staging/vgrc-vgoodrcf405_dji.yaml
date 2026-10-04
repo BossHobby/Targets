@@ -30,6 +30,10 @@
 name: vgoodrcf405_dji
 manufacturer: VGRC
 mcu: stm32f405
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC15
     invert: true

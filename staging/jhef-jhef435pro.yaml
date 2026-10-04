@@ -17,6 +17,10 @@
 name: jhef435pro
 manufacturer: JHEF
 mcu: at32f435
+pinio:
+  - pin: PC13
+    label: COB
+    invert: true
 leds:
   - pin: PB7
     invert: true

@@ -1,6 +1,15 @@
 name: matekf765se
 manufacturer: MTKS
 mcu: stm32f765
+pinio:
+  - pin: PE4
+    label: VTX power
+    invert: false
+    description: Video transmitter power switch
+  - pin: PE15
+    label: Camera select
+    invert: false
+    description: Select between the two camera inputs
 leds:
   - pin: PD10
   - invert: true

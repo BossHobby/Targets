@@ -28,6 +28,13 @@
 name: nyx405v1
 manufacturer: NYXT
 mcu: stm32f405
+pinio:
+  - pin: PB4
+    label: 12V BEC
+    invert: true
+  - pin: PA15
+    label: IO PIN
+    invert: false
 leds:
   - pin: PA8
     invert: true

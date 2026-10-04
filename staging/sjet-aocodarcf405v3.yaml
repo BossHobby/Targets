@@ -27,6 +27,16 @@
 name: aocodarcf405v3
 manufacturer: SJET
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: PINIO 1
+    invert: true
+  - pin: PA14
+    label: PINIO 2
+    invert: true
+  - pin: PC15
+    label: PINIO 3
+    invert: false
 defaults:
   receiver:
     protocol: crsf

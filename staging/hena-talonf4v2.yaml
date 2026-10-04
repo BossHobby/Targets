@@ -26,6 +26,10 @@
 name: talonf4v2
 manufacturer: HENA
 mcu: stm32f405
+pinio:
+  - pin: PA14
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB5
     invert: true

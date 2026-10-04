@@ -27,6 +27,13 @@
 name: botwingf722
 manufacturer: BLDY
 mcu: stm32f722
+pinio:
+  - pin: PC3
+    label: VTX PWR
+    invert: true
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     gps: 6

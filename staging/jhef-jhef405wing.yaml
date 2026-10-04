@@ -29,6 +29,10 @@
 name: jhef405wing
 manufacturer: JHEF
 mcu: stm32f405
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
 defaults:
   serial:
     rx: 1

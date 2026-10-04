@@ -27,6 +27,13 @@
 name: jhef722pro
 manufacturer: JHEF
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: 10V BEC
+    invert: true
+  - pin: PB9
+    label: COB
+    invert: false
 leds:
   - pin: PA15
     invert: true

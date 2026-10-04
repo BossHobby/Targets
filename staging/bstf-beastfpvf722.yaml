@@ -30,6 +30,10 @@
 name: beastfpvf722
 manufacturer: BSTF
 mcu: stm32f722
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
 defaults:
   receiver:
     protocol: crsf

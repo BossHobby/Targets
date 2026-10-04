@@ -18,6 +18,10 @@
 name: brotherhobbyf435
 manufacturer: BROT
 mcu: at32f435
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC13
     invert: true

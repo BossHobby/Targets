@@ -25,6 +25,10 @@
 name: aikonf4v2
 manufacturer: AIKO
 mcu: stm32f405
+pinio:
+  - pin: PB7
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB4
     invert: true

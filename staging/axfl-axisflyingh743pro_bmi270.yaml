@@ -19,6 +19,13 @@
 name: axisflyingh743pro_bmi270
 manufacturer: AXFL
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: VTX PWR
+    invert: true
+  - pin: PA8
+    label: CAM 1,2
+    invert: false
 defaults:
   serial:
     rx: 2

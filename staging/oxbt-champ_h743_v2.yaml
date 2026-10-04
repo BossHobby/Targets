@@ -17,6 +17,10 @@
 name: champ_h743_v2
 manufacturer: OXBT
 mcu: stm32h743
+pinio:
+  - pin: PA7
+    label: VTX BEC OFF
+    invert: true
 defaults:
   serial:
     hdzero: 5

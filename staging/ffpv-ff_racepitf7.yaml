@@ -29,6 +29,10 @@
 name: ff_racepitf7
 manufacturer: FFPV
 mcu: stm32f722
+pinio:
+  - pin: PC0
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB9
     invert: true

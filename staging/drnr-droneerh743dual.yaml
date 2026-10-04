@@ -19,6 +19,13 @@
 name: droneerh743dual
 manufacturer: DRNR
 mcu: stm32h743
+pinio:
+  - pin: PA2
+    label: VTX SW
+    invert: true
+  - pin: PA3
+    label: CAM SW
+    invert: false
 defaults:
   serial:
     rx: 2

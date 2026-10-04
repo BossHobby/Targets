@@ -29,6 +29,13 @@
 name: ff_racepit_mini
 manufacturer: FFPV
 mcu: stm32f405
+pinio:
+  - pin: PC0
+    label: PINIO 1
+    invert: false
+  - pin: PC8
+    label: PINIO 2
+    invert: true
 leds:
   - pin: PB9
     invert: true

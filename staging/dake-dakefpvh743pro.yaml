@@ -19,6 +19,16 @@
 name: dakefpvh743pro
 manufacturer: DAKE
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: CAM 1,2
+    invert: true
+  - pin: PE3
+    label: 12V BEC
+    invert: true
+  - pin: PE4
+    label: PINIO 3
+    invert: true
 defaults:
   serial:
     rx: 5

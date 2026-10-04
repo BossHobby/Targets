@@ -27,6 +27,10 @@
 name: aikonf7
 manufacturer: AIKO
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC13
     invert: true

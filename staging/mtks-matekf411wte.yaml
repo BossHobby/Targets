@@ -17,6 +17,13 @@
 name: matekf411wte
 manufacturer: MTKS
 mcu: stm32f411
+pinio:
+  - pin: PC15
+    label: VTX PWR
+    invert: false
+  - pin: PB10
+    label: Cam1,2
+    invert: false
 defaults:
   serial:
     rx: 2

@@ -30,6 +30,13 @@
 name: hakrcf405v2
 manufacturer: HARC
 mcu: stm32f405
+pinio:
+  - pin: PC2
+    label: CAM 1,2
+    invert: false
+  - pin: PC5
+    label: VTX OFF
+    invert: true
 leds:
   - pin: PC15
     invert: true

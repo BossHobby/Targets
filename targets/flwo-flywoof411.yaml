@@ -1,6 +1,10 @@
 name: flywoof411
 manufacturer: FLWO
 mcu: stm32f411
+pinio:
+  - pin: PB5
+    label: PINIO 1
+    invert: false
 leds:
   - invert: true
     pin: PC13

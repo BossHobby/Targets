@@ -26,6 +26,10 @@
 name: nexusxr
 manufacturer: RDMS
 mcu: stm32f722
+pinio:
+  - pin: PC8
+    label: ELRS OFF
+    invert: true
 defaults:
   receiver:
     protocol: crsf

@@ -30,6 +30,10 @@
 name: flycolorf7micro
 manufacturer: FLCO
 mcu: stm32f722
+pinio:
+  - pin: PC9
+    label: PINIO 1
+    invert: true
 defaults:
   receiver:
     protocol: sbus

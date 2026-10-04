@@ -28,6 +28,13 @@
 name: iflight_f405_aio
 manufacturer: IFRC
 mcu: stm32f405
+pinio:
+  - pin: PC15
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PB5
     invert: true

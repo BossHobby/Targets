@@ -30,6 +30,10 @@
 name: sologoodf405
 manufacturer: SLGD
 mcu: stm32f405
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
 defaults:
   serial:
     rx: 2

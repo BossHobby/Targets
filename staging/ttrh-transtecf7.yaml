@@ -26,6 +26,10 @@
 name: transtecf7
 manufacturer: TTRH
 mcu: stm32f722
+pinio:
+  - pin: PB12
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PA14
     invert: true

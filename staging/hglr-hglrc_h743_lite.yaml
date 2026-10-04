@@ -17,6 +17,13 @@
 name: hglrc_h743_lite
 manufacturer: HGLR
 mcu: stm32h743
+pinio:
+  - pin: PE2
+    label: Cam1,2
+    invert: false
+  - pin: PC13
+    label: 12V BEC
+    invert: false
 leds:
   - pin: PE4
     invert: true

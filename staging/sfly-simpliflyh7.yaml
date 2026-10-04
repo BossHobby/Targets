@@ -17,6 +17,10 @@
 name: simpliflyh7
 manufacturer: SFLY
 mcu: stm32h743
+pinio:
+  - pin: PB2
+    label: VTX PWR
+    invert: true
 leds:
   - pin: PD1
     invert: true

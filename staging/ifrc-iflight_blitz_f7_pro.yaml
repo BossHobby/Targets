@@ -25,6 +25,10 @@
 name: iflight_blitz_f7_pro
 manufacturer: IFRC
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC4
     invert: true

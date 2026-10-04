@@ -30,6 +30,10 @@
 name: droniusf7
 manufacturer: FOSS
 mcu: stm32f722
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC14
     invert: true

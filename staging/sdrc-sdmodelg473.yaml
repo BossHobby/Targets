@@ -17,6 +17,13 @@
 name: sdmodelg473
 manufacturer: SDRC
 mcu: stm32g473
+pinio:
+  - pin: PB2
+    label: CAM 1,2
+    invert: false
+  - pin: PA4
+    label: VTX PWR
+    invert: true
 leds:
   - pin: PA13
     invert: true

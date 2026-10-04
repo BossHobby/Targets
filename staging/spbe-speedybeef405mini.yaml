@@ -29,6 +29,10 @@
 name: speedybeef405mini
 manufacturer: SPBE
 mcu: stm32f405
+pinio:
+  - pin: PB11
+    label: PINIO 1
+    invert: true
 defaults:
   serial:
     rx: 2

@@ -30,6 +30,10 @@
 name: luxminif7
 manufacturer: LMNR
 mcu: stm32f722
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

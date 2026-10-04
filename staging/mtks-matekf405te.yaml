@@ -29,6 +29,13 @@
 name: matekf405te
 manufacturer: MTKS
 mcu: stm32f405
+pinio:
+  - pin: PA4
+    label: PINIO 1
+    invert: false
+  - pin: PB5
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     rx: 2

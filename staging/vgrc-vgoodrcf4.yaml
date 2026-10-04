@@ -30,6 +30,13 @@
 name: vgoodrcf4
 manufacturer: VGRC
 mcu: stm32f405
+pinio:
+  - pin: PA13
+    label: PINIO 1
+    invert: false
+  - pin: PA14
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC14
     invert: true

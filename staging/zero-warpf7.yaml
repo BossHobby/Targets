@@ -27,6 +27,13 @@
 name: warpf7
 manufacturer: ZERO
 mcu: stm32f722
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
+  - pin: PC15
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     rx: 1

@@ -1,6 +1,15 @@
 name: matekh743
 manufacturer: MTKS
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: VTX power
+    description: Video transmitter power switch
+    invert: false
+  - pin: PD11
+    label: Camera select
+    description: Select between the two camera inputs
+    invert: false
 leds:
   - invert: true
     pin: PE3

@@ -25,6 +25,13 @@
 name: dolphinrc_f722
 manufacturer: DOLP
 mcu: stm32f722
+pinio:
+  - pin: PB14
+    label: 12V BEC
+    invert: true
+  - pin: PB15
+    label: CAM 1,2
+    invert: true
 leds:
   - pin: PB11
     invert: true

@@ -30,6 +30,13 @@
 name: dreamflyf405
 manufacturer: DFRC
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: PINIO 1
+    invert: true
+  - pin: PC0
+    label: PINIO 2
+    invert: true
 defaults:
   serial:
     rx: 2

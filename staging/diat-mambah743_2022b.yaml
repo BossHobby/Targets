@@ -19,6 +19,13 @@
 name: mambah743_2022b
 manufacturer: DIAT
 mcu: stm32h743
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
+  - pin: PC5
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PE5
     invert: true

@@ -28,6 +28,13 @@
 name: matekf722hd
 manufacturer: MTKS
 mcu: stm32f722
+pinio:
+  - pin: PA15
+    label: PINIO 1
+    invert: false
+  - pin: PB3
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     rx: 2

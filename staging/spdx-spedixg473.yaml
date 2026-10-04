@@ -17,6 +17,13 @@
 name: spedixg473
 manufacturer: SPDX
 mcu: stm32g473
+pinio:
+  - pin: PC14
+    label: PINIO 1
+    invert: false
+  - pin: PC15
+    label: VTXPWR
+    invert: false
 leds:
   - pin: PC6
     invert: true

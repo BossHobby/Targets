@@ -30,6 +30,10 @@
 name: jbf7_v2
 manufacturer: IFRC
 mcu: stm32f722
+pinio:
+  - pin: PC0
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

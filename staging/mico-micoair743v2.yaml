@@ -15,6 +15,13 @@
 name: micoair743v2
 manufacturer: MICO
 mcu: stm32h743
+pinio:
+  - pin: PE5
+    label: PINIO 1
+    invert: true
+  - pin: PE6
+    label: PINIO 2
+    invert: true
 leds:
   - pin: PE3
     invert: true

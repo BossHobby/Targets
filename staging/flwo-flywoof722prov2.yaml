@@ -30,6 +30,10 @@
 name: flywoof722prov2
 manufacturer: FLWO
 mcu: stm32f722
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PC15
     invert: true

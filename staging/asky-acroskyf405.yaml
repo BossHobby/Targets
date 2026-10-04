@@ -29,6 +29,13 @@
 name: acroskyf405
 manufacturer: ASKY
 mcu: stm32f405
+pinio:
+  - pin: PC5
+    label: 10V BEC
+    invert: true
+  - pin: PC3
+    label: Cam1,2
+    invert: true
 leds:
   - pin: PA14
     invert: true

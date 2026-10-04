@@ -19,6 +19,13 @@
 name: geprc_taker_h743
 manufacturer: GEPR
 mcu: stm32h743
+pinio:
+  - pin: PE13
+    label: PINIO 1
+    invert: true
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     hdzero: 1

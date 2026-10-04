@@ -27,6 +27,13 @@
 name: geprcf722
 manufacturer: GEPR
 mcu: stm32f722
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
+  - pin: PC9
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PA13
     invert: true

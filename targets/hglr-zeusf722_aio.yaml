@@ -1,6 +1,13 @@
 name: zeusf722_aio
 manufacturer: HGLR
 mcu: stm32f722
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
+  - pin: PC9
+    label: PINIO 2
+    invert: false
 leds:
   - invert: true
     pin: PA14

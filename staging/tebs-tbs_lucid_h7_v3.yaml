@@ -17,6 +17,16 @@
 name: tbs_lucid_h7_v3
 manufacturer: TEBS
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: VSW
+    invert: false
+  - pin: PD11
+    label: CAM SW
+    invert: true
+  - pin: PC13
+    label: VTX PWR
+    invert: false
 leds:
   - pin: PE3
     invert: true

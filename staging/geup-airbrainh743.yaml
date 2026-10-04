@@ -15,6 +15,10 @@
 name: airbrainh743
 manufacturer: GEUP
 mcu: stm32h743
+pinio:
+  - pin: PB3
+    label: VTX PWR
+    invert: true
 leds:
   - pin: PB15
     invert: true

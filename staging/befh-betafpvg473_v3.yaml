@@ -17,6 +17,10 @@
 name: betafpvg473_v3
 manufacturer: BEFH
 mcu: stm32g473
+pinio:
+  - pin: PA13
+    label: VTX PWR
+    invert: false
 defaults:
   receiver:
     protocol: crsf

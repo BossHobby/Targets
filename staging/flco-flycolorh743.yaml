@@ -17,6 +17,10 @@
 name: flycolorh743
 manufacturer: FLCO
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: PINIO 1
+    invert: true
 defaults:
   serial:
     rx: 4

@@ -15,6 +15,13 @@
 name: wplv2
 manufacturer: WRPL
 mcu: stm32h743
+pinio:
+  - pin: PE3
+    label: VTX PSU
+    invert: true
+  - pin: PE4
+    label: AUX SW
+    invert: false
 defaults:
   serial:
     rx: 1

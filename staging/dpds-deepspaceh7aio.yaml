@@ -19,6 +19,13 @@
 name: deepspaceh7aio
 manufacturer: DPDS
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: 10V BEC
+    invert: true
+  - pin: PD11
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     rx: 4

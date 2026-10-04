@@ -20,6 +20,13 @@
 name: darwinh7dual
 manufacturer: DAFP
 mcu: stm32h743
+pinio:
+  - pin: PD10
+    label: PINIO 1
+    invert: false
+  - pin: PD11
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PE3
     invert: true

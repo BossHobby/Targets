@@ -16,6 +16,10 @@
 name: accif435elite
 manufacturer: FOSS
 mcu: at32f435
+pinio:
+  - pin: PB1
+    label: VTX PWR
+    invert: true
 leds:
   - pin: PC15
     invert: true

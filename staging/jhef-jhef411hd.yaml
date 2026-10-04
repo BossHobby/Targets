@@ -19,6 +19,13 @@
 name: jhef411hd
 manufacturer: JHEF
 mcu: stm32f411
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     rx: 2

@@ -33,6 +33,13 @@
 name: geprcf745_bt_hd
 manufacturer: GEPR
 mcu: stm32f745
+pinio:
+  - pin: PE13
+    label: PINIO 1
+    invert: true
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 defaults:
   serial:
     hdzero: 1

@@ -27,6 +27,10 @@
 name: speedybeef4
 manufacturer: SPBE
 mcu: stm32f405
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PB9
     invert: true

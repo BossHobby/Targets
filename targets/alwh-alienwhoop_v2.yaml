@@ -33,6 +33,11 @@ flash:
   port: 3
   nss: PA15
 fpv: PA13
+pinio:
+  - pin: PA13
+    label: VTX power
+    description: Power supply for the video transmitter
+    invert: false
 buzzer:
   invert: true
   pin: PA2

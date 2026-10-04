@@ -17,6 +17,16 @@
 name: geprc_taker_h743v2
 manufacturer: GEPR
 mcu: stm32h743
+pinio:
+  - pin: PC5
+    label: RF OFF
+    invert: true
+  - pin: PD3
+    label: 12V BEC OFF
+    invert: true
+  - pin: PE3
+    label: CAM 1,2
+    invert: false
 defaults:
   serial:
     rx: 2

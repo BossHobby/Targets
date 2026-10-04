@@ -30,6 +30,10 @@
 name: pyrodronef7
 manufacturer: PYDR
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB0
     invert: true

@@ -26,6 +26,13 @@
 name: elinf722
 manufacturer: DRCL
 mcu: stm32f722
+pinio:
+  - pin: PC13
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PB5
     invert: true

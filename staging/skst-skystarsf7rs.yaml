@@ -30,6 +30,10 @@
 name: skystarsf7rs
 manufacturer: SKST
 mcu: stm32f722
+pinio:
+  - pin: PA14
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

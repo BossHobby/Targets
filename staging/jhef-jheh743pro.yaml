@@ -19,6 +19,13 @@
 name: jheh743pro
 manufacturer: JHEF
 mcu: stm32h743
+pinio:
+  - pin: PC2
+    label: COB
+    invert: true
+  - pin: PC5
+    label: 10V BEC
+    invert: true
 leds:
   - pin: PE5
     invert: true

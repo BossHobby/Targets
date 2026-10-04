@@ -27,6 +27,13 @@
 name: kakutef4wing
 manufacturer: HBRO
 mcu: stm32f405
+pinio:
+  - pin: PB14
+    label: PINIO 1
+    invert: true
+  - pin: PB15
+    label: PINIO 2
+    invert: true
 leds:
   - pin: PC5
     invert: true

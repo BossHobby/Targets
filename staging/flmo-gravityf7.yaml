@@ -30,6 +30,10 @@
 name: gravityf7
 manufacturer: FLMO
 mcu: stm32f722
+pinio:
+  - pin: PC2
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC14
     invert: true

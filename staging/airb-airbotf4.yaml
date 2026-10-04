@@ -24,6 +24,10 @@
 name: airbotf4
 manufacturer: AIRB
 mcu: stm32f405
+pinio:
+  - pin: PC8
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB5
     invert: true

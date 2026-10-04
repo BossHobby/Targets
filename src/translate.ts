@@ -4,6 +4,7 @@ import { GyroRotation, skipEmpty, stringifyTarget, target_t } from "./types";
 import * as YAML from "yaml";
 import { findDmaAssignments, stringifyTargetWithDmaHeader } from "./dma";
 import path from "path";
+import { extractPinio } from "./pinio";
 import {
   defaults_review_entry_t,
   extractDefaults,
@@ -329,6 +330,8 @@ async function translate(filename: string, output?: string) {
   if (BLACKLIST.includes(target.name)) {
     return;
   }
+
+  if (await loadMcuGpio(target.mcu)) target.pinio = extractPinio(content);
 
   if (defines.default_align_board_yaw) {
     // Betaflight composes the board yaw with the sensor alignment

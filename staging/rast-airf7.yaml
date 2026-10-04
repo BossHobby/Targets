@@ -30,6 +30,10 @@
 name: airf7
 manufacturer: RAST
 mcu: stm32f722
+pinio:
+  - pin: PA10
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PA3
     invert: true

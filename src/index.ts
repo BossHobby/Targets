@@ -3,6 +3,7 @@ import path from "path";
 import YAML from "yaml";
 import { walk } from "./util";
 import { stringifyTarget } from "./types";
+import { validatePinio } from "./pinio";
 
 const OUTPUT_FOLDER = "output";
 
@@ -17,6 +18,8 @@ await fs.promises.mkdir(OUTPUT_FOLDER, { recursive: true }).catch(() => {});
 
 for await (const f of walk("targets")) {
   const target = YAML.parse(await fs.promises.readFile(f, "utf8"));
+
+  validatePinio(target);
 
   if (target.sdcard?.sdio || target.sdio_ports?.length) {
     const ports = target.sdio_ports || [];

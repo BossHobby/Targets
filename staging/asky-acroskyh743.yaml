@@ -20,6 +20,16 @@
 name: acroskyh743
 manufacturer: ASKY
 mcu: stm32h743
+pinio:
+  - pin: PC5
+    label: 10V BEC
+    invert: true
+  - pin: PC2
+    label: Cam1,2
+    invert: true
+  - pin: PD11
+    label: PINIO 3
+    invert: false
 leds:
   - pin: PE3
     invert: true

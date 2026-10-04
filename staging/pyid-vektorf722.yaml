@@ -28,6 +28,13 @@
 name: vektorf722
 manufacturer: PYID
 mcu: stm32f722
+pinio:
+  - pin: PC3
+    label: PINIO 1
+    invert: false
+  - pin: PA15
+    label: PINIO 2
+    invert: false
 leds:
   - pin: PC14
     invert: true

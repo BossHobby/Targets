@@ -20,6 +20,19 @@
 name: kakuteh7wing
 manufacturer: HBRO
 mcu: stm32h743
+pinio:
+  - pin: PC13
+    label: CAM 1,2
+    invert: false
+  - pin: PE3
+    label: VTX Power
+    invert: true
+  - pin: PD4
+    label: PINIO 3
+    invert: false
+  - pin: PE4
+    label: PINIO 4
+    invert: false
 leds:
   - pin: PC15
     invert: true

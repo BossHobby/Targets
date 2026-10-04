@@ -17,6 +17,12 @@
 name: tbs_lucid_h7_wing_mini
 manufacturer: TEBS
 mcu: stm32h743
+# TBS LUCID manual rev 1.15, pp. 63 and 67: H7 Wing AIO uses this target.
+pinio:
+  - pin: PD10
+    label: VTX power
+    description: VSW output supplies the VTX
+    invert: false
 vehicles:
   - wing
   - rover

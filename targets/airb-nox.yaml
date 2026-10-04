@@ -33,6 +33,11 @@ osd:
   port: 2
   nss: PA10
 fpv: PA13
+pinio:
+  - pin: PA13
+    label: VTX power
+    description: Power supply for the video transmitter
+    invert: false
 vbat: PA5
 rgb_led: PA0
 buzzer:

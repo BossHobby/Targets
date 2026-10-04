@@ -30,6 +30,10 @@
 name: mambaf405us
 manufacturer: DIAT
 mcu: stm32f405
+pinio:
+  - pin: PB0
+    label: PINIO 1
+    invert: true
 leds:
   - pin: PC15
     invert: true

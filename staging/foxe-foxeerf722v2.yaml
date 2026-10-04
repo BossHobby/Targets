@@ -28,6 +28,11 @@
 name: foxeerf722v2
 manufacturer: FOXE
 mcu: stm32f722
+pinio:
+  - pin: PC6
+    label: GPS power
+    invert: true
+    description: Power supply for the GPS receiver
 leds:
   - pin: PC15
     invert: true

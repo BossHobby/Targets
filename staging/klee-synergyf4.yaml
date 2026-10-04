@@ -22,6 +22,10 @@
 name: synergyf4
 manufacturer: KLEE
 mcu: stm32f405
+pinio:
+  - pin: PB15
+    label: PINIO 1
+    invert: false
 leds:
   - pin: PB5
     invert: true
