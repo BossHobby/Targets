@@ -14,7 +14,7 @@ serial_ports:
     tx: PB11
   - index: 4
     rx: PH2
-    tx: PH4
+    tx: PH3
   - index: 5
     rx: PB8
     tx: PB6
