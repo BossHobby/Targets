@@ -1,17 +1,28 @@
+# DMA Assignment Summary
+# Target: hakrcf411d (stm32f411)
+# Architecture: fixed
+# Total DMA assignments: 3
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> available                                         (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> available                                         (options: DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (ch0) [SPI2_MOSI] (options: DMA1_STREAM4)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#
+# Summary: 3 devices assigned, 13/16 streams available
 name: hakrcf411d
 manufacturer: HARC
 mcu: stm32f411
-pinio:
-  - pin: PB10
-    label: PINIO 1
-    invert: false
-  - pin: PC14
-    label: PINIO 2
-    invert: false
-# PC14 belongs to PINIO; the status LED driver must not write it.
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC13
+  - pin: PC13
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -46,6 +57,13 @@ osd:
 flash:
   port: 2
   nss: PA0
+pinio:
+  - pin: PB10
+    label: PINIO 1
+    invert: false
+  - pin: PC14
+    label: PINIO 2
+    invert: false
 vbat: PB0
 ibat: PB1
 buzzer:
@@ -55,23 +73,6 @@ motor_pins:
   - PB7
   - PB4
   - PB5
-baro:
-  port: 1
-dma:
-  DSHOT_CH1:
-    channel: 6
-    dma: DMA2_STREAM1
-    tag: TIMER1_CH1
-  SPI2_RX:
-    channel: 0
-    dma: DMA1_STREAM3
-    tag: SPI2_MISO
-  SPI2_TX:
-    channel: 0
-    dma: DMA1_STREAM4
-    tag: SPI2_MOSI
-vehicles:
-  - multi
 outputs:
   - pin: PB6
     caps:
@@ -89,3 +90,18 @@ outputs:
     caps:
       - dshot
       - pwm
+baro:
+  port: 1
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI2_RX:
+    channel: 0
+    dma: DMA1_STREAM3
+    tag: SPI2_MISO
+  SPI2_TX:
+    channel: 0
+    dma: DMA1_STREAM4
+    tag: SPI2_MOSI

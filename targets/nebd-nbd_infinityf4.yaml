@@ -1,9 +1,38 @@
+# DMA Assignment Summary
+# Target: nbd_infinityf4 (stm32f405)
+# Architecture: fixed
+# Total DMA assignments: 5
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   DSHOT_CH2       -> ASSIGNED: DMA2_STREAM2 (ch6) [TIMER1_CH2] (options: DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   DSHOT_CH3       -> ASSIGNED: DMA2_STREAM6 (ch6) [TIMER1_CH3] (options: DMA2_STREAM2, DMA2_STREAM4, DMA2_STREAM6, DMA2_STREAM6)
+#   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> available                                         (options: DMA1_STREAM3)
+#   SPI2_TX         -> available                                         (options: DMA1_STREAM4)
+#   SPI3_RX         -> available                                         (options: DMA1_STREAM0, DMA1_STREAM2)
+#   SPI3_TX         -> available                                         (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
+#   SERIAL1_TX      -> available                                         (options: DMA2_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
+#   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
+#   SERIAL4_RX      -> available                                         (options: DMA1_STREAM2)
+#   SERIAL4_TX      -> available                                         (options: DMA1_STREAM4)
+#   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
+#   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
+#
+# Summary: 5 devices assigned, 11/16 streams available
 name: nbd_infinityf4
 manufacturer: NEBD
 mcu: stm32f405
+vehicles:
+  - multi
 leds:
-  - invert: true
-    pin: PC0
+  - pin: PC0
+    invert: true
 serial_ports:
   - index: 1
     inverter: PA0
@@ -40,7 +69,6 @@ gyro:
 osd:
   port: 1
   nss: PA4
-fpv: PA13
 pinio:
   - pin: PA13
     label: VTX power
@@ -49,39 +77,17 @@ pinio:
   - pin: PC5
     label: PINIO 1
     invert: true
+fpv: PA13
 vbat: PC4
 ibat: PC3
 buzzer:
-  invert: true
   pin: PB6
+  invert: true
 motor_pins:
   - PC9
   - PA8
   - PB1
   - PB0
-dma:
-  DSHOT_CH1:
-    channel: 6
-    dma: DMA2_STREAM1
-    tag: TIMER1_CH1
-  DSHOT_CH2:
-    channel: 6
-    dma: DMA2_STREAM2
-    tag: TIMER1_CH2
-  DSHOT_CH3:
-    channel: 0
-    dma: DMA2_STREAM6
-    tag: TIMER1_CH3
-  SPI1_RX:
-    channel: 3
-    dma: DMA2_STREAM0
-    tag: SPI1_MISO
-  SPI1_TX:
-    channel: 3
-    dma: DMA2_STREAM3
-    tag: SPI1_MOSI
-vehicles:
-  - multi
 outputs:
   - pin: PC9
     caps:
@@ -99,3 +105,24 @@ outputs:
     caps:
       - dshot
       - pwm
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  DSHOT_CH2:
+    channel: 6
+    dma: DMA2_STREAM2
+    tag: TIMER1_CH2
+  DSHOT_CH3:
+    channel: 6
+    dma: DMA2_STREAM6
+    tag: TIMER1_CH3
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM3
+    tag: SPI1_MOSI

@@ -1,19 +1,35 @@
+# DMA Assignment Summary
+# Target: crazybee473 (stm32g473)
+# Architecture: flexible
+# Total DMA assignments: 6
+#
+# DMA Device Assignments:
+#   RGB             -> ASSIGNED: DMA1_STREAM2 (req84) [TIMER17_CH1]
+#   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#
+# Summary: 6 devices assigned, 10/16 streams available
 name: crazybee473
 manufacturer: HAMO
 mcu: stm32g473
+vehicles:
+  - multi
 defaults:
+  receiver:
+    protocol: crsf
   serial:
     rx: 3
     smart_audio: 4
-  receiver:
-    protocol: crsf
   vtx:
     protocol: smart_audio
 leds:
-  - invert: true
-    pin: PC4
-  - invert: true
-    pin: PC6
+  - pin: PC4
+    invert: true
+  - pin: PC6
+    invert: true
 serial_ports:
   - index: 1
     rx: PA10
@@ -61,13 +77,30 @@ ibat: PB1
 ibat_scale: 235
 rgb_led: PB9
 buzzer:
-  invert: true
   pin: PC15
+  invert: true
 motor_pins:
   - PA3
   - PA2
   - PA1
   - PA0
+outputs:
+  - pin: PA3
+    caps:
+      - dshot
+      - pwm
+  - pin: PA2
+    caps:
+      - dshot
+      - pwm
+  - pin: PA1
+    caps:
+      - dshot
+      - pwm
+  - pin: PA0
+    caps:
+      - dshot
+      - pwm
 baro:
   port: 1
 dma:
@@ -95,22 +128,3 @@ dma:
     dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
-vehicles:
-  - multi
-outputs:
-  - pin: PA3
-    caps:
-      - dshot
-      - pwm
-  - pin: PA2
-    caps:
-      - dshot
-      - pwm
-  - pin: PA1
-    caps:
-      - dshot
-      - pwm
-  - pin: PA0
-    caps:
-      - dshot
-      - pwm

@@ -1,6 +1,3 @@
-# Source: INAV 7bc9db7dcb TBS_LUCID_H7_WING target.h/target.c
-# Outputs limited to S1-S8 by the eight-output target format.
-# INAV does not specify gyro EXTI pins for this board.
 # DMA Assignment Summary
 # Target: tbs_lucid_h7_wing (stm32h743)
 # Architecture: flexible
@@ -11,23 +8,13 @@
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM0 (req11) [TIMER1_CH1]
 #   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM1 (req12) [TIMER1_CH2]
 #   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM2 (req13) [TIMER1_CH3]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req39) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req40) [SPI2_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
 #
 # Summary: 6 devices assigned, 10/16 streams available
 name: tbs_lucid_h7_wing
 manufacturer: TEBS
 mcu: stm32h743
-# TBS LUCID manual rev 1.15, p. 53.
-pinio:
-  - pin: PD10
-    label: VTX power
-    description: VSW output; voltage selected by jumper
-    invert: false
-  - pin: PD11
-    label: Camera select
-    description: Selects the C1/C2 analog video input
-    invert: false
 vehicles:
   - wing
   - rover
@@ -99,6 +86,15 @@ osd:
   nss: PB12
 sdcard:
   sdio: 1
+pinio:
+  - pin: PD10
+    label: VTX power
+    description: VSW output; voltage selected by jumper
+    invert: false
+  - pin: PD11
+    label: Camera select
+    description: Selects the C1/C2 analog video input
+    invert: false
 vbat: PC0
 vbat_scale: 210
 ibat: PC1
@@ -169,10 +165,10 @@ dma:
     request: 18
     tag: TIMER2_CH1
   SPI2_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM4
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM5
     request: 40
     tag: SPI2_MOSI

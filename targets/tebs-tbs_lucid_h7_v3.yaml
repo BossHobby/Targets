@@ -1,6 +1,3 @@
-# Source: INAV 7bc9db7dcb TBS_LUCID_H7_V3 target.h/target.c
-# Outputs limited to S1-S8 by the eight-output target format.
-# First four outputs retain Quicksilver multirotor order; remaining outputs follow INAV.
 # DMA Assignment Summary
 # Target: tbs_lucid_h7_v3 (stm32h743)
 # Architecture: flexible
@@ -15,16 +12,6 @@
 name: tbs_lucid_h7_v3
 manufacturer: TEBS
 mcu: stm32h743
-pinio:
-  - pin: PD10
-    label: VSW
-    invert: false
-  - pin: PD11
-    label: CAM SW
-    invert: true
-  - pin: PC13
-    label: VTX PWR
-    invert: false
 vehicles:
   - multi
   - wing
@@ -90,6 +77,16 @@ gyro:
 gyro_orientation: 36
 sdcard:
   sdio: 1
+pinio:
+  - pin: PD10
+    label: VSW
+    invert: false
+  - pin: PD11
+    label: CAM SW
+    invert: true
+  - pin: PC13
+    label: VTX PWR
+    invert: false
 vbat: PC0
 vbat_scale: 110
 ibat: PC1

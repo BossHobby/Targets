@@ -1,10 +1,31 @@
+# DMA Assignment Summary
+# Target: alienwhoop_v2 (stm32f405)
+# Architecture: fixed
+# Total DMA assignments: 3
+#
+# DMA Device Assignments:
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> available                                         (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> available                                         (options: DMA2_STREAM3, DMA2_STREAM5)
+#   SPI2_RX         -> available                                         (options: DMA1_STREAM3)
+#   SPI2_TX         -> available                                         (options: DMA1_STREAM4)
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM0 (ch0) [SPI3_MISO] (options: DMA1_STREAM0, DMA1_STREAM2)
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (ch0) [SPI3_MOSI] (options: DMA1_STREAM5, DMA1_STREAM7)
+#   SERIAL2_RX      -> available                                         (options: DMA1_STREAM5)
+#   SERIAL2_TX      -> available                                         (options: DMA1_STREAM6)
+#   SERIAL3_RX      -> available                                         (options: DMA1_STREAM1)
+#   SERIAL3_TX      -> available                                         (options: DMA1_STREAM3, DMA1_STREAM4)
+#
+# Summary: 3 devices assigned, 13/16 streams available
 name: alienwhoop_v2
 manufacturer: ALWH
 mcu: stm32f405
+vehicles:
+  - multi
 leds:
   - pin: PC12
-  - invert: true
-    pin: PD2
+  - pin: PD2
+    invert: true
 serial_ports:
   - index: 2
     rx: PA3
@@ -32,35 +53,20 @@ gyro_orientation: 4
 flash:
   port: 3
   nss: PA15
-fpv: PA13
 pinio:
   - pin: PA13
     label: VTX power
     description: Power supply for the video transmitter
     invert: false
+fpv: PA13
 buzzer:
-  invert: true
   pin: PA2
+  invert: true
 motor_pins:
   - PC7
   - PC6
   - PC9
   - PC8
-dma:
-  DSHOT_CH1:
-    channel: 6
-    dma: DMA2_STREAM1
-    tag: TIMER1_CH1
-  SPI3_RX:
-    channel: 0
-    dma: DMA1_STREAM0
-    tag: SPI3_MISO
-  SPI3_TX:
-    channel: 0
-    dma: DMA1_STREAM7
-    tag: SPI3_MOSI
-vehicles:
-  - multi
 outputs:
   - pin: PC7
     caps:
@@ -78,3 +84,16 @@ outputs:
     caps:
       - dshot
       - pwm
+dma:
+  DSHOT_CH1:
+    channel: 6
+    dma: DMA2_STREAM1
+    tag: TIMER1_CH1
+  SPI3_RX:
+    channel: 0
+    dma: DMA1_STREAM0
+    tag: SPI3_MISO
+  SPI3_TX:
+    channel: 0
+    dma: DMA1_STREAM7
+    tag: SPI3_MOSI
