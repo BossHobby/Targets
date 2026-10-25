@@ -133,6 +133,7 @@ dma:
 ### **Key Constraints & Validation**
 
 - **Exclusivity**: DMA streams cannot be shared - each stream handles one transfer only
+- **Shared requests**: some F4/F7 stream channels OR several timer requests (DMA2 S2 ch0: TIM8 CH1-3, DMA2 S6 ch0: TIM1 CH1-3, DMA1 S6 ch3: TIM2 CH2/CH4); such a channel is never assigned while another request it carries has DMA enabled, since it would also acknowledge that request and stall its stream
 - **Motor Protection**: Timer1 (and Timer8 if available) reserved for DSHOT protocols
 - **Conflict Detection**: Algorithm validates assignments and reports conflicts with ⚠️ warnings
 - **Retry Logic**: Automatic RGB LED disabling and Timer8 fallback for conflict resolution

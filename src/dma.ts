@@ -31,6 +31,9 @@ const tagEqual = (lhs: device_tag, rhs: device_tag) =>
 const getDmaArchitecture = (mcu: string) =>
     ['stm32f405', 'stm32f411', 'stm32f722', 'stm32f745', 'stm32f765'].includes(mcu) ? 'fixed' : 'flexible';
 
+const tagKey = (tag: device_tag) => `${tag.type}${tag.index}_${tag.func}`;
+const requestKey = (resource: dma_resource) => `${resource.dma?.port}:${resource.dma?.stream}:${resource.channel}`;
+
 // The gyro only uses polled transfers, so only ports carrying another device need DMA.
 function spiDmaPorts(target: target_t): Set<number> {
     const ports = new Set<number>();
@@ -54,12 +57,33 @@ export function findDmaAssignments(target: target_t): target_t {
     const usedResources = new Set<string>();
     const usedTimers = new Set<string>();
     const usedStreams = new Set<string>();
+    const usedRequests = new Set<string>();
+    const activeTags = new Set<string>();
+
+    // Some F4/F7 stream channels OR several timer requests together, e.g.
+    // DMA2 stream 2 channel 0 carries TIM8 CH1/CH2/CH3. A stream on such a
+    // channel also acknowledges the other requests, so another stream serving
+    // one of them stops receiving requests and never completes. Reject a
+    // channel if any other request it carries has DMA enabled.
+    function sharesRequest(resource: dma_resource, tag: device_tag, reserved: device_tag[]): boolean {
+        if (getDmaArchitecture(mcu) !== 'fixed') return false;
+
+        const key = tagKey(tag);
+        const active = new Set([...activeTags, ...reserved.map(tagKey)]);
+        active.delete(key);
+
+        const line = requestKey(resource);
+        if (dma.some(d => requestKey(d) === line && active.has(tagKey(d.tag)))) return true;
+
+        // an assigned shared channel would also take this tag's requests
+        return dma.some(d => usedRequests.has(requestKey(d)) && tagKey(d.tag) === key);
+    }
 
     let motorTimers = mcu === "stm32f411" ? [{ type: "timer", index: 1 }] : [{ type: "timer", index: 1 }, { type: "timer", index: 8 }];
 
-    function findOptimalDmaResource(tag: device_tag, allPeripherals: device_tag[]): dma_resource | null {
+    function findOptimalDmaResource(tag: device_tag, allPeripherals: device_tag[], reserved: device_tag[] = []): dma_resource | null {
         const candidateResources = dma.filter(d =>
-            tagEqual(d.tag, tag) && !usedResources.has(JSON.stringify(d))
+            tagEqual(d.tag, tag) && !usedResources.has(JSON.stringify(d)) && !sharesRequest(d, tag, reserved)
         );
 
         if (candidateResources.length === 0) return null;
@@ -113,11 +137,13 @@ export function findDmaAssignments(target: target_t): target_t {
         }
     }
 
-    const addAssignment = (dev: string, tag: device_tag, allPeripherals: device_tag[]): boolean => {
-        const resource = findOptimalDmaResource(tag, allPeripherals);
+    const addAssignment = (dev: string, tag: device_tag, allPeripherals: device_tag[], reserved: device_tag[] = []): boolean => {
+        const resource = findOptimalDmaResource(tag, allPeripherals, reserved);
         if (!resource) return false;
 
         usedResources.add(JSON.stringify(resource));
+        usedRequests.add(requestKey(resource));
+        activeTags.add(tagKey(tag));
         const dmaStream = getDmaStreamName(resource, assignments.length);
 
         if (usedStreams.has(dmaStream)) {
@@ -220,11 +246,12 @@ export function findDmaAssignments(target: target_t): target_t {
         let tempUsedResources = new Set(usedResources);
         let tempUsedStreams = new Set(usedStreams);
         let tempAssignmentCount = assignments.length;
+        const timerMotorTags = motorPorts.map((_, i) => ({ ...motorTimer, func: `ch${i + 1}` }));
 
         // Check if we can assign all channels to this timer
         for (let i = 0; i < motorPorts.length; i++) {
-            const motorTag = { ...motorTimer, func: `ch${i + 1}` };
-            const resource = findOptimalDmaResource(motorTag, allPeripherals);
+            const motorTag = timerMotorTags[i];
+            const resource = findOptimalDmaResource(motorTag, allPeripherals, timerMotorTags);
 
             if (!resource) {
                 canAssignAll = false;
@@ -266,11 +293,12 @@ export function findDmaAssignments(target: target_t): target_t {
     }
 
     // Now actually assign the motor channels
+    const selectedMotorTags = motorAssignments.map(a => a.tag);
     for (const assignment of motorAssignments) {
         const motorTag = assignment.tag;
         usedTimers.add(`${motorTag.type}${motorTag.index}_${motorTag.func}`);
 
-        if (!addAssignment(`DSHOT_CH${assignment.channel}`, motorTag, allPeripherals)) {
+        if (!addAssignment(`DSHOT_CH${assignment.channel}`, motorTag, allPeripherals, selectedMotorTags)) {
             throw new Error(`Failed to assign motor DMA for channel ${assignment.channel}!`);
         }
         peripheralStatus.motors.assigned++;
