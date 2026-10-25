@@ -87,8 +87,8 @@ outputs:
       - pwm
 dma:
   DSHOT_CH1:
-    channel: 0
-    dma: DMA2_STREAM6
+    channel: 6
+    dma: DMA2_STREAM3
     tag: TIMER1_CH1
   SPI2_RX:
     channel: 9

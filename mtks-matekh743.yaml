@@ -116,10 +116,10 @@ dma:
     request: 11
     tag: TIMER1_CH1
   SPI2_RX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM3
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM4
     request: 40
     tag: SPI2_MOSI

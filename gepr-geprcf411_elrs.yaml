@@ -76,8 +76,8 @@ dma:
     dma: DMA2_STREAM1
     tag: TIMER1_CH1
   DSHOT_CH2:
-    channel: 0
-    dma: DMA2_STREAM6
+    channel: 6
+    dma: DMA2_STREAM2
     tag: TIMER1_CH2
   SPI2_RX:
     channel: 0

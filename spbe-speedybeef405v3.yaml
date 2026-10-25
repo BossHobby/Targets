@@ -90,7 +90,7 @@ baro:
 dma:
   DSHOT_CH1:
     channel: 6
-    dma: DMA2_STREAM1
+    dma: DMA2_STREAM3
     tag: TIMER1_CH1
   RGB:
     channel: 5
