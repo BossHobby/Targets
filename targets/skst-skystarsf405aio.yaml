@@ -89,6 +89,7 @@ ibat_scale: 558
 rgb_led: PC8
 buzzer:
   pin: PC13
+  invert: true
 motor_pins:
   - PB4
   - PB3
