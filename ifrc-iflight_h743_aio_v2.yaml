@@ -68,7 +68,7 @@ ibat_scale: 100
 rgb_led: PA8
 buzzer:
   pin: PD2
-  invert: true
+  invert: false
 motor_pins:
   - PB4
   - PB5

@@ -53,7 +53,7 @@ ibat: PC3
 rgb_led: PA0
 buzzer:
   pin: PA8
-  invert: true
+  invert: false
 motor_pins:
   - PB1
   - PA2
