@@ -61,7 +61,7 @@ gyro_orientation: 16
 vbat: PC1
 buzzer:
   pin: PB0
-  invert: true
+  invert: false
 motor_pins:
   - PE13
   - PE14

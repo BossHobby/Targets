@@ -65,7 +65,7 @@ vbat: PC1
 ibat: PC2
 buzzer:
   pin: PC9
-  invert: true
+  invert: false
 motor_pins:
   - PA3
   - PA2

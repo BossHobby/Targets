@@ -97,7 +97,7 @@ ibat: PC0
 ibat_scale: 182
 buzzer:
   pin: PC3
-  invert: true
+  invert: false
 motor_pins:
   - PC8
   - PC9

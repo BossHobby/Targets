@@ -64,7 +64,7 @@ vbat: PC0
 ibat: PA5
 buzzer:
   pin: PA0
-  invert: true
+  invert: false
 motor_pins:
   - PA3
   - PB5

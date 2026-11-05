@@ -42,7 +42,7 @@ usb_detect: PA9
 rgb_led: PB7
 buzzer:
   pin: PC5
-  invert: false
+  invert: true
 motor_pins:
   - PB1
   - PB15

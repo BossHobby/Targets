@@ -91,15 +91,17 @@ function handle(target: target_t, parts: string[]) {
     ),
     adc_curr_pin: () => (target.ibat = parsePin(parts[1])),
     usb_detect_pin: () => (target.usb_detect = parsePin(parts[1])),
+    // Betaflight beepers sink current (drive low) unless BEEPER_INVERTED
+    // makes them drive high; QUICKSILVER's invert drives low when on.
     beeper_pin: () =>
       (target.buzzer = {
-        ...(target.buzzer || { invert: false }),
+        ...(target.buzzer || { invert: true }),
         pin: parsePin(parts[1]),
       }),
     beeper_inverted: () =>
       (target.buzzer = {
         ...(target.buzzer || { pin: "NONE" }),
-        invert: true,
+        invert: false,
       }),
     flash_cs_pin: () =>
       (target.flash = {

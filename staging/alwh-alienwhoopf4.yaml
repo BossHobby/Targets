@@ -70,7 +70,7 @@ flash:
 rgb_led: PA0
 buzzer:
   pin: PA2
-  invert: true
+  invert: false
 motor_pins:
   - PC7
   - PC6

@@ -48,7 +48,7 @@ flash:
   nss: PA15
 buzzer:
   pin: PB1
-  invert: true
+  invert: false
 motor_pins:
   - PB6
   - PB7

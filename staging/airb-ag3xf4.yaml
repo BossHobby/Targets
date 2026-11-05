@@ -77,7 +77,7 @@ vbat: PC0
 ibat: PC1
 rgb_led: PA2
 buzzer:
-  invert: true
+  invert: false
 motor_pins:
   - PB1
   - PB7

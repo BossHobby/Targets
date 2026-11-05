@@ -88,7 +88,7 @@ sdcard_detect:
   invert: true
 buzzer:
   pin: PD15
-  invert: true
+  invert: false
 motor_pins:
   - PE9
   - PE11

@@ -77,7 +77,7 @@ ibat_scale: 470
 rgb_led: PB6
 buzzer:
   pin: PB4
-  invert: true
+  invert: false
 motor_pins:
   - PC9
   - PC8

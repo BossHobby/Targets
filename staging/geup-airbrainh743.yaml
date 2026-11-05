@@ -77,7 +77,7 @@ ibat: PC5
 rgb_led: PA2
 buzzer:
   pin: PA15
-  invert: true
+  invert: false
 motor_pins:
   - PE13
   - PE14

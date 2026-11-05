@@ -41,7 +41,7 @@ ibat: PA41
 rgb_led: PA38
 buzzer:
   pin: PA5
-  invert: false
+  invert: true
 motor_pins:
   - PA30
   - PA31

@@ -80,7 +80,7 @@ ibat_scale: 300
 rgb_led: PA1
 buzzer:
   pin: PC15
-  invert: true
+  invert: false
 motor_pins:
   - PC9
   - PC7

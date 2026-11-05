@@ -52,7 +52,7 @@ vbat: PA6
 ibat: PA7
 buzzer:
   pin: PC13
-  invert: false
+  invert: true
 motor_pins:
   - PB8
   - PB9

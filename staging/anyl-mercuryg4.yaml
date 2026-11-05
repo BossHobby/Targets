@@ -62,7 +62,7 @@ ibat: PB2
 ibat_scale: 118
 buzzer:
   pin: PA10
-  invert: true
+  invert: false
 motor_pins:
   - PB0
   - PB1

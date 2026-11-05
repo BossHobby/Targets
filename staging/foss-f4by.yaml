@@ -80,7 +80,7 @@ vbat: PC3
 ibat: PC2
 buzzer:
   pin: PE5
-  invert: false
+  invert: true
 motor_pins:
   - PA2
   - PA3
