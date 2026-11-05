@@ -1,7 +1,7 @@
 # DMA Assignment Summary
 # Target: luxh743ndaa (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 10
+# Total DMA assignments: 8
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM1 (req25) [TIMER3_CH3]
@@ -10,22 +10,13 @@
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA1_STREAM6 (req61) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (req62) [SPI3_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA2_STREAM0 (req83) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA2_STREAM1 (req84) [SPI4_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM6 (req83) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA1_STREAM7 (req84) [SPI4_MOSI]
 #
-# Summary: 10 devices assigned, 6/16 streams available
+# Summary: 8 devices assigned, 8/16 streams available
 name: luxh743ndaa
 manufacturer: LMNR
 mcu: stm32h743
-pinio:
-  - pin: PB1
-    label: CAM 1,2
-    invert: false
-  - pin: PB2
-    label: VTX PWR
-    invert: false
 leds:
   - pin: PE3
     invert: true
@@ -94,6 +85,13 @@ sdcard:
   port: 2
   nss: PB11
 usb_detect: PD2
+pinio:
+  - pin: PB1
+    label: CAM 1,2
+    invert: false
+  - pin: PB2
+    label: VTX PWR
+    invert: false
 vbat: PC0
 ibat: PC1
 ibat_scale: 85
@@ -136,19 +134,11 @@ dma:
     dma: DMA1_STREAM5
     request: 40
     tag: SPI2_MOSI
-  SPI3_RX:
-    dma: DMA1_STREAM6
-    request: 61
-    tag: SPI3_MISO
-  SPI3_TX:
-    dma: DMA1_STREAM7
-    request: 62
-    tag: SPI3_MOSI
   SPI4_RX:
-    dma: DMA2_STREAM0
+    dma: DMA1_STREAM6
     request: 83
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA2_STREAM1
+    dma: DMA1_STREAM7
     request: 84
     tag: SPI4_MOSI

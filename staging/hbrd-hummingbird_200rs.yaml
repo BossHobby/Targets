@@ -1,26 +1,20 @@
 # DMA Assignment Summary
 # Target: hummingbird_200rs (at32f435)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 6
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM2 (req64) [TIMER3_CH4]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA1_STREAM7 (req106) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA2_STREAM1 (req107) [SPI4_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (req13) [SPI2_MOSI]
+#   SPI4_RX         -> ASSIGNED: DMA1_STREAM5 (req106) [SPI4_MISO]
+#   SPI4_TX         -> ASSIGNED: DMA1_STREAM6 (req107) [SPI4_MOSI]
 #
-# Summary: 8 devices assigned, 6/14 streams available
+# Summary: 6 devices assigned, 8/14 streams available
 name: hummingbird_200rs
 manufacturer: HBRD
 mcu: at32f435
-pinio:
-  - pin: PC13
-    label: VTX 10V
-    invert: true
 defaults:
   serial:
     rx: 1
@@ -67,6 +61,10 @@ osd:
 flash:
   port: 2
   nss: PC15
+pinio:
+  - pin: PC13
+    label: VTX 10V
+    invert: true
 vbat: PA2
 vbat_scale: 110
 ibat: PA3
@@ -88,27 +86,19 @@ dma:
     dma: DMA1_STREAM2
     request: 64
     tag: TIMER3_CH4
-  SPI1_RX:
-    dma: DMA1_STREAM3
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM4
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM3
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM4
     request: 13
     tag: SPI2_MOSI
   SPI4_RX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM5
     request: 106
     tag: SPI4_MISO
   SPI4_TX:
-    dma: DMA2_STREAM1
+    dma: DMA1_STREAM6
     request: 107
     tag: SPI4_MOSI

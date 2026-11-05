@@ -1,32 +1,18 @@
 # DMA Assignment Summary
 # Target: hwh7 (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 4
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM1 (req18) [TIMER2_CH1]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM0 (req11) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM2 (req37) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA1_STREAM6 (req61) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA1_STREAM7 (req62) [SPI3_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM2 (req61) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM3 (req62) [SPI3_MOSI]
 #
-# Summary: 8 devices assigned, 8/16 streams available
+# Summary: 4 devices assigned, 12/16 streams available
 name: hwh7
 manufacturer: HOWI
 mcu: stm32h743
-pinio:
-  - pin: PE2
-    label: CAM 1,2
-    invert: false
-  - pin: PE4
-    label: SW_VTX
-    invert: true
-  - pin: PD10
-    label: PINIO 3
-    invert: true
 leds:
   - pin: PB2
     invert: true
@@ -90,6 +76,16 @@ osd:
   nss: PA15
 sdcard:
   sdio: 1
+pinio:
+  - pin: PE2
+    label: CAM 1,2
+    invert: false
+  - pin: PE4
+    label: SW_VTX
+    invert: true
+  - pin: PD10
+    label: PINIO 3
+    invert: true
 vbat: PC0
 ibat: PC1
 ibat_scale: 117
@@ -115,27 +111,11 @@ dma:
     dma: DMA1_STREAM1
     request: 18
     tag: TIMER2_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM2
-    request: 37
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM3
-    request: 38
-    tag: SPI1_MOSI
-  SPI2_RX:
-    dma: DMA1_STREAM4
-    request: 39
-    tag: SPI2_MISO
-  SPI2_TX:
-    dma: DMA1_STREAM5
-    request: 40
-    tag: SPI2_MOSI
   SPI3_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM2
     request: 61
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM3
     request: 62
     tag: SPI3_MOSI

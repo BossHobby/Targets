@@ -1,12 +1,12 @@
 # DMA Assignment Summary
 # Target: stellarf4 (stm32f405)
 # Architecture: fixed
-# Total DMA assignments: 5
+# Total DMA assignments: 3
 #
 # DMA Device Assignments:
-#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
-#   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
-#   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
+#   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM3 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
+#   SPI1_RX         -> available                                         (options: DMA2_STREAM0, DMA2_STREAM2)
+#   SPI1_TX         -> available                                         (options: DMA2_STREAM3, DMA2_STREAM5)
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (ch0) [SPI2_MOSI] (options: DMA1_STREAM4)
 #   SERIAL1_RX      -> available                                         (options: DMA2_STREAM2, DMA2_STREAM5)
@@ -22,14 +22,10 @@
 #   SERIAL6_RX      -> available                                         (options: DMA2_STREAM1, DMA2_STREAM2)
 #   SERIAL6_TX      -> available                                         (options: DMA2_STREAM6, DMA2_STREAM7)
 #
-# Summary: 5 devices assigned, 11/16 streams available
+# Summary: 3 devices assigned, 13/16 streams available
 name: stellarf4
 manufacturer: STBE
 mcu: stm32f405
-pinio:
-  - pin: PC3
-    label: PINIO 1
-    invert: false
 defaults:
   serial:
     rx: 2
@@ -79,6 +75,10 @@ osd:
 flash:
   port: 2
   nss: PA15
+pinio:
+  - pin: PC3
+    label: PINIO 1
+    invert: false
 vbat: PC0
 vbat_scale: 110
 ibat: PC1
@@ -96,16 +96,8 @@ baro:
 dma:
   DSHOT_CH1:
     channel: 6
-    dma: DMA2_STREAM1
-    tag: TIMER1_CH1
-  SPI1_RX:
-    channel: 3
-    dma: DMA2_STREAM0
-    tag: SPI1_MISO
-  SPI1_TX:
-    channel: 3
     dma: DMA2_STREAM3
-    tag: SPI1_MOSI
+    tag: TIMER1_CH1
   SPI2_RX:
     channel: 0
     dma: DMA1_STREAM3

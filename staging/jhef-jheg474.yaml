@@ -1,28 +1,22 @@
 # DMA Assignment Summary
 # Target: jheg474 (stm32g473)
 # Architecture: flexible
-# Total DMA assignments: 10
+# Total DMA assignments: 8
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM4 (req72) [TIMER5_CH1]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
 #   DSHOT_CH3       -> ASSIGNED: DMA1_STREAM3 (req44) [TIMER1_CH3]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM5 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM6 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM7 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM8 (req13) [SPI2_MOSI]
-#   SPI3_RX         -> ASSIGNED: DMA2_STREAM1 (req14) [SPI3_MISO]
-#   SPI3_TX         -> ASSIGNED: DMA2_STREAM2 (req15) [SPI3_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#   SPI3_RX         -> ASSIGNED: DMA1_STREAM7 (req14) [SPI3_MISO]
+#   SPI3_TX         -> ASSIGNED: DMA1_STREAM8 (req15) [SPI3_MOSI]
 #
-# Summary: 10 devices assigned, 6/16 streams available
+# Summary: 8 devices assigned, 8/16 streams available
 name: jheg474
 manufacturer: JHEF
 mcu: stm32g473
-pinio:
-  - pin: PC15
-    label: PINIO 1
-    invert: false
 leds:
   - pin: PB6
     invert: true
@@ -69,6 +63,10 @@ osd:
 flash:
   port: 3
   nss: PC14
+pinio:
+  - pin: PC15
+    label: PINIO 1
+    invert: false
 vbat: PA0
 ibat: PA1
 rgb_led: PB2
@@ -99,27 +97,19 @@ dma:
     dma: DMA1_STREAM4
     request: 72
     tag: TIMER5_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM5
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM6
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM5
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM8
+    dma: DMA1_STREAM6
     request: 13
     tag: SPI2_MOSI
   SPI3_RX:
-    dma: DMA2_STREAM1
+    dma: DMA1_STREAM7
     request: 14
     tag: SPI3_MISO
   SPI3_TX:
-    dma: DMA2_STREAM2
+    dma: DMA1_STREAM8
     request: 15
     tag: SPI3_MOSI

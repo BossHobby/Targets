@@ -7,7 +7,7 @@
 #   RGB             -> ASSIGNED: DMA1_STREAM2 (ch5) [TIMER3_CH4] (options: DMA1_STREAM0, DMA1_STREAM0, DMA1_STREAM1, DMA1_STREAM1, DMA1_STREAM2, DMA1_STREAM2, DMA1_STREAM3, DMA1_STREAM3, DMA1_STREAM4, DMA1_STREAM4, DMA1_STREAM5, DMA1_STREAM5, DMA1_STREAM6, DMA1_STREAM6, DMA1_STREAM7, DMA1_STREAM7, DMA1_STREAM7)
 #   DSHOT_CH1       -> ASSIGNED: DMA2_STREAM1 (ch6) [TIMER1_CH1] (options: DMA2_STREAM1, DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
 #   DSHOT_CH2       -> ASSIGNED: DMA2_STREAM2 (ch6) [TIMER1_CH2] (options: DMA2_STREAM2, DMA2_STREAM2, DMA2_STREAM3, DMA2_STREAM6)
-#   DSHOT_CH3       -> ASSIGNED: DMA2_STREAM6 (ch0) [TIMER1_CH3] (options: DMA2_STREAM2, DMA2_STREAM4, DMA2_STREAM6, DMA2_STREAM6)
+#   DSHOT_CH3       -> ASSIGNED: DMA2_STREAM6 (ch6) [TIMER1_CH3] (options: DMA2_STREAM2, DMA2_STREAM4, DMA2_STREAM6, DMA2_STREAM6)
 #   SPI1_RX         -> ASSIGNED: DMA2_STREAM0 (ch3) [SPI1_MISO] (options: DMA2_STREAM0, DMA2_STREAM2)
 #   SPI1_TX         -> ASSIGNED: DMA2_STREAM3 (ch3) [SPI1_MOSI] (options: DMA2_STREAM3, DMA2_STREAM5)
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (ch0) [SPI2_MISO] (options: DMA1_STREAM3)
@@ -29,13 +29,6 @@
 name: matekf405te_sd
 manufacturer: MTKS
 mcu: stm32f405
-pinio:
-  - pin: PA4
-    label: PINIO 1
-    invert: false
-  - pin: PB5
-    label: PINIO 2
-    invert: false
 defaults:
   serial:
     rx: 2
@@ -90,6 +83,13 @@ flash:
 sdcard:
   port: 2
   nss: PC1
+pinio:
+  - pin: PA4
+    label: PINIO 1
+    invert: false
+  - pin: PB5
+    label: PINIO 2
+    invert: false
 vbat: PC4
 vbat_scale: 210
 ibat: PC5
@@ -115,7 +115,7 @@ dma:
     dma: DMA2_STREAM2
     tag: TIMER1_CH2
   DSHOT_CH3:
-    channel: 0
+    channel: 6
     dma: DMA2_STREAM6
     tag: TIMER1_CH3
   RGB:

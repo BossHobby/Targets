@@ -1,10 +1,6 @@
 name: foxeerf405v2
 manufacturer: FOXE
 mcu: stm32f405
-pinio:
-  - pin: PB14
-    label: PINIO 1
-    invert: false
 leds:
   - pin: PA13
     invert: true
@@ -57,6 +53,10 @@ osd:
 flash:
   port: 2
   nss: PB12
+pinio:
+  - pin: PB14
+    label: PINIO 1
+    invert: false
 vbat: PC0
 ibat: PC1
 ibat_scale: 70

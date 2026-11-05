@@ -1,24 +1,18 @@
 # DMA Assignment Summary
 # Target: speedybeef435aioelrs (at32f435)
 # Architecture: flexible
-# Total DMA assignments: 6
+# Total DMA assignments: 4
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM2 (req72) [TIMER5_CH1]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req13) [SPI2_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (req13) [SPI2_MOSI]
 #
-# Summary: 6 devices assigned, 8/14 streams available
+# Summary: 4 devices assigned, 10/14 streams available
 name: speedybeef435aioelrs
 manufacturer: SPBE
 mcu: at32f435
-pinio:
-  - pin: PC14
-    label: 8V CTRL
-    invert: true
 defaults:
   serial:
     rx: 5
@@ -61,6 +55,10 @@ gyro_orientation: 4
 flash:
   port: 2
   nss: PC13
+pinio:
+  - pin: PC14
+    label: 8V CTRL
+    invert: true
 vbat: PA0
 ibat: PA1
 ibat_scale: 250
@@ -84,19 +82,11 @@ dma:
     dma: DMA1_STREAM2
     request: 72
     tag: TIMER5_CH1
-  SPI1_RX:
-    dma: DMA1_STREAM3
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM4
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM3
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM4
     request: 13
     tag: SPI2_MOSI

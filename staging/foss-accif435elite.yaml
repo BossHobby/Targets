@@ -1,25 +1,19 @@
 # DMA Assignment Summary
 # Target: accif435elite (at32f435)
 # Architecture: flexible
-# Total DMA assignments: 7
+# Total DMA assignments: 5
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM3 (req57) [TIMER2_CH2]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM1 (req42) [TIMER1_CH1]
 #   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM2 (req43) [TIMER1_CH2]
-#   SPI1_RX         -> ASSIGNED: DMA1_STREAM4 (req10) [SPI1_MISO]
-#   SPI1_TX         -> ASSIGNED: DMA1_STREAM5 (req11) [SPI1_MOSI]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM6 (req12) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM7 (req13) [SPI2_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req12) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req13) [SPI2_MOSI]
 #
-# Summary: 7 devices assigned, 7/14 streams available
+# Summary: 5 devices assigned, 9/14 streams available
 name: accif435elite
 manufacturer: FOSS
 mcu: at32f435
-pinio:
-  - pin: PB1
-    label: VTX PWR
-    invert: true
 leds:
   - pin: PC15
     invert: true
@@ -65,6 +59,10 @@ gyro_orientation: 0
 flash:
   port: 2
   nss: PB12
+pinio:
+  - pin: PB1
+    label: VTX PWR
+    invert: true
 vbat: PC1
 vbat_scale: 113
 ibat: PC3
@@ -92,19 +90,11 @@ dma:
     dma: DMA1_STREAM3
     request: 57
     tag: TIMER2_CH2
-  SPI1_RX:
-    dma: DMA1_STREAM4
-    request: 10
-    tag: SPI1_MISO
-  SPI1_TX:
-    dma: DMA1_STREAM5
-    request: 11
-    tag: SPI1_MOSI
   SPI2_RX:
-    dma: DMA1_STREAM6
+    dma: DMA1_STREAM4
     request: 12
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM7
+    dma: DMA1_STREAM5
     request: 13
     tag: SPI2_MOSI

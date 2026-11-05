@@ -1,7 +1,7 @@
 # DMA Assignment Summary
 # Target: kakuteh7mini (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 8
+# Total DMA assignments: 6
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM1 (req29) [TIMER4_CH1]
@@ -10,17 +10,11 @@
 #   SPI1_TX         -> ASSIGNED: DMA1_STREAM3 (req38) [SPI1_MOSI]
 #   SPI2_RX         -> ASSIGNED: DMA1_STREAM4 (req39) [SPI2_MISO]
 #   SPI2_TX         -> ASSIGNED: DMA1_STREAM5 (req40) [SPI2_MOSI]
-#   SPI4_RX         -> ASSIGNED: DMA1_STREAM6 (req83) [SPI4_MISO]
-#   SPI4_TX         -> ASSIGNED: DMA1_STREAM7 (req84) [SPI4_MOSI]
 #
-# Summary: 8 devices assigned, 8/16 streams available
+# Summary: 6 devices assigned, 10/16 streams available
 name: kakuteh7mini
 manufacturer: HBRO
 mcu: stm32h743
-pinio:
-  - pin: PB11
-    label: PINIO 1
-    invert: true
 leds:
   - pin: PC2
     invert: true
@@ -71,6 +65,10 @@ flash:
   port: 1
   nss: PA4
 usb_detect: PA8
+pinio:
+  - pin: PB11
+    label: PINIO 1
+    invert: true
 vbat: PC0
 vbat_scale: 110
 ibat: PC1
@@ -111,11 +109,3 @@ dma:
     dma: DMA1_STREAM5
     request: 40
     tag: SPI2_MOSI
-  SPI4_RX:
-    dma: DMA1_STREAM6
-    request: 83
-    tag: SPI4_MISO
-  SPI4_TX:
-    dma: DMA1_STREAM7
-    request: 84
-    tag: SPI4_MOSI
