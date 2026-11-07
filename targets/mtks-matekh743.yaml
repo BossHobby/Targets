@@ -1,16 +1,18 @@
 # DMA Assignment Summary
 # Target: matekh743 (stm32h743)
 # Architecture: flexible
-# Total DMA assignments: 5
+# Total DMA assignments: 7
 #
 # DMA Device Assignments:
 #   RGB             -> ASSIGNED: DMA1_STREAM2 (req11) [TIMER1_CH1]
 #   DSHOT_CH1       -> ASSIGNED: DMA1_STREAM0 (req47) [TIMER8_CH1]
 #   DSHOT_CH2       -> ASSIGNED: DMA1_STREAM1 (req48) [TIMER8_CH2]
-#   SPI2_RX         -> ASSIGNED: DMA1_STREAM3 (req39) [SPI2_MISO]
-#   SPI2_TX         -> ASSIGNED: DMA1_STREAM4 (req40) [SPI2_MOSI]
+#   SPI1_RX         -> ASSIGNED: DMA1_STREAM3 (req37) [SPI1_MISO]
+#   SPI1_TX         -> ASSIGNED: DMA1_STREAM4 (req38) [SPI1_MOSI]
+#   SPI2_RX         -> ASSIGNED: DMA1_STREAM5 (req39) [SPI2_MISO]
+#   SPI2_TX         -> ASSIGNED: DMA1_STREAM6 (req40) [SPI2_MOSI]
 #
-# Summary: 5 devices assigned, 11/16 streams available
+# Summary: 7 devices assigned, 9/16 streams available
 name: matekh743
 manufacturer: MTKS
 mcu: stm32h743
@@ -128,11 +130,19 @@ dma:
     dma: DMA1_STREAM2
     request: 11
     tag: TIMER1_CH1
-  SPI2_RX:
+  SPI1_RX:
     dma: DMA1_STREAM3
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM4
+    request: 38
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM5
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM6
     request: 40
     tag: SPI2_MOSI

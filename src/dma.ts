@@ -34,13 +34,17 @@ const getDmaArchitecture = (mcu: string) =>
 const tagKey = (tag: device_tag) => `${tag.type}${tag.index}_${tag.func}`;
 const requestKey = (resource: dma_resource) => `${resource.dma?.port}:${resource.dma?.stream}:${resource.channel}`;
 
-// The gyro only uses polled transfers, so only ports carrying another device need DMA.
-function spiDmaPorts(target: target_t): Set<number> {
+// F4 gyro reads poll: SPI1 DMA there must wait for DShot to release DMA2.
+// Other MCUs read the gyro with DMA.
+const isF4 = (mcu: string) => mcu === 'stm32f405' || mcu === 'stm32f411';
+
+function spiDmaPorts(target: target_t, mcu: string): Set<number> {
     const ports = new Set<number>();
     for (const dev of [target.osd, target.flash, target.sdcard?.sdio ? undefined : target.sdcard]) {
         if (dev?.port && dev.nss) ports.add(dev.port);
     }
     if (target.rx_spi?.port) ports.add(target.rx_spi.port);
+    if (target.gyro?.port && !isF4(mcu)) ports.add(target.gyro.port);
     return ports;
 }
 
@@ -192,7 +196,7 @@ export function findDmaAssignments(target: target_t): target_t {
         }
     }
 
-    const dmaPorts = spiDmaPorts(target);
+    const dmaPorts = spiDmaPorts(target, mcu);
     const spiPorts = (target.spi_ports || []).filter(spi => dmaPorts.has(spi.index));
     for (const spi of spiPorts) {
         allPeripherals.push({ type: 'spi', index: spi.index, func: 'miso' });
