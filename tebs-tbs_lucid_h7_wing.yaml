@@ -150,11 +150,19 @@ dma:
     dma: DMA1_STREAM3
     request: 18
     tag: TIMER2_CH1
-  SPI2_RX:
+  SPI1_RX:
     dma: DMA1_STREAM4
+    request: 37
+    tag: SPI1_MISO
+  SPI1_TX:
+    dma: DMA1_STREAM5
+    request: 38
+    tag: SPI1_MOSI
+  SPI2_RX:
+    dma: DMA1_STREAM6
     request: 39
     tag: SPI2_MISO
   SPI2_TX:
-    dma: DMA1_STREAM5
+    dma: DMA1_STREAM7
     request: 40
     tag: SPI2_MOSI

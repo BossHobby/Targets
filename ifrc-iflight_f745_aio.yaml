@@ -94,7 +94,7 @@ baro:
 dma:
   DSHOT_CH1:
     channel: 6
-    dma: DMA2_STREAM3
+    dma: DMA2_STREAM1
     tag: TIMER1_CH1
   DSHOT_CH2:
     channel: 6
@@ -104,6 +104,14 @@ dma:
     channel: 2
     dma: DMA1_STREAM0
     tag: TIMER4_CH1
+  SPI1_RX:
+    channel: 3
+    dma: DMA2_STREAM0
+    tag: SPI1_MISO
+  SPI1_TX:
+    channel: 3
+    dma: DMA2_STREAM5
+    tag: SPI1_MOSI
   SPI3_RX:
     channel: 0
     dma: DMA1_STREAM2
@@ -113,8 +121,8 @@ dma:
     dma: DMA1_STREAM7
     tag: SPI3_MOSI
   SPI4_RX:
-    channel: 4
-    dma: DMA2_STREAM0
+    channel: 5
+    dma: DMA2_STREAM3
     tag: SPI4_MISO
   SPI4_TX:
     channel: 5
