@@ -22,8 +22,6 @@ mcu: stm32f411
 leds:
   - pin: PC13
     invert: true
-  - pin: PC14
-    invert: true
 serial_ports:
   - index: 1
     rx: PA10

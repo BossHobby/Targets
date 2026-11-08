@@ -333,7 +333,17 @@ async function translate(filename: string, output?: string) {
     return;
   }
 
-  if (await loadMcuGpio(target.mcu)) target.pinio = extractPinio(content);
+  if (await loadMcuGpio(target.mcu)) {
+    target.pinio = extractPinio(content);
+    // Some configs also assign a PINIO pin to a status LED (HAKRCF411D PC14) or
+    // a UART pad (ZEEZF7 UART3 RX on PB11); the user-switchable output owns it.
+    const pinio = new Set(target.pinio.map(output => output.pin));
+    target.leds = target.leds.filter(led => !pinio.has(led.pin));
+    for (const port of target.serial_ports) {
+      if (pinio.has(port.rx)) delete port.rx;
+      if (pinio.has(port.tx)) delete port.tx;
+    }
+  }
 
   if (defines.default_align_board_yaw) {
     // Betaflight composes the board yaw with the sensor alignment
