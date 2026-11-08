@@ -21,7 +21,13 @@ interface dma_resource {
 
 const mcus = await fs.promises.readdir("mcu");
 const gpios = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "gpio.yaml"), "utf8")) }), {});
-const dmas = await mcus.reduce(async (prev, m) => ({ ...(await prev), [m]: YAML.parse(await fs.promises.readFile(path.join("mcu", m, "dma.yaml"), "utf8")) }), {});
+// RP2350 drivers claim DMA channels at runtime, so those MCUs have no table
+// and their targets carry no assignments.
+const dmas = await mcus.reduce(async (prev, m) => {
+    const file = path.join("mcu", m, "dma.yaml");
+    if (!fs.existsSync(file)) return prev;
+    return { ...(await prev), [m]: YAML.parse(await fs.promises.readFile(file, "utf8")) };
+}, {});
 
 const mapMCU = (mcu: string) => ({ at32f435m: "at32f435" }[mcu] || mcu);
 
@@ -564,6 +570,8 @@ function sortMapEntries(a: Pair<Scalar, unknown>, b: Pair<Scalar, unknown>): num
 }
 
 export function stringifyTargetWithDmaHeader(target: target_t & { _dmaStatus?: any; _usedStreams?: Set<string>; _mcu?: string; _dmaResources?: any[] }): string {
+    if (!dmas[mapMCU(target.mcu)]) return stringifyTarget(target);
+
     const header = generateDmaHeader(
         target,
         target._usedStreams || new Set(),

@@ -8,7 +8,7 @@ export function validatePinio(target: target_t): void {
     throw new Error(`invalid PINIO outputs on target ${target.name}`);
   }
   for (const output of target.pinio) {
-    if (!/^P[A-K](?:[0-9]|1[0-5])$/.test(output.pin) || typeof output.label !== "string" || !output.label.trim() ||
+    if (!/^P[A-K][0-9]{1,2}$/.test(output.pin) || typeof output.label !== "string" || !output.label.trim() ||
         Buffer.byteLength(output.label) >= 32 ||
         (output.description !== undefined && (typeof output.description !== "string" || Buffer.byteLength(output.description) >= 96)) ||
         (output.invert !== undefined && typeof output.invert !== "boolean")) {

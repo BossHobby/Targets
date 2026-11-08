@@ -290,6 +290,8 @@ const MCU_SERIAL_PORTS: Record<string, number[]> = {
   stm32f765: [1, 2, 3, 4, 5, 6, 7, 8],
   stm32h743: [1, 2, 3, 4, 5, 7, 8],
   at32f435: [1, 2, 3, 4, 5, 6, 7, 8],
+  rp2350a: [1, 2],
+  rp2350b: [1, 2],
 };
 
 // Required pin direction per serial role, following the firmware serial_init

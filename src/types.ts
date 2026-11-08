@@ -130,6 +130,12 @@ export interface target_defaults_t {
   vtx?: target_vtx_defaults_t;
 }
 
+export interface target_video_osd_t {
+  white: gpio_pins_t;
+  enable: gpio_pins_t;
+  sync: gpio_pins_t;
+}
+
 export interface target_t {
   name: string;
   manufacturer: string;
@@ -147,6 +153,7 @@ export interface target_t {
   gyro?: target_gyro_spi_device_t;
   gyro_orientation: number;
   osd?: target_spi_device_t;
+  video_osd?: target_video_osd_t;
   flash?: target_spi_device_t;
   sdcard?: target_sdcard_t;
   rx_spi?: target_rx_spi_device_t;
@@ -190,6 +197,7 @@ export const target_keys = [
   "gyro",
   "gyro_orientation",
   "osd",
+  "video_osd",
   "flash",
   "sdcard",
   "rx_spi",
@@ -209,6 +217,9 @@ export const target_keys = [
   "port",
   "nss",
   "pin",
+  "white",
+  "enable",
+  "sync",
   "label",
   "description",
   "invert",
