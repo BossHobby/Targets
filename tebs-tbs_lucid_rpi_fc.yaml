@@ -1,0 +1,96 @@
+name: tbs_lucid_rpi_fc
+manufacturer: TEBS
+mcu: rp2350b
+vehicles:
+  - multi
+defaults:
+  receiver:
+    protocol: crsf
+  serial:
+    gps: 2
+    hdzero: 1
+    rx: 101
+    smart_audio: 102
+leds:
+  - pin: PA0
+    invert: true
+  - pin: PA1
+    invert: true
+serial_ports:
+  - index: 1
+    rx: PA45
+    tx: PA44
+  - index: 2
+    rx: PA37
+    tx: PA36
+serial_soft_ports:
+  - index: 1
+    rx: PA43
+    tx: PA42
+  - index: 2
+    rx: PA17
+    tx: PA16
+  - index: 3
+    rx: PA41
+spi_ports:
+  - index: 1
+    miso: PA32
+    mosi: PA35
+    sck: PA34
+  - index: 2
+    miso: PA28
+    mosi: PA31
+    sck: PA30
+i2c_ports:
+  - index: 1
+    scl: PA25
+    sda: PA24
+  - index: 2
+    scl: PA39
+    sda: PA38
+gyro:
+  port: 1
+  nss: PA33
+  exti: PA26
+video_osd:
+  white: PA21
+  enable: PA22
+  sync: PA23
+sdcard:
+  port: 2
+  nss: PA29
+pinio:
+  - pin: PA18
+    label: VTX BEC power
+    description: Enables the 10V VTX supply
+    invert: true
+vbat: PA46
+ibat: PA47
+rgb_led: PA2
+buzzer:
+  pin: PA3
+  invert: true
+motor_pins:
+  - PA9
+  - PA8
+  - PA7
+  - PA6
+outputs:
+  - pin: PA9
+    caps:
+      - dshot
+      - pwm
+  - pin: PA8
+    caps:
+      - dshot
+      - pwm
+  - pin: PA7
+    caps:
+      - dshot
+      - pwm
+  - pin: PA6
+    caps:
+      - dshot
+      - pwm
+baro:
+  port: 1
