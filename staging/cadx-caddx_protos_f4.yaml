@@ -33,7 +33,7 @@ defaults:
     protocol: crsf
   serial:
     gps: 1
-    hdzero: 4
+    digital_vtx: 4
     rx: 6
 leds:
   - pin: PB5

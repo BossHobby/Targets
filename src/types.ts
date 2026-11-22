@@ -112,7 +112,7 @@ export type target_vtx_protocol_t = "smart_audio" | "tramp";
 export interface target_serial_defaults_t {
   rx?: number;
   smart_audio?: number;
-  hdzero?: number;
+  digital_vtx?: number;
   gps?: number;
 }
 

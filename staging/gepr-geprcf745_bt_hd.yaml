@@ -35,7 +35,7 @@ manufacturer: GEPR
 mcu: stm32f745
 defaults:
   serial:
-    hdzero: 1
+    digital_vtx: 1
     rx: 2
 leds:
   - pin: PC13

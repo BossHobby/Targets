@@ -7,8 +7,8 @@ defaults:
   receiver:
     protocol: crsf
   serial:
+    digital_vtx: 1
     gps: 2
-    hdzero: 1
     rx: 101
     smart_audio: 102
 leds:

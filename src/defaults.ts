@@ -35,11 +35,11 @@ export interface defaults_extraction_t {
 // Betaflight config.h definitions mapped to QUICKSILVER serial roles.
 // Port numbers are never copied from Betaflight enum values; the UART name is
 // parsed explicitly and re-numbered to QUICKSILVER conventions (soft serial 101+).
-const PORT_DEFINES: Record<string, "rx" | "smart_audio" | "hdzero" | "gps"> = {
+const PORT_DEFINES: Record<string, "rx" | "smart_audio" | "digital_vtx" | "gps"> = {
   serialrx_uart: "rx",
   vtx_smartaudio_uart: "smart_audio",
   vtx_tramp_uart: "smart_audio",
-  msp_displayport_uart: "hdzero",
+  msp_displayport_uart: "digital_vtx",
   gps_uart: "gps",
 };
 
@@ -258,7 +258,7 @@ export function extractDefaults(content: string): defaults_extraction_t {
       extraction.defaults.serial = {
         ...(serial.rx !== undefined ? { rx: serial.rx } : {}),
         ...(serial.smart_audio !== undefined ? { smart_audio: serial.smart_audio } : {}),
-        ...(serial.hdzero !== undefined ? { hdzero: serial.hdzero } : {}),
+        ...(serial.digital_vtx !== undefined ? { digital_vtx: serial.digital_vtx } : {}),
         ...(serial.gps !== undefined ? { gps: serial.gps } : {}),
       };
     }
@@ -295,11 +295,11 @@ const MCU_SERIAL_PORTS: Record<string, number[]> = {
 };
 
 // Required pin direction per serial role, following the firmware serial_init
-// call sites: rx needs an rx pin; smart_audio/hdzero/gps transmit on tx.
+// call sites: rx needs an rx pin; smart_audio/digital_vtx/gps transmit on tx.
 const ROLE_PINS: Record<string, "rx" | "tx"> = {
   rx: "rx",
   smart_audio: "tx",
-  hdzero: "tx",
+  digital_vtx: "tx",
   gps: "tx",
 };
 
@@ -402,7 +402,7 @@ export function validateDefaults(
     result.serial = {
       ...(serial.rx !== undefined ? { rx: serial.rx } : {}),
       ...(serial.smart_audio !== undefined ? { smart_audio: serial.smart_audio } : {}),
-      ...(serial.hdzero !== undefined ? { hdzero: serial.hdzero } : {}),
+      ...(serial.digital_vtx !== undefined ? { digital_vtx: serial.digital_vtx } : {}),
       ...(serial.gps !== undefined ? { gps: serial.gps } : {}),
     };
   }
@@ -455,7 +455,7 @@ export function renderDefaults(defaults: target_defaults_t): string {
   let out = "defaults:\n";
   if (defaults.serial) {
     out += "  serial:\n";
-    for (const key of ["rx", "smart_audio", "hdzero", "gps"] as const) {
+    for (const key of ["rx", "smart_audio", "digital_vtx", "gps"] as const) {
       if (defaults.serial[key] !== undefined) {
         out += `    ${key}: ${defaults.serial[key]}\n`;
       }

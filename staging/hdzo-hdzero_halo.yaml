@@ -15,7 +15,7 @@ manufacturer: HDZO
 mcu: stm32h743
 defaults:
   serial:
-    hdzero: 5
+    digital_vtx: 5
     rx: 1
 leds:
   - pin: PE2

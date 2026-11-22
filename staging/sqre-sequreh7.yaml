@@ -17,7 +17,7 @@ manufacturer: SQRE
 mcu: stm32h743
 defaults:
   serial:
-    hdzero: 7
+    digital_vtx: 7
     rx: 1
 leds:
   - pin: PC13

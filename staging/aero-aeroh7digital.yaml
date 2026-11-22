@@ -12,7 +12,7 @@ manufacturer: AERO
 mcu: stm32h743
 defaults:
   serial:
-    hdzero: 2
+    digital_vtx: 2
     rx: 4
 leds:
   - pin: PD8

@@ -16,7 +16,7 @@ mcu: stm32h743
 defaults:
   serial:
     gps: 3
-    hdzero: 2
+    digital_vtx: 2
 leds:
   - pin: PE4
     invert: true

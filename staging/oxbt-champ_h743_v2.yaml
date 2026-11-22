@@ -17,7 +17,7 @@ manufacturer: OXBT
 mcu: stm32h743
 defaults:
   serial:
-    hdzero: 5
+    digital_vtx: 5
 leds:
   - pin: PB7
     invert: true

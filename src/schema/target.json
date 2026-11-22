@@ -48,7 +48,7 @@
                         "smart_audio": {
                             "type": "integer"
                         },
-                        "hdzero": {
+                        "digital_vtx": {
                             "type": "integer"
                         },
                         "gps": {

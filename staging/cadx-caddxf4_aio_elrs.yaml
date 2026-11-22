@@ -26,7 +26,7 @@ manufacturer: CADX
 mcu: stm32f405
 defaults:
   serial:
-    hdzero: 1
+    digital_vtx: 1
     rx: 2
 leds:
   - pin: PB5

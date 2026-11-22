@@ -21,7 +21,7 @@ manufacturer: BEFH
 mcu: stm32f411
 defaults:
   serial:
-    hdzero: 2
+    digital_vtx: 2
     rx: 1
 leds:
   - pin: PC13

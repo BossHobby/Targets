@@ -32,7 +32,7 @@ mcu: stm32f405
 defaults:
   serial:
     gps: 3
-    hdzero: 2
+    digital_vtx: 2
     rx: 6
 leds:
   - pin: PA8
