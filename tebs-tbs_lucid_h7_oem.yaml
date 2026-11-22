@@ -93,8 +93,8 @@ motor_pins:
   - PA1
   - PD12
   - PD13
-  - PD14
-  - PD15
+  - PB0
+  - PB1
 outputs:
   - pin: PA2
     caps:
@@ -120,11 +120,11 @@ outputs:
     caps:
       - dshot
       - pwm
-  - pin: PD14
+  - pin: PB0
     caps:
       - dshot
       - pwm
-  - pin: PD15
+  - pin: PB1
     caps:
       - dshot
       - pwm
@@ -139,15 +139,19 @@ dma:
     dma: DMA1_STREAM1
     request: 48
     tag: TIMER8_CH2
-  RGB:
+  DSHOT_CH3:
     dma: DMA1_STREAM2
+    request: 49
+    tag: TIMER8_CH3
+  RGB:
+    dma: DMA1_STREAM3
     request: 11
     tag: TIMER1_CH1
   SPI1_RX:
-    dma: DMA1_STREAM3
+    dma: DMA1_STREAM4
     request: 37
     tag: SPI1_MISO
   SPI1_TX:
-    dma: DMA1_STREAM4
+    dma: DMA1_STREAM5
     request: 38
     tag: SPI1_MOSI
